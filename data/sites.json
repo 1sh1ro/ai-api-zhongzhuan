@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "lastVerified": "2026-07-16",
+  "sites": [
+    {
+      "id": "krill-ai",
+      "name": "Krill AI",
+      "homepage": "https://www.krill-ai.com/",
+      "registrationUrl": "https://www.krill-ai.com/register?invite=0FZVR9NRFB",
+      "tags": ["grok", "free-api", "api-relay"],
+      "summary": "用户提供：Grok 有免费额度。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-07-16",
+      "sources": [
+        {"type": "user-submitted", "url": "https://www.krill-ai.com/"}
+      ]
+    },
+    {
+      "id": "fastai-token",
+      "name": "FastAI 模型",
+      "homepage": "https://www.fastaitoken.com/",
+      "registrationUrl": "https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8",
+      "tags": ["grok", "low-multiplier", "api-gateway"],
+      "summary": "用户提供：Grok 约 0.03 倍率。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-07-16",
+      "sources": [
+        {"type": "user-submitted", "url": "https://www.fastaitoken.com/"},
+        {"type": "local-history-verified", "url": "https://www.fastaitoken.com/"}
+      ]
+    },
+    {
+      "id": "horizon-api",
+      "name": "Horizon API",
+      "homepage": "https://api.honglin.asia/",
+      "registrationUrl": "https://api.honglin.asia/register?aff=FFEYRLUHUVMH",
+      "tags": ["gpt", "low-price", "api-gateway"],
+      "summary": "用户提供：低价 GPT API。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-07-16",
+      "sources": [
+        {"type": "user-submitted", "url": "https://api.honglin.asia/"}
+      ]
+    },
+    {
+      "id": "tokens-kingdom",
+      "name": "Tokens Kingdom",
+      "homepage": "https://tokenskingdom.com/",
+      "registrationUrl": "https://tokenskingdom.com/register?aff=5FEWPVUHQVJ5",
+      "tags": ["api-gateway", "api-relay"],
+      "summary": "模型、倍率和注册活动待补充。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-07-16",
+      "sources": [
+        {"type": "user-submitted", "url": "https://tokenskingdom.com/"},
+        {"type": "local-history-verified", "url": "https://tokenskingdom.com/"}
+      ]
+    },
+    {
+      "id": "aijws",
+      "name": "AIJWS",
+      "homepage": "https://api.aijws.com/",
+      "registrationUrl": "https://api.aijws.com/register?aff=RMW5KZQC2PWJ",
+      "tags": ["grok", "historical-offer", "api-relay"],
+      "summary": "用户提供：曾有 0.001 倍率 Grok；当前信息待人工核验。",
+      "status": "automated-access-blocked",
+      "verifiedAt": "2026-07-16",
+      "sources": [
+        {"type": "user-submitted", "url": "https://api.aijws.com/"}
+      ]
+    },
+    {
+      "id": "muyuan",
+      "name": "君の公益",
+      "homepage": "https://muyuan.do/",
+      "registrationUrl": "https://muyuan.do/register",
+      "tags": ["public-benefit", "claude", "codex", "new-api", "linux-do"],
+      "summary": "站长运营的公益站；模型和客户端限制变化较快，以公告为准。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-07-16",
+      "sources": [
+        {"type": "linux-do", "url": "https://linux.do/t/topic/1811633"},
+        {"type": "local-history-verified", "url": "https://muyuan.do/"}
+      ]
+    },
+    {
+      "id": "ggboom",
+      "name": "GGBOOM 公益站",
+      "homepage": "https://ai.qaq.al/",
+      "registrationUrl": "https://ai.qaq.al/register",
+      "tags": ["public-benefit", "gpt", "codex", "linux-do"],
+      "summary": "曾提供 Codex/GPT 兑换活动；当前额度与模型以站内公告为准。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-07-16",
+      "sources": [
+        {"type": "linux-do", "url": "https://linux.do/t/topic/1631249"}
+      ]
+    },
+    {
+      "id": "ikuncode",
+      "name": "IKunCode",
+      "homepage": "https://api.ikuncode.cc/",
+      "registrationUrl": "https://api.ikuncode.cc/register",
+      "tags": ["new-api", "api-relay"],
+      "summary": "New API 兼容站；具体模型和价格以站内为准。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-07-16",
+      "sources": [
+        {"type": "local-history-verified", "url": "https://api.ikuncode.cc/"}
+      ]
+    },
+    {
+      "id": "anticode",
+      "name": "AntiCode",
+      "homepage": "https://anticode.cn/",
+      "registrationUrl": "https://anticode.cn/register",
+      "tags": ["new-api", "cc-switch", "cherry-studio", "api-relay"],
+      "summary": "公开状态信息列出 CC Switch、Cherry Studio 等客户端配置入口。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-07-16",
+      "sources": [
+        {"type": "site-status", "url": "https://anticode.cn/api/status"},
+        {"type": "local-history-verified", "url": "https://anticode.cn/"}
+      ]
+    },
+    {
+      "id": "huainova",
+      "name": "Huainova 公益站",
+      "homepage": "https://ai.huaibao.top/",
+      "registrationUrl": "https://ai.huaibao.top/register",
+      "tags": ["public-benefit", "new-api", "linux-do", "maintenance"],
+      "summary": "注册页可访问，但站点公告称渠道大多失效，等待新渠道开放。",
+      "status": "degraded",
+      "verifiedAt": "2026-07-16",
+      "sources": [
+        {"type": "linux-do", "url": "https://linux.do/t/topic/2208888"},
+        {"type": "site-status", "url": "https://ai.huaibao.top/api/status"},
+        {"type": "local-history-verified", "url": "https://ai.huaibao.top/"}
+      ]
+    },
+    {
+      "id": "black-white",
+      "name": "黑与白公益站",
+      "homepage": "https://cdk.hybgzs.com/",
+      "registrationUrl": "https://cdk.hybgzs.com/",
+      "tags": ["public-benefit", "codex", "linux-do", "manual-check"],
+      "summary": "自动检查返回 403，可能需要 LINUX DO 登录或社区资格，需人工确认。",
+      "status": "manual-verification-required",
+      "verifiedAt": "2026-07-16",
+      "sources": [
+        {"type": "linux-do", "url": "https://linux.do/t/topic/2051930"}
+      ]
+    }
+  ]
+}
