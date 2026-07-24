@@ -1,7 +1,49 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-07-16",
+  "lastVerified": "2026-07-24",
   "sites": [
+    {
+      "id": "hezu-bus",
+      "name": "合租巴士",
+      "homepage": "https://hezu.ink/",
+      "registrationUrl": "https://hezu.ink/register",
+      "tags": ["codex", "low-multiplier", "api-relay"],
+      "summary": "Codex 补贴分组标称 0.08x。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-07-24",
+      "sources": [
+        {"type": "linux-do", "url": "https://linux.do/t/topic/2540812"},
+        {"type": "local-verified", "url": "https://hezu.ink/"}
+      ]
+    },
+    {
+      "id": "aike-api",
+      "name": "艾可 API",
+      "homepage": "https://ai.wisech.com/",
+      "registrationUrl": "https://ai.wisech.com/register",
+      "tags": ["domestic-model", "discounted-pricing", "api-relay"],
+      "summary": "国产模型标称官方价 7 折。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-07-24",
+      "sources": [
+        {"type": "linux-do", "url": "https://linux.do/t/topic/2514782"},
+        {"type": "local-verified", "url": "https://ai.wisech.com/"}
+      ]
+    },
+    {
+      "id": "4router",
+      "name": "4Router",
+      "homepage": "https://4router.net/",
+      "registrationUrl": "https://4router.net/register",
+      "tags": ["claude", "low-multiplier", "api-relay"],
+      "summary": "cheapClaude 分组标称 0.45x。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-07-24",
+      "sources": [
+        {"type": "linux-do", "url": "https://linux.do/t/topic/2589048"},
+        {"type": "local-verified", "url": "https://4router.net/"}
+      ]
+    },
     {
       "id": "aizzz",
       "name": "AIZZZ",
