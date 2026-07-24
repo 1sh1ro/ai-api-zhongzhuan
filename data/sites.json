@@ -3,6 +3,19 @@
   "lastVerified": "2026-07-16",
   "sites": [
     {
+      "id": "aizzz",
+      "name": "AIZZZ",
+      "homepage": "https://api.aizzz.xyz/",
+      "registrationUrl": "https://api.aizzz.xyz/sign-up?aff=zAnM",
+      "tags": ["new-api", "api-relay", "api-gateway"],
+      "summary": "用户提供并确认可用；注册链接于 2026-07-23 本地访问返回正常页面。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-07-23",
+      "sources": [
+        {"type": "user-submitted-and-local-verified", "url": "https://api.aizzz.xyz/"}
+      ]
+    },
+    {
       "id": "krill-ai",
       "name": "Krill AI",
       "homepage": "https://www.krill-ai.com/",

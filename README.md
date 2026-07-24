@@ -13,6 +13,7 @@
 
 | 站点 | URL | 已知特点 | 页面状态 | 信息来源 |
 | --- | --- | --- | --- | --- |
+| AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | 用户提供并确认可用；注册页已本地访问核验 | 可访问（2026-07-23） | 用户提供；本地访问核验 |
 | Krill AI | [Krill AI](https://www.krill-ai.com/register?invite=0FZVR9NRFB) | Grok 免费额度 | 可访问 | 用户提供；2026-07-16 检查 |
 | FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | Grok 约 0.03 倍率 | 可访问 | 用户提供；2026-07-16 检查 |
 | Horizon API | [Horizon API](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) | 低价 GPT | 可访问 | 用户提供；2026-07-16 检查 |
@@ -50,6 +51,8 @@ API Key:  在站点控制台自行创建
 - 部分 URL 带有推荐参数，可能给链接提供者或注册者带来额度等权益；这不影响收录排序。
 - “免费”“倍率”和“支持模型”必须带核验日期或标注为用户提供/历史信息。
 - 站点失效、停止注册或争议较大时，移动到待核验区，不静默删除历史。
+
+欢迎通过 [Issue](../../issues/new) 提交可公开访问的 AI API 中转站，并附上官网/注册链接和可追溯的公开来源。
 
 完整结构化数据见 [`data/sites.json`](data/sites.json)，提交新站或更新状态请阅读 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
 
