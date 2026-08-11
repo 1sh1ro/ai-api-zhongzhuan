@@ -2,7 +2,7 @@
 
 > 收录 OpenAI、GPT、Claude、Codex、Grok、Gemini、DeepSeek 等 AI API 公益站、低价中转站与 New API 服务入口。
 
-最后核验：**2026-07-24**
+最后核验：**2026-08-11**
 
 如果你正在搜索 **AI API 公益站、Token 中转站、API 中转站、免费 API、低价 GPT API、Grok API、Claude API、Codex API、New API 导航**，这个仓库提供一份可追溯、可维护的入口清单。
 
@@ -17,6 +17,7 @@
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | Codex 补贴分组 0.08x | 可访问（2026-07-24） | [Linux.do](https://linux.do/t/topic/2540812)；本地访问核验 |
 | 艾可 API | [艾可 API](https://ai.wisech.com/register) | 国产模型 7 折 | 可访问（2026-07-24） | [Linux.do](https://linux.do/t/topic/2514782)；本地访问核验 |
 | 4Router | [4Router](https://4router.net/register) | cheapClaude 0.45x | 可访问（2026-07-24） | [Linux.do](https://linux.do/t/topic/2589048)；本地访问核验 |
+| LinkAGI | [LinkAGI](https://api.linktoagi.com/register) | GPT/Codex、Claude、Gemini 按量计费 | 可访问（2026-08-11） | [Issue #1](https://github.com/1sh1ro/ai-api-gongyi-nav/issues/1)；本地访问核验 |
 | Krill AI | [Krill AI](https://www.krill-ai.com/register?invite=0FZVR9NRFB) | Grok 免费额度 | 可访问 | 用户提供；2026-07-16 检查 |
 | FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | Grok 约 0.03 倍率 | 可访问 | 用户提供；2026-07-16 检查 |
 | Horizon API | [Horizon API](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) | 低价 GPT | 可访问 | 用户提供；2026-07-16 检查 |

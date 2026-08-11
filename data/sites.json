@@ -1,7 +1,21 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-07-24",
+  "lastVerified": "2026-08-11",
   "sites": [
+    {
+      "id": "linkagi",
+      "name": "LinkAGI",
+      "homepage": "https://api.linktoagi.com/",
+      "registrationUrl": "https://api.linktoagi.com/register",
+      "tags": ["gpt", "codex", "claude", "gemini", "api-relay"],
+      "summary": "GPT/Codex、Claude、Gemini 按量计费。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-08-11",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-gongyi-nav/issues/1"},
+        {"type": "local-verified", "url": "https://api.linktoagi.com/"}
+      ]
+    },
     {
       "id": "hezu-bus",
       "name": "合租巴士",
