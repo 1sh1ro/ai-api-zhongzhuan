@@ -13,6 +13,7 @@
 
 | 站点 | URL | 已知特点 | 页面状态 | 信息来源 |
 | --- | --- | --- | --- | --- |
+| OrcaRouter | [OrcaRouter](https://www.orcarouter.ai/ref/ref_feec389da7083bc9a430) | 把 200+ 模型塞进一把 Key：自动路由、上游故障切换；当前免费模型（5 个）：`deepseek/deepseek-v4-flash-free`、`fish-audio/s2.1-pro-free`、`qwen/qwen3.8-27b-free`、`s2.1-pro-free`、`tencent/hy3-free` | 可访问（2026-08-26） | [官网](https://www.orcarouter.ai/zh-CN)；[文档](https://docs.orcarouter.ai/)；本地访问核验 |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | 用户提供并确认可用；注册页已本地访问核验 | 可访问（2026-07-23） | 用户提供；本地访问核验 |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | Codex 补贴分组 0.08x | 可访问（2026-07-24） | [Linux.do](https://linux.do/t/topic/2540812)；本地访问核验 |
 | 艾可 API | [艾可 API](https://ai.wisech.com/register) | 国产模型 7 折 | 可访问（2026-07-24） | [Linux.do](https://linux.do/t/topic/2514782)；本地访问核验 |
