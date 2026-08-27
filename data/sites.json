@@ -219,6 +219,20 @@
       "sources": [
         {"type": "linux-do", "url": "https://linux.do/t/topic/2051930"}
       ]
+    },
+    {
+      "id": "molifang",
+      "name": "MoLiFang",
+      "homepage": "https://molifangapi.com/",
+      "registrationUrl": "https://molifangapi.com/register?aff=6FBBCBLMAV7C",
+      "tags": ["api-gateway", "api-relay"],
+      "summary": "AI API Gateway，提供 API Key 接入；用户备注 Plus 0.08 倍率、Pro 0.17 倍率，倍率动态变化；具体以站内为准。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-08-27",
+      "sources": [
+        {"type": "user-submitted", "url": "https://molifangapi.com/"},
+        {"type": "local-verified", "url": "https://molifangapi.com/"}
+      ]
     }
   ]
 }

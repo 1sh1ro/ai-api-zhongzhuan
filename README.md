@@ -28,6 +28,7 @@
 | GGBOOM 公益站 | [GGBOOM](https://ai.qaq.al/register) | 曾提供 Codex/GPT 兑换活动，当前模型与额度以站内公告为准 | 可访问 | [linux.do 讨论](https://linux.do/t/topic/1631249) |
 | IKunCode | [IKunCode](https://api.ikuncode.cc/register) | New API 兼容站，具体模型和价格以站内为准 | 可访问 | 本地访问核验 |
 | AntiCode | [AntiCode](https://anticode.cn/register) | 支持 CC Switch、Cherry Studio 等客户端配置 | 可访问 | 站点公开状态页；本地访问核验 |
+| MoLiFang | [MoLiFang](https://molifangapi.com/register?aff=6FBBCBLMAV7C) | AI API Gateway，提供 API Key 接入；用户备注 Plus 0.08 倍率、Pro 0.17 倍率，倍率动态变化；具体以站内为准 | 可访问（2026-08-27） | 用户提供；本地访问核验 |
 
 表中的“可访问”只表示注册页面在核验时返回正常页面，**不保证注册一定成功，也不代表模型、额度或服务长期可用**。
 
