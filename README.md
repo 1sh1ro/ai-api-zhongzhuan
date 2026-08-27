@@ -2,7 +2,7 @@
 
 > 收录 OpenAI、GPT、Claude、Codex、Grok、Gemini、DeepSeek 等 AI API 公益站、低价中转站与 New API 服务入口。
 
-最后核验：**2026-08-11**
+最后核验：**2026-08-27**
 
 如果你正在搜索 **AI API 公益站、Token 中转站、API 中转站、免费 API、低价 GPT API、Grok API、Claude API、Codex API、New API 导航**，这个仓库提供一份可追溯、可维护的入口清单。
 
