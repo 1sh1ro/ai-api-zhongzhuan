@@ -68,12 +68,13 @@
       "name": "AIZZZ",
       "homepage": "https://api.aizzz.xyz/",
       "registrationUrl": "https://api.aizzz.xyz/sign-up?aff=zAnM",
-      "tags": ["new-api", "api-relay", "api-gateway"],
-      "summary": "本次浏览器访问注册页和首页均返回 403，倍率未确认。",
-      "status": "automated-access-blocked",
-      "verifiedAt": "2026-08-27",
+      "tags": ["new-api", "gpt", "claude", "grok", "domestic-model", "low-multiplier", "api-gateway"],
+      "summary": "登录后的模型广场显示 57 个模型、26 个分组：GPT 扶贫 0.01x、GPT 狂欢 0.05x、Codex 福利 0.06x、GPT Terra专属分组/GPT特价 0.09x、GPT 生图专用 0.135x、GPT luna专属分组/GPT PLUS号池 0.2x、GPT PRO号池 0.25x、GPT企业稳定组 0.35x、OpenAI 官Key 3.5x；Claude满缓存渠道 0.25x、CC长期稳定 0.55x、日区CC 0.75x、CCMAX特价 0.8x、CCMAX官转 1.3x；GROK 0.2x；国产模型 0.3x、DeepSeek 0.7x；Gemini 0.3x；abobe渠道生图 0.33x、MiniMax/可灵视频 1x、AzGPT生图 2x，其他分组倍率见模型广场。",
+      "status": "manual-verification-required",
+      "verifiedAt": "2026-08-29",
       "sources": [
-        {"type": "user-submitted-and-local-verified", "url": "https://api.aizzz.xyz/"}
+        {"type": "user-submitted-and-local-verified", "url": "https://api.aizzz.xyz/"},
+        {"type": "local-verified", "url": "https://api.aizzz.xyz/pricing"}
       ]
     },
     {

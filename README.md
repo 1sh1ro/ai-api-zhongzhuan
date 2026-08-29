@@ -31,6 +31,7 @@
 | 站点 | URL | 特别优惠 | 页面状态 | 信息来源 |
 | --- | --- | --- | --- | --- |
 | OrcaRouter | [OrcaRouter](https://www.orcarouter.ai/ref/ref_feec389da7083bc9a430) | 当前免费模型（5 个）：`deepseek/deepseek-v4-flash-free`、`fish-audio/s2.1-pro-free`、`qwen/qwen3.8-27b-free`、`s2.1-pro-free`、`tencent/hy3-free` | 可访问（2026-08-27） | [免费模型页](https://www.orcarouter.ai/zh-CN/offers)；[文档](https://docs.orcarouter.ai/)；本地访问核验 |
+| AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | 登录后模型广场显示 57 个模型、26 个分组；最低 GPT 扶贫 0.01x、GPT 狂欢 0.05x、Codex 福利 0.06x；另有 Claude、Grok、国产模型和生图/视频分组 | 登录后可访问（2026-08-29） | [模型广场](https://api.aizzz.xyz/pricing)；本地浏览器登录会话核验 |
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | `[限时]国模` 0.001x；图片 0.01x；Codex 福利 0.08x；Grok 混池 0.15x；部分分组标注不稳定或受额度影响 | 可访问（登录后；2026-08-27） | [密钥分组选项](https://api.aijws.com/keys)；本地访问核验 |
 | Horizon API | [Horizon API](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) | 站内充值比 1:5；按页面倍率折算：GPT 特价 0.08x（页面 0.4x）、GPT 稳定 0.17x（页面 0.85x）、GPT Pro 0.2x（页面 1x）、国模羊毛 0.0002x（页面 0.001x）、image 0.2x（页面 1x）；订阅区截图显示 6 种商品，价格 ¥5.6、¥28.1、¥31.5、¥62.5、¥157.5、¥350 | 用户提供截图（2026-08-29） | 用户提供截图；[注册页](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) |
 | 杨的中转小站 | [**杨的中转小站**](https://ai.yangwang.name/dashboard) | 个人自建非盈利；免费生图入口；每日一个低倍率 GPT-5.6 全模型 Plus 号；接入 Grok 4.6；GLM-5.3/DeepSeek 国模分组低至 0.01x；注册送余额，容量有限且稳定性不作承诺 | Issue 自述可访问（2026-08-29） | [Issue #4](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/4)；用户提供截图 |
@@ -46,6 +47,7 @@
 
 | 站点 | 入口 | 分组/倍率 | 状态与来源 |
 | --- | --- | --- | --- |
+| AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | GPT 扶贫 0.01x；GPT 狂欢 0.05x；Codex 福利 0.06x；GPT Terra/GPT 特价 0.09x；GPT 生图专用 0.135x；GPT luna/PLUS 0.2x；GPT PRO 0.25x；企业稳定 0.35x；OpenAI 官Key 3.5x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | 杨的中转小站 | [杨的中转小站](https://ai.yangwang.name/dashboard) | GPT luna 0.02x；ChatGPT Plus 福利 0.03x；PRO 0.15x | Issue 自述与用户截图；[Issue #4](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/4) |
 | FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | OpenAI 福利 0.06x；普通 0.2x、备用 0.25x、Pro 0.3x | 限时标注；[可用渠道](https://www.fastaitoken.com/available-channels) |
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | Codex 福利 0.08x | 登录后可见；[密钥分组选项](https://api.aijws.com/keys) |
@@ -61,6 +63,7 @@
 
 | 站点 | 入口 | 分组/倍率 | 状态与来源 |
 | --- | --- | --- | --- |
+| AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | Claude 满缓存渠道 0.25x；CC 长期稳定 0.55x；日区 CC 0.75x；CCMAX 特价 0.8x；CCMAX 官转 1.3x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `claudecode-krio逆向` 0.35x；`claude-russia` 1x；`ccmax` 1.4x；`ccmax-外接` 1.6x | 用户补充；[当前入口](https://hezubus.cc/p/) |
 | 4Router | [4Router](https://4router.net/register) | `cheapClaude` 0.45x；`ccMax-sale` 0.8x | [模型价格](https://4router.net/pricing) |
 | FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | Claude 0.7x | [可用渠道](https://www.fastaitoken.com/available-channels) |
@@ -73,6 +76,7 @@
 | 站点 | 入口 | 分组/倍率 | 状态与来源 |
 | --- | --- | --- | --- |
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | Grok 混池 0.15x | 登录后可见；[密钥分组选项](https://api.aijws.com/keys) |
+| AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | GROK 0.2x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | LinkAGI | [LinkAGI](https://api.linktoagi.com/register) | Grok 0.2x | [实时价格](https://api.linktoagi.com/pricing) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `grok-特惠` 0.3x | 用户补充；[当前入口](https://hezubus.cc/p/) |
 | 杨的中转小站 | [杨的中转小站](https://ai.yangwang.name/dashboard) | 接入 Grok 4.6；倍率未单列 | Issue 自述；[Issue #4](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/4) |
@@ -88,6 +92,7 @@
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | `[限时]国模` 0.001x | 国产模型；部分分组受额度和稳定性影响 | [密钥分组选项](https://api.aijws.com/keys) |
 | 杨的中转小站 | [杨的中转小站](https://ai.yangwang.name/dashboard) | GLM-5.3/DeepSeek 低至 0.01x | 注册送余额；容量有限 | Issue 自述；[Issue #4](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/4) |
 | LinkAGI | [LinkAGI](https://api.linktoagi.com/register) | DeepSeek 0.2x | 其他分组倍率各异 | [实时价格](https://api.linktoagi.com/pricing) |
+| AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | 国产模型 0.3x；DeepSeek 0.7x | 登录后可见 | [模型广场](https://api.aizzz.xyz/pricing) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `glm` 0.7x | 国产模型分组 | 用户补充；[当前入口](https://hezubus.cc/p/) |
 | FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | 国产模型 0.7x | 具体模型以可用渠道为准 | [可用渠道](https://www.fastaitoken.com/available-channels) |
 | 艾可 API | [艾可 API](https://ai.wisech.com/register) | `豆包分组` 1x | 部分模型动态计费 | [模型广场](https://ai.wisech.com/pricing) |
@@ -98,6 +103,7 @@
 
 | 站点 | 入口 | 当前可见信息 | 状态与来源 |
 | --- | --- | --- | --- |
+| AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | 其他分组：Gemini 0.3x、abobe 渠道生图 0.33x、default/即梦/香蕉2/MiniMax/可灵视频 1x、AzGPT 生图 2x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | MoLiFang | [MoLiFang](https://molifangapi.com/register?aff=6FBBCBLMAV7C) | Plus 0.08x；稳定Pro 0.17x；系统按渠道动态选择 | 用户提供；本地访问核验 |
 | Krill AI | [Krill AI](https://www.krill-ai.com/register?invite=0FZVR9NRFB) | `.net` 会话公告显示 10 人拼团并使用 88 折码后，周卡 0.15x、月卡 0.14x；另有 77 折活动但未展示折后倍率 | [当前会话域名](https://www.krill-ai.net/) |
 
@@ -107,7 +113,6 @@
 
 | 站点 | URL | 当前信息 | 页面状态 | 信息来源 |
 | --- | --- | --- | --- | --- |
-| AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | 注册页和首页本次均返回 403；倍率未确认 | 本次访问受限（2026-08-27） | 用户提供；本地访问核验 |
 | Tokens Kingdom | [Tokens Kingdom](https://tokenskingdom.com/register?aff=5FEWPVUHQVJ5) | 本次访问触发 Cloudflare 拦截；倍率未确认 | 本次访问受限（2026-08-27） | 用户提供；本地访问核验 |
 | 君の公益 | [君の公益](https://muyuan.do/) | 本次未通过 Cloudflare 安全验证；倍率未确认 | 本次访问受限（2026-08-27） | [站长近况帖](https://linux.do/t/topic/1811633)；本地访问核验 |
 | IKunCode | [IKunCode](https://api.ikuncode.cc/register) | 页面提示当前地区不可用；倍率未确认 | 当前地区不可用（2026-08-27） | 本地访问核验 |
