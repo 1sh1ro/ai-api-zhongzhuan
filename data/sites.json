@@ -23,13 +23,14 @@
       "homepage": "https://hezu.ink/",
       "registrationUrl": "https://hezu.ink/register",
       "tags": ["codex", "low-multiplier", "api-relay"],
-      "summary": "注册入口可跳转，但当前价格页要求登录；原有 0.08x 信息未在本次会话确认。",
+      "summary": "用户补充所有分组倍率：ccmax-外接 1.6x、ccmax 1.4x、claude-russia 1x、claudecode-krio逆向 0.35x、codex-pro 0.25x、codex-补贴 0.08x、gemini特惠 0.3x、glm 0.7x、grok-特惠 0.3x；原生4k 仅标注为 x，未给出数值。",
       "status": "manual-verification-required",
-      "verifiedAt": "2026-08-27",
+      "verifiedAt": "2026-08-29",
       "sources": [
         {"type": "linux-do", "url": "https://linux.do/t/topic/2540812"},
         {"type": "local-verified", "url": "https://hezu.ink/"},
-        {"type": "local-verified", "url": "https://hezubus.cc/p/"}
+        {"type": "local-verified", "url": "https://hezubus.cc/p/"},
+        {"type": "user-submitted", "url": "https://hezubus.cc/p/"}
       ]
     },
     {
@@ -110,12 +111,13 @@
       "homepage": "https://api.honglin.asia/",
       "registrationUrl": "https://api.honglin.asia/register?aff=FFEYRLUHUVMH",
       "tags": ["gpt", "low-price", "api-gateway"],
-      "summary": "本次模型广场被 Edge 拦截，倍率未确认；旧的低价 GPT 描述不作为当前事实。",
-      "status": "automated-access-blocked",
-      "verifiedAt": "2026-08-27",
+      "summary": "用户提供截图显示站内充值比 1:5；页面倍率为 GPT 特价 0.4x、GPT 稳定 0.85x、GPT Pro 1x、国模羊毛 0.001x、image 1x，按页面倍率除以 5 折算后分别为 0.08x、0.17x、0.2x、0.0002x、0.2x。订阅区截图显示 6 种商品，价格为 ¥5.6、¥28.1、¥31.5、¥62.5、¥157.5、¥350，具体套餐和库存以站内为准。",
+      "status": "manual-verification-required",
+      "verifiedAt": "2026-08-29",
       "sources": [
         {"type": "user-submitted", "url": "https://api.honglin.asia/"},
-        {"type": "local-verified", "url": "https://api.honglin.asia/profile"}
+        {"type": "local-verified", "url": "https://api.honglin.asia/profile"},
+        {"type": "user-provided-screenshot", "url": "https://api.honglin.asia/profile"}
       ]
     },
     {
@@ -158,20 +160,6 @@
       "sources": [
         {"type": "linux-do", "url": "https://linux.do/t/topic/1811633"},
         {"type": "local-history-verified", "url": "https://muyuan.do/"}
-      ]
-    },
-    {
-      "id": "ggboom",
-      "name": "GGBOOM 公益站",
-      "homepage": "https://ai.qaq.al/",
-      "registrationUrl": "https://ai.qaq.al/register",
-      "tags": ["public-benefit", "gpt", "codex", "linux-do"],
-      "summary": "当前页面显示按量计费，支持 Claude、GPT、Gemini、Antigravity；倍率未公开。",
-      "status": "registration-page-reachable",
-      "verifiedAt": "2026-08-27",
-      "sources": [
-        {"type": "linux-do", "url": "https://linux.do/t/topic/1631249"},
-        {"type": "local-verified", "url": "https://ai.qaq.al/"}
       ]
     },
     {
