@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-08-29",
+  "lastVerified": "2026-08-31",
   "sites": [
     {
       "id": "linkagi",
@@ -246,6 +246,19 @@
       "sources": [
         {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/4"},
         {"type": "user-submitted", "url": "https://ai.yangwang.name/"}
+      ]
+    },
+    {
+      "id": "token-x",
+      "name": "Token-X",
+      "homepage": "https://token-x.com/",
+      "registrationUrl": "https://token-x.com/sign-up?aff=H4g2",
+      "tags": ["gpt", "codex", "subscription", "low-price", "api-relay"],
+      "summary": "用户提供订阅及活动信息：CodeX-Pro 升级分组；Mini 周卡实付 ¥9.9、到账 ¥20、7 天且限购 1，用量参考约 1 亿 Token；Lite/Plus/Pro/MAX/Ultra 月卡实付 ¥30/¥60/¥169/¥299/¥599，对应到账 ¥45/¥100/¥300/¥570/¥1,200，均 30 天；基础倍率 0.045x，月卡可叠加 5—6.6 折，最低倍率 0.0225x；第二轮抽奖抽 10 份 Plus 月卡，每份内含 ¥100 额度；试运营阶段主要提供 GPT 系列模型，上游统一使用自建 Pro 20× 号池，不混用 Free 或 Plus 账号资源；当前无生效订阅时自动使用钱包。",
+      "status": "manual-verification-required",
+      "verifiedAt": "2026-08-31",
+      "sources": [
+        {"type": "user-submitted", "url": "https://token-x.com/"}
       ]
     }
   ]
