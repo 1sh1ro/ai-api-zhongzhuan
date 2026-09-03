@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-08-31",
+  "lastVerified": "2026-09-03",
   "sites": [
     {
       "id": "linkagi",
@@ -259,6 +259,37 @@
       "verifiedAt": "2026-08-31",
       "sources": [
         {"type": "user-submitted", "url": "https://token-x.com/"}
+      ]
+    },
+    {
+      "id": "apikey-fun",
+      "name": "APIKEY.FUN",
+      "homepage": "https://apikey.fun/",
+      "registrationUrl": "https://apikey.fun/register?aff=GLVRZSHR5MKQ",
+      "tags": ["gpt", "codex", "claude", "grok", "gemini", "kimi", "deepseek", "domestic-model", "api-gateway", "low-price"],
+      "summary": "用户补充模型覆盖全面、线路相对稳定且 Grok 价格友好；本次公开价格接口返回 13 个活跃分组，覆盖 OpenAI、Claude、Gemini、Grok、Kimi、DeepSeek、智谱等。页面的部分“x 倍率”是站内分组倍率；Grok 企业版页面显示 1x，按 Grok 4.6/4.5 展示价格与官方价格折算约 0.14x（1.4 折、节省 86%），支持图片和视频。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-09-03",
+      "sources": [
+        {"type": "user-submitted", "url": "https://apikey.fun/"},
+        {"type": "local-verified", "url": "https://apikey.fun/register"},
+        {"type": "local-verified", "url": "https://apikey.fun/pricing"},
+        {"type": "local-verified", "url": "https://apikey.fun/api/v1/pricing/groups"}
+      ]
+    },
+    {
+      "id": "dayway",
+      "name": "DayWay",
+      "homepage": "https://dayway.site/",
+      "registrationUrl": "https://dayway.site/",
+      "tags": ["gpt", "codex", "api-relay", "low-multiplier", "invoice", "image-workbench"],
+      "summary": "Issue 与用户提供的价格快照：代表性倍率 0.23x；代表模型 gpt-5.6-sol，输入 ¥1.15/1M、输出 ¥6.90/1M；API 接入 URL 为 https://dayway.site/v1；支持支付宝、发票和绘图工作台。数据截至 2026-08-23，实际以模型广场为准。",
+      "status": "manual-verification-required",
+      "verifiedAt": "2026-08-23",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/3"},
+        {"type": "user-submitted", "url": "https://dayway.site/"},
+        {"type": "user-submitted", "url": "https://dayway.site/pricing"}
       ]
     }
   ]
