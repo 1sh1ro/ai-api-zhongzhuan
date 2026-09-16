@@ -6,6 +6,8 @@
 
 如果你正在搜索 **AI API 公益站、Token 中转站、API 中转站、免费 API、低价 GPT API、Grok API、Claude API、Codex API、New API 导航**，这个仓库提供一份可追溯、可维护的入口清单。
 
+网站版：<https://1sh1ro.github.io/ai-api-zhongzhuan/>（由 GitHub Pages 自动部署，页面直接读取 [`data/sites.json`](./data/sites.json)）。
+
 > [!WARNING]
 > 中转站能够看到经其转发的请求。不要提交密码、身份证件、私有代码、生产数据或其他敏感内容；不要在公开 Issue 中粘贴 API Key。免费额度、倍率、模型和注册状态随时可能变化，正式业务优先使用模型厂商官方 API。
 
