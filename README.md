@@ -57,7 +57,7 @@
 | Horizon API | [Horizon API](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) | GPT 特价 0.08x（页面 0.4x，按 1:5 折算）；GPT 稳定 0.17x；GPT Pro 0.2x | 用户提供截图；[注册页](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | Codex 补贴 0.08x；Codex Pro 0.25x | 用户补充；[当前入口](https://hezubus.cc/p/) |
 | AntiCode | [AntiCode](https://anticode.cn/register) | ChatGPT 0.12x（限时不稳定）/0.19x（稳定优选） | [模型广场](https://anticode.cn/pricing) |
-| LinkAGI | [LinkAGI](https://api.linktoagi.com/register) | Codex Sale 0.15x、Plus 0.2x、Pro 0.3x | [实时价格](https://api.linktoagi.com/pricing) |
+| LinkAGI | [LinkAGI](https://api.linktoagi.com/sign-up) | Codex Sale 0.15x、Plus 0.2x、Pro 0.3x；GPT-6 Astra / Plus 在长度 < 272K 档位输入 ¥2、输出 ¥10 / 百万 Token，长上下文与缓存另计 | 运营方更新（2026-09-17）；[实时价格](https://api.linktoagi.com/pricing)；[公开价格 JSON](https://api.linktoagi.com/api/pricing) |
 | DayWay | [DayWay](https://dayway.site/) | 代表性倍率 0.23x；代表模型 `gpt-5.6-sol`：输入 ¥1.15/1M、输出 ¥6.90/1M；API 接入 URL：`https://dayway.site/v1`；支持支付宝、发票和绘图工作台 | 用户提供价格快照（数据截至 2026-08-23）；[Issue #3](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/3)；[模型广场](https://dayway.site/pricing) |
 | 4Router | [4Router](https://4router.net/register) | `GptPro` 0.45x；`GptPro-Fast` 0.8x；`gift` 0.01x 当前不可选 | [模型价格](https://4router.net/pricing) |
 
@@ -83,7 +83,7 @@
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | `Grok 企业版` 约 0.14x（页面 1x，约 1.4 折）；支持 Grok 4.6/4.5、图片和视频 | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | Grok 混池 0.15x | 登录后可见；[密钥分组选项](https://api.aijws.com/keys) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | GROK 0.2x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
-| LinkAGI | [LinkAGI](https://api.linktoagi.com/register) | Grok 0.2x | [实时价格](https://api.linktoagi.com/pricing) |
+| LinkAGI | [LinkAGI](https://api.linktoagi.com/sign-up) | Grok 0.2x | 运营方更新（2026-09-17）；[公开价格 JSON](https://api.linktoagi.com/api/pricing) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `grok-特惠` 0.3x | 用户补充；[当前入口](https://hezubus.cc/p/) |
 | 杨的中转小站 | [杨的中转小站](https://ai.yangwang.name/dashboard) | 接入 Grok 4.6；倍率未单列 | Issue 自述；[Issue #4](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/4) |
 
@@ -97,8 +97,8 @@
 | Horizon API | [Horizon API](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) | 国模羊毛 0.0002x（页面 0.001x，按 1:5 折算） | 截图标注限 GPT 订阅用户使用 | 用户提供截图；[注册页](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) |
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | `[限时]国模` 0.001x | 国产模型；部分分组受额度和稳定性影响 | [密钥分组选项](https://api.aijws.com/keys) |
 | 杨的中转小站 | [杨的中转小站](https://ai.yangwang.name/dashboard) | GLM-5.3/DeepSeek 低至 0.01x | 注册送余额；容量有限 | Issue 自述；[Issue #4](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/4) |
-| LinkAGI | [LinkAGI](https://api.linktoagi.com/register) | DeepSeek 0.2x | 其他分组倍率各异 | [实时价格](https://api.linktoagi.com/pricing) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | 国产模型 0.3x；DeepSeek 0.7x | 登录后可见 | [模型广场](https://api.aizzz.xyz/pricing) |
+| LinkAGI | [LinkAGI](https://api.linktoagi.com/sign-up) | DeepSeek 0.5x | 站内分组倍率；其他分组倍率各异 | 运营方更新（2026-09-17）；[公开价格 JSON](https://api.linktoagi.com/api/pricing) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | 智谱 0.5x；DeepSeek 0.75x（自部署精选）/0.9x（官方满血） | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `glm` 0.7x | 国产模型分组 | 用户补充；[当前入口](https://hezubus.cc/p/) |
 | FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | 国产模型 0.7x | 具体模型以可用渠道为准 | [可用渠道](https://www.fastaitoken.com/available-channels) |
