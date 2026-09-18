@@ -6,15 +6,16 @@
       "id": "linkagi",
       "name": "LinkAGI",
       "homepage": "https://api.linktoagi.com/",
-      "registrationUrl": "https://api.linktoagi.com/register",
+      "registrationUrl": "https://api.linktoagi.com/sign-up",
       "tags": ["gpt", "codex", "claude", "gemini", "api-relay"],
-      "summary": "当前模型广场可见：default 0.1x；Codex Sale 0.15x、Plus 0.2x、Pro 0.3x；Grok/DeepSeek 0.2x；其他分组倍率各异。",
+      "summary": "人民币按量计费；站内分组倍率：Codex Sale 0.15x、Plus 0.2x、Pro 0.3x，Grok 0.2x、DeepSeek 0.5x。GPT-6 Astra / Plus 在长度低于 272K 档位输入 ¥2、输出 ¥10 / 百万 Token；长上下文与缓存另计，调用前以实时价格为准。",
       "status": "registration-page-reachable",
-      "verifiedAt": "2026-08-27",
+      "verifiedAt": "2026-09-17",
       "sources": [
         {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/1"},
         {"type": "local-verified", "url": "https://api.linktoagi.com/"},
-        {"type": "local-verified", "url": "https://api.linktoagi.com/pricing"}
+        {"type": "local-verified", "url": "https://api.linktoagi.com/pricing"},
+        {"type": "public-pricing-api", "url": "https://api.linktoagi.com/api/pricing"}
       ]
     },
     {
