@@ -6,7 +6,7 @@
 
 [BeeAPI 注册入口](https://beeapi.ai/signup?aff=75OPR7DQRJCG) — 聚合多家 AI API 商家，提供模型价格对比与渠道选择，方便在一个平台比较、切换不同中转服务。官网介绍支持 OpenAI、Anthropic、Gemini 等模型，也可选择官方直连，并提供统一余额计费与自动故障切换。
 
-最后核验：**2026-09-25**
+最后核验：**2026-09-26**
 
 如果你正在搜索 **AI API 公益站、Token 中转站、API 中转站、免费 API、低价 GPT API、Grok API、Claude API、Codex API、New API 导航**，这个仓库提供一份可追溯、可维护的入口清单。
 
@@ -42,6 +42,8 @@
 | 站点 | URL | 特别优惠 | 页面状态 | 信息来源 |
 | --- | --- | --- | --- | --- |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | 用户补充模型覆盖全面、线路相对稳定、Grok 价格友好；公开价格接口当前返回 13 个活跃分组，覆盖 OpenAI、Claude、Gemini、Grok、Kimi、DeepSeek、智谱等；Grok 企业版页面显示 1x，按官方价折算约 0.14x（1.4 折、节省 86%），支持 Grok 4.6/4.5、图片和视频 | 可访问（公开注册/价格页；2026-09-03） | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups)；本地访问核验 |
+| TokenWorks | [TokenWorks](https://api.token8341.com/sign-up) | 官方文档称新用户注册赠送体验额度，无需绑卡；金额未公开 | 可访问（注册页/文档；2026-09-26；未注册或调用） | [注册页](https://api.token8341.com/sign-up)；[官方文档](https://www.token8341.com/zh/docs) |
+| otter Link | [otter Link](https://otterl.com/) | 官网 2026-09-21 公告：新用户首充赠送 12%；另有充值赠额，具体规则见站内公告 | 可访问（公开状态与价格接口；2026-09-26；未注册或调用） | [站点状态/公告](https://otterl.com/api/status)；[公开价格接口](https://otterl.com/api/pricing) |
 | OrcaRouter | [OrcaRouter](https://www.orcarouter.ai/ref/ref_feec389da7083bc9a430) | 当前免费模型（5 个）：`deepseek/deepseek-v4-flash-free`、`fish-audio/s2.1-pro-free`、`qwen/qwen3.8-27b-free`、`s2.1-pro-free`、`tencent/hy3-free` | 可访问（2026-08-27） | [免费模型页](https://www.orcarouter.ai/zh-CN/offers)；[文档](https://docs.orcarouter.ai/)；本地访问核验 |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | 登录后模型广场显示 57 个模型、26 个分组；最低 GPT 扶贫 0.01x、GPT 狂欢 0.05x、Codex 福利 0.06x；另有 Claude、Grok、国产模型和生图/视频分组 | 登录后可访问（2026-08-29） | [模型广场](https://api.aizzz.xyz/pricing)；本地浏览器登录会话核验 |
 | onomeo | [onomeo](https://onomeo.com/?ref=AC-9W6NGP) | 公测免费额度：每日签到首日 50,000，连续签到至第 7 天后每天 200,000（1 额度 = 1 token）；可选购买额度。免费模型由第三方服务商提供，模型页提示不同模型的数据处理方式可能不同；付费模型另有每日公共预算。Issue 报告可选购额度为 $5/1,000,000，具体以付款页为准 | 注册/模型/额度说明页可访问（2026-09-25；未实际注册或调用）；公测中 | [模型列表](https://onomeo.com/zh/models)；[免费额度](https://onomeo.com/zh/free-credits)；[免费模型榜](https://onomeo.com/zh/free-models)；[使用条款](https://onomeo.com/zh/terms)；[Issue #14](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/14) |
@@ -54,7 +56,7 @@
 
 ## OpenAI GPT Codex 倍率
 
-按当前可见的最低相关分组倍率从低到高排列；不可选分组不参与排序，同一站点可能同时出现在其他模型模块。
+按当前可见的最低相关分组倍率从低到高排列；无法与官方价统一换算的动态价格接口放在最后，同一站点可能同时出现在其他模型模块。
 
 | 站点 | 入口 | 分组/倍率 | 状态与来源 |
 | --- | --- | --- | --- |
@@ -66,10 +68,13 @@
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | Codex 福利 0.08x | 登录后可见；[密钥分组选项](https://api.aijws.com/keys) |
 | Horizon API | [Horizon API](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) | GPT 特价 0.08x（页面 0.4x，按 1:5 折算）；GPT 稳定 0.17x；GPT Pro 0.2x | 用户提供截图；[注册页](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | Codex 补贴 0.08x；Codex Pro 0.25x | 用户补充；[当前入口](https://hezubus.cc/p/) |
+| KaiGPT | [KaiGPT](https://gptzzz.ai/register) | OpenAI 主流模型 0.1x（官网按官方价 10% 计费） | 官网说明；具体模型与账户分组以[模型广场](https://gptzzz.ai/model-plaza)为准 |
 | AntiCode | [AntiCode](https://anticode.cn/register) | ChatGPT 0.12x（限时不稳定）/0.19x（稳定优选） | [模型广场](https://anticode.cn/pricing) |
 | LinkAGI | [LinkAGI](https://api.linktoagi.com/sign-up) | Codex Sale 0.15x、Plus 0.2x、Pro 0.3x；GPT-6 Astra / Plus 在长度 < 272K 档位输入 ¥2、输出 ¥10 / 百万 Token，长上下文与缓存另计 | 运营方更新（2026-09-17）；[实时价格](https://api.linktoagi.com/pricing)；[公开价格 JSON](https://api.linktoagi.com/api/pricing) |
 | DayWay | [DayWay](https://dayway.site/) | 代表性倍率 0.23x；代表模型 `gpt-5.6-sol`：输入 ¥1.15/1M、输出 ¥6.90/1M；API 接入 URL：`https://dayway.site/v1`；支持支付宝、发票和绘图工作台 | 用户提供价格快照（数据截至 2026-08-23）；[Issue #3](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/3)；[模型广场](https://dayway.site/pricing) |
 | 4Router | [4Router](https://4router.net/register) | `GptPro` 0.45x；`GptPro-Fast` 0.8x；`gift` 0.01x 当前不可选 | [模型价格](https://4router.net/pricing) |
+| YonshoreAPI | [YonshoreAPI](https://api.yonshore.com/register) | 公开价格接口当前返回 12 个 GPT/Claude 模型 ID 和按模型、上下文计价公式；未将 tiered expression 折算成单一倍率 | [公开价格 JSON](https://api.yonshore.com/api/pricing)；[Issue #10](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/10) |
+| HelpCoder | [HelpCoder](https://helpcoder.cc/register) | 公开价格接口当前列出 14 个 GPT/Codex 模型；Issue #6 报告的注册额度为 2026-08-31 用户实测，本次未复验金额 | [公开价格 JSON](https://helpcoder.cc/api/pricing)；[站点状态](https://helpcoder.cc/api/status)；[Issue #6](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/6) |
 
 ## Claude 倍率
 
@@ -77,12 +82,14 @@
 
 | 站点 | 入口 | 分组/倍率 | 状态与来源 |
 | --- | --- | --- | --- |
+| KaiGPT | [KaiGPT](https://gptzzz.ai/register) | Claude 主流模型 0.1x（官网按官方价 10% 计费） | 官网说明；具体模型与账户分组以[模型广场](https://gptzzz.ai/model-plaza)为准 |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | `Claude Plus（精品）` 约 0.11x（页面 0.8x，约 1.1 折）；`Claude Max（仅限CC）` 约 0.29x（页面 2x，约 2.9 折）；`Claude Max（外接版）` 约 0.31x（页面 2.2x，约 3.1 折）；Claude 官渠约 0.71x（页面 5x，约 7.1 折） | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | Claude 满缓存渠道 0.25x；CC 长期稳定 0.55x；日区 CC 0.75x；CCMAX 特价 0.8x；CCMAX 官转 1.3x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `claudecode-krio逆向` 0.35x；`claude-russia` 1x；`ccmax` 1.4x；`ccmax-外接` 1.6x | 用户补充；[当前入口](https://hezubus.cc/p/) |
 | 4Router | [4Router](https://4router.net/register) | `cheapClaude` 0.45x；`ccMax-sale` 0.8x | [模型价格](https://4router.net/pricing) |
 | FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | Claude 0.7x | [可用渠道](https://www.fastaitoken.com/available-channels) |
 | AntiCode | [AntiCode](https://anticode.cn/register) | Claude 0.88x（限时不稳定）/1.5x（稳定优选） | [模型广场](https://anticode.cn/pricing) |
+| YonshoreAPI | [YonshoreAPI](https://api.yonshore.com/register) | 公开价格接口当前列出 Claude 模型 ID 和分组/上下文计价公式；未折算成单一倍率 | [公开价格 JSON](https://api.yonshore.com/api/pricing)；[Issue #10](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/10) |
 
 ## Grok 低价模型与倍率
 
@@ -109,6 +116,8 @@
 | BeeAPI | [中转站的中转站：BeeAPI](https://beeapi.ai/signup?aff=75OPR7DQRJCG) | 官网介绍支持 Gemini；未公布可直接比较的单模型倍率，注册和调用尚未实际验证 | [官网](https://beeapi.ai/)；[注册链接](https://beeapi.ai/signup?aff=75OPR7DQRJCG) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | 公开模型/价格信息包含 Gemini；当前记录未列出单独倍率 | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
 | LinkAGI | [LinkAGI](https://api.linktoagi.com/sign-up) | 维护信息列有 Gemini 覆盖；当前价格摘要未列单独倍率 | [实时价格](https://api.linktoagi.com/pricing)；[公开价格 JSON](https://api.linktoagi.com/api/pricing) |
+| TokenWorks | [TokenWorks](https://api.token8341.com/sign-up) | 官方价格页列有 Gemini 2.5 Pro、Gemini 2.5 Flash；按具体输入/输出单价计费 | [模型价格](https://www.token8341.com/zh/pricing)；[API 文档](https://www.token8341.com/zh/docs) |
+| otter Link | [otter Link](https://otterl.com/) | 当前公开模型分组含 Gemini；价格接口内的站内模型倍率不直接等同于相对官方价倍率 | [公开价格 JSON](https://otterl.com/api/pricing) |
 
 ## 多模态模型
 
@@ -117,6 +126,8 @@
 | 站点 | 入口 | 能力/价格信息 | 状态与来源 |
 | --- | --- | --- | --- |
 | ModelRush | [ModelRush](https://modelrush.ai/) | 文本、图片、视频和语音统一 API；提供图片生成/编辑、视频生成、语音合成/转录等接口，按模型列价 | [模型目录](https://modelrush.ai/models)；[实时价格](https://modelrush.ai/pricing)；[API 文档](https://modelrush.ai/docs) |
+| TokenWorks | [TokenWorks](https://api.token8341.com/sign-up) | 官方目录包含图片生成、视频生成、TTS/ASR、嵌入与重排模型；模型价格按用量列出 | [模型价格](https://www.token8341.com/zh/pricing)；[API 文档](https://www.token8341.com/zh/docs) |
+| otter Link | [otter Link](https://otterl.com/) | 公开模型列表含“画图”分组及 Gemini 图像模型；各分组模型与倍率以实时价格接口为准 | [公开价格 JSON](https://otterl.com/api/pricing) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | GPT 生图专用 0.135x；Adobe 生图 0.33x；MiniMax/可灵视频 1x；AzGPT 生图 2x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | Grok 4.6/4.5 支持图片和视频；ChatGPT 生图页面按张计费 | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | 图片 0.01x | 登录后可见，分组稳定性和额度有限制；[密钥分组选项](https://api.aijws.com/keys) |
@@ -150,6 +161,10 @@
 | 站点 | 入口 | 当前可见信息 | 状态与来源 |
 | --- | --- | --- | --- |
 | BeeAPI | [中转站的中转站：BeeAPI](https://beeapi.ai/signup?aff=75OPR7DQRJCG) | 官网介绍聚合多家 AI API 商家，提供价格对比与渠道选择；覆盖 OpenAI、Anthropic、Gemini 等。注册、实际价格和调用能力尚未实际验证 | [官网](https://beeapi.ai/)；[注册链接](https://beeapi.ai/signup?aff=75OPR7DQRJCG) |
+| TokenWorks | [TokenWorks](https://api.token8341.com/sign-up) | 官方定价目录汇总 20 家模型厂商，展示官方价与本站按量价；包含文本、图片、视频、语音等模型 | [模型价格](https://www.token8341.com/zh/pricing)；[关于页面](https://www.token8341.com/zh/about)；[API 文档](https://www.token8341.com/zh/docs) |
+| KaiGPT | [KaiGPT](https://gptzzz.ai/register) | OpenAI 与 Claude 主流模型官网标注 0.1x；账户模型和具体价格需从模型广场核对 | [官网](https://gptzzz.ai/)；[模型广场](https://gptzzz.ai/model-plaza)；[文档](https://gptzzz.ai/docs/) |
+| YonshoreAPI | [YonshoreAPI](https://api.yonshore.com/register) | 多个 GPT 与 Claude 模型、Responses/Messages 接口；公开价格 API 按模型和上下文提供计价配置 | [公开价格 JSON](https://api.yonshore.com/api/pricing)；[Issue #10](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/10) |
+| otter Link | [otter Link](https://otterl.com/) | 公开价格接口列出 49 个模型、11 个分组，覆盖 GPT、Claude、Gemini、绘图及国产模型 | [公开价格 JSON](https://otterl.com/api/pricing)；[站点状态/公告](https://otterl.com/api/status)；[Issue #7](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/7) |
 | OrcaRouter | [OrcaRouter](https://www.orcarouter.ai/ref/ref_feec389da7083bc9a430) | 多模型统一入口；当前免费列表含 DeepSeek、Fish Audio、Qwen、Tencent 等模型 | [免费模型页](https://www.orcarouter.ai/zh-CN/offers)；[文档](https://docs.orcarouter.ai/) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | 其他分组：Gemini 0.3x、Adobe 渠道生图 0.33x、default/即梦/香蕉2/MiniMax/可灵视频 1x、AzGPT 生图 2x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | MoLiFang | [MoLiFang](https://molifangapi.com/register?aff=6FBBCBLMAV7C) | Plus 0.08x；稳定Pro 0.17x；系统按渠道动态选择 | 用户提供；本地访问核验 |

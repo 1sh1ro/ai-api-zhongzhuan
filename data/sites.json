@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-09-25",
+  "lastVerified": "2026-09-26",
   "sites": [
     {
       "id": "beeapi",
@@ -32,6 +32,90 @@
         {"type": "official-model-catalog", "url": "https://modelrush.ai/models"},
         {"type": "official-pricing", "url": "https://modelrush.ai/pricing"},
         {"type": "official-docs", "url": "https://modelrush.ai/docs"}
+      ]
+    },
+    {
+      "id": "tokenworks",
+      "name": "TokenWorks",
+      "homepage": "https://www.token8341.com/",
+      "registrationUrl": "https://api.token8341.com/sign-up",
+      "tags": ["api-gateway", "gpt", "claude", "gemini", "deepseek", "domestic-model", "image-workbench"],
+      "summary": "付费多模型 API 网关。2026-09-26 可访问的官方文档说明兼容 OpenAI Chat Completions、基础地址为 https://www.token8341.com/v1，新用户可获免费体验额度且无需绑卡，未公布额度金额。官方价格目录展示 20 家厂商模型及官方价/本站按量价对比，包含 GPT、Claude、Gemini、DeepSeek、图片、视频、语音、嵌入和重排模型。价格按模型及用量区分，使用前查看实时价目表。运营主体信息来自官网自述，未作独立工商核验。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-09-26",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/13"},
+        {"type": "official-website", "url": "https://www.token8341.com/"},
+        {"type": "official-registration", "url": "https://api.token8341.com/sign-up"},
+        {"type": "official-pricing", "url": "https://www.token8341.com/zh/pricing"},
+        {"type": "official-docs", "url": "https://www.token8341.com/zh/docs"},
+        {"type": "official-about", "url": "https://www.token8341.com/zh/about"}
+      ]
+    },
+    {
+      "id": "kaigpt",
+      "name": "KaiGPT",
+      "homepage": "https://gptzzz.ai/",
+      "registrationUrl": "https://gptzzz.ai/register",
+      "tags": ["gpt", "claude", "low-multiplier", "api-relay"],
+      "summary": "官网首页当前说明 OpenAI 与 Claude 主流模型按官方价的 10% 计费（0.1x），具体模型 ID、分组和单价以账户模型广场为准。注册页于 2026-09-26 可访问，未创建账号或发起调用。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-09-26",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/12"},
+        {"type": "official-website", "url": "https://gptzzz.ai/"},
+        {"type": "official-registration", "url": "https://gptzzz.ai/register"},
+        {"type": "official-model-catalog", "url": "https://gptzzz.ai/model-plaza"},
+        {"type": "official-docs", "url": "https://gptzzz.ai/docs/"}
+      ]
+    },
+    {
+      "id": "yonshoreapi",
+      "name": "YonshoreAPI",
+      "homepage": "https://api.yonshore.com/",
+      "registrationUrl": "https://api.yonshore.com/register",
+      "tags": ["gpt", "claude", "api-gateway", "api-relay"],
+      "summary": "按量付费的 GPT/Claude API 中转。注册页于 2026-09-26 可访问；公开价格 API 当前返回 12 个 GPT/Claude 模型 ID、多个服务分组及按模型/上下文变化的计价表达式。计价需结合具体模型、分组和上下文核对，未折算成可横向比较的单一倍率；未注册或发起付费调用。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-09-26",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/10"},
+        {"type": "official-website", "url": "https://api.yonshore.com/"},
+        {"type": "official-registration", "url": "https://api.yonshore.com/register"},
+        {"type": "public-pricing-api", "url": "https://api.yonshore.com/api/pricing"},
+        {"type": "user-submitted-quickstart", "url": "https://github.com/jerrynullmmo/yonshoreapi-quickstart"}
+      ]
+    },
+    {
+      "id": "otter-link",
+      "name": "otter Link",
+      "homepage": "https://otterl.com/",
+      "registrationUrl": "https://otterl.com/",
+      "tags": ["gpt", "claude", "gemini", "domestic-model", "image-workbench", "api-gateway", "api-relay"],
+      "summary": "New API 多模型中转。2026-09-26 公开价格 API 返回 49 个模型及 11 个分组，覆盖 GPT、Claude、Gemini、国产模型和画图；接口内的站内倍率不直接等同相对官方价格的有效倍率。官网状态 API 的 2026-09-21 公告称首充赠送 12% 及多档充值赠额，规则以站内公告为准。公开页面可访问，未注册或调用。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-09-26",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/7"},
+        {"type": "official-website", "url": "https://otterl.com/"},
+        {"type": "public-pricing-api", "url": "https://otterl.com/api/pricing"},
+        {"type": "site-status", "url": "https://otterl.com/api/status"}
+      ]
+    },
+    {
+      "id": "helpcoder",
+      "name": "helpcoder（帮帮）",
+      "homepage": "https://helpcoder.cc/",
+      "registrationUrl": "https://helpcoder.cc/register",
+      "tags": ["gpt", "codex", "new-api", "api-relay"],
+      "summary": "New API GPT/Codex 中转。2026-09-26 公开价格 API 返回 14 个模型，公开状态接口显示签到功能已启用。Issue #6 于 2026-08-31 自述新用户注册额度折合约 US$200；本次未复验该额度，故仅作为历史用户报告，不视为当前优惠。注册页可访问，未登录、注册或调用。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-09-26",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/6"},
+        {"type": "official-registration", "url": "https://helpcoder.cc/register"},
+        {"type": "public-pricing-api", "url": "https://helpcoder.cc/api/pricing"},
+        {"type": "site-status", "url": "https://helpcoder.cc/api/status"}
       ]
     },
     {
