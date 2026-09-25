@@ -6,8 +6,6 @@
 
 [BeeAPI 注册入口](https://beeapi.ai/signup?aff=75OPR7DQRJCG) — 聚合多家 AI API 商家，提供模型价格对比与渠道选择，方便在一个平台比较、切换不同中转服务。官网介绍支持 OpenAI、Anthropic、Gemini 等模型，也可选择官方直连，并提供统一余额计费与自动故障切换。
 
-信息来源：[BeeAPI 官网](https://beeapi.ai/)（2026-09-25 核对公开介绍；具体价格、注册及调用能力待实际核验）。注册链接含 `aff` 推广参数。
-
 最后核验：**2026-09-25**
 
 如果你正在搜索 **AI API 公益站、Token 中转站、API 中转站、免费 API、低价 GPT API、Grok API、Claude API、Codex API、New API 导航**，这个仓库提供一份可追溯、可维护的入口清单。
