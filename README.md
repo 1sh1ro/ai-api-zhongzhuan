@@ -1,39 +1,38 @@
 # AI API 公益站与 Token 中转站导航
 
+<p align="center"><strong>按模型生态与能力关键词整理，快速找到适合自己的 API 中转入口</strong></p>
+
+<p align="center">
+  <a href="https://1sh1ro.github.io/ai-api-zhongzhuan/"><img alt="浏览网站版" src="https://img.shields.io/badge/website-online-2563eb?style=for-the-badge"></a>
+  <a href="https://github.com/1sh1ro/ai-api-zhongzhuan/issues/new"><img alt="提交收录" src="https://img.shields.io/badge/submit-a%20site-16a085?style=for-the-badge"></a>
+  <a href="https://github.com/1sh1ro/ai-api-zhongzhuan/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/1sh1ro/ai-api-zhongzhuan?style=for-the-badge"></a>
+</p>
+
+> [!TIP]
+> **💱 中转站的中转站：BeeAPI**
+>
+> 聚合多家 AI API 商家，在一个平台比较价格、选择渠道并切换服务。官网介绍支持 OpenAI、Anthropic、Gemini 等模型，也可选择官方直连，并提供统一余额计费与自动故障切换。
+>
+> [**前往 BeeAPI 注册 →**](https://beeapi.ai/signup?aff=75OPR7DQRJCG) · [查看官网](https://beeapi.ai/)
+
+<p align="center"><sub>最后核验：2026-09-26 · 价格、免费额度与注册状态可能变化，请以站点实时信息为准</sub></p>
+
 > 收录 OpenAI、GPT、Claude、Codex、Grok、Gemini、DeepSeek 等 AI API 公益站、低价中转站与 New API 服务入口。
-
-## 中转站的中转站：BeeAPI
-
-[BeeAPI 注册入口](https://beeapi.ai/signup?aff=75OPR7DQRJCG) — 聚合多家 AI API 商家，提供模型价格对比与渠道选择，方便在一个平台比较、切换不同中转服务。官网介绍支持 OpenAI、Anthropic、Gemini 等模型，也可选择官方直连，并提供统一余额计费与自动故障切换。
-
-最后核验：**2026-09-26**
-
-如果你正在搜索 **AI API 公益站、Token 中转站、API 中转站、免费 API、低价 GPT API、Grok API、Claude API、Codex API、New API 导航**，这个仓库提供一份可追溯、可维护的入口清单。
-
-网站版：<https://1sh1ro.github.io/ai-api-zhongzhuan/>
 
 > [!WARNING]
 > 中转站能够看到经其转发的请求。不要提交密码、身份证件、私有代码、生产数据或其他敏感内容；不要在公开 Issue 中粘贴 API Key。免费额度、倍率、模型和注册状态随时可能变化，正式业务优先使用模型厂商官方 API。
 
-## 目录
+## 快速导航
 
-- [特别优惠](#特别优惠)
-- [OpenAI GPT Codex 倍率](#openai-gpt-codex-倍率)
-- [Claude 倍率](#claude-倍率)
-- [Grok 低价模型与倍率](#grok-低价模型与倍率)
-- [Gemini 倍率](#gemini-倍率)
-- [多模态模型（图像、视频与音频）](#多模态模型)
-- [DeepSeek 与国产模型倍率](#deepseek-与国产模型倍率)
-- [综合多模型入口](#综合多模型入口)
-- [倍率待补充](#倍率待补充)
-- [待恢复或待人工核验](#待恢复或待人工核验)
-- [怎么使用 API 中转站](#怎么使用-api-中转站)
-- [收录原则](#收录原则)
-- [风险说明](#风险说明)
-- [致谢](#致谢)
-- [ModelRush（付费多模态 API 平台）](#modelrush)
+**优惠速览**　[特别优惠](#特别优惠)
 
-本页按模型生态和能力关键词分类，同一站点会在相关分类重复出现，方便按需求比较；“特别优惠”是横向速览，“综合多模型入口”收录跨模型生态或聚合型入口。
+**按模型找**　[OpenAI / GPT / Codex](#openai-gpt-codex-倍率) · [Claude](#claude-倍率) · [Grok](#grok-低价模型与倍率) · [Gemini](#gemini-倍率) · [DeepSeek / 国产模型](#deepseek-与国产模型倍率)
+
+**按能力找**　[多模态模型](#多模态模型) · [综合多模型入口](#综合多模型入口)
+
+**维护与使用**　[倍率待补充](#倍率待补充) · [待恢复/人工核验](#待恢复或待人工核验) · [使用说明](#怎么使用-api-中转站) · [收录原则](#收录原则) · [风险说明](#风险说明) · [ModelRush](#modelrush)
+
+> 同一站点会按模型或能力在多个分类重复出现，方便横向比较；“特别优惠”提供优惠速览，“综合多模型入口”收录跨模型生态的站点。
 
 ## 特别优惠
 
@@ -223,10 +222,16 @@ API Key:  在站点控制台自行创建
 
 ## ModelRush（付费多模态 API 平台）
 
-[ModelRush 官网](https://modelrush.ai/) 将文本、图片、视频和语音模型整合到统一 API，并提供公开模型目录和按模型定价。API 使用 OpenAI 兼容地址 `https://api.modelrush.ai/v1`；文档列出 Chat Completions、图片生成与编辑、视频生成、语音合成与转录等接口。具体模型、地区和请求格式以实时目录与文档为准。
+> 文本、图片、视频和语音模型共用一个 API 入口。具体模型、地区和请求格式以[模型目录](https://modelrush.ai/models)与[文档](https://modelrush.ai/docs)为准。
 
-- **计费**：模型 API 按实际用量从预付额度扣费。价格页当前另列 Agent Basic 订阅：US$10/月，符合条件的新用户可获 30 天试用且需要绑卡；Agent 订阅费不包含模型 API 用量。公开模型价格示例：DeepSeek V4.1 Flash 输入 US$0.33、输出 US$1.32 / 百万 Token；GPT Image 2 US$0.006 / 张；Wan 3 Spicy（480P）US$0.0385 / 秒。价格页标注数据更新于 2026-09-23，实际价格以当前页面为准。
-- **年龄限制**：带 Spicy 标识的部分模型要求账号完成成人访问确认；使用前查看对应模型说明和服务条款。
-- **状态**：官网、注册页、文档和价格页于 2026-09-25 可访问；未创建账号或发起付费调用。Issue #8 的旧申请称没有试用；当前 Agent Basic 页面已有需绑卡试用说明，且它与模型 API 计费分开。
+| 项目 | 说明 |
+| --- | --- |
+| API 地址 | `https://api.modelrush.ai/v1`（OpenAI 兼容） |
+| 支持接口 | Chat Completions、图片生成/编辑、视频生成、语音合成/转录 |
+| 模型 API 计费 | 按实际用量从预付额度扣费 |
+| Agent Basic | US$10/月；符合条件的新用户可获需绑卡的 30 天试用。订阅费不含模型 API 用量 |
+| 价格示例 | DeepSeek V4.1 Flash：输入 US$0.33、输出 US$1.32 / 百万 Token；GPT Image 2：US$0.006 / 张；Wan 3 Spicy（480P）：US$0.0385 / 秒 |
+| 年龄限制 | 部分带 Spicy 标识的模型要求账号完成成人访问确认，请先查看模型说明与服务条款 |
+| 核验状态 | 2026-09-25 可访问；未创建账号或发起付费调用。价格页标注数据更新于 2026-09-23，具体以当前页面为准 |
 
-入口：[注册](https://modelrush.ai/sign-up) · [模型目录](https://modelrush.ai/models) · [实时价格](https://modelrush.ai/pricing) · [API 文档](https://modelrush.ai/docs) · [Issue #8](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/8)
+**入口：** [注册](https://modelrush.ai/sign-up) · [模型目录](https://modelrush.ai/models) · [实时价格](https://modelrush.ai/pricing) · [API 文档](https://modelrush.ai/docs) · [Issue #8](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/8)
