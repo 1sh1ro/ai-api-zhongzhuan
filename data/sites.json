@@ -1,7 +1,21 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-09-03",
+  "lastVerified": "2026-09-25",
   "sites": [
+    {
+      "id": "beeapi",
+      "name": "BeeAPI",
+      "homepage": "https://beeapi.ai/",
+      "registrationUrl": "https://beeapi.ai/signup?aff=75OPR7DQRJCG",
+      "tags": ["api-gateway", "gpt", "claude", "gemini", "api-relay"],
+      "summary": "中转站的中转站：聚合多家 AI API 商家，提供模型价格对比与渠道选择。官网介绍支持 OpenAI、Anthropic、Gemini 等模型，也可选择官方直连，并提供统一余额计费与自动故障切换。2026-09-25 核对公开介绍；具体价格、注册及调用能力待实际核验。注册链接含 aff 推广参数。",
+      "status": "manual-verification-required",
+      "verifiedAt": "2026-09-25",
+      "sources": [
+        {"type": "official-website", "url": "https://beeapi.ai/"},
+        {"type": "user-submitted", "url": "https://beeapi.ai/signup"}
+      ]
+    },
     {
       "id": "linkagi",
       "name": "LinkAGI",
