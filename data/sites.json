@@ -17,6 +17,24 @@
       ]
     },
     {
+      "id": "modelrush",
+      "name": "ModelRush",
+      "homepage": "https://modelrush.ai/",
+      "registrationUrl": "https://modelrush.ai/sign-up",
+      "tags": ["api-gateway", "gpt", "image-workbench"],
+      "summary": "付费多模态 API 平台，提供文本、图片、视频和语音模型；OpenAI 兼容 API 地址为 https://api.modelrush.ai/v1，公开目录列出 Chat Completions、图片、视频和音频接口。模型调用按实际用量从预付额度扣费；Agent Basic 订阅为 US$10/月，当前页面列出需绑卡的 30 天试用，Agent 费用不含模型 API 用量。部分 Spicy 模型要求账号成人访问确认。价格页更新于 2026-09-23；模型与价格请以官网实时信息为准。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-09-25",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/8"},
+        {"type": "official-website", "url": "https://modelrush.ai/"},
+        {"type": "official-registration", "url": "https://modelrush.ai/sign-up"},
+        {"type": "official-model-catalog", "url": "https://modelrush.ai/models"},
+        {"type": "official-pricing", "url": "https://modelrush.ai/pricing"},
+        {"type": "official-docs", "url": "https://modelrush.ai/docs"}
+      ]
+    },
+    {
       "id": "linkagi",
       "name": "LinkAGI",
       "homepage": "https://api.linktoagi.com/",

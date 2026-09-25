@@ -20,19 +20,24 @@
 - [特别优惠](#特别优惠)
 - [OpenAI GPT Codex 倍率](#openai-gpt-codex-倍率)
 - [Claude 倍率](#claude-倍率)
-- [Grok 倍率](#grok-倍率)
-- [国产模型倍率](#国产模型倍率)
-- [综合入口](#综合入口)
+- [Grok 低价模型与倍率](#grok-低价模型与倍率)
+- [Gemini 倍率](#gemini-倍率)
+- [多模态模型（图像、视频与音频）](#多模态模型)
+- [DeepSeek 与国产模型倍率](#deepseek-与国产模型倍率)
+- [综合多模型入口](#综合多模型入口)
 - [倍率待补充](#倍率待补充)
 - [待恢复或待人工核验](#待恢复或待人工核验)
 - [怎么使用 API 中转站](#怎么使用-api-中转站)
 - [收录原则](#收录原则)
 - [风险说明](#风险说明)
 - [致谢](#致谢)
+- [ModelRush（付费多模态 API 平台）](#modelrush)
+
+本页按模型生态和能力关键词分类，同一站点会在相关分类重复出现，方便按需求比较；“特别优惠”是横向速览，“综合多模型入口”收录跨模型生态或聚合型入口。
 
 ## 特别优惠
 
-优先展示免费、免费额度、明确的低倍率和订阅优惠。以下信息按“免费/免费额度 → 已知低倍率 → 订阅套餐”排列；`限时`、`不稳定` 和 `动态` 均保留站点当前标注。下面的模型模块会按模型生态再次整理同一批入口，方便直接比较。
+优先展示免费、免费额度、明确的低倍率和订阅优惠。以下信息按“免费/免费额度 → 已知低倍率 → 订阅套餐”排列；`限时`、`不稳定` 和 `动态` 均保留站点当前标注。下面的关键词分类会再次列出同一批入口，方便直接比较。
 
 | 站点 | URL | 特别优惠 | 页面状态 | 信息来源 |
 | --- | --- | --- | --- | --- |
@@ -79,9 +84,9 @@
 | FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | Claude 0.7x | [可用渠道](https://www.fastaitoken.com/available-channels) |
 | AntiCode | [AntiCode](https://anticode.cn/register) | Claude 0.88x（限时不稳定）/1.5x（稳定优选） | [模型广场](https://anticode.cn/pricing) |
 
-## Grok 倍率
+## Grok 低价模型与倍率
 
-按当前可见的最低 Grok 相关分组倍率从低到高排列；倍率未单列的接入放在最后。
+按当前可见的有效 Grok 相关倍率从低到高排列；倍率未单列的接入放在最后。
 
 | 站点 | 入口 | 分组/倍率 | 状态与来源 |
 | --- | --- | --- | --- |
@@ -92,7 +97,36 @@
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `grok-特惠` 0.3x | 用户补充；[当前入口](https://hezubus.cc/p/) |
 | 杨的中转小站 | [杨的中转小站](https://ai.yangwang.name/dashboard) | 接入 Grok 4.6；倍率未单列 | Issue 自述；[Issue #4](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/4) |
 
-## 国产模型倍率
+## Gemini 倍率
+
+按当前可见的 Gemini 相关分组倍率从低到高排列；未单列价格的入口放在表格后部，使用前请到站内确认模型和计费方式。
+
+| 站点 | 入口 | 分组/覆盖 | 状态与来源 |
+| --- | --- | --- | --- |
+| AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | Gemini 0.3x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
+| 合租巴士 | [合租巴士](https://hezu.ink/register) | `gemini特惠` 0.3x | 用户补充；[当前入口](https://hezubus.cc/p/) |
+| AntiCode | [AntiCode](https://anticode.cn/register) | Gemini 0.6x | [模型广场](https://anticode.cn/pricing) |
+| BeeAPI | [中转站的中转站：BeeAPI](https://beeapi.ai/signup?aff=75OPR7DQRJCG) | 官网介绍支持 Gemini；未公布可直接比较的单模型倍率，注册和调用尚未实际验证 | [官网](https://beeapi.ai/)；[注册链接](https://beeapi.ai/signup?aff=75OPR7DQRJCG) |
+| APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | 公开模型/价格信息包含 Gemini；当前记录未列出单独倍率 | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
+| LinkAGI | [LinkAGI](https://api.linktoagi.com/sign-up) | 维护信息列有 Gemini 覆盖；当前价格摘要未列单独倍率 | [实时价格](https://api.linktoagi.com/pricing)；[公开价格 JSON](https://api.linktoagi.com/api/pricing) |
+
+## 多模态模型
+
+这里按公开信息中出现的图像、视频、语音或绘图能力归类。部分入口只提供特定媒体模型或工作台，不代表支持所有多模态任务。
+
+| 站点 | 入口 | 能力/价格信息 | 状态与来源 |
+| --- | --- | --- | --- |
+| ModelRush | [ModelRush](https://modelrush.ai/) | 文本、图片、视频和语音统一 API；提供图片生成/编辑、视频生成、语音合成/转录等接口，按模型列价 | [模型目录](https://modelrush.ai/models)；[实时价格](https://modelrush.ai/pricing)；[API 文档](https://modelrush.ai/docs) |
+| AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | GPT 生图专用 0.135x；Adobe 生图 0.33x；MiniMax/可灵视频 1x；AzGPT 生图 2x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
+| APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | Grok 4.6/4.5 支持图片和视频；ChatGPT 生图页面按张计费 | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
+| AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | 图片 0.01x | 登录后可见，分组稳定性和额度有限制；[密钥分组选项](https://api.aijws.com/keys) |
+| Horizon API | [Horizon API](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) | image 页面倍率 1x，按 1:5 充值比折算约 0.2x | 用户提供截图；[注册页](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) |
+| FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | 视频分组 1x | 登录后可见；具体可用模型以[可用渠道](https://www.fastaitoken.com/available-channels)为准 |
+| OrcaRouter | [OrcaRouter](https://www.orcarouter.ai/ref/ref_feec389da7083bc9a430) | 免费模型中含 `fish-audio/s2.1-pro-free` | [免费模型页](https://www.orcarouter.ai/zh-CN/offers)；[文档](https://docs.orcarouter.ai/) |
+| 杨的中转小站 | [杨的中转小站](https://ai.yangwang.name/dashboard) | Issue 自述提供免费生图，倍率未列 | [Issue #4](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/4) |
+| DayWay | [DayWay](https://dayway.site/) | 提供绘图工作台；该信息描述的是工作台，不等同于已核实的图像 API 分组 | 用户价格快照；[模型广场](https://dayway.site/pricing) |
+
+## DeepSeek 与国产模型倍率
 
 按当前可见的最低国产模型相关分组倍率从低到高排列；免费模型单独标为“免费”，不按 0x 参与数值比较。
 
@@ -109,13 +143,15 @@
 | FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | 国产模型 0.7x | 具体模型以可用渠道为准 | [可用渠道](https://www.fastaitoken.com/available-channels) |
 | 艾可 API | [艾可 API](https://ai.wisech.com/register) | `豆包分组` 1x | 部分模型动态计费 | [模型广场](https://ai.wisech.com/pricing) |
 
-## 综合入口
+## 综合多模型入口
 
-这些入口覆盖多个模型生态，或当前页面没有按单一模型公布完整倍率，适合从站点内的分组列表继续筛选。
+这些入口面向多个模型生态或聚合多家服务；未公布单一模型的明确倍率时，先查看站内实时目录和计费说明。同一入口也可能出现在上方的模型/能力分类中。
 
 | 站点 | 入口 | 当前可见信息 | 状态与来源 |
 | --- | --- | --- | --- |
-| AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | 其他分组：Gemini 0.3x、abobe 渠道生图 0.33x、default/即梦/香蕉2/MiniMax/可灵视频 1x、AzGPT 生图 2x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
+| BeeAPI | [中转站的中转站：BeeAPI](https://beeapi.ai/signup?aff=75OPR7DQRJCG) | 官网介绍聚合多家 AI API 商家，提供价格对比与渠道选择；覆盖 OpenAI、Anthropic、Gemini 等。注册、实际价格和调用能力尚未实际验证 | [官网](https://beeapi.ai/)；[注册链接](https://beeapi.ai/signup?aff=75OPR7DQRJCG) |
+| OrcaRouter | [OrcaRouter](https://www.orcarouter.ai/ref/ref_feec389da7083bc9a430) | 多模型统一入口；当前免费列表含 DeepSeek、Fish Audio、Qwen、Tencent 等模型 | [免费模型页](https://www.orcarouter.ai/zh-CN/offers)；[文档](https://docs.orcarouter.ai/) |
+| AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | 其他分组：Gemini 0.3x、Adobe 渠道生图 0.33x、default/即梦/香蕉2/MiniMax/可灵视频 1x、AzGPT 生图 2x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | MoLiFang | [MoLiFang](https://molifangapi.com/register?aff=6FBBCBLMAV7C) | Plus 0.08x；稳定Pro 0.17x；系统按渠道动态选择 | 用户提供；本地访问核验 |
 | Krill AI | [Krill AI](https://www.krill-ai.com/register?invite=0FZVR9NRFB) | `.net` 会话公告显示 10 人拼团并使用 88 折码后，周卡 0.15x、月卡 0.14x；另有 77 折活动但未展示折后倍率 | [当前会话域名](https://www.krill-ai.net/) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | 覆盖 OpenAI、Claude、Gemini、Grok、Kimi、DeepSeek、智谱等 13 个活跃分组；页面的部分“x 倍率”是站内分组倍率，需按官方价折算；Grok 企业版页面 1x，实际约 0.14x（1.4 折） | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
@@ -169,3 +205,15 @@ API Key:  在站点控制台自行创建
 ## 致谢
 
 仓库的信息密度和检索关键词参考了 [bubblevv/ai-api-gongyi-nav](https://github.com/bubblevv/ai-api-gongyi-nav)，本站内容与数据结构为独立整理。
+
+<a id="modelrush"></a>
+
+## ModelRush（付费多模态 API 平台）
+
+[ModelRush 官网](https://modelrush.ai/) 将文本、图片、视频和语音模型整合到统一 API，并提供公开模型目录和按模型定价。API 使用 OpenAI 兼容地址 `https://api.modelrush.ai/v1`；文档列出 Chat Completions、图片生成与编辑、视频生成、语音合成与转录等接口。具体模型、地区和请求格式以实时目录与文档为准。
+
+- **计费**：模型 API 按实际用量从预付额度扣费。价格页当前另列 Agent Basic 订阅：US$10/月，符合条件的新用户可获 30 天试用且需要绑卡；Agent 订阅费不包含模型 API 用量。公开模型价格示例：DeepSeek V4.1 Flash 输入 US$0.33、输出 US$1.32 / 百万 Token；GPT Image 2 US$0.006 / 张；Wan 3 Spicy（480P）US$0.0385 / 秒。价格页标注数据更新于 2026-09-23，实际价格以当前页面为准。
+- **年龄限制**：带 Spicy 标识的部分模型要求账号完成成人访问确认；使用前查看对应模型说明和服务条款。
+- **状态**：官网、注册页、文档和价格页于 2026-09-25 可访问；未创建账号或发起付费调用。Issue #8 的旧申请称没有试用；当前 Agent Basic 页面已有需绑卡试用说明，且它与模型 API 计费分开。
+
+入口：[注册](https://modelrush.ai/sign-up) · [模型目录](https://modelrush.ai/models) · [实时价格](https://modelrush.ai/pricing) · [API 文档](https://modelrush.ai/docs) · [Issue #8](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/8)
