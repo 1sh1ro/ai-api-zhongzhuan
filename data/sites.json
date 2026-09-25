@@ -93,6 +93,24 @@
       ]
     },
     {
+      "id": "onomeo",
+      "name": "onomeo",
+      "homepage": "https://onomeo.com/zh",
+      "registrationUrl": "https://onomeo.com/?ref=AC-9W6NGP",
+      "tags": ["public-benefit", "free-api", "api-relay", "gpt", "claude", "gemini", "deepseek"],
+      "summary": "公测中的免费额度/API 服务。公开页面说明每日签到首日 50,000 额度，连续签到至第 7 天后每天 200,000（1 额度 = 1 token）；可选购买额度。Issue 报告购额价格为 $5/1,000,000，具体以付款页为准。免费模型由第三方服务商提供，模型页说明数据处理方式因模型而异；付费模型另有每日公共预算。页面列出 48 个模型，展开列表显示 49 个，数量口径有差异。每日免费额度和功能以站点公测规则为准。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-09-25",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/14"},
+        {"type": "official-website", "url": "https://onomeo.com/zh"},
+        {"type": "official-model-list", "url": "https://onomeo.com/zh/models"},
+        {"type": "official-credit-rules", "url": "https://onomeo.com/zh/free-credits"},
+        {"type": "official-free-model-status", "url": "https://onomeo.com/zh/free-models"},
+        {"type": "official-terms", "url": "https://onomeo.com/zh/terms"}
+      ]
+    },
+    {
       "id": "krill-ai",
       "name": "Krill AI",
       "homepage": "https://www.krill-ai.com/",
