@@ -94,6 +94,7 @@
 
 | 站点 | 入口 | 分组/倍率 | 状态与来源 |
 | --- | --- | --- | --- |
+| BeeAPI | [BeeAPI](https://beeapi.ai/signup?aff=75OPR7DQRJCG) | Grok 0.014x（用户提供；官网公开页暂未列出 Grok 型号或该价格，待核验） | 用户提供（2026-09-26）；[官网](https://beeapi.ai/)；[注册链接](https://beeapi.ai/signup?aff=75OPR7DQRJCG) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | `Grok 企业版` 约 0.14x（页面 1x，约 1.4 折）；支持 Grok 4.6/4.5、图片和视频 | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | Grok 混池 0.15x | 登录后可见；[密钥分组选项](https://api.aijws.com/keys) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | GROK 0.2x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
