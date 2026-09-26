@@ -13,7 +13,7 @@
 >
 > 聚合多家 AI API 商家，在一个平台比较价格、选择渠道并切换服务。官网介绍支持 OpenAI、Anthropic、Gemini 等模型，也可选择官方直连，并提供统一余额计费与自动故障切换。
 >
-> [**前往 BeeAPI 注册 →**](https://beeapi.ai/signup?aff=75OPR7DQRJCG) · [查看官网](https://beeapi.ai/)
+> [**前往 BeeAPI 注册 →**](https://beeapi.ai/signup?aff=75OPR7DQRJCG) 
 
 <p align="center"><sub>最后核验：2026-09-26 · 价格、免费额度与注册状态可能变化，请以站点实时信息为准</sub></p>
 
