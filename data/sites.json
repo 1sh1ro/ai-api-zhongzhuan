@@ -200,15 +200,14 @@
       "homepage": "https://onomeo.com/zh",
       "registrationUrl": "https://onomeo.com/?ref=AC-9W6NGP",
       "tags": ["public-benefit", "free-api", "api-relay", "gpt", "claude", "gemini", "deepseek"],
-      "summary": "公测中的免费额度/API 服务。公开页面说明每日签到首日 50,000 额度，连续签到至第 7 天后每天 200,000（1 额度 = 1 token）；可选购买额度。Issue 报告购额价格为 $5/1,000,000，具体以付款页为准。免费模型由第三方服务商提供，模型页说明数据处理方式因模型而异；付费模型另有每日公共预算。页面列出 48 个模型，展开列表显示 49 个，数量口径有差异。每日免费额度和功能以站点公测规则为准。",
+      "summary": "公测中的 AI 接口与网页对话服务（运营方 2026-10-10 更新，维护者未复核）。免费用量按次数计，不用签到、没有站内积分：17 个免费模型，每个账号每 5 小时 30 次、每把密钥每分钟 12 次，注册不用绑卡；网页画图每个账号每天 10 张免费。Claude、GPT 等大模型和 DeepSeek 编程专线按量付费（5 美元起充，美元余额不过期），仅向充过值的账号开放；付款后 35 天内免费模型上限为每 5 小时 90 次。经邀请链接注册并在两个不同日期使用后，邀请双方的免费模型上限提高到每 5 小时 45 次（7 天），并各得 2 次网页对话中的大模型免费回答。免费模型由第三方服务商提供，数据处理方式因模型而异（见模型页）。公测中，不保证所有功能都能正常使用，正在大量收集用户反馈，欢迎提交。",
       "status": "registration-page-reachable",
       "verifiedAt": "2026-09-25",
       "sources": [
         {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/14"},
         {"type": "official-website", "url": "https://onomeo.com/zh"},
         {"type": "official-model-list", "url": "https://onomeo.com/zh/models"},
-        {"type": "official-credit-rules", "url": "https://onomeo.com/zh/free-credits"},
-        {"type": "official-free-model-status", "url": "https://onomeo.com/zh/free-models"},
+        {"type": "official-docs", "url": "https://onomeo.com/zh/integrations"},
         {"type": "official-terms", "url": "https://onomeo.com/zh/terms"}
       ]
     },
