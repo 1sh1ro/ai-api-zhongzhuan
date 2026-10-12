@@ -9,15 +9,13 @@
 </p>
 
 > [!TIP]
-> **💱 中转站的中转站：BeeAPI**
+> **💱 FREE TOEKN**
 >
-> 聚合多家 AI API 商家，在一个平台比较价格、选择渠道并切换服务。官网介绍支持 OpenAI、Anthropic、Gemini 等模型，也可选择官方直连，并提供统一余额计费与自动故障切换。
+> 点击领glm-5.3-flash无限token
 >
-> [**前往 BeeAPI 注册 →**](https://beeapi.ai/signup?aff=75OPR7DQRJCG) 
+> [**前往zcode注册 →**](https://zcode.z.ai/invite/S2XSF7WD) 
 
-<p align="center"><sub>最后核验：2026-09-26 · 价格、免费额度与注册状态可能变化，请以站点实时信息为准</sub></p>
 
-> 收录 OpenAI、GPT、Claude、Codex、Grok、Gemini、DeepSeek 等 AI API 公益站、低价中转站与 New API 服务入口。
 
 > [!WARNING]
 > 中转站能够看到经其转发的请求。不要提交密码、身份证件、私有代码、生产数据或其他敏感内容；不要在公开 Issue 中粘贴 API Key。免费额度、倍率、模型和注册状态随时可能变化，正式业务优先使用模型厂商官方 API。
