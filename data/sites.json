@@ -441,6 +441,22 @@
         {"type": "user-submitted", "url": "https://dayway.site/"},
         {"type": "user-submitted", "url": "https://dayway.site/pricing"}
       ]
+    },
+    {
+      "id": "znbcode",
+      "name": "znbcode",
+      "homepage": "https://znbcode.com/",
+      "registrationUrl": "https://znbcode.com/register?aff=NAV-1SH1RO",
+      "tags": ["gpt", "codex", "claude", "gemini", "grok", "deepseek", "kimi", "domestic-model", "low-multiplier", "api-relay"],
+      "summary": "运营方提交；按量计费，充值 ¥1 = $1 额度，支持支付宝、微信、USDT。站内分组倍率（2026-10-17 公开价格接口）：GPT 0.09x / 0.2x / 0.3x / 0.5x，Claude 0.5x / 1x / 1.5x / 2x，Grok 0.15x，Gemini 3.8 0.3x；GPT、Claude、Gemini、Grok 的参考价是厂商美元官方价，按汇率 6.70 折算约为官方价的 0.013x–0.30x（gpt-5.6-luna 参考价标人民币，不折算）。DeepSeek、GLM、Kimi 0.3x，参考价是人民币官方价，不再折算。生图按张计费：gpt-image-2 / 2.5 ¥0.06，nano-banana-2.1 ¥0.08。支持 Anthropic /v1/messages、OpenAI /v1/chat/completions 与 /v1/responses、Gemini /v1beta；注册页、公开价格接口和接入文档均可访问（2026-10-17）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-10-17",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/24"},
+        {"type": "official-website", "url": "https://znbcode.com/"},
+        {"type": "public-pricing-api", "url": "https://znbcode.com/api/v1/model-plaza"},
+        {"type": "official-docs", "url": "https://znbcode.com/docs/"}
+      ]
     }
   ]
 }

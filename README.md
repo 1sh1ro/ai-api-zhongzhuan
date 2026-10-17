@@ -65,6 +65,7 @@ API Nebula 按维护者推荐置顶；其余条目优先展示免费、免费额
 | 站点 | 入口 | 分组/倍率 | 状态与来源 |
 | --- | --- | --- | --- |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | GPT 扶贫 0.01x；GPT 狂欢 0.05x；Codex 福利 0.06x；GPT Terra/GPT 特价 0.09x；GPT 生图专用 0.135x；GPT luna/PLUS 0.2x；GPT PRO 0.25x；企业稳定 0.35x；OpenAI 官Key 3.5x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
+| znbcode | [znbcode](https://znbcode.com/register?aff=NAV-1SH1RO) | `znb-gpt-特惠` 0.09x、`znb-gpt-稳定` 0.2x、`znb-gpt-不降智` 0.3x、`znb-gpt-满血官key` 0.5x；参考价为美元官方价、充值 ¥1 = $1，按汇率 6.70 折算约 0.013x / 0.030x / 0.045x / 0.075x（`gpt-5.6-luna` 参考价标人民币，不折算） | 运营方提交（2026-10-17）；[公开分组价格 JSON](https://znbcode.com/api/v1/model-plaza)；[Issue #24](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/24) |
 | 杨的中转小站 | [杨的中转小站](https://ai.yangwang.name/dashboard) | GPT luna 0.02x；ChatGPT Plus 福利 0.03x；PRO 0.15x | Issue 自述与用户截图；[Issue #4](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/4) |
 | Token-X | [Token-X](https://token-x.com/sign-up?aff=H4g2) | CodeX-Pro 订阅基础倍率 0.045x；月卡叠加 5—6.6 折后最低 0.0225x；试运营主要提供 GPT 系列模型，统一使用自建 Pro 20× 号池 | 用户提供套餐及活动信息；[Token-X](https://token-x.com/) |
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | `gpt-6-sol` / `gpt-6.1-sol` 输入 ¥0.78、输出 ¥3.90 / 1M；`gpt-6-astra` ¥3.90 / ¥19.50；`gpt-5.6-sol` ¥1.95 / ¥11.70；输入/输出均约 0.0583x。站内 CODEX 分组 0.39x 单独记录 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
@@ -88,6 +89,7 @@ API Nebula 按维护者推荐置顶；其余条目优先展示免费、免费额
 | 站点 | 入口 | 分组/倍率 | 状态与来源 |
 | --- | --- | --- | --- |
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | `claude-opus-4-8` / `claude-opus-5`、`claude-opus-5-5`、`claude-sonnet-5` / `5-5` / `4-6` 输入/输出约 0.0747x；`claude-fable-5` / `5-1` 约 0.2541x；缓存另见明细。CC 分组 0.5x / 1.7x / 2.4x 是站内口径 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
+| znbcode | [znbcode](https://znbcode.com/register?aff=NAV-1SH1RO) | `znb-cc-特惠` 0.5x、`znb-cc-max-稳定` 1x、`znb-cc-max-满血` 1.5x、`znb-cc-max-20正价` 2x；参考价为美元官方价、充值 ¥1 = $1，按汇率 6.70 折算约 0.075x / 0.15x / 0.22x / 0.30x | 运营方提交（2026-10-17）；[公开分组价格 JSON](https://znbcode.com/api/v1/model-plaza)；[Issue #24](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/24) |
 | KaiGPT | [KaiGPT](https://gptzzz.ai/register) | Claude 主流模型 0.1x（官网按官方价 10% 计费） | 官网说明；具体模型与账户分组以[模型广场](https://gptzzz.ai/model-plaza)为准 |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | `Claude Plus（精品）` 约 0.11x（页面 0.8x，约 1.1 折）；`Claude Max（仅限CC）` 约 0.29x（页面 2x，约 2.9 折）；`Claude Max（外接版）` 约 0.31x（页面 2.2x，约 3.1 折）；Claude 官渠约 0.71x（页面 5x，约 7.1 折） | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | Claude 满缓存渠道 0.25x；CC 长期稳定 0.55x；日区 CC 0.75x；CCMAX 特价 0.8x；CCMAX 官转 1.3x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
@@ -104,6 +106,7 @@ API Nebula 按维护者推荐置顶；其余条目优先展示免费、免费额
 | 站点 | 入口 | 分组/倍率 | 状态与来源 |
 | --- | --- | --- | --- |
 | BeeAPI | [BeeAPI](https://beeapi.ai/signup?aff=75OPR7DQRJCG) | Grok 0.014x（用户提供；官网公开页暂未列出 Grok 型号或该价格，待核验） | 用户提供（2026-09-26）；[官网](https://beeapi.ai/)；[注册链接](https://beeapi.ai/signup?aff=75OPR7DQRJCG) |
+| znbcode | [znbcode](https://znbcode.com/register?aff=NAV-1SH1RO) | `znb-grok-heavy`（grok-4.5 / 4.6 / 4.7）0.15x；参考价为美元官方价、充值 ¥1 = $1，按汇率 6.70 折算约 0.022x | 运营方提交（2026-10-17）；[公开分组价格 JSON](https://znbcode.com/api/v1/model-plaza)；[Issue #24](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/24) |
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | `grok-4.7` / `grok-4.6`：输入 ¥1、输出 ¥3、缓存读取 ¥0.25 / 1M；三项均约 0.0747x；站内 Grok 分组 0.5x 单独记录 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | `Grok 企业版` 约 0.14x（页面 1x，约 1.4 折）；支持 Grok 4.6/4.5、图片和视频 | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | Grok 混池 0.15x | 登录后可见；[密钥分组选项](https://api.aijws.com/keys) |
@@ -119,6 +122,7 @@ API Nebula 按维护者推荐置顶；其余条目优先展示免费、免费额
 | 站点 | 入口 | 分组/覆盖 | 状态与来源 |
 | --- | --- | --- | --- |
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | `gemini-4-argon` / `gemini-4-barium`：输入 ¥1.60、输出 ¥8 / 1M；`gemini-3.1-pro-preview` ¥1.60 / ¥9.60；`gemini-3.8-flash` ¥0.60 / ¥3；输入/输出均约 0.1196x；站内分组 0.8x / 1.5x 单独记录 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
+| znbcode | [znbcode](https://znbcode.com/register?aff=NAV-1SH1RO) | `znb-gemini-3.8`（gemini-3.8-flash）0.3x；参考价为美元官方价、充值 ¥1 = $1，按汇率 6.70 折算约 0.045x | 运营方提交（2026-10-17）；[公开分组价格 JSON](https://znbcode.com/api/v1/model-plaza)；[Issue #24](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/24) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | Gemini 0.3x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `gemini特惠` 0.3x | 用户补充；[当前入口](https://hezubus.cc/p/) |
 | AntiCode | [AntiCode](https://anticode.cn/register) | Gemini 0.6x | [模型广场](https://anticode.cn/pricing) |
@@ -135,6 +139,7 @@ API Nebula 按维护者推荐置顶；其余条目优先展示免费、免费额
 | 站点 | 入口 | 能力/价格信息 | 状态与来源 |
 | --- | --- | --- | --- |
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | `gpt-image-2` / `gpt-image-2.5`：¥0.05/次，同页标注官方价 ¥0.3346/次，约 0.1494x；分辨率及具体生图分组未与单价绑定确认 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
+| znbcode | [znbcode](https://znbcode.com/register?aff=NAV-1SH1RO) | 按张计费：`gpt-image-2` / `gpt-image-2.5` ¥0.06/张（`gpt-image-1K特惠` 分组，1K–4K 同价）、原生分组 ¥0.12/张；`gemini-nano-banana-2.1` ¥0.08/张；另有 grok-imagine 生图与视频分组 | 运营方提交（2026-10-17）；[公开分组价格 JSON](https://znbcode.com/api/v1/model-plaza)；[Issue #24](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/24) |
 | ModelRush | [ModelRush](https://modelrush.ai/) | 文本、图片、视频和语音统一 API；提供图片生成/编辑、视频生成、语音合成/转录等接口，按模型列价 | [模型目录](https://modelrush.ai/models)；[实时价格](https://modelrush.ai/pricing)；[API 文档](https://modelrush.ai/docs) |
 | TokenWorks | [TokenWorks](https://api.token8341.com/sign-up) | 官方目录包含图片生成、视频生成、TTS/ASR、嵌入与重排模型；模型价格按用量列出 | [模型价格](https://www.token8341.com/zh/pricing)；[API 文档](https://www.token8341.com/zh/docs) |
 | otter Link | [otter Link](https://otterl.com/) | 公开模型列表含“画图”分组及 Gemini 图像模型；各分组模型与倍率以实时价格接口为准 | [公开价格 JSON](https://otterl.com/api/pricing) |
@@ -158,6 +163,7 @@ API Nebula 按维护者推荐置顶；其余条目优先展示免费、免费额
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | `[限时]国模` 0.001x | 国产模型；部分分组受额度和稳定性影响 | [密钥分组选项](https://api.aijws.com/keys) |
 | 杨的中转小站 | [杨的中转小站](https://ai.yangwang.name/dashboard) | GLM-5.3/DeepSeek 低至 0.01x | 注册送余额；容量有限 | Issue 自述；[Issue #4](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/4) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | 国产模型 0.3x；DeepSeek 0.7x | 登录后可见 | [模型广场](https://api.aizzz.xyz/pricing) |
+| znbcode | [znbcode](https://znbcode.com/register?aff=NAV-1SH1RO) | DeepSeek / GLM / Kimi 0.3x | `deepseek-v4.1-flash`、`glm-5.2` / `glm-5.3`、`kimi-k3`；参考价为人民币官方价，不再折算 | 运营方提交（2026-10-17）；[公开分组价格 JSON](https://znbcode.com/api/v1/model-plaza)；[Issue #24](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/24) |
 | LinkAGI | [LinkAGI](https://api.linktoagi.com/sign-up) | DeepSeek 0.4x | 站内分组倍率；其他分组倍率各异 | 运营方更新（2026-10-17）；[公开价格 JSON](https://api.linktoagi.com/api/pricing) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | 智谱 0.5x；DeepSeek 0.75x（自部署精选）/0.9x（官方满血） | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `glm` 0.7x | 国产模型分组 | 用户补充；[当前入口](https://hezubus.cc/p/) |
@@ -183,6 +189,7 @@ API Nebula 按维护者推荐置顶；其余条目优先展示免费、免费额
 | MoLiFang | [MoLiFang](https://molifangapi.com/register?aff=6FBBCBLMAV7C) | Plus 0.08x；稳定Pro 0.17x；系统按渠道动态选择 | 用户提供；本地访问核验 |
 | Krill AI | [Krill AI](https://www.krill-ai.com/register?invite=0FZVR9NRFB) | `.net` 会话公告显示 10 人拼团并使用 88 折码后，周卡 0.15x、月卡 0.14x；另有 77 折活动但未展示折后倍率 | [当前会话域名](https://www.krill-ai.net/) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | 覆盖 OpenAI、Claude、Gemini、Grok、Kimi、DeepSeek、智谱等 13 个活跃分组；页面的部分“x 倍率”是站内分组倍率，需按官方价折算；Grok 企业版页面 1x，实际约 0.14x（1.4 折） | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
+| znbcode | [znbcode](https://znbcode.com/register?aff=NAV-1SH1RO) | 公开价格接口返回 19 个分组，覆盖 GPT、Claude、Gemini、Grok、DeepSeek、GLM、Kimi、MiniMax 与生图；支持 Anthropic /v1/messages、OpenAI /v1/chat/completions 与 /v1/responses、Gemini /v1beta；[接入文档](https://znbcode.com/docs/) | 运营方提交（2026-10-17）；[公开分组价格 JSON](https://znbcode.com/api/v1/model-plaza)；[Issue #24](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/24) |
 
 ## 倍率待补充
 
