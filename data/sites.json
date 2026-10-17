@@ -139,14 +139,15 @@
       "homepage": "https://api.linktoagi.com/",
       "registrationUrl": "https://api.linktoagi.com/sign-up",
       "tags": ["gpt", "codex", "claude", "gemini", "api-relay"],
-      "summary": "人民币按量计费；站内分组倍率：Codex Sale 0.15x、Plus 0.2x、Pro 0.3x，Grok 0.2x、DeepSeek 0.5x。GPT-6 Astra / Plus 在长度低于 272K 档位输入 ¥2、输出 ¥10 / 百万 Token；长上下文与缓存另计，调用前以实时价格为准。",
+      "summary": "人民币按量计费；Codex Sale 0.15x、Plus 0.18x、Pro 0.25x，Grok 0.2x、DeepSeek 0.4x。gpt-6.1-sol / Plus 标准短上下文（≤272K）输入 ¥0.36、输出 ¥1.80 / 百万 Token；支持 Linux DO 登录。QQ 交流群 342205412，官网和接入文档提供群二维码及试用咨询入口。",
       "status": "registration-page-reachable",
-      "verifiedAt": "2026-09-17",
+      "verifiedAt": "2026-10-17",
       "sources": [
         {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/1"},
         {"type": "local-verified", "url": "https://api.linktoagi.com/"},
         {"type": "local-verified", "url": "https://api.linktoagi.com/pricing"},
-        {"type": "public-pricing-api", "url": "https://api.linktoagi.com/api/pricing"}
+        {"type": "public-pricing-api", "url": "https://api.linktoagi.com/api/pricing"},
+        {"type": "provider-support", "url": "https://docs.linktoagi.com/about.html"}
       ]
     },
     {
