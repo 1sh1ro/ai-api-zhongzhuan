@@ -85,6 +85,8 @@ function getFilteredSites() {
   });
 
   return filtered.sort((a, b) => {
+    const pinnedOrder = Number(Boolean(b.pinned)) - Number(Boolean(a.pinned));
+    if (pinnedOrder) return pinnedOrder;
     if (state.sort === 'name') return String(a.name).localeCompare(String(b.name), 'zh-CN');
     if (state.sort === 'status') {
       const rank = { 'registration-page-reachable': 0, 'manual-verification-required': 1, degraded: 2, 'automated-access-blocked': 3 };
@@ -111,7 +113,7 @@ function renderCard(site, index) {
   const registration = site.registrationUrl && site.registrationUrl !== site.homepage
     ? `<a class="card-link" href="${escapeHTML(site.registrationUrl)}" target="_blank" rel="noreferrer noopener">注册 ↗</a>`
     : '';
-  return `<article class="site-card" style="animation-delay:${Math.min(index * 35, 300)}ms">
+  return `<article class="site-card${site.pinned ? ' is-pinned' : ''}" style="animation-delay:${Math.min(index * 35, 300)}ms">
     <div class="card-top">
       <div class="site-identity">
         <span class="site-index" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
@@ -120,7 +122,7 @@ function renderCard(site, index) {
       <span class="status-badge ${status.className}">${escapeHTML(status.label)}</span>
     </div>
     <p class="summary">${escapeHTML(site.summary)}</p>
-    <div class="tag-list">${tags}${moreCount ? `<span class="tag tag-more">+${moreCount}</span>` : ''}</div>
+    <div class="tag-list">${site.pinned ? '<span class="tag tag-more">置顶推荐</span>' : ''}${tags}${moreCount ? `<span class="tag tag-more">+${moreCount}</span>` : ''}</div>
     <div class="card-footer"><span class="verified-date">核验 ${escapeHTML(formatDate(site.verifiedAt))}</span><div class="card-actions"><a class="card-link" href="${escapeHTML(site.homepage)}" target="_blank" rel="noreferrer noopener">打开 ↗</a>${registration}</div></div>
   </article>`;
 }

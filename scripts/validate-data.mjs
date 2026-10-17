@@ -28,6 +28,7 @@ for (const [index, site] of (data.sites ?? []).entries()) {
     if (!site[field]) errors.push(`${label}: missing ${field}`);
   }
   if (ids.has(site.id)) errors.push(`${label}: duplicate id`);
+  if (site.pinned !== undefined && typeof site.pinned !== "boolean") errors.push(`${label}: pinned must be a boolean`);
   ids.add(site.id);
   if (!allowedStatuses.has(site.status)) errors.push(`${label}: unsupported status ${site.status}`);
   if (!Array.isArray(site.tags) || site.tags.length === 0) errors.push(`${label}: tags must not be empty`);

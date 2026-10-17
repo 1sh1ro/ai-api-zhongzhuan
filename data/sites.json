@@ -1,7 +1,22 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-09-26",
+  "lastVerified": "2026-10-17",
   "sites": [
+    {
+      "id": "api-nebula",
+      "name": "API Nebula",
+      "homepage": "https://apinebula.ai/",
+      "registrationUrl": "https://apinebula.ai/A89Bk1",
+      "pinned": true,
+      "tags": ["gpt", "codex", "claude", "gemini", "grok", "kimi", "domestic-model", "image-workbench", "low-multiplier", "api-relay"],
+      "summary": "置顶推荐。按用户提供的 2026-10-17 展示单价 ÷ 同页标注官方价折算：GPT 约 0.0583x；Claude 与 Grok 最低约 0.0747x；Gemini 约 0.1196x；GPT Image 2/2.5 为 ¥0.05/次，约 0.1494x。该比值不再叠乘站内分组倍率；不同模型、缓存与分组价格有差异，完整明细见仓库价格快照。支持范围来自用户所贴模型页，未实测调用；当前自动访问返回 HTTP 403，页面标注官方价未独立核验。保留用户提供的推广入口 /A89Bk1。",
+      "status": "automated-access-blocked",
+      "verifiedAt": "2026-10-17",
+      "sources": [
+        {"type": "user-submitted-pricing", "url": "https://apinebula.ai/A89Bk1"},
+        {"type": "official-website", "url": "https://apinebula.ai/"}
+      ]
+    },
     {
       "id": "beeapi",
       "name": "BeeAPI",
