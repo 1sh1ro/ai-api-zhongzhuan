@@ -441,6 +441,20 @@
         {"type": "user-submitted", "url": "https://dayway.site/"},
         {"type": "user-submitted", "url": "https://dayway.site/pricing"}
       ]
+    },
+    {
+      "id": "zerouter",
+      "name": "Zerouter",
+      "homepage": "https://www.zerouter.ai/",
+      "registrationUrl": "https://www.zerouter.ai/login?ref=Q32i5Dt7&redirect=/dashboard/caller",
+      "tags": ["api-relay", "claude", "gpt", "codex", "gemini", "grok", "kimi", "claude-code"],
+      "summary": "运营方自荐：按量计费、无月费，公开价格页逐模型列出本站价与官方价。claude-opus-5-5 输入 $1.16、输出 $5.81 / 1M（官方 $4 / $20，约 0.29x）；claude-sonnet-5-5 / claude-opus-5 约 0.23x；gpt-5.5 约 0.075x；gemini-3.8-flash 约 0.15x；grok-4.6 约 0.15x；kimi-k3 约 0.5x。OpenAI 兼容 https://api.zerouter.ai/v1，Anthropic /v1/messages，可用于 Claude Code、Codex、Cursor。另有 provider.zerouter.ai 可托管闲置 Claude/Codex 订阅额度分成。数据截至 2026-10-18，以价格页为准。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-10-18",
+      "sources": [
+        {"type": "official-website", "url": "https://www.zerouter.ai/pricing"},
+        {"type": "official-website", "url": "https://www.zerouter.ai/docs"}
+      ]
     }
   ]
 }

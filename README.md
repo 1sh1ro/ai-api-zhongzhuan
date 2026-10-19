@@ -70,6 +70,7 @@ API Nebula 按维护者推荐置顶；其余条目优先展示免费、免费额
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | `gpt-6-sol` / `gpt-6.1-sol` 输入 ¥0.78、输出 ¥3.90 / 1M；`gpt-6-astra` ¥3.90 / ¥19.50；`gpt-5.6-sol` ¥1.95 / ¥11.70；输入/输出均约 0.0583x。站内 CODEX 分组 0.39x 单独记录 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
 | FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | OpenAI 福利 0.06x；普通 0.2x、备用 0.25x、Pro 0.3x | 限时标注；[可用渠道](https://www.fastaitoken.com/available-channels) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | `Codex Pro（仅限Codex）` 约 0.07x（页面 0.5x，约 0.7 折）；`Codex Pro（外接版）` 约 0.09x（页面 0.6x，约 0.9 折）；ChatGPT 生图页面 1x，图片按张计费 | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
+| Zerouter | [Zerouter](https://www.zerouter.ai/login?ref=Q32i5Dt7&redirect=/dashboard/caller) | `gpt-5.5` 输入 $0.37、输出 $2.24 / 1M（官方 $5 / $30，约 0.075x）；`gpt-5.6-terra` 约 0.075x；`gpt-6.1-sol` 约 0.19x / 0.22x；按量计费 | 运营方自荐（2026-10-18）；[价格页](https://www.zerouter.ai/pricing) |
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | Codex 福利 0.08x | 登录后可见；[密钥分组选项](https://api.aijws.com/keys) |
 | Horizon API | [Horizon API](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) | GPT 特价 0.08x（页面 0.4x，按 1:5 折算）；GPT 稳定 0.17x；GPT Pro 0.2x | 用户提供截图；[注册页](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | Codex 补贴 0.08x；Codex Pro 0.25x | 用户补充；[当前入口](https://hezubus.cc/p/) |
@@ -90,6 +91,7 @@ API Nebula 按维护者推荐置顶；其余条目优先展示免费、免费额
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | `claude-opus-4-8` / `claude-opus-5`、`claude-opus-5-5`、`claude-sonnet-5` / `5-5` / `4-6` 输入/输出约 0.0747x；`claude-fable-5` / `5-1` 约 0.2541x；缓存另见明细。CC 分组 0.5x / 1.7x / 2.4x 是站内口径 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
 | KaiGPT | [KaiGPT](https://gptzzz.ai/register) | Claude 主流模型 0.1x（官网按官方价 10% 计费） | 官网说明；具体模型与账户分组以[模型广场](https://gptzzz.ai/model-plaza)为准 |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | `Claude Plus（精品）` 约 0.11x（页面 0.8x，约 1.1 折）；`Claude Max（仅限CC）` 约 0.29x（页面 2x，约 2.9 折）；`Claude Max（外接版）` 约 0.31x（页面 2.2x，约 3.1 折）；Claude 官渠约 0.71x（页面 5x，约 7.1 折） | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
+| Zerouter | [Zerouter](https://www.zerouter.ai/login?ref=Q32i5Dt7&redirect=/dashboard/caller) | `claude-sonnet-5-5` / `claude-opus-5` 约 0.23x；`claude-opus-5-5` 输入 $1.16、输出 $5.81 / 1M（官方 $4 / $20，约 0.29x）；Anthropic `/v1/messages`，可直接用于 Claude Code | 运营方自荐（2026-10-18）；[价格页](https://www.zerouter.ai/pricing) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | Claude 满缓存渠道 0.25x；CC 长期稳定 0.55x；日区 CC 0.75x；CCMAX 特价 0.8x；CCMAX 官转 1.3x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `claudecode-krio逆向` 0.35x；`claude-russia` 1x；`ccmax` 1.4x；`ccmax-外接` 1.6x | 用户补充；[当前入口](https://hezubus.cc/p/) |
 | 4Router | [4Router](https://4router.net/register) | `cheapClaude` 0.45x；`ccMax-sale` 0.8x | [模型价格](https://4router.net/pricing) |
@@ -107,6 +109,7 @@ API Nebula 按维护者推荐置顶；其余条目优先展示免费、免费额
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | `grok-4.7` / `grok-4.6`：输入 ¥1、输出 ¥3、缓存读取 ¥0.25 / 1M；三项均约 0.0747x；站内 Grok 分组 0.5x 单独记录 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | `Grok 企业版` 约 0.14x（页面 1x，约 1.4 折）；支持 Grok 4.6/4.5、图片和视频 | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | Grok 混池 0.15x | 登录后可见；[密钥分组选项](https://api.aijws.com/keys) |
+| Zerouter | [Zerouter](https://www.zerouter.ai/login?ref=Q32i5Dt7&redirect=/dashboard/caller) | `grok-4.6` / `grok-4.5` 输入 $0.30、输出 $0.90 / 1M（官方 $2 / $6，约 0.15x） | 运营方自荐（2026-10-18）；[价格页](https://www.zerouter.ai/pricing) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | GROK 0.2x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | LinkAGI | [LinkAGI](https://api.linktoagi.com/sign-up) | Grok 0.2x | 运营方更新（2026-10-17）；[公开价格 JSON](https://api.linktoagi.com/api/pricing) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `grok-特惠` 0.3x | 用户补充；[当前入口](https://hezubus.cc/p/) |
@@ -119,6 +122,7 @@ API Nebula 按维护者推荐置顶；其余条目优先展示免费、免费额
 | 站点 | 入口 | 分组/覆盖 | 状态与来源 |
 | --- | --- | --- | --- |
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | `gemini-4-argon` / `gemini-4-barium`：输入 ¥1.60、输出 ¥8 / 1M；`gemini-3.1-pro-preview` ¥1.60 / ¥9.60；`gemini-3.8-flash` ¥0.60 / ¥3；输入/输出均约 0.1196x；站内分组 0.8x / 1.5x 单独记录 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
+| Zerouter | [Zerouter](https://www.zerouter.ai/login?ref=Q32i5Dt7&redirect=/dashboard/caller) | `gemini-3.8-flash` / `gemini-3.7-flash` 输入 $0.11、输出 $0.56 / 1M（官方 $0.75 / $3.75，约 0.15x） | 运营方自荐（2026-10-18）；[价格页](https://www.zerouter.ai/pricing) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | Gemini 0.3x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `gemini特惠` 0.3x | 用户补充；[当前入口](https://hezubus.cc/p/) |
 | AntiCode | [AntiCode](https://anticode.cn/register) | Gemini 0.6x | [模型广场](https://anticode.cn/pricing) |
@@ -183,6 +187,7 @@ API Nebula 按维护者推荐置顶；其余条目优先展示免费、免费额
 | MoLiFang | [MoLiFang](https://molifangapi.com/register?aff=6FBBCBLMAV7C) | Plus 0.08x；稳定Pro 0.17x；系统按渠道动态选择 | 用户提供；本地访问核验 |
 | Krill AI | [Krill AI](https://www.krill-ai.com/register?invite=0FZVR9NRFB) | `.net` 会话公告显示 10 人拼团并使用 88 折码后，周卡 0.15x、月卡 0.14x；另有 77 折活动但未展示折后倍率 | [当前会话域名](https://www.krill-ai.net/) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | 覆盖 OpenAI、Claude、Gemini、Grok、Kimi、DeepSeek、智谱等 13 个活跃分组；页面的部分“x 倍率”是站内分组倍率，需按官方价折算；Grok 企业版页面 1x，实际约 0.14x（1.4 折） | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
+| Zerouter | [Zerouter](https://www.zerouter.ai/login?ref=Q32i5Dt7&redirect=/dashboard/caller) | 一个 Key 调 Claude、GPT、Gemini、Grok、Kimi，按量计费无月费；价格页逐模型对照官方价；OpenAI / Anthropic 两种接口 | 运营方自荐（2026-10-18）；[价格页](https://www.zerouter.ai/pricing)；[接入文档](https://www.zerouter.ai/docs) |
 
 ## 倍率待补充
 
