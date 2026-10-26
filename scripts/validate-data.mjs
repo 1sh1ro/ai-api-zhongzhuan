@@ -13,6 +13,7 @@ const allowedStatuses = new Set([
   "degraded",
 ]);
 const allowedInviteParams = new Set(["aff", "invite", "ref"]);
+const safeRedirectPath = /^\/(?!\/)[A-Za-z0-9/_-]*$/;
 const forbiddenParams = /^(api_?key|access_?token|token|key|secret|session|code)$/i;
 const ids = new Set();
 const errors = [];
@@ -41,7 +42,9 @@ for (const [index, site] of (data.sites ?? []).entries()) {
       if (url.username || url.password || url.hash) errors.push(`${label}: ${kind} contains credentials or a fragment`);
       for (const key of url.searchParams.keys()) {
         if (forbiddenParams.test(key)) errors.push(`${label}: ${kind} contains forbidden parameter ${key}`);
-        if (kind === "registrationUrl" && !allowedInviteParams.has(key)) {
+        if (kind === "registrationUrl" && key === "redirect" && !safeRedirectPath.test(url.searchParams.get(key) ?? "")) {
+          errors.push(`${label}: registration redirect must be a safe relative path`);
+        } else if (kind === "registrationUrl" && key !== "redirect" && !allowedInviteParams.has(key)) {
           errors.push(`${label}: unreviewed registration parameter ${key}`);
         }
       }
