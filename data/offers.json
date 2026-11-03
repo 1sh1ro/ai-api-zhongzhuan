@@ -1689,6 +1689,91 @@
       "sourceKind": "official-website",
       "sourceUrl": "https://www.zerouter.ai/pricing",
       "verifiedAt": "2026-10-18"
+    },
+
+    {
+      "id": "relaycore::gpt-welfare::gpt-6-sol",
+      "stationId": "relaycore",
+      "groupKey": "GPT | 福利",
+      "groupName": "GPT | 福利",
+      "modelId": "gpt-6-sol",
+      "pricingMode": "absolute_usd",
+      "inputUsdPer1M": 0.1,
+      "outputUsdPer1M": 0.5,
+      "note": "模型广场 GPT | 福利 分组，最终价 输入 $0.10、输出 $0.50 / 1M；页面基础价 $2 / $10，分组标注 x0.05",
+      "sourceKind": "official-model-catalog",
+      "sourceUrl": "https://relaycore.cn/model-market",
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "id": "relaycore::gpt-welfare::gpt-6.1-sol",
+      "stationId": "relaycore",
+      "groupKey": "GPT | 福利",
+      "groupName": "GPT | 福利",
+      "modelId": "gpt-6.1-sol",
+      "pricingMode": "absolute_usd",
+      "inputUsdPer1M": 0.1,
+      "outputUsdPer1M": 0.5,
+      "note": "模型广场 GPT | 福利 分组，最终价 输入 $0.10、输出 $0.50 / 1M；页面基础价 $2 / $10，分组标注 x0.05",
+      "sourceKind": "official-model-catalog",
+      "sourceUrl": "https://relaycore.cn/model-market",
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "id": "relaycore::gpt-welfare::gpt-6-astra",
+      "stationId": "relaycore",
+      "groupKey": "GPT | 福利",
+      "groupName": "GPT | 福利",
+      "modelId": "gpt-6-astra",
+      "pricingMode": "absolute_usd",
+      "inputUsdPer1M": 0.5,
+      "outputUsdPer1M": 2.5,
+      "note": "模型广场 GPT | 福利 分组，最终价 输入 $0.50、输出 $2.50 / 1M；页面基础价 $10 / $50，分组标注 x0.05",
+      "sourceKind": "official-model-catalog",
+      "sourceUrl": "https://relaycore.cn/model-market",
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "id": "relaycore::gpt-welfare::gpt-5.6-sol",
+      "stationId": "relaycore",
+      "groupKey": "GPT | 福利",
+      "groupName": "GPT | 福利",
+      "modelId": "gpt-5.6-sol",
+      "pricingMode": "absolute_usd",
+      "inputUsdPer1M": 0.25,
+      "outputUsdPer1M": 1.5,
+      "note": "模型广场 GPT | 福利 分组，最终价 输入 $0.25、输出 $1.50 / 1M；页面基础价 $5 / $30，分组标注 x0.05，但基础价高于 OpenAI 官方 $4 / $20，按官方价复算约 0.066x",
+      "sourceKind": "official-model-catalog",
+      "sourceUrl": "https://relaycore.cn/model-market",
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "id": "relaycore::gpt-welfare::gpt-5.6-terra",
+      "stationId": "relaycore",
+      "groupKey": "GPT | 福利",
+      "groupName": "GPT | 福利",
+      "modelId": "gpt-5.6-terra",
+      "pricingMode": "absolute_usd",
+      "inputUsdPer1M": 0.1,
+      "outputUsdPer1M": 0.6,
+      "note": "模型广场 GPT | 福利 分组，最终价 输入 $0.10、输出 $0.60 / 1M；页面基础价 $2 / $12，分组标注 x0.05",
+      "sourceKind": "official-model-catalog",
+      "sourceUrl": "https://relaycore.cn/model-market",
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "id": "relaycore::gpt-welfare::gpt-6.1-terra",
+      "stationId": "relaycore",
+      "groupKey": "GPT | 福利",
+      "groupName": "GPT | 福利",
+      "modelId": "gpt-6.1-terra",
+      "pricingMode": "absolute_usd",
+      "inputUsdPer1M": 0.05,
+      "outputUsdPer1M": 0.25,
+      "note": "模型广场 GPT | 福利 分组，最终价 输入 $0.05、输出 $0.25 / 1M；页面基础价 $1 / $5，分组标注 x0.05",
+      "sourceKind": "official-model-catalog",
+      "sourceUrl": "https://relaycore.cn/model-market",
+      "verifiedAt": "2026-11-03"
     }
   ]
 }
