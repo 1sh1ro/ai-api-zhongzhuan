@@ -563,7 +563,7 @@
       "ratio": 0.001,
       "ratioFactor": 0.2,
       "unverified": true,
-      "note": "页面 0.001x，按页面充值比 1:5 折算为 0.0002x；来源为用户截图，且截图标注限 GPT 订阅用户使用，国产模型未指明具体型号",
+      "note": "README 原文只写「国模羊毛 0.001x」。国模是国产模型的统称，可能是 DeepSeek、Qwen、GLM、Kimi 中的任意一个，原文没有点名，因此不指定具体型号。0.0002x 是页面 0.001x 按充值比 1:5 换算得到，来源为用户截图，且截图标注限 GPT 订阅用户使用，不是任何人打开就能买到的公开价格，因此标为待核验、不参与排名。",
       "sourceKind": "user-provided-screenshot",
       "sourceUrl": "https://api.honglin.asia/profile",
       "verifiedAt": "2026-08-29"

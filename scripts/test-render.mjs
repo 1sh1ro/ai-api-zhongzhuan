@@ -101,6 +101,7 @@ const viewHandler = node("#view-mode").listeners.change?.[0];
 assert(viewHandler, "缺少视图切换事件");
 viewHandler({ target: { value: "offer" } });
 assert(node("#rank-head").innerHTML.includes("口径"), "报价明细表头应包含口径列");
+assert(node("#rank-head").innerHTML.includes("备注"), "报价明细表头应包含备注列");
 const defaultOfferRows = node("#rank-body").innerHTML.match(/<tr/g)?.length || 0;
 assert(defaultOfferRows === comparableRows(rows).length, `默认只看可比时应展示 ${comparableRows(rows).length} 条，实际 ${defaultOfferRows}`);
 
@@ -108,6 +109,7 @@ const basisHandler = node("#basis-filter").listeners.change?.[0];
 basisHandler({ target: { value: "all" } });
 const allRows = node("#rank-body").innerHTML.match(/<tr/g)?.length || 0;
 assert(allRows === offers.length, `全部口径应展示 ${offers.length} 条，实际 ${allRows}`);
+assert(node("#rank-body").innerHTML.includes("国模是国产模型的统称"), "备注应写入国模羊毛的说明原文");
 
 basisHandler({ target: { value: "raw" } });
 const rawCount = node("#rank-body").innerHTML.match(/<tr/g)?.length || 0;

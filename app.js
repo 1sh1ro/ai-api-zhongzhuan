@@ -8,7 +8,7 @@ import {
   formatDiscount,
 } from './assets/pricing.js';
 
-const ASSET_VERSION = '2026-11-03e';
+const ASSET_VERSION = '2026-11-03f';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -226,6 +226,7 @@ const HEAD_OFFER = `
     <th class="col-num">输出 ¥/M</th>
     <th class="col-num">相对官方价</th>
     <th>口径</th>
+    <th>备注</th>
     <th>核验</th>
   </tr>`;
 
@@ -330,6 +331,7 @@ function renderOfferView() {
         <td class="col-num">${formatCny(row.outputCny)}</td>
         <td class="col-num"><span class="discount">${row.comparable ? formatDiscount(row.effectiveBlended) : '—'}</span></td>
         <td><span class="basis basis-${row.basis}">${escapeHTML(row.basisLabel)}</span></td>
+        <td class="note-cell" title="${escapeHTML(row.note)}">${escapeHTML(row.note)}</td>
         <td class="date-cell">${formatDate(row.verifiedAt)}</td>
       </tr>`;
     })
