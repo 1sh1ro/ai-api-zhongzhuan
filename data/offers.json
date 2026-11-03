@@ -1760,6 +1760,85 @@
       "sourceKind": "official-model-catalog",
       "sourceUrl": "https://relaycore.cn/model-market",
       "verifiedAt": "2026-11-03"
+    },
+
+    {
+      "id": "keyzhi::gpt-ref::gpt-6-sol",
+      "stationId": "keyzhi",
+      "groupKey": "GPT 参考倍率",
+      "groupName": "GPT 参考倍率",
+      "modelId": "gpt-6-sol",
+      "pricingMode": "ratio",
+      "ratio": 0.055,
+      "note": "运营方在 Issue #31 / #41 给出的参考倍率 0.055x，为指定分组的站内参考值，未按官方价折算；模型广场需登录，实际以站内展示为准",
+      "sourceKind": "github-issue",
+      "sourceUrl": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/31",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "keyzhi::deepseek-ref::deepseek-v4.1-flash",
+      "stationId": "keyzhi",
+      "groupKey": "DeepSeek 参考倍率",
+      "groupName": "DeepSeek 参考倍率",
+      "modelId": "deepseek-v4.1-flash",
+      "pricingMode": "ratio",
+      "ratio": 0.001,
+      "note": "运营方在 Issue #31 / #41 给出的参考倍率 0.001x，为指定分组的站内参考值，未按官方价折算；实际以站内展示为准",
+      "sourceKind": "github-issue",
+      "sourceUrl": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/31",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "keyzhi::claude-ref::claude-opus-5",
+      "stationId": "keyzhi",
+      "groupKey": "Claude 参考倍率",
+      "groupName": "Claude 参考倍率",
+      "modelId": "claude-opus-5",
+      "pricingMode": "ratio",
+      "ratio": 0.15,
+      "note": "运营方在 Issue #31 / #41 给出的参考倍率 0.15x，为指定分组的站内参考值，未按官方价折算；实际以站内展示为准",
+      "sourceKind": "github-issue",
+      "sourceUrl": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/31",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "keyzhi::glm-ref::glm-5.3",
+      "stationId": "keyzhi",
+      "groupKey": "GLM 参考倍率",
+      "groupName": "GLM 参考倍率",
+      "modelId": "glm-5.3",
+      "pricingMode": "ratio",
+      "ratio": 0.13,
+      "note": "运营方在 Issue #31 / #41 给出的参考倍率 0.13x，为指定分组的站内参考值，未按官方价折算；实际以站内展示为准",
+      "sourceKind": "github-issue",
+      "sourceUrl": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/31",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "keyzhi::grok-ref::grok-4.6",
+      "stationId": "keyzhi",
+      "groupKey": "Grok 参考倍率",
+      "groupName": "Grok 参考倍率",
+      "modelId": "grok-4.6",
+      "pricingMode": "ratio",
+      "ratio": 0.13,
+      "note": "运营方在 Issue #31 / #41 给出的参考倍率 0.13x，为指定分组的站内参考值，未按官方价折算；实际以站内展示为准",
+      "sourceKind": "github-issue",
+      "sourceUrl": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/31",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "keyzhi::kimi-ref::kimi-k3",
+      "stationId": "keyzhi",
+      "groupKey": "Kimi 参考倍率",
+      "groupName": "Kimi 参考倍率",
+      "modelId": "kimi-k3",
+      "pricingMode": "ratio",
+      "ratio": 0.12,
+      "note": "运营方在 Issue #31 / #41 给出的参考倍率 0.12x，为指定分组的站内参考值，未按官方价折算；实际以站内展示为准",
+      "sourceKind": "github-issue",
+      "sourceUrl": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/31",
+      "verifiedAt": "2026-11-04"
     }
   ]
 }

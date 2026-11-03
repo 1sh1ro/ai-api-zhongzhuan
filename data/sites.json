@@ -487,6 +487,21 @@
         {"type": "official-model-catalog", "url": "https://relaycore.cn/model-market"},
         {"type": "official-docs", "url": "https://relaycore.cn/docs"}
       ]
+    },
+    {
+      "id": "keyzhi",
+      "name": "Key智API",
+      "homepage": "https://aitokey.top/",
+      "registrationUrl": "https://aitokey.top/register?aff=572GKPJ8SWDX",
+      "tags": ["api-relay", "api-gateway", "gpt", "claude", "deepseek", "grok", "glm", "kimi", "domestic-model"],
+      "summary": "个人运营的第三方多模型 API 中转，提供 GPT、Claude、DeepSeek、Grok、GLM、Kimi 接入，按量计费与部分订阅套餐；注册后进群联系群主核实可领体验余额，另有每日签到和邀请充值返 10%。模型广场与价格页需要登录，价格以站内实时展示为准。运营方在 Issue 给出的参考倍率：GPT 0.055x、DeepSeek 0.001x、Claude 0.15x、GLM/Grok 0.13x、Kimi 0.12x，均为指定分组的站内参考值，未按官方价折算。注册页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/31"},
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/41"},
+        {"type": "official-website", "url": "https://aitokey.top/"}
+      ]
     }
   ]
 }

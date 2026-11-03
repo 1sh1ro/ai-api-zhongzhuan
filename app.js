@@ -8,7 +8,7 @@ import {
   formatDiscount,
 } from './assets/pricing.js';
 
-const ASSET_VERSION = '2026-11-03j';
+const ASSET_VERSION = '2026-11-03k';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -104,6 +104,7 @@ const SOURCE_LABELS = {
   'official-pricing': '官网价格页',
   'official-model-list': '官网模型页',
   'official-model-catalog': '模型广场',
+  'github-issue': 'GitHub Issue',
   'site-status': '站点状态页',
   'linux-do': 'Linux.do',
 };
