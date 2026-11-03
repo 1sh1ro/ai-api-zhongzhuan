@@ -270,6 +270,16 @@
       "officialCheckedAt": "2026-11-03"
     },
     {
+      "id": "domestic-model",
+      "vendor": "国产模型",
+      "family": "domestic",
+      "displayName": "国产模型（未指定）",
+      "official": null,
+      "officialNote": "国产模型是泛指，未指定具体型号，也没有对应官方价",
+      "officialSourceUrl": "https://github.com/1sh1ro/ai-api-zhongzhuan",
+      "officialCheckedAt": "2026-11-03"
+    },
+    {
       "id": "kimi-k3",
       "vendor": "月之暗面",
       "family": "kimi",

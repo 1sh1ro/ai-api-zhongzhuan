@@ -19,6 +19,7 @@ export const FAMILY_LABELS = {
   glm: 'GLM',
   kimi: 'Kimi',
   doubao: '豆包',
+  domestic: '国产模型',
   image: '生图',
 };
 
@@ -58,7 +59,7 @@ export function evaluateOffer(offer, model, config, stated = false) {
     groupKey: offer.groupKey,
     groupName: offer.groupName || offer.groupKey,
     modelId: offer.modelId,
-    modelDisplay: stated && model ? model.displayName : `${familyLabel} 系列`,
+    modelDisplay: stated && model ? model.displayName : `${familyLabel}系列`,
     modelBasis: stated ? 'stated' : 'assumed',
     pricingMode: offer.pricingMode,
     note: offer.note || '',
@@ -251,5 +252,9 @@ export function formatMultiplier(value) {
 export function formatDiscount(value) {
   if (value == null) return '—';
   const saved = (1 - value) * 100;
-  return saved > 0 ? `省 ${saved.toFixed(saved >= 10 ? 0 : 1)}%` : `贵 ${(-saved).toFixed(0)}%`;
+  if (saved > 0) {
+    const digits = saved >= 99 ? 2 : saved >= 10 ? 0 : 1;
+    return `省 ${saved.toFixed(digits)}%`;
+  }
+  return `贵 ${(-saved).toFixed(0)}%`;
 }

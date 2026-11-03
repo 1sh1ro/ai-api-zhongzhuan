@@ -89,6 +89,8 @@ assert(!node("#rank-body").innerHTML.includes("GPT-5.3 Codex"), "不应出现 gp
 assert(node("#rank-body").innerHTML.includes("apikey.fun/register?aff="), "有推广参数的站点应链到推广链接");
 assert(node("#rank-body").innerHTML.includes("apinebula.ai/A89Bk1"), "路径式推广链接应保留");
 assert(!node("#rank-body").innerHTML.includes("modelrush.ai/sign-up"), "没有推广参数的站点应回到官网首页");
+assert(!node("#rank-body").innerHTML.includes("0.0002x"), "国模羊毛不应再以折算后的 0.0002x 展示");
+assert(!node("#rank-body").innerHTML.includes("省 100%"), "折扣不应显示为省 100%");
 assert(node("#rank-body").innerHTML.includes("sep-row"), "应存在站内倍率与综合倍率的分隔行");
 assert(node("#model-grid").innerHTML.includes("GPT-6 Sol"), "模型对照应包含 GPT-6 Sol");
 assert(node("#site-grid").innerHTML.includes("AIZZZ"), "站点目录应包含 AIZZZ");
