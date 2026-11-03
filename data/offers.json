@@ -489,7 +489,7 @@
       "stationId": "aijws",
       "groupKey": "限时国模",
       "groupName": "限时国模",
-      "modelId": "domestic-model",
+      "modelId": "deepseek-v4.1-flash",
       "pricingMode": "ratio",
       "ratio": 0.001,
       "note": "限时国模 0.001x，部分分组受额度与稳定性影响",
@@ -554,16 +554,15 @@
       "verifiedAt": "2026-08-29"
     },
     {
-      "id": "horizon-api::guomo-wool::glm-5.3",
+      "id": "horizon-api::guomo-wool::deepseek-v4.1-flash",
       "stationId": "horizon-api",
       "groupKey": "国模羊毛",
       "groupName": "国模羊毛（限 GPT 订阅用户）",
-      "modelId": "domestic-model",
+      "modelId": "deepseek-v4.1-flash",
       "pricingMode": "ratio",
       "ratio": 0.001,
       "ratioFactor": 0.2,
-      "unverified": true,
-      "note": "README 原文只写「国模羊毛 0.001x」。国模是国产模型的统称，可能是 DeepSeek、Qwen、GLM、Kimi 中的任意一个，原文没有点名，因此不指定具体型号。0.0002x 是页面 0.001x 按充值比 1:5 换算得到，来源为用户截图，且截图标注限 GPT 订阅用户使用，不是任何人打开就能买到的公开价格，因此标为待核验、不参与排名。",
+      "note": "用户确认该分组跑 DeepSeek。README 原文只写「国模羊毛 0.001x」，0.0002x 是页面 0.001x 按充值比 1:5 换算得到；来源为用户截图，且截图标注限 GPT 订阅用户使用。",
       "sourceKind": "user-provided-screenshot",
       "sourceUrl": "https://api.honglin.asia/profile",
       "verifiedAt": "2026-08-29"

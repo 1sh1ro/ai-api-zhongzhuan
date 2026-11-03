@@ -89,7 +89,7 @@ assert(!node("#rank-body").innerHTML.includes("GPT-5.3 Codex"), "不应出现 gp
 assert(node("#rank-body").innerHTML.includes("apikey.fun/register?aff="), "有推广参数的站点应链到推广链接");
 assert(node("#rank-body").innerHTML.includes("apinebula.ai/A89Bk1"), "路径式推广链接应保留");
 assert(!node("#rank-body").innerHTML.includes("modelrush.ai/sign-up"), "没有推广参数的站点应回到官网首页");
-assert(!node("#rank-body").innerHTML.includes("0.0002x"), "国模羊毛不应再以折算后的 0.0002x 展示");
+assert(node("#rank-body").innerHTML.includes("0.0002x"), "国模羊毛应按 DeepSeek 计入 0.0002x");
 assert(!node("#rank-body").innerHTML.includes("省 100%"), "折扣不应显示为省 100%");
 assert(node("#rank-body").innerHTML.includes("sep-row"), "应存在站内倍率与综合倍率的分隔行");
 assert(node("#model-grid").innerHTML.includes("GPT-6 Sol"), "模型对照应包含 GPT-6 Sol");
@@ -109,7 +109,7 @@ const basisHandler = node("#basis-filter").listeners.change?.[0];
 basisHandler({ target: { value: "all" } });
 const allRows = node("#rank-body").innerHTML.match(/<tr/g)?.length || 0;
 assert(allRows === offers.length, `全部口径应展示 ${offers.length} 条，实际 ${allRows}`);
-assert(node("#rank-body").innerHTML.includes("国模是国产模型的统称"), "备注应写入国模羊毛的说明原文");
+assert(node("#rank-body").innerHTML.includes("用户确认该分组跑 DeepSeek"), "备注应写入国模羊毛归到 DeepSeek 的说明");
 
 basisHandler({ target: { value: "raw" } });
 const rawCount = node("#rank-body").innerHTML.match(/<tr/g)?.length || 0;

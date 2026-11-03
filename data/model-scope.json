@@ -22,6 +22,7 @@
     "yangwang::gpt-luna::gpt-6-luna",
     "yangwang::glm::glm-5.3",
     "yangwang::deepseek::deepseek-v4.1-flash",
-    "aike-api::doubao::doubao-pro"
+    "aike-api::doubao::doubao-pro",
+    "horizon-api::guomo-wool::deepseek-v4.1-flash"
   ]
 }
