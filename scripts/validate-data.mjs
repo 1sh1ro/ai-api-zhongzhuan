@@ -28,7 +28,7 @@ const allowedPricingModes = new Set([
   "per_request_cny",
   "free",
 ]);
-const allowedFamilies = new Set(["gpt", "codex", "claude", "grok", "gemini", "deepseek", "glm", "kimi", "image"]);
+const allowedFamilies = new Set(["gpt", "codex", "claude", "grok", "gemini", "deepseek", "glm", "kimi", "doubao", "image"]);
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 const isHttps = (value) => {
   try {
@@ -131,6 +131,9 @@ for (const [index, offer] of (offersData.offers ?? []).entries()) {
   if (!isHttps(offer.sourceUrl)) errors.push(`${label}: sourceUrl must be HTTPS`);
   if (!datePattern.test(offer.verifiedAt ?? "")) errors.push(`${label}: verifiedAt must use YYYY-MM-DD`);
   if (!offer.note) warnings.push(`${label}: 缺少原文口径说明 note`);
+  for (const flag of ["unverified", "unverifiedFactor"]) {
+    if (offer[flag] !== undefined && typeof offer[flag] !== "boolean") errors.push(`${label}: ${flag} must be a boolean`);
+  }
 
   const compositeKey = `${offer.stationId}::${offer.groupKey}::${offer.modelId}`;
   if (offerKeys.has(compositeKey)) errors.push(`${label}: duplicate station/group/model combination ${compositeKey}`);
@@ -179,6 +182,22 @@ const comparable = comparableRows(rows);
 const ranked = [...comparable].sort((a, b) => a.effectiveBlended - b.effectiveBlended);
 const stationsWithOffers = new Set(rows.map((row) => row.stationId));
 const uncovered = [...siteIds].filter((id) => !stationsWithOffers.has(id));
+
+// 备注里写了「约 Xx」的，与复算值比对；偏差超过 25% 说明原文口径与算式不一致。
+for (const row of rows) {
+  if (row.effectiveBlended == null || !row.note) continue;
+  const matches = [...row.note.matchAll(/约\s*([0-9]+(?:\.[0-9]+)?)\s*x/g)];
+  for (const match of matches) {
+    const declared = Number(match[1]);
+    if (!Number.isFinite(declared) || declared <= 0) continue;
+    const deviation = Math.abs(row.effectiveBlended - declared) / declared;
+    if (deviation > 0.25) {
+      warnings.push(
+        `${row.id}: 备注声明约 ${declared}x，复算 ${row.effectiveBlended}x，偏差 ${(deviation * 100).toFixed(0)}%`,
+      );
+    }
+  }
+}
 
 if (errors.length) {
   console.error(errors.map((error) => `- ${error}`).join("\n"));

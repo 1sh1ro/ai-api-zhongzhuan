@@ -140,6 +140,17 @@ export function evaluateOffer(offer, model, config) {
     row.basisLabel = `${row.basisLabel}（待核验）`;
   }
 
+  // 站点只给出分组倍率、同类分组折算系数也未披露时，按 0.14 之类的系数外推不可靠，只展示原值。
+  if (offer.unverifiedFactor) {
+    row.comparable = false;
+    row.effectiveInput = null;
+    row.effectiveOutput = null;
+    row.effectiveBlended = null;
+    row.inputCny = null;
+    row.outputCny = null;
+    row.basisLabel = `${BASIS_LABELS.raw_ratio}（充值系数未披露）`;
+  }
+
   row.inputCny = round(row.inputCny, 4);
   row.outputCny = round(row.outputCny, 4);
   row.cacheReadCny = round(row.cacheReadCny, 4);

@@ -17,6 +17,7 @@ const FAMILY_LABELS = {
   deepseek: 'DeepSeek',
   glm: 'GLM',
   kimi: 'Kimi',
+  doubao: '豆包',
   image: '生图',
 };
 
@@ -196,7 +197,7 @@ const HEAD_OFFER = `
     <th class="col-rank">#</th>
     <th>站点</th>
     <th>分组</th>
-    <th>模型</th>
+    <th>代表模型</th>
     <th class="col-num">综合倍率</th>
     <th class="col-num">输入 ¥/M</th>
     <th class="col-num">输出 ¥/M</th>

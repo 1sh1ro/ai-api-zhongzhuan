@@ -182,7 +182,8 @@
       "displayName": "Gemini 4 Argon",
       "official": { "currency": "USD", "inputPer1M": 2, "outputPer1M": 10, "cacheReadPer1M": 0.1 },
       "officialSourceUrl": "https://aistudio.google.com/docs/pricing",
-      "officialCheckedAt": "2026-11-03"
+      "officialCheckedAt": "2026-11-03",
+      "officialNote": "促销价，2026-12-01 起变为 $4 / $20"
     },
     {
       "id": "gemini-4-barium",
@@ -265,6 +266,16 @@
       "displayName": "GLM-5.3-Flash",
       "official": { "currency": "CNY", "inputPer1M": 0.8, "outputPer1M": 2.8, "cacheReadPer1M": 0.23 },
       "officialSourceUrl": "https://docs.bigmodel.cn/cn/guide/start/pricing",
+      "officialCheckedAt": "2026-11-03"
+    },
+    {
+      "id": "doubao-pro",
+      "vendor": "字节跳动",
+      "family": "doubao",
+      "displayName": "豆包 Pro",
+      "official": null,
+      "officialNote": "官方价未采集，暂不参与倍率排名",
+      "officialSourceUrl": "https://www.volcengine.com/product/doubao",
       "officialCheckedAt": "2026-11-03"
     },
     {
