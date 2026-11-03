@@ -674,13 +674,13 @@
       "note": "分组倍率 0.09x，参考价美元官方价，充值 ¥1=$1，按 6.70 折算约 0.013x",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
     {
       "id": "znbcode::gpt-stable::gpt-6-sol",
       "stationId": "znbcode",
-      "groupKey": "znb-gpt-稳定",
-      "groupName": "znb-gpt-稳定",
+      "groupKey": "znb-gpt-plus-不降智",
+      "groupName": "znb-gpt-plus-不降智",
       "modelId": "gpt-6-sol",
       "pricingMode": "ratio",
       "ratio": 0.2,
@@ -688,13 +688,13 @@
       "note": "分组倍率 0.2x，折算约 0.030x",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
     {
       "id": "znbcode::gpt-nojz::gpt-6-sol",
       "stationId": "znbcode",
-      "groupKey": "znb-gpt-不降智",
-      "groupName": "znb-gpt-不降智",
+      "groupKey": "znb-gpt-pro-不降智",
+      "groupName": "znb-gpt-pro-不降智",
       "modelId": "gpt-6-sol",
       "pricingMode": "ratio",
       "ratio": 0.3,
@@ -702,7 +702,7 @@
       "note": "分组倍率 0.3x，折算约 0.045x",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
     {
       "id": "znbcode::gpt-officialkey::gpt-6-sol",
@@ -716,35 +716,21 @@
       "note": "分组倍率 0.5x，折算约 0.075x",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
     {
-      "id": "znbcode::cc-tehui::claude-sonnet-5-5",
+      "id": "znbcode::cc-kiro::claude-sonnet-5-5",
       "stationId": "znbcode",
-      "groupKey": "znb-cc-特惠",
-      "groupName": "znb-cc-特惠",
+      "groupKey": "znb-cc-kiro",
+      "groupName": "znb-cc-kiro",
       "modelId": "claude-sonnet-5-5",
       "pricingMode": "ratio",
-      "ratio": 0.3,
+      "ratio": 0.4,
       "ratioFactor": 0.1492537,
-      "note": "分组倍率 0.3x，折算约 0.045x",
+      "note": "分组倍率 0.4x，折算约 0.060x",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
-    },
-    {
-      "id": "znbcode::cc-stable::claude-sonnet-5-5",
-      "stationId": "znbcode",
-      "groupKey": "znb-cc-稳定",
-      "groupName": "znb-cc-稳定",
-      "modelId": "claude-sonnet-5-5",
-      "pricingMode": "ratio",
-      "ratio": 0.8,
-      "ratioFactor": 0.1492537,
-      "note": "分组倍率 0.8x，折算约 0.12x",
-      "sourceKind": "public-pricing-api",
-      "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
     {
       "id": "znbcode::cc-max::claude-opus-5",
@@ -753,12 +739,12 @@
       "groupName": "znb-cc-max-满血",
       "modelId": "claude-opus-5",
       "pricingMode": "ratio",
-      "ratio": 1.5,
+      "ratio": 1.3,
       "ratioFactor": 0.1492537,
-      "note": "分组倍率 1.5x，折算约 0.22x",
+      "note": "分组倍率 1.3x，折算约 0.19x",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
     {
       "id": "znbcode::grok::grok-4.6",
@@ -767,12 +753,12 @@
       "groupName": "znb-grok-heavy",
       "modelId": "grok-4.6",
       "pricingMode": "ratio",
-      "ratio": 0.15,
+      "ratio": 0.2,
       "ratioFactor": 0.1492537,
-      "note": "分组倍率 0.15x，折算约 0.022x",
+      "note": "分组倍率 0.2x，折算约 0.030x",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
     {
       "id": "znbcode::gemini::gemini-3.8-flash",
@@ -786,7 +772,7 @@
       "note": "分组倍率 0.4x，折算约 0.060x",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
     {
       "id": "znbcode::deepseek::deepseek-v4.1-flash",
@@ -800,7 +786,7 @@
       "note": "分组倍率 0.3x，参考价为人民币官方价，不再折算",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
     {
       "id": "znbcode::glm::glm-5.3",
@@ -814,7 +800,7 @@
       "note": "分组倍率 0.3x，参考价为人民币官方价，不再折算",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
     {
       "id": "znbcode::image-1k::gpt-image-2",
@@ -827,7 +813,7 @@
       "note": "只出 1K 图，¥0.06/张",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
     {
       "id": "znbcode::image-native::gpt-image-2",
@@ -840,7 +826,7 @@
       "note": "支持更高分辨率，¥0.12/张",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
 
     {
@@ -1508,12 +1494,12 @@
       "groupName": "znb-cc-max-正价20",
       "modelId": "claude-opus-5",
       "pricingMode": "ratio",
-      "ratio": 2,
+      "ratio": 1.8,
       "ratioFactor": 0.1492537,
-      "note": "分组倍率 2x，折算约 0.30x",
+      "note": "分组倍率 1.8x，折算约 0.27x",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://znbcode.com/api/v1/model-plaza",
-      "verifiedAt": "2026-10-26"
+      "verifiedAt": "2026-11-03"
     },
 
     {
