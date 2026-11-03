@@ -77,7 +77,7 @@
 ## 本次修正清单
 
 1. 艾可 API 的「豆包分组」原记录挂在 GLM-5.3，模型归属错误，改为豆包 Pro；豆包官方价未采集，因此不参与倍率排名。
-2. APIKEY.FUN 的分组倍率折算系数由 0.14 改为 0.142，与 README 的 0.11x / 0.29x / 0.31x / 0.71x 对齐。
+2. APIKEY.FUN 的分组倍率折算系数由 0.14 改为 0.142，结果与 README 的 0.11x / 0.29x / 0.31x / 0.71x 相符。
 3. APIKEY.FUN 的智谱 0.5x、DeepSeek 0.75x / 0.9x 在 README 里没有给出折算后倍率，原先套用 0.142 属于外推，改为只显示原值、不参与排名。
 4. DayWay 的 0.23x 与它自己公布的单价比价结果 0.045x 冲突，采用可复算的单价口径，并把冲突写进备注。
 5. 补齐 26 条此前漏录的报价：API Nebula 站内分组 10 条、znbcode Claude 2x、AIZZZ 8 条、合租巴士 2 条、4Router gift、LinkAGI Plus / Pro、FastAI 备用、Zerouter gpt-5.6-terra。
