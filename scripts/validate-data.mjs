@@ -10,6 +10,7 @@ const sitesData = readJSON("data/sites.json");
 const modelsData = readJSON("data/models.json");
 const offersData = readJSON("data/offers.json");
 const configData = readJSON("data/pricing-config.json");
+const scopeData = readJSON("data/model-scope.json");
 
 const allowedStatuses = new Set([
   "registration-page-reachable",
@@ -168,13 +169,24 @@ for (const [index, offer] of (offersData.offers ?? []).entries()) {
 /* ---------------- 归一化结果 ---------------- */
 if (typeof configData.fxCnyPerUsd !== "number" || configData.fxCnyPerUsd <= 0) errors.push("pricing-config.json: fxCnyPerUsd invalid");
 
-const rows = buildRows(offersData.offers ?? [], modelsData.models ?? [], configData);
+const statedIds = new Set(scopeData.statedOfferIds ?? []);
+if (statedIds.size !== (scopeData.statedOfferIds ?? []).length) errors.push("model-scope.json: statedOfferIds 存在重复");
+for (const id of statedIds) {
+  if (!offerIds.has(id)) errors.push(`model-scope.json: 未知报价 id ${id}`);
+}
+
+const rows = buildRows(offersData.offers ?? [], modelsData.models ?? [], configData, statedIds);
 for (const row of rows) {
+  if (row.modelBasis === "assumed" && row.inputCny != null) {
+    errors.push(`${row.id}: 未指定型号的报价不应带每百万 Token 单价`);
+  }
   if (row.comparable) {
     if (!Number.isFinite(row.effectiveBlended) || row.effectiveBlended <= 0) {
       errors.push(`${row.id}: comparable row has invalid blended multiplier`);
     }
-    if (!Number.isFinite(row.inputCny) || row.inputCny <= 0) errors.push(`${row.id}: comparable row has invalid inputCny`);
+    if (row.modelBasis === "stated" && (!Number.isFinite(row.inputCny) || row.inputCny <= 0)) {
+      errors.push(`${row.id}: comparable row has invalid inputCny`);
+    }
   }
 }
 
@@ -215,7 +227,7 @@ console.log("综合倍率最低的 10 条报价：");
 for (const [index, row] of ranked.slice(0, 10).entries()) {
   const official = row.official ? `官方 ¥${row.official.input.toFixed(2)}/¥${row.official.output.toFixed(2)}` : "官方基准缺失";
   console.log(
-    `  ${String(index + 1).padStart(2, "0")}. ${formatMultiplier(row.effectiveBlended)}  ${row.stationId} · ${row.groupName} · ${row.modelId}  (${row.basisLabel}, ${official})`,
+    `  ${String(index + 1).padStart(2, "0")}. ${formatMultiplier(row.effectiveBlended)}  ${row.stationId} · ${row.groupName} · ${row.modelDisplay}  (${row.basisLabel}, ${official})`,
   );
 }
 console.log("\n校验通过。");

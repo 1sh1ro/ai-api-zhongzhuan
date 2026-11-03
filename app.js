@@ -206,8 +206,12 @@ const HEAD_OFFER = `
     <th>核验</th>
   </tr>`;
 
-function ratioCell(row) {
-  if (row.comparable) {
+function modelCell(row) {
+  const tag = row.modelBasis === 'stated' ? '' : '<span class="mini-tag">未指定</span>';
+  return `<span class="model-name">${escapeHTML(row.modelDisplay)}</span>${tag}`;
+}
+
+function ratioCell(row) {  if (row.comparable) {
     return `<strong class="ratio ${row.effectiveBlended < 1 ? 'is-low' : ''}">${formatMultiplier(row.effectiveBlended)}</strong>`;
   }
   if (row.declaredRatio != null) {
@@ -255,7 +259,7 @@ function renderStationView() {
           <span class="station-host">${escapeHTML(((site && site.homepage) || '').replace(/^https?:\/\//, '').replace(/\/$/, ''))}</span>
         </td>
         <td class="group-cell">${escapeHTML(row.groupName)}</td>
-        <td>${escapeHTML(modelName(row.modelId))}</td>
+        <td>${modelCell(row)}</td>
         <td class="col-num">${ratioCell(row)}</td>
         <td class="col-num">${formatCny(row.inputCny)}</td>
         <td class="col-num">${formatCny(row.outputCny)}</td>
@@ -297,7 +301,7 @@ function renderOfferView() {
         <td class="col-rank">${rankCell}</td>
         <td><a class="station-name" href="${escapeHTML(siteLink(row.stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(siteName(row.stationId))}</a></td>
         <td class="group-cell">${escapeHTML(row.groupName)}</td>
-        <td>${escapeHTML(modelName(row.modelId))}</td>
+        <td>${modelCell(row)}</td>
         <td class="col-num">${ratioCell(row)}</td>
         <td class="col-num">${formatCny(row.inputCny)}</td>
         <td class="col-num">${formatCny(row.outputCny)}</td>
@@ -319,7 +323,7 @@ function renderRanking() {
 }
 
 function renderModels() {
-  const best = modelBest(state.rows);
+  const best = modelBest(state.rows.filter((row) => row.modelBasis === 'stated'));
   el.modelGrid.innerHTML = state.models
     .filter((model) => model.official)
     .map((model) => {
@@ -458,17 +462,18 @@ async function loadJSON(path) {
 
 async function init() {
   try {
-    const [sitesPayload, modelsPayload, offersPayload, configPayload] = await Promise.all([
+    const [sitesPayload, modelsPayload, offersPayload, configPayload, scopePayload] = await Promise.all([
       loadJSON('data/sites.json'),
       loadJSON('data/models.json'),
       loadJSON('data/offers.json'),
       loadJSON('data/pricing-config.json'),
+      loadJSON('data/model-scope.json'),
     ]);
     state.sites = sitesPayload.sites || [];
     state.models = modelsPayload.models || [];
     state.offers = offersPayload.offers || [];
     state.config = configPayload;
-    state.rows = buildRows(state.offers, state.models, state.config);
+    state.rows = buildRows(state.offers, state.models, state.config, new Set(scopePayload.statedOfferIds || []));
     renderHero();
     bindEvents();
     renderAll();

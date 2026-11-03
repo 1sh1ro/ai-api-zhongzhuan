@@ -10,6 +10,19 @@ export const BASIS_LABELS = {
   unknown: '口径待确认',
 };
 
+export const FAMILY_LABELS = {
+  gpt: 'GPT',
+  codex: 'Codex',
+  claude: 'Claude',
+  grok: 'Grok',
+  gemini: 'Gemini',
+  deepseek: 'DeepSeek',
+  glm: 'GLM',
+  kimi: 'Kimi',
+  doubao: '豆包',
+  image: '生图',
+};
+
 export function round(value, digits = 4) {
   if (value === null || value === undefined || Number.isNaN(value)) return null;
   const factor = 10 ** digits;
@@ -35,9 +48,10 @@ function ratioOf(cny, official) {
   return cny / official;
 }
 
-export function evaluateOffer(offer, model, config) {
+export function evaluateOffer(offer, model, config, stated = false) {
   const fx = config.fxCnyPerUsd;
   const official = officialCny(model, fx);
+  const familyLabel = model ? FAMILY_LABELS[model.family] || model.family : '模型';
 
   const row = {
     id: offer.id,
@@ -45,6 +59,8 @@ export function evaluateOffer(offer, model, config) {
     groupKey: offer.groupKey,
     groupName: offer.groupName || offer.groupKey,
     modelId: offer.modelId,
+    modelDisplay: stated && model ? model.displayName : `${familyLabel} 系列（未指定型号）`,
+    modelBasis: stated ? 'stated' : 'assumed',
     pricingMode: offer.pricingMode,
     note: offer.note || '',
     sourceKind: offer.sourceKind,
@@ -151,6 +167,13 @@ export function evaluateOffer(offer, model, config) {
     row.basisLabel = `${BASIS_LABELS.raw_ratio}（充值系数未披露）`;
   }
 
+  // 分组只写到系列时，不套用任何具体型号的官方价，只保留倍率。
+  if (!stated) {
+    row.inputCny = null;
+    row.outputCny = null;
+    row.cacheReadCny = null;
+  }
+
   row.inputCny = round(row.inputCny, 4);
   row.outputCny = round(row.outputCny, 4);
   row.cacheReadCny = round(row.cacheReadCny, 4);
@@ -161,9 +184,16 @@ export function evaluateOffer(offer, model, config) {
   return row;
 }
 
-export function buildRows(offers, models, config) {
+export function buildRows(offers, models, config, statedIds = new Set()) {
   const modelById = new Map(models.map((model) => [model.id, model]));
-  return offers.map((offer) => evaluateOffer(offer, modelById.get(offer.modelId) || null, config));
+  return offers.map((offer) => {
+    const modelSpecific =
+      statedIds.has(offer.id) ||
+      offer.pricingMode === "absolute_cny" ||
+      offer.pricingMode === "absolute_usd" ||
+      offer.pricingMode === "per_request_cny";
+    return evaluateOffer(offer, modelById.get(offer.modelId) || null, config, modelSpecific);
+  });
 }
 
 // 只让口径统一的报价参与数值排行，其余报价保留展示但不参与名次。

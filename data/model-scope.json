@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "note": "README 明确点名型号的报价。其余分组只写到系列（如「Codex 福利」「Claude Max」），页面上显示为「未指定型号」，不套用任何具体型号的官方价。",
+  "statedOfferIds": [
+    "api-nebula::claude-opus-4-8",
+    "api-nebula::claude-opus-5",
+    "api-nebula::claude-opus-5-5",
+    "api-nebula::claude-sonnet-5",
+    "api-nebula::claude-sonnet-5-5",
+    "api-nebula::claude-sonnet-4-6",
+    "api-nebula::claude-fable-5",
+    "api-nebula::claude-fable-5-1",
+    "zerouter::gpt-6.1-sol::gpt-6.1-sol",
+    "zerouter::claude-sonnet-5-5::claude-sonnet-5-5",
+    "zerouter::claude-opus-5::claude-opus-5",
+    "zerouter::kimi::kimi-k3",
+    "zerouter::gpt-5.6-terra::gpt-5.6-terra",
+    "znbcode::deepseek::deepseek-v4.1-flash",
+    "znbcode::glm::glm-5.3",
+    "znbcode::gemini::gemini-3.8-flash",
+    "znbcode::grok::grok-4.6",
+    "yangwang::gpt-luna::gpt-6-luna",
+    "yangwang::glm::glm-5.3",
+    "yangwang::deepseek::deepseek-v4.1-flash",
+    "aike-api::doubao::doubao-pro"
+  ]
+}

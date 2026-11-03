@@ -267,6 +267,17 @@ th.col-num { text-align: right; }
 .station-name:hover { color: var(--brand-dark); }
 .station-host { display: block; font-family: var(--mono); font-size: 11px; color: var(--dim); }
 .group-cell { color: var(--muted); font-size: 13px; }
+.model-name { color: var(--ink); }
+.mini-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 6px;
+  border-radius: 5px;
+  background: #f1f2ee;
+  color: var(--dim);
+  font-size: 10.5px;
+  vertical-align: 1px;
+}
 .ratio { font-size: 15px; font-weight: 700; }
 .ratio.is-low { color: var(--brand-dark); }
 .ratio-muted { color: var(--muted); font-family: var(--mono); }
