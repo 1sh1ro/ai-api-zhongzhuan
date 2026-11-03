@@ -29,7 +29,7 @@ const allowedPricingModes = new Set([
   "per_request_cny",
   "free",
 ]);
-const allowedFamilies = new Set(["gpt", "codex", "claude", "grok", "gemini", "deepseek", "glm", "kimi", "doubao", "image"]);
+const allowedFamilies = new Set(["gpt", "claude", "grok", "gemini", "deepseek", "glm", "kimi", "doubao", "image"]);
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 const isHttps = (value) => {
   try {

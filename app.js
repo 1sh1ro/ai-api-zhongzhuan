@@ -10,7 +10,6 @@ import {
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
-  codex: 'Codex',
   claude: 'Claude',
   grok: 'Grok',
   gemini: 'Gemini',
@@ -161,7 +160,7 @@ function renderHero() {
 }
 
 function renderFamilyChips() {
-  const families = ['all', 'gpt', 'codex', 'claude', 'grok', 'gemini', 'deepseek', 'glm', 'kimi'];
+  const families = ['all', 'gpt', 'claude', 'grok', 'gemini', 'deepseek', 'glm', 'kimi'];
   const counts = new Map();
   for (const row of state.rows) {
     if (!row.comparable) continue;
@@ -352,7 +351,7 @@ function renderModels() {
 function renderTagChips() {
   const counts = new Map();
   for (const site of state.sites) for (const tag of site.tags || []) counts.set(tag, (counts.get(tag) || 0) + 1);
-  const order = ['all', 'gpt', 'claude', 'codex', 'grok', 'gemini', 'deepseek', 'kimi', 'domestic-model', 'public-benefit', 'low-multiplier', 'low-price', 'free-api', 'api-gateway'];
+  const order = ['all', 'gpt', 'claude', 'grok', 'gemini', 'deepseek', 'kimi', 'domestic-model', 'public-benefit', 'low-multiplier', 'low-price', 'free-api', 'api-gateway'];
   el.tagChips.innerHTML = order
     .filter((tag) => tag === 'all' || counts.has(tag))
     .map((tag) => {

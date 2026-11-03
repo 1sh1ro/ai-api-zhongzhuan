@@ -85,15 +85,6 @@
       "officialCheckedAt": "2026-11-03"
     },
     {
-      "id": "gpt-5.3-codex",
-      "vendor": "OpenAI",
-      "family": "codex",
-      "displayName": "GPT-5.3 Codex",
-      "official": { "currency": "USD", "inputPer1M": 1.75, "outputPer1M": 14, "cacheReadPer1M": 0.175 },
-      "officialSourceUrl": "https://developers.openai.com/api/docs/pricing",
-      "officialCheckedAt": "2026-11-03"
-    },
-    {
       "id": "gpt-image-2",
       "vendor": "OpenAI",
       "family": "image",

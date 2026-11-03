@@ -84,8 +84,8 @@ assert(node("#rank-body").innerHTML.includes("znbcode"), "站点总榜应包含 
 assert(node("#rank-body").innerHTML.includes("API Nebula"), "站点总榜应包含 API Nebula");
 assert(node("#rank-body").innerHTML.includes("is-low"), "低价倍率应附带高亮样式");
 assert(node("#rank-body").innerHTML.includes("未指定"), "只写到系列的分组应显示「未指定型号」");
-assert(node("#rank-body").innerHTML.includes("Codex 系列（未指定型号）"), "Codex 分组不应挂具体型号");
-assert(!node("#rank-body").innerHTML.includes("GPT-5.3 Codex"), "不应把 Codex 分组挂到 gpt-5.3-codex");
+assert(!node("#rank-body").innerHTML.includes("Codex"), "页面不应再出现 Codex 系列");
+assert(!node("#rank-body").innerHTML.includes("GPT-5.3 Codex"), "不应出现 gpt-5.3-codex");
 assert(node("#rank-body").innerHTML.includes("sep-row"), "应存在站内倍率与综合倍率的分隔行");
 assert(node("#model-grid").innerHTML.includes("GPT-6 Sol"), "模型对照应包含 GPT-6 Sol");
 assert(node("#site-grid").innerHTML.includes("AIZZZ"), "站点目录应包含 AIZZZ");

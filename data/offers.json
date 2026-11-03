@@ -264,34 +264,6 @@
     },
 
     {
-      "id": "apikey-fun::codex-pro-cc::gpt-5.3-codex",
-      "stationId": "apikey-fun",
-      "groupKey": "Codex Pro（仅限Codex）",
-      "groupName": "Codex Pro（仅限Codex）",
-      "modelId": "gpt-5.3-codex",
-      "pricingMode": "ratio",
-      "ratio": 0.5,
-      "ratioFactor": 0.142,
-      "note": "页面 0.5x，按站点充值系数折算约 0.7 折（约 0.07x）",
-      "sourceKind": "public-pricing-api",
-      "sourceUrl": "https://apikey.fun/api/v1/pricing/groups",
-      "verifiedAt": "2026-09-03"
-    },
-    {
-      "id": "apikey-fun::codex-pro-ext::gpt-5.3-codex",
-      "stationId": "apikey-fun",
-      "groupKey": "Codex Pro（外接版）",
-      "groupName": "Codex Pro（外接版）",
-      "modelId": "gpt-5.3-codex",
-      "pricingMode": "ratio",
-      "ratio": 0.6,
-      "ratioFactor": 0.142,
-      "note": "页面 0.6x，约 0.9 折（约 0.09x）",
-      "sourceKind": "public-pricing-api",
-      "sourceUrl": "https://apikey.fun/api/v1/pricing/groups",
-      "verifiedAt": "2026-09-03"
-    },
-    {
       "id": "apikey-fun::claude-plus::claude-sonnet-5-5",
       "stationId": "apikey-fun",
       "groupKey": "Claude Plus（精品）",
@@ -434,19 +406,6 @@
       "verifiedAt": "2026-08-29"
     },
     {
-      "id": "aizzz::codex-welfare::gpt-5.3-codex",
-      "stationId": "aizzz",
-      "groupKey": "Codex 福利",
-      "groupName": "Codex 福利",
-      "modelId": "gpt-5.3-codex",
-      "pricingMode": "ratio",
-      "ratio": 0.06,
-      "note": "站内分组倍率 0.06x，充值口径未披露",
-      "sourceKind": "local-verified",
-      "sourceUrl": "https://api.aizzz.xyz/pricing",
-      "verifiedAt": "2026-08-29"
-    },
-    {
       "id": "aizzz::gpt-pro::gpt-6-sol",
       "stationId": "aizzz",
       "groupKey": "GPT PRO 号池",
@@ -534,19 +493,6 @@
       "pricingMode": "ratio",
       "ratio": 0.001,
       "note": "限时国模 0.001x，部分分组受额度与稳定性影响",
-      "sourceKind": "local-verified",
-      "sourceUrl": "https://api.aijws.com/keys",
-      "verifiedAt": "2026-08-27"
-    },
-    {
-      "id": "aijws::codex::gpt-5.3-codex",
-      "stationId": "aijws",
-      "groupKey": "Codex 福利",
-      "groupName": "Codex 福利",
-      "modelId": "gpt-5.3-codex",
-      "pricingMode": "ratio",
-      "ratio": 0.08,
-      "note": "Codex 福利 0.08x",
       "sourceKind": "local-verified",
       "sourceUrl": "https://api.aijws.com/keys",
       "verifiedAt": "2026-08-27"
@@ -715,32 +661,6 @@
       "verifiedAt": "2026-08-27"
     },
 
-    {
-      "id": "token-x::codex-base::gpt-5.3-codex",
-      "stationId": "token-x",
-      "groupKey": "CodeX-Pro 基础倍率",
-      "groupName": "CodeX-Pro 基础倍率",
-      "modelId": "gpt-5.3-codex",
-      "pricingMode": "ratio",
-      "ratio": 0.045,
-      "note": "订阅基础倍率 0.045x",
-      "sourceKind": "user-submitted",
-      "sourceUrl": "https://token-x.com/",
-      "verifiedAt": "2026-08-31"
-    },
-    {
-      "id": "token-x::codex-monthly::gpt-5.3-codex",
-      "stationId": "token-x",
-      "groupKey": "CodeX-Pro 月卡叠加最低",
-      "groupName": "CodeX-Pro 月卡叠加最低",
-      "modelId": "gpt-5.3-codex",
-      "pricingMode": "ratio",
-      "ratio": 0.0225,
-      "note": "月卡叠加 5—6.6 折后最低 0.0225x",
-      "sourceKind": "user-submitted",
-      "sourceUrl": "https://token-x.com/",
-      "verifiedAt": "2026-08-31"
-    },
 
     {
       "id": "znbcode::gpt-tehui::gpt-6-sol",
@@ -990,32 +910,6 @@
     },
 
     {
-      "id": "hezu-bus::codex-subsidy::gpt-5.3-codex",
-      "stationId": "hezu-bus",
-      "groupKey": "Codex 补贴",
-      "groupName": "Codex 补贴",
-      "modelId": "gpt-5.3-codex",
-      "pricingMode": "ratio",
-      "ratio": 0.08,
-      "note": "Codex 补贴 0.08x",
-      "sourceKind": "user-submitted",
-      "sourceUrl": "https://hezu.ink/register",
-      "verifiedAt": "2026-08-29"
-    },
-    {
-      "id": "hezu-bus::codex-pro::gpt-5.3-codex",
-      "stationId": "hezu-bus",
-      "groupKey": "Codex Pro",
-      "groupName": "Codex Pro",
-      "modelId": "gpt-5.3-codex",
-      "pricingMode": "ratio",
-      "ratio": 0.25,
-      "note": "Codex Pro 0.25x",
-      "sourceKind": "user-submitted",
-      "sourceUrl": "https://hezu.ink/register",
-      "verifiedAt": "2026-08-29"
-    },
-    {
       "id": "hezu-bus::krio::claude-opus-5",
       "stationId": "hezu-bus",
       "groupKey": "claudecode-krio逆向",
@@ -1184,19 +1078,6 @@
       "inputCnyPer1M": 0.36,
       "outputCnyPer1M": 1.8,
       "note": "gpt-6.1-sol / Plus 标准短上下文（≤272K）输入 ¥0.36、输出 ¥1.80 / 1M",
-      "sourceKind": "public-pricing-api",
-      "sourceUrl": "https://api.linktoagi.com/api/pricing",
-      "verifiedAt": "2026-10-17"
-    },
-    {
-      "id": "linkagi::codex-sale::gpt-5.3-codex",
-      "stationId": "linkagi",
-      "groupKey": "Codex Sale",
-      "groupName": "Codex Sale",
-      "modelId": "gpt-5.3-codex",
-      "pricingMode": "ratio",
-      "ratio": 0.15,
-      "note": "Codex Sale 0.15x（站内分组倍率）",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://api.linktoagi.com/api/pricing",
       "verifiedAt": "2026-10-17"
@@ -1503,19 +1384,6 @@
     },
 
     {
-      "id": "api-nebula::codex-group::gpt-5.3-codex",
-      "stationId": "api-nebula",
-      "groupKey": "CODEX 分组",
-      "groupName": "CODEX 分组",
-      "modelId": "gpt-5.3-codex",
-      "pricingMode": "ratio",
-      "ratio": 0.39,
-      "note": "站内 CODEX 分组 0.39x（README 标注为站内口径，未折算）",
-      "sourceKind": "user-submitted-pricing",
-      "sourceUrl": "https://apinebula.ai/A89Bk1",
-      "verifiedAt": "2026-10-17"
-    },
-    {
       "id": "api-nebula::cc-05::claude-opus-5",
       "stationId": "api-nebula",
       "groupKey": "CC 分组 0.5x",
@@ -1794,32 +1662,6 @@
       "verifiedAt": "2026-08-27"
     },
 
-    {
-      "id": "linkagi::codex-plus::gpt-5.3-codex",
-      "stationId": "linkagi",
-      "groupKey": "Codex Plus",
-      "groupName": "Codex Plus",
-      "modelId": "gpt-5.3-codex",
-      "pricingMode": "ratio",
-      "ratio": 0.18,
-      "note": "Codex Plus 0.18x（站内分组倍率）",
-      "sourceKind": "public-pricing-api",
-      "sourceUrl": "https://api.linktoagi.com/api/pricing",
-      "verifiedAt": "2026-10-17"
-    },
-    {
-      "id": "linkagi::codex-pro::gpt-5.3-codex",
-      "stationId": "linkagi",
-      "groupKey": "Codex Pro",
-      "groupName": "Codex Pro",
-      "modelId": "gpt-5.3-codex",
-      "pricingMode": "ratio",
-      "ratio": 0.25,
-      "note": "Codex Pro 0.25x（站内分组倍率）",
-      "sourceKind": "public-pricing-api",
-      "sourceUrl": "https://api.linktoagi.com/api/pricing",
-      "verifiedAt": "2026-10-17"
-    },
 
     {
       "id": "fastai-token::openai-backup::gpt-6-sol",

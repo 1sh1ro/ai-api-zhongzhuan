@@ -12,7 +12,6 @@ export const BASIS_LABELS = {
 
 export const FAMILY_LABELS = {
   gpt: 'GPT',
-  codex: 'Codex',
   claude: 'Claude',
   grok: 'Grok',
   gemini: 'Gemini',
