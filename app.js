@@ -206,7 +206,7 @@ const HEAD_OFFER = `
   </tr>`;
 
 function modelCell(row) {
-  const tag = row.modelBasis === 'stated' ? '' : '<span class="mini-tag">未指定</span>';
+  const tag = row.modelBasis === 'stated' ? '' : '<span class="mini-tag">未指定型号</span>';
   return `<span class="model-name">${escapeHTML(row.modelDisplay)}</span>${tag}`;
 }
 

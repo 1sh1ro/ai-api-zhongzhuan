@@ -58,7 +58,7 @@ export function evaluateOffer(offer, model, config, stated = false) {
     groupKey: offer.groupKey,
     groupName: offer.groupName || offer.groupKey,
     modelId: offer.modelId,
-    modelDisplay: stated && model ? model.displayName : `${familyLabel} 系列（未指定型号）`,
+    modelDisplay: stated && model ? model.displayName : `${familyLabel} 系列`,
     modelBasis: stated ? 'stated' : 'assumed',
     pricingMode: offer.pricingMode,
     note: offer.note || '',
