@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-03",
+  "fxCnyPerUsd": 6.7,
+  "fxSource": "沿用仓库 README 现有折算口径（USD→CNY 1:6.70）",
+  "mixAssumption": "input_output_3_1",
+  "mixAssumptionLabel": "综合倍率按输入:输出 = 3:1 加权",
+  "rankingPolicyVersion": "comparable-effective-asc.v1"
+}

@@ -1,12 +1,14 @@
-# AI API 公益站与 Token 中转站导航
+# AI API 比价雷达与中转站导航
 
-Chinese directory of public-benefit and low-cost AI API relay services.
+Chinese price radar and directory for AI API relay services, with multipliers normalized against official vendor pricing.
 
-Keywords: AI API 公益站, Token 中转站, API 中转站, 免费 API, 低价 API, OpenAI API, GPT API, Claude API, Codex API, Grok API, Gemini API, DeepSeek API, New API, One API, CC Switch.
+Keywords: AI API 比价, 中转站价格榜, API 中转站, 综合倍率, 充值系数, 分组倍率, 官方 API 价格, 免费 API, 低价 API, OpenAI API, GPT API, Claude API, Codex API, Grok API, Gemini API, DeepSeek API, GLM API, Kimi API, New API, One API, CC Switch.
 
-Primary human-readable directory: README.md
-Structured site data: data/sites.json
+Human-readable site: index.html
+Official baseline prices: data/models.json
+Station price quotes: data/offers.json
+Normalization settings: data/pricing-config.json
+Site directory data: data/sites.json
 Contribution and verification policy: CONTRIBUTING.md
 
-Status notes are time-sensitive. A reachable registration page does not guarantee successful registration, current model availability, free quota, price, reliability, or data security. Never publish API keys, cookies, account credentials, session tokens, or private URLs in this repository.
-
+Multipliers are normalized as station price divided by the official vendor price, both in CNY per million tokens. Quotes whose top-up basis is not disclosed are shown with their raw station ratio and are excluded from the ranked list. Status and price notes are time-sensitive. A reachable registration page does not guarantee successful registration, current model availability, free quota, price, reliability, or data security. Never publish API keys, cookies, account credentials, session tokens, or private URLs in this repository.

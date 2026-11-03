@@ -1,0 +1,10 @@
+{
+  "name": "ai-api-zhongzhuan",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "AI API 中转站比价雷达：以官方价为基准比较中转站的综合倍率",
+  "scripts": {
+    "validate": "node scripts/validate-data.mjs"
+  }
+}

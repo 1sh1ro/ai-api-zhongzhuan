@@ -3,131 +3,162 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#10120f" />
+    <meta name="theme-color" content="#f6f7f5" />
     <meta
       name="description"
-      content="AI API 公益站与 Token 中转站公开导航，收录 GPT、Claude、Codex、Grok、Gemini、DeepSeek 等入口。"
+      content="AI API 中转站比价雷达：以厂商官方价为基准，对比各中转站的充值系数、分组倍率与综合倍率，收录 GPT、Claude、Codex、Grok、Gemini、DeepSeek、GLM、Kimi。"
     />
-    <title>AI API 中转导航 · 公开目录</title>
+    <title>AI API 比价雷达 · 中转站价格榜</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-noise" aria-hidden="true"></div>
-    <div class="site-shell">
-      <header class="site-header">
-        <a class="brand" href="./" aria-label="AI API 中转导航首页">
-          <span class="brand-mark" aria-hidden="true">↗</span>
-          <span class="brand-copy">
-            <strong>AI API</strong>
-            <span>公开目录 / RELAY INDEX</span>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="AI API 比价雷达首页">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">
+            <strong>AI API 比价雷达</strong>
+            <small>RELAY PRICE RADAR</small>
           </span>
         </a>
-        <nav class="site-nav" aria-label="主导航">
-          <a href="#directory">目录</a>
+        <nav class="topnav" aria-label="主导航">
+          <a href="#ranking">中转价格榜</a>
+          <a href="#models">模型对照</a>
+          <a href="#directory">站点目录</a>
           <a href="#notes">说明</a>
-          <a href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">GitHub ↗</a>
         </nav>
       </header>
 
       <main>
-        <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-copy">
-            <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> OPEN DIRECTORY <span class="eyebrow-slash">/</span> 2026</p>
-            <h1 id="hero-title">把能用的<br /><em>AI API</em> 摊在一张桌上。</h1>
-            <p class="hero-intro">一个可追溯、可筛选的中文入口清单。先看覆盖的模型，再看状态与核验日期，最后决定要不要打开。</p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#directory">开始检索 <span aria-hidden="true">↓</span></a>
-              <a class="button button-quiet" href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">查看数据源 <span aria-hidden="true">↗</span></a>
-            </div>
+        <section class="hero">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>OPEN PRICE RADAR · 2026</p>
+          <h1>把每个 AI API 中转站的<em>真实倍率</em>，排成一张能比价的表。</h1>
+          <p class="lede">
+            以厂商官方价为分母，把充值系数、分组倍率、绝对单价统一折算成「相对官方价」的综合倍率。
+            口径没有统一的条目单独陈列，不参与名次。所有数字都标注来源与核验日期。
+          </p>
+          <div class="hero-stats" id="hero-stats">
+            <div class="stat"><span>收录站点</span><strong id="stat-stations">—</strong></div>
+            <div class="stat"><span>报价条目</span><strong id="stat-offers">—</strong></div>
+            <div class="stat"><span>可比条目</span><strong id="stat-comparable">—</strong></div>
+            <div class="stat"><span>官方基准</span><strong id="stat-models">—</strong></div>
+            <div class="stat"><span>折算汇率</span><strong id="stat-fx">—</strong></div>
           </div>
-
-          <div class="hero-panel" aria-label="目录状态">
-            <div class="panel-topline"><span>INDEX / STATUS</span><span class="panel-live"><i aria-hidden="true"></i> LIVE DATA</span></div>
-            <div class="panel-rule"></div>
-            <div class="hero-number" id="hero-count">—</div>
-            <p class="hero-number-label">个公开入口正在目录中</p>
-            <div class="panel-grid">
-              <div><span>LAST CHECK</span><strong id="hero-date">加载中</strong></div>
-              <div><span>FORMAT</span><strong>JSON → UI</strong></div>
-            </div>
-            <div class="panel-stamp">READ<br />BEFORE<br />ROUTE</div>
-          </div>
+          <p class="hero-note" id="hero-note">正在读取数据…</p>
         </section>
 
-        <section class="stats-strip" aria-label="目录统计">
-          <div class="stat-item"><span>总入口</span><strong id="stat-total">—</strong></div>
-          <div class="stat-item"><span>注册页可达</span><strong id="stat-reachable">—</strong></div>
-          <div class="stat-item"><span>模型标签</span><strong id="stat-tags">—</strong></div>
-          <div class="stat-item stat-source"><span>数据源</span><a href="https://github.com/1sh1ro/ai-api-zhongzhuan/blob/main/data/sites.json" target="_blank" rel="noreferrer noopener">data/sites.json ↗</a></div>
-        </section>
-
-        <section class="directory-section" id="directory" aria-labelledby="directory-title">
-          <div class="section-heading">
+        <section class="panel" id="ranking">
+          <div class="panel-head">
             <div>
-              <p class="section-kicker">01 / DIRECTORY</p>
-              <h2 id="directory-title">入口，按你要的方式排列。</h2>
+              <p class="kicker">01 / PRICE RANKING</p>
+              <h2>中转价格榜</h2>
             </div>
-            <p class="section-explainer">按站点、摘要或标签搜索。置顶推荐优先展示，其余按所选方式排序；状态只描述记录的核验结果。</p>
+            <p class="panel-desc">
+              综合倍率按输入:输出 = 3:1 加权，单位为人民币。倍率越低越便宜，1.00x 等于官方价。
+            </p>
           </div>
 
-          <div class="toolbar" role="search">
-            <label class="search-box" for="site-search">
-              <span class="search-icon" aria-hidden="true">⌕</span>
-              <input id="site-search" type="search" placeholder="搜索站点、模型、关键词…" autocomplete="off" />
-              <kbd>/</kbd>
+          <div class="toolbar">
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <input id="search" type="search" placeholder="搜索站点、分组、模型…" autocomplete="off" />
             </label>
-            <label class="select-box" for="status-filter">
-              <span>状态</span>
-              <select id="status-filter">
-                <option value="all">全部状态</option>
-                <option value="registration-page-reachable">注册页可达</option>
-                <option value="manual-verification-required">需要人工核验</option>
-                <option value="degraded">服务降级</option>
-                <option value="automated-access-blocked">自动访问受阻</option>
+            <div class="chips" id="family-chips" role="group" aria-label="按模型系列筛选"></div>
+            <label class="select-box">
+              <span>口径</span>
+              <select id="basis-filter">
+                <option value="comparable">只看可比</option>
+                <option value="all">全部条目</option>
+                <option value="raw">只看待统一</option>
               </select>
             </label>
-            <label class="select-box" for="sort-select">
-              <span>排序</span>
-              <select id="sort-select">
-                <option value="verified">最近核验</option>
-                <option value="name">名称 A–Z</option>
-                <option value="status">先看可达</option>
+            <label class="select-box">
+              <span>视图</span>
+              <select id="view-mode">
+                <option value="station">站点总榜</option>
+                <option value="offer">报价明细</option>
               </select>
             </label>
-            <button class="clear-button" id="clear-filters" type="button" hidden>清除筛选</button>
+            <button class="ghost-button" id="reset" type="button">重置</button>
           </div>
 
-          <div class="tag-filter-row" id="tag-filters" aria-label="按模型筛选"></div>
+          <div class="table-wrap">
+            <table class="rank-table">
+              <thead id="rank-head"></thead>
+              <tbody id="rank-body"></tbody>
+            </table>
+          </div>
+          <p class="table-note" id="rank-note"></p>
+        </section>
 
-          <div class="results-meta"><span id="result-note">正在读取数据…</span><span class="results-line" aria-hidden="true"></span><span>点击入口前请先阅读底部提示</span></div>
-          <div class="site-grid" id="site-grid" aria-live="polite"></div>
+        <section class="panel" id="models">
+          <div class="panel-head">
+            <div>
+              <p class="kicker">02 / MODEL LENS</p>
+              <h2>模型对照</h2>
+            </div>
+            <p class="panel-desc">每个标准模型当前的最低价站点，以及官方基准价。</p>
+          </div>
+          <div class="model-grid" id="model-grid"></div>
+        </section>
+
+        <section class="panel" id="directory">
+          <div class="panel-head">
+            <div>
+              <p class="kicker">03 / STATION DIRECTORY</p>
+              <h2>站点目录</h2>
+            </div>
+            <p class="panel-desc">按类型与状态浏览全部收录站点。没有可用报价的站点单独标出。</p>
+          </div>
+          <div class="chips" id="tag-chips" role="group" aria-label="按标签筛选"></div>
+          <div class="site-grid" id="site-grid"></div>
           <div class="empty-state" id="empty-state" hidden>
-            <div class="empty-symbol" aria-hidden="true">∅</div>
-            <h3>没有匹配的入口</h3>
-            <p>换个关键词，或者清除筛选再试一次。</p>
-            <button class="button button-primary" id="empty-clear" type="button">显示全部</button>
-          </div>
-          <div class="load-error" id="load-error" hidden>
-            <strong>数据没有加载成功。</strong>
-            <span>请通过本地 HTTP 服务打开页面，或直接查看仓库里的 <a href="data/sites.json">data/sites.json</a>。</span>
+            <strong>没有匹配的站点</strong>
+            <p>换个关键词，或者重置筛选再试一次。</p>
           </div>
         </section>
 
-        <section class="notes-section" id="notes" aria-labelledby="notes-title">
-          <div class="notes-aside"><span class="section-kicker">02 / READ FIRST</span><span class="notes-glyph" aria-hidden="true">!</span></div>
-          <div class="notes-copy">
-            <h2 id="notes-title">中转站能看到经过它转发的请求。</h2>
-            <p>不要提交密码、身份证件、私有代码、生产数据或其他敏感内容，也不要在公开 Issue 中粘贴 API Key。免费额度、倍率、模型和注册状态会变化；正式业务优先使用模型厂商官方 API。</p>
-            <div class="notes-links"><a href="https://github.com/1sh1ro/ai-api-zhongzhuan#风险说明" target="_blank" rel="noreferrer noopener">查看完整风险说明 ↗</a><a href="https://github.com/1sh1ro/ai-api-zhongzhuan/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer noopener">收录与更新规则 ↗</a></div>
+        <section class="panel notes" id="notes">
+          <div class="panel-head">
+            <div>
+              <p class="kicker">04 / READ FIRST</p>
+              <h2>读之前先看这几条</h2>
+            </div>
+          </div>
+          <div class="notes-grid">
+            <div class="note-card">
+              <h3>中转站能看到经它转发的请求</h3>
+              <p>不要提交密码、身份证件、私有代码、生产数据或其他敏感内容，也不要在公开 Issue 里粘贴 API Key。</p>
+            </div>
+            <div class="note-card">
+              <h3>倍率只是价格，不等于可用</h3>
+              <p>免费额度、倍率、模型覆盖和注册状态随时会变。低价往往对应限流、排队、模型掺水或突然关站。</p>
+            </div>
+            <div class="note-card">
+              <h3>口径不同的数字不能直接比</h3>
+              <p>站内分组倍率要结合充值系数才能换算成相对官方价的倍率；没有统一口径的条目只作展示，不进入名次。</p>
+            </div>
+            <div class="note-card">
+              <h3>正式业务优先用官方 API</h3>
+              <p>本页只做公开信息整理，不运营、不担保任何第三方服务，也不鼓励绕过厂商或站点自身的使用规则。</p>
+            </div>
+          </div>
+          <div class="notes-links">
+            <a href="https://github.com/1sh1ro/ai-api-zhongzhuan#风险说明" target="_blank" rel="noreferrer noopener">完整风险说明 ↗</a>
+            <a href="https://github.com/1sh1ro/ai-api-zhongzhuan/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer noopener">收录与更新规则 ↗</a>
+            <a href="data/offers.json" target="_blank" rel="noreferrer noopener">报价数据源 ↗</a>
+            <a href="data/models.json" target="_blank" rel="noreferrer noopener">官方基准价 ↗</a>
           </div>
         </section>
       </main>
 
-      <footer class="site-footer">
-        <span>AI API 中转导航 / OPEN DIRECTORY</span>
+      <footer class="footer">
+        <span>AI API 比价雷达 · RELAY PRICE RADAR</span>
         <span>由 <a href="https://github.com/1sh1ro" target="_blank" rel="noreferrer noopener">1sh1ro</a> 维护 · <a href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">源代码公开</a></span>
       </footer>
     </div>
-    <script src="app.js" defer></script>
+
+    <script type="module" src="app.js"></script>
   </body>
 </html>
