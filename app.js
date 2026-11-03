@@ -8,6 +8,8 @@ import {
   formatDiscount,
 } from './assets/pricing.js';
 
+const ASSET_VERSION = '2026-11-03c';
+
 const FAMILY_LABELS = {
   gpt: 'GPT',
   claude: 'Claude',
@@ -454,9 +456,19 @@ function bindEvents() {
 }
 
 async function loadJSON(path) {
-  const response = await fetch(new URL(path, document.baseURI));
+  const response = await fetch(new URL(`${path}?v=${ASSET_VERSION}`, document.baseURI));
   if (!response.ok) throw new Error(`${path} HTTP ${response.status}`);
   return response.json();
+}
+
+async function loadBuild() {
+  try {
+    const payload = await loadJSON('data/version.json');
+    const stamp = document.querySelector('#build-stamp');
+    if (stamp && payload.build) stamp.textContent = `数据构建 ${payload.build}`;
+  } catch {
+    /* 版本文件缺失不影响主流程 */
+  }
 }
 
 async function init() {
@@ -476,6 +488,7 @@ async function init() {
     renderHero();
     bindEvents();
     renderAll();
+    loadBuild();
   } catch (error) {
     console.error('数据加载失败', error);
     el.heroNote.textContent = `数据加载失败：${error.message}。请通过 HTTP 服务打开页面，例如 python -m http.server。`;

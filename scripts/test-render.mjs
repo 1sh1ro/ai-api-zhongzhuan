@@ -20,7 +20,7 @@ const requiredIds = [
   "rank-head", "rank-body", "rank-note", "model-grid", "site-grid", "empty-state",
 ];
 for (const id of requiredIds) assert(html.includes(`id="${id}"`), `index.html 缺少 #${id}`);
-assert(html.includes('type="module" src="app.js"'), "index.html 必须以 module 方式加载 app.js");
+assert(/type="module" src="app\.js(\?v=[^"]+)?"/.test(html), "index.html 必须以 module 方式加载 app.js");
 for (const asset of ["styles.css", "app.js", "assets/pricing.js", "data/sites.json", "data/models.json", "data/offers.json", "data/pricing-config.json"]) {
   assert(fs.existsSync(path.join(root, asset)), `缺少资源文件 ${asset}`);
 }

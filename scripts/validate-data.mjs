@@ -11,6 +11,7 @@ const modelsData = readJSON("data/models.json");
 const offersData = readJSON("data/offers.json");
 const configData = readJSON("data/pricing-config.json");
 const scopeData = readJSON("data/model-scope.json");
+const versionData = readJSON("data/version.json");
 
 const allowedStatuses = new Set([
   "registration-page-reachable",
@@ -170,6 +171,7 @@ for (const [index, offer] of (offersData.offers ?? []).entries()) {
 if (typeof configData.fxCnyPerUsd !== "number" || configData.fxCnyPerUsd <= 0) errors.push("pricing-config.json: fxCnyPerUsd invalid");
 
 const statedIds = new Set(scopeData.statedOfferIds ?? []);
+if (!versionData.build) errors.push("version.json: 缺少 build");
 if (statedIds.size !== (scopeData.statedOfferIds ?? []).length) errors.push("model-scope.json: statedOfferIds 存在重复");
 for (const id of statedIds) {
   if (!offerIds.has(id)) errors.push(`model-scope.json: 未知报价 id ${id}`);
