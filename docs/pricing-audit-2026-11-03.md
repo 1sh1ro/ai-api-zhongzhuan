@@ -46,10 +46,10 @@
 
 | 站点 | README 声明 | 数据记录 | 判定 |
 | --- | --- | --- | --- |
-| API Nebula | GPT ¥0.78 / ¥3.90；Astra ¥3.90 / ¥19.50；5.6-sol ¥1.95 / ¥11.70；Claude 0.0747x、Fable 0.2541x；Grok ¥1 / ¥3；Gemini ¥1.60 / ¥8、0.1196x；生图 ¥0.05/次 | 20 条，数值逐条一致 | 一致；本次补齐 9 条站内分组口径 |
+| API Nebula | GPT ¥0.78 / ¥3.90；Astra ¥3.90 / ¥19.50；5.6-sol ¥1.95 / ¥11.70；Claude 0.0747x、Fable 0.2541x；Grok ¥1 / ¥3；Gemini ¥1.60 / ¥8、0.1196x；生图 ¥0.05/次 | 29 条，数值逐条一致 | 一致；本次补齐 10 条站内分组口径 |
 | APIKEY.FUN | Codex Pro 0.5x→约 0.07x；外接 0.6x→0.09x；Claude Plus 0.8x→0.11x；Max 2x→0.29x；外接 2.2x→0.31x；官渠 5x→0.71x；Grok 1x→0.14x | 系数改 0.142 后为 0.071 / 0.085 / 0.114 / 0.284 / 0.312 / 0.71 / 0.142 | 修正；智谱 0.5x、DeepSeek 0.75x / 0.9x 改为不参与排名 |
 | OrcaRouter | 5 个免费模型 | 无记录 | 缺口，站点不在 `data/sites.json` |
-| AIZZZ | GPT 扶贫 0.01x、狂欢 0.05x、特价 0.09x、luna 0.2x、PRO 0.25x、企业 0.35x、官Key 3.5x；Claude 0.25 / 0.55 / 0.75 / 0.8 / 1.3x；Grok 0.2x；Gemini 0.3x；国产 0.3x；DeepSeek 0.7x | 12 条，均为站内倍率，不参与排名 | 一致；本次补齐 8 条 |
+| AIZZZ | GPT 扶贫 0.01x、狂欢 0.05x、特价 0.09x、luna 0.2x、PRO 0.25x、企业 0.35x、官Key 3.5x；Claude 0.25 / 0.55 / 0.75 / 0.8 / 1.3x；Grok 0.2x；Gemini 0.3x；国产 0.3x；DeepSeek 0.7x | 17 条，均为站内倍率，不参与排名 | 一致；本次补齐 8 条 |
 | onomeo | 免费模型按次数 | 1 条免费额度 | 一致 |
 | AIJWS | 国模 0.001x、图片 0.01x、Codex 0.08x、Grok 0.15x | 3 条，缺图片 0.01x | 基本一致，缺 1 条 |
 | Horizon API | 页面 0.4 / 0.85 / 1 / 0.001，按 1:5 折算 0.08 / 0.17 / 0.2 / 0.0002；image 1x→0.2x | 4 条，换算一致 | 一致，缺 image 一条 |
@@ -66,7 +66,7 @@
 | YonshoreAPI | 只有按模型计价公式 | 无 | 未录入，符合 README 口径 |
 | HelpCoder | 14 个模型，未折算 | 无 | 未录入 |
 | BeeAPI | Grok 0.014x，待核验 | 1 条，标待核验不排名 | 一致 |
-| znbcode | GPT 0.09 / 0.2 / 0.3 / 0.5x；Claude 0.3 / 0.8 / 1.5 / 2x；Grok 0.15x；Gemini 0.4x；DeepSeek / GLM / Kimi 0.3x；生图 ¥0.06 / ¥0.12 | 13 条，按 6.70 折算一致 | 一致，本次补齐 Claude 2x，未录 Kimi 与 nano-banana |
+| znbcode | GPT 0.09 / 0.2 / 0.3 / 0.5x；Claude 0.3 / 0.8 / 1.5 / 2x；Grok 0.15x；Gemini 0.4x；DeepSeek / GLM / Kimi 0.3x；生图 ¥0.06 / ¥0.12 | 14 条，按 6.70 折算一致 | 一致，本次补齐 Claude 2x，未录 Kimi 与 nano-banana |
 | 艾可 API | 豆包分组 1x | 原记录误挂 GLM-5.3 | 修正为豆包 Pro |
 | Zerouter | gpt-5.5 0.075x；5.6-terra 0.075x；6.1-sol 0.19 / 0.22x；Claude opus-5-5 0.29x、sonnet-5-5 与 opus-5 0.23x；Gemini 0.15x；Grok 0.15x；Kimi 0.5x | 9 条 | 一致，本次补齐 5.6-terra |
 | ModelRush | DeepSeek $0.33 / $1.32；GPT Image 2 $0.006/张 | 2 条 | 一致 |
@@ -80,7 +80,7 @@
 2. APIKEY.FUN 的分组倍率折算系数由 0.14 改为 0.142，与 README 的 0.11x / 0.29x / 0.31x / 0.71x 对齐。
 3. APIKEY.FUN 的智谱 0.5x、DeepSeek 0.75x / 0.9x 在 README 里没有给出折算后倍率，原先套用 0.142 属于外推，改为只显示原值、不参与排名。
 4. DayWay 的 0.23x 与它自己公布的单价比价结果 0.045x 冲突，采用可复算的单价口径，并把冲突写进备注。
-5. 补齐 26 条此前漏录的报价：API Nebula 站内分组 9 条、znbcode Claude 2x、AIZZZ 8 条、合租巴士 2 条、4Router gift、LinkAGI Plus / Pro、FastAI 备用、Zerouter gpt-5.6-terra。
+5. 补齐 26 条此前漏录的报价：API Nebula 站内分组 10 条、znbcode Claude 2x、AIZZZ 8 条、合租巴士 2 条、4Router gift、LinkAGI Plus / Pro、FastAI 备用、Zerouter gpt-5.6-terra。
 6. 报价表头统一为「代表模型」，并在页面说明：分组只写到模型系列时取代表模型，分组倍率型报价的排名与选定模型无关。
 7. Gemini 4 Argon 官方价注明为促销价，2026-12-01 起翻倍。
 
