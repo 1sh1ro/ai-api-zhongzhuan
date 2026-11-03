@@ -97,6 +97,18 @@
 7. 「国模」分组按用户实际使用确认归到 DeepSeek：Horizon 国模羊毛与 AIJWS 限时国模改指 `deepseek-v4.1-flash`；「国产模型」是更宽泛的统称，FastAI 与 AIZZZ 的国产分组仍用 `domestic-model` 占位。Horizon 国模羊毛仍保留截图来源与「限 GPT 订阅用户」说明。
 8. 折扣显示精度修正，极小倍率不再四舍五入成「省 100%」。
 
+## 2026-11-03 逐条复核
+
+把当时全部报价按站点逐条对回 README，结果以页面「核验明细」区块呈现，每条列出原始口径、换算结果、来源链接与核验日期，来源可直接点开。核对中发现的模型归属问题与修正见上面的追加修正。
+
+README 有、但数据没有单独录入的条目，按三类列出，避免看起来像漏检：
+
+- 没有单一可比价格的媒体分组：APIKEY.FUN 的 ChatGPT 生图 1x；AIJWS 的图片 0.01x；Horizon 的 image 1x；FastAI 的视频 1x；AIZZZ 的 GPT 生图 0.135x、Adobe 生图 0.33x、视频 1x、AzGPT 生图 2x；znbcode 的 `gemini-nano-banana-2.1` ¥0.08/张；API Nebula 的生图分组未与单价绑定。
+- 只提供计价公式、没有折算成单一倍率：TokenWorks、otter Link、YonshoreAPI、HelpCoder。
+- 只有状态信息、没有倍率：Tokens Kingdom、君の公益、IKunCode、Huainova 公益站、黑与白公益站。
+
+OrcaRouter 在 README 出现，但它不在 `data/sites.json` 的站点清单里，没有进入页面。
+
 ## 仍然存疑
 
 - **未指定型号的分组**：多数中转站按系列售卖，未点名版本（如「GPT 特价」「Claude Max」「Codex 福利」）。这类报价在页面上显示「未指定型号」，只参与倍率排名，不显示每百万 Token 单价，也不再映射到任何具体型号。指定型号的报价见 `data/model-scope.json`，其余按系列处理。

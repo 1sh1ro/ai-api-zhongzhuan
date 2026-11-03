@@ -8,7 +8,7 @@ import {
   formatDiscount,
 } from './assets/pricing.js';
 
-const ASSET_VERSION = '2026-11-03g';
+const ASSET_VERSION = '2026-11-03h';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -89,7 +89,38 @@ const el = {
   modelGrid: document.querySelector('#model-grid'),
   siteGrid: document.querySelector('#site-grid'),
   empty: document.querySelector('#empty-state'),
+  ledgerBody: document.querySelector('#ledger-body'),
+  ledgerNote: document.querySelector('#ledger-note'),
 };
+
+const SOURCE_LABELS = {
+  'public-pricing-api': '站方价格接口',
+  'user-submitted-pricing': '用户价格快照',
+  'user-provided-screenshot': '用户截图',
+  'user-submitted': '用户提交',
+  'local-verified': '本地访问核验',
+  'local-history-verified': '历史核验',
+  'official-website': '官网',
+  'official-pricing': '官网价格页',
+  'official-model-list': '官网模型页',
+  'site-status': '站点状态页',
+  'linux-do': 'Linux.do',
+};
+
+function sourceCell(row) {
+  const label = SOURCE_LABELS[row.sourceKind] || row.sourceKind || '来源';
+  return `<a class="source-link" href="${escapeHTML(row.sourceUrl)}" target="_blank" rel="noreferrer noopener" title="${escapeHTML(row.sourceUrl)}">${escapeHTML(label)} ↗</a>`;
+}
+
+function rawValue(row) {
+  if (row.pricingMode === 'free') return '免费额度';
+  if (row.perRequestCny != null) return `${formatCny(row.perRequestCny)}/次`;
+  if (row.pricingMode === 'absolute_cny' || row.pricingMode === 'absolute_usd') {
+    return `${formatCny(row.inputCny)} / ${formatCny(row.outputCny)} 元每百万`;
+  }
+  if (row.declaredRatio != null) return `${formatMultiplier(row.declaredRatio)} 站内倍率`;
+  return '—';
+}
 
 function escapeHTML(value) {
   return String(value ?? '').replace(/[&<>'"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[c]));
@@ -436,6 +467,31 @@ function renderAll() {
   renderModels();
   renderTagChips();
   renderSites();
+  renderLedger();
+}
+
+function renderLedger() {
+  const rows = [...state.rows].sort((a, b) => {
+    const stationOrder = String(siteName(a.stationId)).localeCompare(String(siteName(b.stationId)), 'zh-CN');
+    if (stationOrder) return stationOrder;
+    return String(a.groupName).localeCompare(String(b.groupName), 'zh-CN');
+  });
+
+  el.ledgerBody.innerHTML = rows
+    .map((row) => `<tr>
+        <td><a class="station-name" href="${escapeHTML(siteLink(row.stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(siteName(row.stationId))}</a></td>
+        <td class="group-cell">${escapeHTML(row.groupName)}</td>
+        <td>${modelCell(row)}</td>
+        <td><span class="basis basis-${row.basis}">${escapeHTML(row.basisLabel)}</span></td>
+        <td class="raw-cell">${escapeHTML(rawValue(row))}</td>
+        <td class="col-num">${row.comparable ? `<strong class="ratio ${row.effectiveBlended < 1 ? 'is-low' : ''}">${formatMultiplier(row.effectiveBlended)}</strong>` : '<span class="ratio-muted">—</span>'}</td>
+        <td>${sourceCell(row)}</td>
+        <td class="date-cell">${formatDate(row.verifiedAt)}</td>
+      </tr>`)
+    .join('');
+
+  const comparable = rows.filter((row) => row.comparable).length;
+  el.ledgerNote.textContent = `共 ${rows.length} 条报价，其中 ${comparable} 条口径统一可换算成相对官方价的综合倍率。其余条目保留原始倍率与来源，不参与排名。`;
 }
 
 function bindEvents() {

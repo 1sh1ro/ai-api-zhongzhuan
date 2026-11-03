@@ -9,7 +9,7 @@
       content="AI API 中转站比价雷达：以厂商官方价为基准，对比各中转站的充值系数、分组倍率与综合倍率，收录 GPT、Claude、Codex、Grok、Gemini、DeepSeek、GLM、Kimi。"
     />
     <title>AI API 比价雷达 · 中转站价格榜</title>
-    <link rel="stylesheet" href="styles.css?v=2026-11-03g" />
+    <link rel="stylesheet" href="styles.css?v=2026-11-03h" />
   </head>
   <body>
     <div class="page">
@@ -25,6 +25,7 @@
           <a href="#ranking">中转价格榜</a>
           <a href="#models">模型对照</a>
           <a href="#directory">站点目录</a>
+          <a href="#ledger">核验明细</a>
           <a href="#notes">说明</a>
           <a href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">GitHub ↗</a>
         </nav>
@@ -120,10 +121,38 @@
           </div>
         </section>
 
+        <section class="panel" id="ledger">
+          <div class="panel-head">
+            <div>
+              <p class="kicker">04 / VERIFICATION LEDGER</p>
+              <h2>核验明细</h2>
+            </div>
+            <p class="panel-desc">每一条报价逐条回查 README 对应行，列出原始口径、换算结果、来源链接与核验日期。来源可点开。</p>
+          </div>
+          <div class="table-wrap">
+            <table class="rank-table">
+              <thead>
+                <tr>
+                  <th>站点</th>
+                  <th>分组</th>
+                  <th>模型</th>
+                  <th>口径</th>
+                  <th>原始值</th>
+                  <th class="col-num">综合倍率</th>
+                  <th>来源</th>
+                  <th>核验</th>
+                </tr>
+              </thead>
+              <tbody id="ledger-body"></tbody>
+            </table>
+          </div>
+          <p class="table-note" id="ledger-note"></p>
+        </section>
+
         <section class="panel notes" id="notes">
           <div class="panel-head">
             <div>
-              <p class="kicker">04 / READ FIRST</p>
+              <p class="kicker">05 / READ FIRST</p>
               <h2>读之前先看这几条</h2>
             </div>
           </div>
@@ -161,6 +190,6 @@
       </footer>
     </div>
 
-    <script type="module" src="app.js?v=2026-11-03g"></script>
+    <script type="module" src="app.js?v=2026-11-03h"></script>
   </body>
 </html>

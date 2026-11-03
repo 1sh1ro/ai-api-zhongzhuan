@@ -292,6 +292,9 @@ th.col-num { text-align: right; }
   color: var(--muted);
   font-size: 12px;
 }
+.raw-cell { font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: nowrap; }
+.source-link { color: var(--brand-dark); font-size: 12.5px; }
+.source-link:hover { text-decoration: underline; }
 .basis {
   display: inline-block;
   padding: 2px 8px;

@@ -94,6 +94,10 @@ assert(!node("#rank-body").innerHTML.includes("省 100%"), "折扣不应显示�
 assert(node("#rank-body").innerHTML.includes("sep-row"), "应存在站内倍率与综合倍率的分隔行");
 assert(node("#model-grid").innerHTML.includes("GPT-6 Sol"), "模型对照应包含 GPT-6 Sol");
 assert(node("#site-grid").innerHTML.includes("AIZZZ"), "站点目录应包含 AIZZZ");
+const ledgerRows = (node("#ledger-body").innerHTML.match(/<tr[\s>]/g) || []).length;
+assert(ledgerRows === offers.length, `核验明细应有 ${offers.length} 行，实际 ${ledgerRows}`);
+assert(node("#ledger-body").innerHTML.includes("source-link"), "核验明细每行应有来源链接");
+assert(node("#ledger-body").innerHTML.includes("znbcode.com/api/v1/model-plaza"), "来源链接应指向原始价格接口");
 assert(node("#family-chips").innerHTML.includes("data-family=\"claude\""), "模型系列筛选缺失");
 
 /* ---------- 3. 交互检查：切到报价明细并只看待统一 ---------- */
