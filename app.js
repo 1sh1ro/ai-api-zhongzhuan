@@ -8,7 +8,7 @@ import {
   formatDiscount,
 } from './assets/pricing.js';
 
-const ASSET_VERSION = '2026-11-03c';
+const ASSET_VERSION = '2026-11-03d';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -114,10 +114,32 @@ function siteName(id) {
   return site ? site.name : id;
 }
 
+const REFERRAL_PARAM_KEYS = ['aff', 'ref', 'invite', 'code'];
+const GENERIC_REGISTER_PATH = /^\/(sign-?up|signup|register|login|dashboard)\/?$/i;
+
+// 优先使用带推广参数的注册链接；没有推广参数时回到官网首页。
 function siteLink(id) {
   const site = siteById(id);
   if (!site) return '#';
-  return site.registrationUrl || site.homepage;
+  const home = site.homepage || '#';
+  const registration = site.registrationUrl;
+  if (!registration || registration === home) return home;
+
+  let url;
+  try {
+    url = new URL(registration);
+  } catch {
+    return home;
+  }
+
+  const hasReferralParam = [...url.searchParams.keys()].some((key) =>
+    REFERRAL_PARAM_KEYS.includes(key.toLowerCase()),
+  );
+  if (hasReferralParam) return registration;
+
+  // 路径式推广链接，例如 apinebula.ai/A89Bk1；通用注册页则退回官网。
+  if (!GENERIC_REGISTER_PATH.test(url.pathname)) return registration;
+  return home;
 }
 
 function modelName(id) {
@@ -257,7 +279,7 @@ function renderStationView() {
         <td class="col-rank">${ranked ? String(index + 1).padStart(2, '0') : '·'}</td>
         <td>
           <a class="station-name" href="${escapeHTML(siteLink(stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(siteName(stationId))}</a>
-          <span class="station-host">${escapeHTML(((site && site.homepage) || '').replace(/^https?:\/\//, '').replace(/\/$/, ''))}</span>
+          <a class="station-host" href="${escapeHTML(siteLink(stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(((site && site.homepage) || '').replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>
         </td>
         <td class="group-cell">${escapeHTML(row.groupName)}</td>
         <td>${modelCell(row)}</td>
@@ -392,7 +414,7 @@ function renderSites() {
           <h3>${escapeHTML(site.name)}</h3>
           <span class="status ${status.className}">${escapeHTML(status.label)}</span>
         </div>
-        <a class="site-card-host" href="${escapeHTML(site.homepage)}" target="_blank" rel="noreferrer noopener">${escapeHTML(site.homepage.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>
+        <a class="site-card-host" href="${escapeHTML(siteLink(site.id))}" target="_blank" rel="noreferrer noopener">${escapeHTML(site.homepage.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>
         <p class="site-card-summary">${escapeHTML(site.summary)}</p>
         <div class="site-card-tags">${tags}</div>
         <div class="site-card-foot">
