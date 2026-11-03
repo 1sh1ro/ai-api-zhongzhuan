@@ -485,14 +485,14 @@
     },
 
     {
-      "id": "aijws::guomo::glm-5.3",
+      "id": "aijws::guomo::domestic-model",
       "stationId": "aijws",
       "groupKey": "限时国模",
       "groupName": "限时国模",
-      "modelId": "deepseek-v4.1-flash",
+      "modelId": "domestic-model",
       "pricingMode": "ratio",
       "ratio": 0.001,
-      "note": "限时国模 0.001x，部分分组受额度与稳定性影响",
+      "note": "限时国模 0.001x，README 标注为国产模型，未指明具体型号；部分分组受额度与稳定性影响",
       "sourceKind": "local-verified",
       "sourceUrl": "https://api.aijws.com/keys",
       "verifiedAt": "2026-08-27"

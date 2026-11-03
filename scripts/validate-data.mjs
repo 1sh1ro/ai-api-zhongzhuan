@@ -177,6 +177,13 @@ for (const id of statedIds) {
   if (!offerIds.has(id)) errors.push(`model-scope.json: 未知报价 id ${id}`);
 }
 
+// 泛称「国模 / 国产」的分组，除非已登记为指定型号，否则必须使用 domestic-model。
+for (const offer of offersData.offers ?? []) {
+  if (/国模|国产/.test(offer.groupName ?? "") && !statedIds.has(offer.id) && offer.modelId !== "domestic-model") {
+    errors.push(`${offer.id}: 泛称国产分组必须使用 domestic-model，或先在 model-scope.json 登记为指定型号`);
+  }
+}
+
 const rows = buildRows(offersData.offers ?? [], modelsData.models ?? [], configData, statedIds);
 for (const row of rows) {
   if (row.modelBasis === "assumed" && row.inputCny != null) {

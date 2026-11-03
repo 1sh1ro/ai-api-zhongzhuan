@@ -94,7 +94,7 @@
 4. 模型对照页只使用指定型号的报价，避免把「GPT 特惠」这类通用分组算成某个具体模型的最低价。
 5. 修正艾可 API 报价的内部 id，与新的豆包型号保持一致。
 6. 按用户要求彻底移除 Codex 系列：删除 12 条 Codex 分组报价（APIKEY.FUN 2 条、AIZZZ 1 条、AIJWS 1 条、Token-X 2 条、合租巴士 2 条、LinkAGI 3 条、API Nebula 1 条）和 `gpt-5.3-codex` 官方模型条目。Codex 不再作为模型系列或筛选项出现。
-7. 「国模」分组按用户实际使用确认归到 DeepSeek：Horizon 国模羊毛与 AIJWS 限时国模改指 `deepseek-v4.1-flash`；「国产模型」是更宽泛的统称，FastAI 与 AIZZZ 的国产分组仍用 `domestic-model` 占位。Horizon 国模羊毛仍保留截图来源与「限 GPT 订阅用户」说明。
+7. 「国模」分组按用户实际使用确认归到 DeepSeek：Horizon 国模羊毛改指 `deepseek-v4.1-flash`。AIJWS 的「限时国模」README 明确写的是「国产模型」，也没有得到使用确认，因此保持 `domestic-model` 泛称，不指定具体型号。「国产模型」是更宽泛的统称，FastAI 与 AIZZZ 的国产分组同样用泛称。Horizon 国模羊毛仍保留截图来源与「限 GPT 订阅用户」说明。
 8. 折扣显示精度修正，极小倍率不再四舍五入成「省 100%」。
 
 ## 2026-11-03 逐条复核
