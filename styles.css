@@ -309,6 +309,23 @@ th.col-num { text-align: right; }
 .button:hover { border-color: var(--brand); color: var(--brand-dark); }
 .button-primary { background: var(--brand); border-color: var(--brand); color: #fff; }
 .button-primary:hover { background: var(--brand-dark); border-color: var(--brand-dark); color: #fff; }
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #d9e2d2;
+  background: #eef3ea;
+  color: #3f6b2f;
+  white-space: nowrap;
+}
+.score-badge.grade-A { background: #e7f2e2; border-color: #cbe0bf; color: #2f6b23; }
+.score-badge.grade-B { background: #e8f0f7; border-color: #cbdeee; color: #275a80; }
+.score-badge.grade-C { background: #f7f0df; border-color: #eadcb7; color: #7a5a1c; }
+.score-badge.grade-D { background: #f1f1ee; border-color: #deded7; color: #6b6b63; }
+.site-card-score { display: inline-flex; align-items: center; gap: 8px; }
 .guide h2 { margin: 28px 0 10px; font-size: 20px; }
 .guide h3 { margin: 18px 0 8px; font-size: 16px; }
 .guide p, .guide li { color: var(--muted); line-height: 1.8; }

@@ -11,6 +11,7 @@ import {
   formatDiscount,
   FAMILY_LABELS,
 } from "../assets/pricing.js";
+import { scoreStation } from "../assets/scoring.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readJSON = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
@@ -37,6 +38,9 @@ const siteById = new Map(sites.map((site) => [site.id, site]));
 const modelById = new Map(models.map((model) => [model.id, model]));
 const stationBestRow = stationBest(rows);
 const modelBestRow = modelBest(rows.filter((row) => row.modelBasis === "stated"));
+const stationScores = new Map(
+  sites.map((site) => [site.id, scoreStation(site, rows.filter((row) => row.stationId === site.id), modelById, LASTMOD)]),
+);
 
 const REFERRAL_PARAM_KEYS = ["aff", "ref", "invite", "code"];
 const GENERIC_REGISTER_PATH = /^\/(sign-?up|signup|register|login|dashboard)\/?$/i;
@@ -86,8 +90,14 @@ function rawValue(row) {
   return "—";
 }
 
-const SOURCE_LABELS = {
-  "public-pricing-api": "站方价格接口",
+const STATUS_LABELS = {
+  "registration-page-reachable": "注册页可达",
+  "manual-verification-required": "需要人工核验",
+  degraded: "服务降级",
+  "automated-access-blocked": "自动访问受阻",
+};
+
+const SOURCE_LABELS = {  "public-pricing-api": "站方价格接口",
   "user-submitted-pricing": "用户价格快照",
   "user-provided-screenshot": "用户截图",
   "user-submitted": "用户提交",
@@ -203,6 +213,7 @@ for (const site of sites) {
     degraded: "服务降级",
     "automated-access-blocked": "自动访问受阻",
   }[site.status] || site.status || "状态未知";
+  const score = stationScores.get(site.id);
 
   const summaryLine = best
     ? `当前最低综合倍率 ${formatMultiplier(best.effectiveBlended)}（${esc(best.groupName)}）。`
@@ -212,8 +223,22 @@ for (const site of sites) {
           <p class="eyebrow">STATION · ${esc(site.id)}</p>
           <h1>${esc(site.name)} 的 API 报价与核验记录</h1>
           <p class="lede">${esc(site.summary)}</p>
-          <p class="hero-note">状态 ${esc(statusLabel)} · 核验 ${esc(formatDate(site.verifiedAt))} · ${stationRows.length} 条报价，其中 ${comparableCount} 条口径统一可比。${summaryLine}</p>
+          <p class="hero-note">状态 ${esc(statusLabel)} · 核验 ${esc(formatDate(site.verifiedAt))} · ${stationRows.length} 条报价，其中 ${comparableCount} 条口径统一可比。${summaryLine}综合评分 ${score.total.toFixed(1)}（${score.grade}）。</p>
           <p><a class="button button-primary" href="${esc(siteLink(site))}" rel="nofollow noopener" target="_blank">打开站点 ↗</a></p>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><div><p class="kicker">SCORE</p><h2>综合评分 ${score.total.toFixed(1)}</h2></div>
+          <p class="panel-desc">五个维度合计 100 分，等级 ${score.grade}。公式与权重见 <a href="../method.html">方法与评分规则</a>。</p></div>
+          <div class="table-wrap"><table class="rank-table">
+            <thead><tr><th>维度</th><th class="col-num">满分</th><th class="col-num">得分</th></tr></thead>
+            <tbody>
+              <tr><td>价格竞争力</td><td class="col-num">40</td><td class="col-num">${score.parts.price.toFixed(1)}</td></tr>
+              <tr><td>数据透明度</td><td class="col-num">20</td><td class="col-num">${score.parts.transparency.toFixed(1)}</td></tr>
+              <tr><td>来源可追溯</td><td class="col-num">15</td><td class="col-num">${score.parts.traceability.toFixed(1)}</td></tr>
+              <tr><td>覆盖广度</td><td class="col-num">15</td><td class="col-num">${score.parts.coverage.toFixed(1)}</td></tr>
+              <tr><td>信息完整度</td><td class="col-num">10</td><td class="col-num">${score.parts.completeness.toFixed(1)}</td></tr>
+            </tbody>
+          </table></div>
         </section>
         <section class="panel">
           <div class="panel-head"><div><p class="kicker">OFFERS</p><h2>全部报价</h2></div>
@@ -252,18 +277,19 @@ fs.writeFileSync(
     body: `        <section class="hero">
           <p class="eyebrow">STATIONS</p>
           <h1>全部中转站</h1>
-          <p class="lede">共 ${sites.length} 个站点，按名称排序。每页列出该站点的全部报价、来源与核验日期。</p>
+          <p class="lede">共 ${sites.length} 个站点，按综合评分从高到低排序。每页列出该站点的评分明细、全部报价与核验日期。</p>
         </section>
         <section class="panel">
           <div class="table-wrap"><table class="rank-table">
-            <thead><tr><th>站点</th><th>状态</th><th class="col-num">报价</th><th class="col-num">可比</th><th class="col-num">最低倍率</th><th>核验</th></tr></thead>
+            <thead><tr><th>站点</th><th class="col-num">评分</th><th>状态</th><th class="col-num">报价</th><th class="col-num">可比</th><th class="col-num">最低倍率</th><th>核验</th></tr></thead>
             <tbody>
 ${[...sites]
-  .sort((a, b) => String(a.name).localeCompare(String(b.name), "zh-CN"))
+  .sort((a, b) => (stationScores.get(b.id)?.total ?? 0) - (stationScores.get(a.id)?.total ?? 0))
   .map((site) => {
     const stationRows = rows.filter((row) => row.stationId === site.id);
     const best = stationBestRow.get(site.id);
-    return `              <tr><td><a class="station-name" href="${esc(site.id)}.html">${esc(site.name)}</a></td><td class="group-cell">${esc(site.status)}</td><td class="col-num">${stationRows.length}</td><td class="col-num">${stationRows.filter((row) => row.comparable).length}</td><td class="col-num">${best ? formatMultiplier(best.effectiveBlended) : "—"}</td><td class="date-cell">${formatDate(site.verifiedAt)}</td></tr>`;
+    const score = stationScores.get(site.id);
+    return `              <tr><td><a class="station-name" href="${esc(site.id)}.html">${esc(site.name)}</a></td><td class="col-num"><span class="score-badge grade-${esc(score.grade)}">${score.total.toFixed(1)}</span></td><td class="group-cell">${esc(STATUS_LABELS[site.status] || site.status)}</td><td class="col-num">${stationRows.length}</td><td class="col-num">${stationRows.filter((row) => row.comparable).length}</td><td class="col-num">${best ? formatMultiplier(best.effectiveBlended) : "—"}</td><td class="date-cell">${formatDate(site.verifiedAt)}</td></tr>`;
   })
   .join("\n")}
             </tbody>
@@ -531,11 +557,11 @@ const snapshot = `<!-- SNAPSHOT:START -->
           <p class="table-note">收录 ${sites.length} 个站点、${rows.length} 条报价，其中 ${comparable.length} 条口径统一可比。官方基准价覆盖 ${models.filter((model) => model.official).length} 个模型。</p>
           <div class="table-wrap">
             <table class="rank-table">
-              <thead><tr><th class="col-rank">#</th><th>站点</th><th>最低分组</th><th>代表模型</th><th class="col-num">综合倍率</th><th class="col-num">输入 ¥/M</th><th class="col-num">输出 ¥/M</th><th>核验</th></tr></thead>
+              <thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">评分</th><th>最低分组</th><th>代表模型</th><th class="col-num">综合倍率</th><th class="col-num">输入 ¥/M</th><th class="col-num">输出 ¥/M</th><th>核验</th></tr></thead>
               <tbody>
 ${topStations
   .map(
-    ([stationId, row], index) => `                <tr><td class="col-rank">${String(index + 1).padStart(2, "0")}</td><td><a class="station-name" href="stations/${esc(stationId)}.html">${esc(siteById.get(stationId)?.name || stationId)}</a></td><td class="group-cell">${esc(row.groupName)}</td><td>${esc(modelDisplay(row))}</td><td class="col-num"><strong class="ratio is-low">${formatMultiplier(row.effectiveBlended)}</strong></td><td class="col-num">${formatCny(row.inputCny)}</td><td class="col-num">${formatCny(row.outputCny)}</td><td class="date-cell">${formatDate(row.verifiedAt)}</td></tr>`,
+    ([stationId, row], index) => `                <tr><td class="col-rank">${String(index + 1).padStart(2, "0")}</td><td><a class="station-name" href="stations/${esc(stationId)}.html">${esc(siteById.get(stationId)?.name || stationId)}</a></td><td class="col-num"><span class="score-badge grade-${esc(stationScores.get(stationId)?.grade || "D")}">${(stationScores.get(stationId)?.total ?? 0).toFixed(1)}</span></td><td class="group-cell">${esc(row.groupName)}</td><td>${esc(modelDisplay(row))}</td><td class="col-num"><strong class="ratio is-low">${formatMultiplier(row.effectiveBlended)}</strong></td><td class="col-num">${formatCny(row.inputCny)}</td><td class="col-num">${formatCny(row.outputCny)}</td><td class="date-cell">${formatDate(row.verifiedAt)}</td></tr>`,
   )
   .join("\n")}
               </tbody>

@@ -7,8 +7,9 @@ import {
   formatMultiplier,
   formatDiscount,
 } from './assets/pricing.js';
+import { scoreStation } from './assets/scoring.js';
 
-const ASSET_VERSION = '2026-11-04b';
+const ASSET_VERSION = '2026-11-04c';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -63,6 +64,7 @@ const state = {
   offers: [],
   config: { fxCnyPerUsd: 6.7 },
   rows: [],
+  scores: new Map(),
   family: 'all',
   tag: 'all',
   query: '',
@@ -238,6 +240,7 @@ const HEAD_STATION = `
   <tr>
     <th class="col-rank">#</th>
     <th>站点</th>
+    <th class="col-num">评分</th>
     <th>最低分组</th>
     <th>代表模型</th>
     <th class="col-num">综合倍率</th>
@@ -266,6 +269,12 @@ const HEAD_OFFER = `
 function modelCell(row) {
   const tag = row.modelBasis === 'stated' ? '' : '<span class="mini-tag">未指定型号</span>';
   return `<span class="model-name">${escapeHTML(row.modelDisplay)}</span>${tag}`;
+}
+
+function scoreCell(stationId) {
+  const score = state.scores.get(stationId);
+  if (!score) return '<span class="ratio-muted">—</span>';
+  return `<span class="score-badge grade-${score.grade}" title="综合评分 ${score.total.toFixed(1)}，等级 ${score.grade}">${score.total.toFixed(1)}</span>`;
 }
 
 function ratioCell(row) {  if (row.comparable) {
@@ -315,6 +324,7 @@ function renderStationView() {
           <a class="station-name" href="${escapeHTML(siteLink(stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(siteName(stationId))}</a>
           <a class="station-host" href="${escapeHTML(siteLink(stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(((site && site.homepage) || '').replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>
         </td>
+        <td class="col-num">${scoreCell(stationId)}</td>
         <td class="group-cell">${escapeHTML(row.groupName)}</td>
         <td>${modelCell(row)}</td>
         <td class="col-num">${ratioCell(row)}</td>
@@ -330,13 +340,13 @@ function renderStationView() {
   const rankedHTML = entries.map((entry, index) => renderRow(entry, index, true)).join('');
   const rawHTML = rawEntries.map((entry, index) => renderRow(entry, index, false)).join('');
   const separator = rawEntries.length
-    ? `<tr class="sep-row"><td colspan="10">以下 ${rawEntries.length} 个站点只披露站内分组倍率，充值口径未公开，折算后不参与名次</td></tr>`
+    ? `<tr class="sep-row"><td colspan="11">以下 ${rawEntries.length} 个站点只披露站内分组倍率，充值口径未公开，折算后不参与名次</td></tr>`
     : '';
 
   el.body.innerHTML = rankedHTML + separator + rawHTML;
 
   el.note.textContent = `口径统一可排名的 ${entries.length} 个站点，仅披露站内倍率的 ${rawEntries.length} 个。两段之间不直接比较，选中「报价明细 + 全部条目」可查看每条报价的原始口径。`;
-  if (!entries.length && !rawEntries.length) renderEmptyTable(10);
+  if (!entries.length && !rawEntries.length) renderEmptyTable(11);
 }
 
 function renderOfferView() {
@@ -444,6 +454,10 @@ function renderSites() {
         ? `<span class="site-price">最低 ${formatMultiplier(bestRow.effectiveBlended)}</span>`
         : '<span class="site-price is-muted">暂无可用报价</span>';
       const tags = (site.tags || []).slice(0, 4).map((tag) => `<span class="tag">${escapeHTML(TAG_LABELS[tag] || tag)}</span>`).join('');
+      const score = state.scores.get(site.id);
+      const scoreLine = score
+        ? `<span class="score-badge grade-${score.grade}" title="综合评分 ${score.total.toFixed(1)}">${score.total.toFixed(1)} 分 · ${score.grade}</span>`
+        : '';
       return `<article class="site-card">
         <div class="site-card-top">
           <h3>${escapeHTML(site.name)}</h3>
@@ -454,7 +468,7 @@ function renderSites() {
         <div class="site-card-tags">${tags}</div>
         <div class="site-card-foot">
           <span>${count} 条报价 · 核验 ${formatDate(site.verifiedAt)}</span>
-          ${priceLine}
+          <span class="site-card-score">${scoreLine}${priceLine}</span>
         </div>
       </article>`;
     })
@@ -567,6 +581,13 @@ async function init() {
     state.offers = offersPayload.offers || [];
     state.config = configPayload;
     state.rows = buildRows(state.offers, state.models, state.config, new Set(scopePayload.statedOfferIds || []));
+    const modelById = new Map(state.models.map((model) => [model.id, model]));
+    state.scores = new Map(
+      state.sites.map((site) => [
+        site.id,
+        scoreStation(site, state.rows.filter((row) => row.stationId === site.id), modelById, state.config.dataDate || '2026-11-04'),
+      ]),
+    );
     renderHero();
     bindEvents();
     renderAll();
