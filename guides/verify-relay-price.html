@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>怎么验证一个中转站的真实价格 · AI API 比价雷达</title>
+    <meta name="description" content="五步核对官方价、分组倍率、充值比例与核验日期，并列出虚高基础价、活动价、缓存价三个常见陷阱。" />
+    <link rel="canonical" href="https://ai.xulas.fun/guides/verify-relay-price.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="怎么验证一个中转站的真实价格" />
+    <meta property="og:url" content="https://ai.xulas.fun/guides/verify-relay-price.html" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"怎么验证一个中转站的真实价格","datePublished":"2026-11-04","dateModified":"2026-11-04","author":{"@type":"Organization","name":"AI API 比价雷达"},"mainEntityOfPage":"https://ai.xulas.fun/guides/verify-relay-price.html"}</script>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span></a>
+        <nav class="topnav"><a href="../index.html">价格榜</a><a href="../stations/index.html">站点</a><a href="../models/index.html">模型</a><a href="index.html">指南</a></nav>
+      </header>
+      <main>
+        <section class="hero">
+          <p class="eyebrow">GUIDE · 核验方法</p>
+          <h1>怎么验证一个中转站的真实价格</h1>
+          <p class="lede">不要看它首页写几折，按下面五步自己算一遍，再决定要不要充值。</p>
+        </section>
+        <article class="panel guide">
+          <h2>五步核对</h2>
+          <ol>
+            <li><strong>找官方价</strong>：去厂商定价页抄下输入、输出、缓存单价，记下日期。不要用中转站自己标注的「官方价」。</li>
+            <li><strong>找站内价格</strong>：看它公布的是绝对单价，还是分组倍率 / 模型倍率。</li>
+            <li><strong>确认充值比例</strong>：充 1 元换多少额度。这一步最容易缺，缺了就没法折算。</li>
+            <li><strong>复算</strong>：按 <a href="multiplier-explained.html">倍率公式</a> 算出相对官方价的综合倍率。</li>
+            <li><strong>看日期</strong>：价格和汇率都会变，确认核验时间，超过几周的数字只能当参考。</li>
+          </ol>
+
+          <h2>三个常见陷阱</h2>
+          <h3>1. 基础价虚高</h3>
+          <p>有的站点写「0.05x」，但它用来对比的「基础价」比厂商官方价还高。比如某站 GPT-5.6 Sol 基础价标 $5 / $30，官方是 $4 / $20，按官方价复算实际约 0.066x，不是 0.05x。</p>
+          <h3>2. 活动价当常规价</h3>
+          <p>限时、首充、订阅叠加出来的低价，过期就恢复。看到「限时」「活动」字样，要按恢复后的价格估算长期成本。</p>
+          <h3>3. 缓存价和长上下文</h3>
+          <p>缓存读取通常只有输入价的十分之一，长上下文又会按更高档计费。只比输入输出两项，容易高估或低估真实账单。</p>
+
+          <h2>一个可复算的例子</h2>
+          <p>某站 gpt-6-sol 标输入 ¥0.78、输出 ¥3.90 每百万；官方价 $2 / $10，按 6.70 折算为 ¥13.40 / ¥67.00。综合倍率 = 0.78 ÷ 13.40 ≈ 0.058x。这个数字可以自己按计算器复现。</p>
+
+          <h2>本站怎么记录</h2>
+          <p>每条报价都保留来源链接和核验日期，口径不统一的不参与排名。<a href="../index.html#ledger">核验明细</a> 里可以看到全部原始值和来源。</p>
+        </article>
+      </main>
+      <footer class="footer"><span>AI API 比价雷达 · RELAY PRICE RADAR</span><span>最后更新 2026-11-04</span></footer>
+    </div>
+  </body>
+</html>

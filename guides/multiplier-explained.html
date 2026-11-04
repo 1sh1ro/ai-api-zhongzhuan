@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>中转站倍率怎么算：充值系数、分组倍率与综合倍率 · AI API 比价雷达</title>
+    <meta name="description" content="用公式和本站真实例子说明充值系数、分组倍率、模型倍率如何折算成相对官方价的综合倍率。" />
+    <link rel="canonical" href="https://ai.xulas.fun/guides/multiplier-explained.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="中转站倍率怎么算：充值系数、分组倍率与综合倍率" />
+    <meta property="og:url" content="https://ai.xulas.fun/guides/multiplier-explained.html" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"中转站倍率怎么算：充值系数、分组倍率与综合倍率","datePublished":"2026-11-04","dateModified":"2026-11-04","author":{"@type":"Organization","name":"AI API 比价雷达"},"mainEntityOfPage":"https://ai.xulas.fun/guides/multiplier-explained.html"}</script>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span></a>
+        <nav class="topnav"><a href="../index.html">价格榜</a><a href="../stations/index.html">站点</a><a href="../models/index.html">模型</a><a href="index.html">指南</a></nav>
+      </header>
+      <main>
+        <section class="hero">
+          <p class="eyebrow">GUIDE · 计算口径</p>
+          <h1>中转站倍率怎么算：充值系数、分组倍率与综合倍率</h1>
+          <p class="lede">同一个数字在不同站点含义不同，先把三个概念拆开，才谈得上比价。</p>
+        </section>
+        <article class="panel guide">
+          <h2>三个概念</h2>
+          <ul>
+            <li><strong>分组倍率</strong>：站点给某条线路标的乘数，例如「GPT 特惠 0.09x」。</li>
+            <li><strong>充值系数</strong>：充 1 元换多少额度。¥1 = $1 时，额度是美元；¥1 = $5 时，同样 1 元能换 5 美元额度。</li>
+            <li><strong>综合倍率</strong>：把上面两个折算后，相对厂商官方价的比值。1.00x 等于官方价，0.10x 就是官方价的一折。</li>
+          </ul>
+
+          <h2>公式</h2>
+          <p>额度按美元计、官方价也是美元时：</p>
+          <p><code>综合倍率 = 分组倍率 ÷ 每元换到的美元额度</code></p>
+          <p>官方价是美元、站点按人民币标价时，用汇率统一到同一种货币：</p>
+          <p><code>综合倍率 = 站点人民币单价 ÷（官方美元单价 × 汇率）</code></p>
+
+          <h2>两个真实例子</h2>
+          <p><strong>例一</strong>：某站「znb-gpt-特惠」标 0.09x，充值 ¥1 = $1，汇率 6.70。综合倍率 = 0.09 ÷ 6.70 ≈ 0.013x，也就是官方价的 1.3%。</p>
+          <p><strong>例二</strong>：某站「Claude Plus」页面标 0.8x，但它的页面倍率要先乘一个折算系数 0.142。综合倍率 = 0.8 × 0.142 ≈ 0.114x。</p>
+          <p>这两个例子里，0.09 和 0.8 看着差很多，折算后分别是 0.013x 和 0.114x，口径完全不同。</p>
+
+          <h2>为什么不能直接比裸倍率</h2>
+          <p>有的站点写的是分组倍率，有的写的是已经折算过的有效倍率，还有的倍率是相对它自己抬高的「基础价」。把不同口径的数字放在一起排名，结论会完全相反。本站只把能换算到官方价的报价放进站点总榜，其余单列。</p>
+
+          <h2>固定价怎么处理</h2>
+          <p>图片按张、视频按秒、语音按分钟，这类没有 Token 倍率。本站保留原单位和单价，不强行折算，也不参与综合倍率排名。</p>
+
+          <h2>怎么用本站</h2>
+          <p>价格榜的「口径」列会写明每条报价是绝对单价折算、分组倍率折算还是仅站内倍率；「核验明细」能看到原始值和来源。<a href="../index.html#ledger">打开核验明细</a>。</p>
+        </article>
+      </main>
+      <footer class="footer"><span>AI API 比价雷达 · RELAY PRICE RADAR</span><span>最后更新 2026-11-04</span></footer>
+    </div>
+  </body>
+</html>

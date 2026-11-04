@@ -309,6 +309,15 @@ th.col-num { text-align: right; }
 .button:hover { border-color: var(--brand); color: var(--brand-dark); }
 .button-primary { background: var(--brand); border-color: var(--brand); color: #fff; }
 .button-primary:hover { background: var(--brand-dark); border-color: var(--brand-dark); color: #fff; }
+.guide h2 { margin: 28px 0 10px; font-size: 20px; }
+.guide h3 { margin: 18px 0 8px; font-size: 16px; }
+.guide p, .guide li { color: var(--muted); line-height: 1.8; }
+.guide ul, .guide ol { padding-left: 22px; }
+.guide a { color: var(--brand-dark); }
+.guide a:hover { text-decoration: underline; }
+.guide code { background: #eff1ec; padding: 1px 5px; border-radius: 5px; font-family: var(--mono); font-size: 12.5px; }
+.guide table { width: 100%; margin: 12px 0; border-collapse: collapse; }
+.guide table th, .guide table td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; font-size: 13.5px; }
 .basis {
   display: inline-block;
   padding: 2px 8px;

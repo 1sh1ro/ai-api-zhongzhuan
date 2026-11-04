@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>官方 API 和中转站怎么选 · AI API 比价雷达</title>
+    <meta name="description" content="从稳定性、合规、价格和数据可见性对比官方 API 与中转站，给出生产与测试场景的选择建议。" />
+    <link rel="canonical" href="https://ai.xulas.fun/guides/official-vs-relay.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="官方 API 和中转站怎么选" />
+    <meta property="og:url" content="https://ai.xulas.fun/guides/official-vs-relay.html" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"官方 API 和中转站怎么选","datePublished":"2026-11-04","dateModified":"2026-11-04","author":{"@type":"Organization","name":"AI API 比价雷达"},"mainEntityOfPage":"https://ai.xulas.fun/guides/official-vs-relay.html"}</script>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span></a>
+        <nav class="topnav"><a href="../index.html">价格榜</a><a href="../stations/index.html">站点</a><a href="../models/index.html">模型</a><a href="index.html">指南</a></nav>
+      </header>
+      <main>
+        <section class="hero">
+          <p class="eyebrow">GUIDE · 选型</p>
+          <h1>官方 API 和中转站怎么选</h1>
+          <p class="lede">按使用场景分，而不是按单价分。生产看稳定和合规，测试看成本和多模型覆盖。</p>
+        </section>
+        <article class="panel guide">
+          <h2>五个维度对比</h2>
+          <table class="rank-table">
+            <thead><tr><th>维度</th><th>官方 API</th><th>中转站</th></tr></thead>
+            <tbody>
+              <tr><td>价格</td><td>官方标价</td><td>常见为官方价的一到几折，口径不一</td></tr>
+              <tr><td>稳定性</td><td>有 SLA 和公开状态页</td><td>无 SLA，限流和关站风险自负</td></tr>
+              <tr><td>数据</td><td>厂商直接处理</td><td>经过第三方，内容可见</td></tr>
+              <tr><td>合规与发票</td><td>可对公、可开票</td><td>多数不可，主体不透明</td></tr>
+              <tr><td>多模型</td><td>需要分别开户</td><td>一个 Key 调多家</td></tr>
+            </tbody>
+          </table>
+
+          <h2>生产环境</h2>
+          <p>涉及真实用户数据、付费业务、需要长期稳定和发票时，用官方 API。中转站可以作为降级或备用通道，但不要把唯一入口放在它上面。至少保留一套官方 Key 和可切换的 Base URL。</p>
+
+          <h2>开发和测试</h2>
+          <p>跑评测、做原型、批量处理、对比多个模型，用中转站能显著降低成本。建议选公开价格页、有明确分组、能查到来源的站点，先小额充值试跑，再决定是否长期用。</p>
+
+          <h2>成本怎么算才公平</h2>
+          <p>把请求量拆成输入、输出、缓存三部分，分别乘单价，再加上失败重试和限流浪费。只比「输入单价」会低估输出占比较高的任务。可以用 <a href="../models/index.html">模型官方价索引</a> 作为分母，再看各站的综合倍率。</p>
+
+          <h2>一个实用组合</h2>
+          <p>开发期用中转站压成本，上线前把关键链路切到官方 API；图片、视频这类固定价任务单独核算。本站的 <a href="../index.html">价格榜</a> 和 <a href="../stations/index.html">站点页</a> 可以帮你快速比较和回溯来源。</p>
+        </article>
+      </main>
+      <footer class="footer"><span>AI API 比价雷达 · RELAY PRICE RADAR</span><span>最后更新 2026-11-04</span></footer>
+    </div>
+  </body>
+</html>

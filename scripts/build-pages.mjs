@@ -21,6 +21,7 @@ const offersData = readJSON("data/offers.json");
 const config = readJSON("data/pricing-config.json");
 const scope = readJSON("data/model-scope.json");
 const version = readJSON("data/version.json");
+const guides = readJSON("data/guides.json").guides;
 
 const BASE = "https://ai.xulas.fun";
 const BUILD = version.build;
@@ -135,6 +136,7 @@ function shell({ title, description, canonical, body, jsonLd }) {
           <a href="../index.html#models">模型对照</a>
           <a href="../index.html#directory">站点目录</a>
           <a href="../index.html#ledger">核验明细</a>
+          <a href="../guides/index.html">指南</a>
         </nav>
       </header>
       <main>
@@ -366,11 +368,47 @@ ${models
   }),
 );
 
+/* ---------- 指南索引 ---------- */
+fs.writeFileSync(
+  path.join(root, "guides", "index.html"),
+  shell({
+    title: "使用指南 · AI API 比价雷达",
+    description: "中转站 API 的基础概念、倍率计算方法、价格核验步骤与风险提示。",
+    canonical: `${BASE}/guides/index.html`,
+    body: `        <section class="hero">
+          <p class="eyebrow">GUIDES</p>
+          <h1>使用指南</h1>
+          <p class="lede">先把概念和算法弄清楚，再看价格榜，结论会稳很多。</p>
+        </section>
+        <section class="panel">
+          <div class="table-wrap"><table class="rank-table">
+            <thead><tr><th>指南</th><th>更新</th></tr></thead>
+            <tbody>
+${guides
+  .map(
+    (guide) => `              <tr><td><a class="station-name" href="${esc(guide.slug)}.html">${esc(guide.title)}</a><div class="group-cell">${esc(guide.description)}</div></td><td class="date-cell">${esc(guide.updated)}</td></tr>`,
+  )
+  .join("\n")}
+            </tbody>
+          </table></div>
+        </section>`,
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "使用指南",
+      url: `${BASE}/guides/index.html`,
+      dateModified: LASTMOD,
+    },
+  }),
+);
+
 /* ---------- sitemap / robots ---------- */
 const urls = [
   { loc: `${BASE}/`, priority: "1.0", freq: "hourly" },
   { loc: `${BASE}/stations/index.html`, priority: "0.8", freq: "daily" },
   { loc: `${BASE}/models/index.html`, priority: "0.8", freq: "daily" },
+  { loc: `${BASE}/guides/index.html`, priority: "0.8", freq: "weekly" },
+  ...guides.map((guide) => ({ loc: `${BASE}/guides/${guide.slug}.html`, priority: "0.75", freq: "monthly" })),
   ...sites.map((site) => ({ loc: `${BASE}/stations/${site.id}.html`, priority: "0.6", freq: "daily" })),
   ...models.map((model) => ({ loc: `${BASE}/models/${modelSlug(model.id)}.html`, priority: "0.7", freq: "daily" })),
 ];
@@ -421,6 +459,7 @@ ${topStations
           <p class="table-note">模型索引：${models
             .map((model) => `<a href="models/${modelSlug(model.id)}.html">${esc(model.displayName)}</a>`)
             .join(" · ")}</p>
+          <p class="table-note">指南：${guides.map((guide) => `<a href="guides/${esc(guide.slug)}.html">${esc(guide.title)}</a>`).join(" · ")}</p>
           <p class="table-note">站点索引：${sites.map((site) => `<a href="stations/${esc(site.id)}.html">${esc(site.name)}</a>`).join(" · ")}</p>
         </section>
         <!-- SNAPSHOT:END -->`;

@@ -3,6 +3,12 @@
   <url><loc>https://ai.xulas.fun/</loc><lastmod>2026-11-04</lastmod><changefreq>hourly</changefreq><priority>1.0</priority></url>
   <url><loc>https://ai.xulas.fun/stations/index.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai.xulas.fun/models/index.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai.xulas.fun/guides/index.html</loc><lastmod>2026-11-04</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai.xulas.fun/guides/what-is-api-relay.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://ai.xulas.fun/guides/multiplier-explained.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://ai.xulas.fun/guides/verify-relay-price.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://ai.xulas.fun/guides/free-relay-risks.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://ai.xulas.fun/guides/official-vs-relay.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://ai.xulas.fun/stations/api-nebula.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.6</priority></url>
   <url><loc>https://ai.xulas.fun/stations/beeapi.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.6</priority></url>
   <url><loc>https://ai.xulas.fun/stations/modelrush.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.6</priority></url>
