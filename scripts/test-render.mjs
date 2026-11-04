@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { buildRows, comparableRows, stationBest } from "../assets/pricing.js";
+import { buildRows, comparableRows } from "../assets/pricing.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readJSON = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
@@ -16,7 +16,7 @@ const assert = (condition, message) => {
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const requiredIds = [
   "stat-stations", "stat-offers", "stat-comparable", "stat-models", "stat-fx", "hero-note",
-  "family-chips", "tag-chips", "search", "basis-filter", "view-mode", "reset",
+  "family-chips", "tag-chips", "search", "basis-filter", "view-mode", "model-select", "reset",
   "rank-head", "rank-body", "rank-note", "model-grid", "site-grid", "empty-state",
 ];
 for (const id of requiredIds) assert(html.includes(`id="${id}"`), `index.html 缺少 #${id}`);
@@ -75,25 +75,26 @@ assert(node("#stat-comparable").textContent === String(comparableRows(rows).leng
 assert(Number(node("#stat-models").textContent) === models.filter((model) => model.official).length, "官方基准模型数不一致");
 
 const stationRowCount = (node("#rank-body").innerHTML.match(/<tr[\s>]/g) || []).length;
-const rawBestStations = new Set(
-  rows.filter((row) => !row.comparable && row.declaredRatio != null).map((row) => row.stationId),
-);
-const expectedStationRows = stationBest(rows).size + rawBestStations.size + (rawBestStations.size ? 1 : 0);
-assert(stationRowCount === expectedStationRows, `站点总榜应有 ${expectedStationRows} 行，实际 ${stationRowCount}`);
-assert(node("#rank-body").innerHTML.includes("znbcode"), "站点总榜应包含 znbcode");
-assert(node("#rank-body").innerHTML.includes("API Nebula"), "站点总榜应包含 API Nebula");
-assert(node("#rank-body").innerHTML.includes("is-low"), "低价倍率应附带高亮样式");
-assert(node("#rank-body").innerHTML.includes("未指定"), "只写到系列的分组应显示「未指定型号」");
+const stationsByModel = new Map();
+for (const row of comparableRows(rows)) {
+  const set = stationsByModel.get(row.modelId) || new Set();
+  set.add(row.stationId);
+  stationsByModel.set(row.modelId, set);
+}
+const maxModelStations = Math.max(...[...stationsByModel.values()].map((set) => set.size));
+assert(stationRowCount === maxModelStations, `模型排行默认应有 ${maxModelStations} 行，实际 ${stationRowCount}`);
+assert(node("#rank-body").innerHTML.includes("znbcode"), "模型排行应包含 znbcode");
+assert(node("#rank-body").innerHTML.includes("score-badge"), "模型排行应显示评分");
+assert((node("#model-select").innerHTML.match(/<option/g) || []).length >= 5, "模型选择器选项过少");
 assert(!node("#rank-body").innerHTML.includes("Codex"), "页面不应再出现 Codex 系列");
-assert(!node("#rank-body").innerHTML.includes("GPT-5.3 Codex"), "不应出现 gpt-5.3-codex");
-assert(node("#rank-body").innerHTML.includes("apikey.fun/register?aff="), "有推广参数的站点应链到推广链接");
-assert(node("#rank-body").innerHTML.includes("apinebula.ai/A89Bk1"), "路径式推广链接应保留");
-assert(!node("#rank-body").innerHTML.includes("modelrush.ai/sign-up"), "没有推广参数的站点应回到官网首页");
-assert(node("#rank-body").innerHTML.includes("0.0002x"), "国模羊毛应按 DeepSeek 计入 0.0002x");
 assert(!node("#rank-body").innerHTML.includes("省 100%"), "折扣不应显示为省 100%");
-assert(node("#rank-body").innerHTML.includes("sep-row"), "应存在站内倍率与综合倍率的分隔行");
 assert(node("#model-grid").innerHTML.includes("GPT-6 Sol"), "模型对照应包含 GPT-6 Sol");
 assert(node("#site-grid").innerHTML.includes("AIZZZ"), "站点目录应包含 AIZZZ");
+assert(node("#site-grid").innerHTML.includes("apikey.fun/register?aff="), "站点目录应保留推广链接");
+const modelHandler = node("#model-select").listeners.change?.[0];
+assert(modelHandler, "缺少模型切换事件");
+modelHandler({ target: { value: "grok-4.6" } });
+assert((node("#rank-body").innerHTML.match(/<tr[\s>]/g) || []).length === stationsByModel.get("grok-4.6").size, "切换模型后行数应为该模型的站点数");
 const ledgerRows = (node("#ledger-body").innerHTML.match(/<tr[\s>]/g) || []).length;
 assert(ledgerRows === offers.length, `核验明细应有 ${offers.length} 行，实际 ${ledgerRows}`);
 assert(node("#ledger-body").innerHTML.includes("source-link"), "核验明细每行应有来源链接");
@@ -134,4 +135,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`渲染校验通过：站点 ${sites.length} 个，报价 ${offers.length} 条，站点总榜 ${stationBest(rows).size} 行，模型卡片 ${models.filter((m) => m.official).length} 个。`);
+console.log(`渲染校验通过：站点 ${sites.length} 个，报价 ${offers.length} 条，模型排行 ${maxModelStations} 行，模型卡片 ${models.filter((m) => m.official).length} 个。`);

@@ -25,7 +25,7 @@
         "description": "以厂商官方价为基准的 AI API 中转站比价与核验记录。"
       }
     </script>
-    <link rel="stylesheet" href="styles.css?v=2026-11-04d" />
+    <link rel="stylesheet" href="styles.css?v=2026-11-04e" />
   </head>
   <body>
     <div class="page">
@@ -77,21 +77,22 @@
             </div>
             <p class="panel-desc">这一块是构建时写入的静态内容，不依赖脚本，供搜索引擎与无 JS 环境读取。最后更新 2026-11-04。</p>
           </div>
-          <p class="table-note">收录 46 个站点、135 条报价，其中 56 条口径统一可比。官方基准价覆盖 26 个模型。</p>
+          <p class="table-note">收录 46 个站点、135 条报价，其中 56 条口径统一可比。下表每个模型单独比较，列出该模型当前最低价的站点。</p>
           <div class="table-wrap">
             <table class="rank-table">
-              <thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">评分</th><th>最低分组</th><th>代表模型</th><th class="col-num">综合倍率</th><th class="col-num">输入 ¥/M</th><th class="col-num">输出 ¥/M</th><th>核验</th></tr></thead>
+              <thead><tr><th>模型</th><th class="col-num">官方输入 ¥/M</th><th class="col-num">官方输出 ¥/M</th><th>最低站点</th><th class="col-num">本模型倍率</th><th class="col-num">可比站点</th></tr></thead>
               <tbody>
-                <tr><td class="col-rank">01</td><td><a class="station-name" href="stations/horizon-api.html">Horizon API</a></td><td class="col-num"><span class="score-badge grade-A" data-score="77.0" data-grade="A" data-name="Horizon API" data-parts="40.0,20.0,6.0,3.0,8.0" tabindex="0" title="悬停查看五维评分">77.0</span></td><td class="group-cell">国模羊毛（限 GPT 订阅用户）</td><td>DeepSeek V4.1 Flash</td><td class="col-num"><strong class="ratio is-low">0.0002x</strong></td><td class="col-num">¥0.000</td><td class="col-num">¥0.002</td><td class="date-cell">2026.08.29</td></tr>
-                <tr><td class="col-rank">02</td><td><a class="station-name" href="stations/znbcode.html">znbcode</a></td><td class="col-num"><span class="score-badge grade-A" data-score="88.4" data-grade="A" data-name="znbcode" data-parts="37.4,16.9,15.0,9.0,10.0" tabindex="0" title="悬停查看五维评分">88.4</span></td><td class="group-cell">znb-gpt-特惠</td><td>GPT系列</td><td class="col-num"><strong class="ratio is-low">0.013x</strong></td><td class="col-num">—</td><td class="col-num">—</td><td class="date-cell">2026.11.03</td></tr>
-                <tr><td class="col-rank">03</td><td><a class="station-name" href="stations/linkagi.html">LinkAGI</a></td><td class="col-num"><span class="score-badge grade-B" data-score="66.6" data-grade="B" data-name="LinkAGI" data-parts="31.4,6.7,15.0,4.5,9.0" tabindex="0" title="悬停查看五维评分">66.6</span></td><td class="group-cell">Plus 标准短上下文（≤272K）</td><td>GPT-6.1 Sol</td><td class="col-num"><strong class="ratio is-low">0.027x</strong></td><td class="col-num">¥0.360</td><td class="col-num">¥1.80</td><td class="date-cell">2026.10.17</td></tr>
-                <tr><td class="col-rank">04</td><td><a class="station-name" href="stations/dayway.html">DayWay</a></td><td class="col-num"><span class="score-badge grade-B" data-score="64.4" data-grade="B" data-name="DayWay" data-parts="26.9,20.0,8.0,1.5,8.0" tabindex="0" title="悬停查看五维评分">64.4</span></td><td class="group-cell">代表模型</td><td>GPT-5.6 Sol</td><td class="col-num"><strong class="ratio is-low">0.045x</strong></td><td class="col-num">¥1.15</td><td class="col-num">¥6.90</td><td class="date-cell">2026.08.23</td></tr>
-                <tr><td class="col-rank">05</td><td><a class="station-name" href="stations/relaycore.html">RelayCore</a></td><td class="col-num"><span class="score-badge grade-A" data-score="75.0" data-grade="A" data-name="RelayCore" data-parts="26.0,20.0,15.0,4.0,10.0" tabindex="0" title="悬停查看五维评分">75.0</span></td><td class="group-cell">GPT | 福利</td><td>GPT-6 Sol</td><td class="col-num"><strong class="ratio is-low">0.050x</strong></td><td class="col-num">¥0.670</td><td class="col-num">¥3.35</td><td class="date-cell">2026.11.03</td></tr>
-                <tr><td class="col-rank">06</td><td><a class="station-name" href="stations/api-nebula.html">API Nebula</a></td><td class="col-num"><span class="score-badge grade-B" data-score="71.8" data-grade="B" data-name="API Nebula" data-parts="24.7,12.1,10.0,15.0,10.0" tabindex="0" title="悬停查看五维评分">71.8</span></td><td class="group-cell">站内单价</td><td>GPT-6 Sol</td><td class="col-num"><strong class="ratio is-low">0.058x</strong></td><td class="col-num">¥0.780</td><td class="col-num">¥3.90</td><td class="date-cell">2026.10.17</td></tr>
-                <tr><td class="col-rank">07</td><td><a class="station-name" href="stations/zerouter.html">Zerouter</a></td><td class="col-num"><span class="score-badge grade-B" data-score="72.4" data-grade="B" data-name="Zerouter" data-parts="22.6,17.8,13.5,9.5,9.0" tabindex="0" title="悬停查看五维评分">72.4</span></td><td class="group-cell">按量计费</td><td>GPT-5.5</td><td class="col-num"><strong class="ratio is-low">0.074x</strong></td><td class="col-num">¥2.48</td><td class="col-num">¥15.01</td><td class="date-cell">2026.10.18</td></tr>
-                <tr><td class="col-rank">08</td><td><a class="station-name" href="stations/kaigpt.html">KaiGPT</a></td><td class="col-num"><span class="score-badge grade-B" data-score="64.5" data-grade="B" data-name="KaiGPT" data-parts="20.0,20.0,11.5,3.0,10.0" tabindex="0" title="悬停查看五维评分">64.5</span></td><td class="group-cell">OpenAI 主流模型</td><td>GPT系列</td><td class="col-num"><strong class="ratio is-low">0.100x</strong></td><td class="col-num">—</td><td class="col-num">—</td><td class="date-cell">2026.09.26</td></tr>
-                <tr><td class="col-rank">09</td><td><a class="station-name" href="stations/apikey-fun.html">APIKEY.FUN</a></td><td class="col-num"><span class="score-badge grade-C" data-score="58.9" data-grade="C" data-name="APIKEY.FUN" data-parts="18.9,12.5,13.0,6.5,8.0" tabindex="0" title="悬停查看五维评分">58.9</span></td><td class="group-cell">Claude Plus（精品）</td><td>Claude系列</td><td class="col-num"><strong class="ratio is-low">0.114x</strong></td><td class="col-num">—</td><td class="col-num">—</td><td class="date-cell">2026.09.03</td></tr>
-                <tr><td class="col-rank">10</td><td><a class="station-name" href="stations/modelrush.html">ModelRush</a></td><td class="col-num"><span class="score-badge grade-D" data-score="36.0" data-grade="D" data-name="ModelRush" data-parts="0.0,10.0,13.0,3.0,10.0" tabindex="0" title="悬停查看五维评分">36.0</span></td><td class="group-cell">按量计费</td><td>DeepSeek V4.1 Flash</td><td class="col-num"><strong class="ratio is-low">1.10x</strong></td><td class="col-num">¥2.21</td><td class="col-num">¥8.84</td><td class="date-cell">2026.09.25</td></tr>
+                <tr><td><a class="station-name" href="models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a></td><td class="col-num">¥13.40</td><td class="col-num">¥67.00</td><td><a class="station-name" href="stations/znbcode.html">znbcode</a></td><td class="col-num"><strong class="ratio is-low">0.060x</strong></td><td class="col-num">5</td></tr>
+                <tr><td><a class="station-name" href="models/gpt-6-sol.html">GPT-6 Sol</a></td><td class="col-num">¥13.40</td><td class="col-num">¥67.00</td><td><a class="station-name" href="stations/znbcode.html">znbcode</a></td><td class="col-num"><strong class="ratio is-low">0.013x</strong></td><td class="col-num">5</td></tr>
+                <tr><td><a class="station-name" href="models/claude-opus-5.html">Claude Opus 5</a></td><td class="col-num">¥33.50</td><td class="col-num">¥167.5</td><td><a class="station-name" href="stations/api-nebula.html">API Nebula</a></td><td class="col-num"><strong class="ratio is-low">0.075x</strong></td><td class="col-num">4</td></tr>
+                <tr><td><a class="station-name" href="models/gpt-6-1-sol.html">GPT-6.1 Sol</a></td><td class="col-num">¥13.40</td><td class="col-num">¥67.00</td><td><a class="station-name" href="stations/linkagi.html">LinkAGI</a></td><td class="col-num"><strong class="ratio is-low">0.027x</strong></td><td class="col-num">4</td></tr>
+                <tr><td><a class="station-name" href="models/grok-4-6.html">Grok 4.6</a></td><td class="col-num">¥13.40</td><td class="col-num">¥40.20</td><td><a class="station-name" href="stations/znbcode.html">znbcode</a></td><td class="col-num"><strong class="ratio is-low">0.030x</strong></td><td class="col-num">4</td></tr>
+                <tr><td><a class="station-name" href="models/deepseek-v4-1-flash.html">DeepSeek V4.1 Flash</a></td><td class="col-num">¥2.01</td><td class="col-num">¥8.04</td><td><a class="station-name" href="stations/horizon-api.html">Horizon API</a></td><td class="col-num"><strong class="ratio is-low">0.0002x</strong></td><td class="col-num">3</td></tr>
+                <tr><td><a class="station-name" href="models/gemini-3-8-flash.html">Gemini 3.8 Flash</a></td><td class="col-num">¥5.03</td><td class="col-num">¥25.13</td><td><a class="station-name" href="stations/znbcode.html">znbcode</a></td><td class="col-num"><strong class="ratio is-low">0.060x</strong></td><td class="col-num">3</td></tr>
+                <tr><td><a class="station-name" href="models/gpt-5-6-sol.html">GPT-5.6 Sol</a></td><td class="col-num">¥26.80</td><td class="col-num">¥134.0</td><td><a class="station-name" href="stations/dayway.html">DayWay</a></td><td class="col-num"><strong class="ratio is-low">0.045x</strong></td><td class="col-num">3</td></tr>
+                <tr><td><a class="station-name" href="models/claude-opus-5-5.html">Claude Opus 5.5</a></td><td class="col-num">¥26.80</td><td class="col-num">¥134.0</td><td><a class="station-name" href="stations/api-nebula.html">API Nebula</a></td><td class="col-num"><strong class="ratio is-low">0.075x</strong></td><td class="col-num">2</td></tr>
+                <tr><td><a class="station-name" href="models/gpt-5-6-terra.html">GPT-5.6 Terra</a></td><td class="col-num">¥13.40</td><td class="col-num">¥80.40</td><td><a class="station-name" href="stations/relaycore.html">RelayCore</a></td><td class="col-num"><strong class="ratio is-low">0.050x</strong></td><td class="col-num">2</td></tr>
+                <tr><td><a class="station-name" href="models/gpt-6-astra.html">GPT-6 Astra</a></td><td class="col-num">¥67.00</td><td class="col-num">¥335.0</td><td><a class="station-name" href="stations/relaycore.html">RelayCore</a></td><td class="col-num"><strong class="ratio is-low">0.050x</strong></td><td class="col-num">2</td></tr>
               </tbody>
             </table>
           </div>
@@ -107,11 +108,10 @@
           <div class="panel-head">
             <div>
               <p class="kicker">01 / PRICE RANKING</p>
-              <h2>中转价格榜</h2>
+              <h2>模型报价榜</h2>
             </div>
             <p class="panel-desc">
-              综合倍率按输入:输出 = 3:1 加权，单位为人民币。倍率越低越便宜，1.00x 等于官方价。
-              分组只写到系列时显示「未指定型号」，不套用任何具体型号的官方价，这类报价只参与倍率排名，不显示每百万 Token 单价。
+              名次只在同一个模型内比较。先选一个模型，再按该模型的综合倍率排站点；不同模型的官方价和折扣结构不同，倍率不跨模型直接对比。
             </p>
           </div>
 
@@ -121,6 +121,10 @@
               <input id="search" type="search" placeholder="搜索站点、分组、模型…" autocomplete="off" />
             </label>
             <div class="chips" id="family-chips" role="group" aria-label="按模型系列筛选"></div>
+            <label class="select-box">
+              <span>模型</span>
+              <select id="model-select" aria-label="选择比较模型"></select>
+            </label>
             <label class="select-box">
               <span>口径</span>
               <select id="basis-filter">
@@ -132,7 +136,7 @@
             <label class="select-box">
               <span>视图</span>
               <select id="view-mode">
-                <option value="station">站点总榜</option>
+                <option value="station">模型排行</option>
                 <option value="offer">报价明细</option>
               </select>
             </label>
@@ -244,7 +248,7 @@
       </footer>
     </div>
 
-    <script src="assets/score-tip.js?v=2026-11-04d" defer></script>
-    <script type="module" src="app.js?v=2026-11-04d"></script>
+    <script src="assets/score-tip.js?v=2026-11-04e" defer></script>
+    <script type="module" src="app.js?v=2026-11-04e"></script>
   </body>
 </html>

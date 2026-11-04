@@ -31,6 +31,42 @@ export function priceScore(bestEffective) {
   return 40 * clamp(Math.log10(1 / bestEffective) / 2, 0, 1);
 }
 
+// 同一模型内把站点按倍率排序，换算成 0–1 的相对位置，最好为 1，最差为 0。
+export function buildModelPercentiles(rows) {
+  const groups = new Map();
+  for (const row of rows) {
+    if (!row.comparable) continue;
+    const list = groups.get(row.modelId) || [];
+    list.push({ stationId: row.stationId, effective: row.effectiveBlended });
+    groups.set(row.modelId, list);
+  }
+  const percentiles = new Map();
+  for (const [modelId, list] of groups) {
+    list.sort((a, b) => a.effective - b.effective);
+    const map = new Map();
+    list.forEach((item, index) => {
+      map.set(item.stationId, list.length === 1 ? 1 : 1 - index / (list.length - 1));
+    });
+    percentiles.set(modelId, map);
+  }
+  return percentiles;
+}
+
+// 价格维度按「同模型相对位置」平均，避免拿不同模型的倍率直接对比。
+// 覆盖模型少于 3 个时按比例折减，防止只在一个模型上便宜的站点拿满分。
+export function priceScoreFromPercentiles(stationRows, percentiles) {
+  const values = [];
+  for (const row of stationRows) {
+    if (!row.comparable) continue;
+    const value = percentiles.get(row.modelId)?.get(row.stationId);
+    if (value != null) values.push(value);
+  }
+  if (values.length === 0) return 0;
+  const average = values.reduce((sum, value) => sum + value, 0) / values.length;
+  const coverageFactor = Math.min(1, values.length / 3);
+  return 40 * average * coverageFactor;
+}
+
 // 数据透明度 0–20：口径统一的报价占比。
 export function transparencyScore(stationRows) {
   if (stationRows.length === 0) return 0;
@@ -78,13 +114,13 @@ export function grade(total) {
   return "D";
 }
 
-export function scoreStation(site, stationRows, modelById, lastmod) {
+export function scoreStation(site, stationRows, modelById, lastmod, percentiles) {
   const best = stationRows
     .filter((row) => row.comparable)
     .reduce((min, row) => (min == null || row.effectiveBlended < min ? row.effectiveBlended : min), null);
 
   const parts = {
-    price: priceScore(best),
+    price: percentiles ? priceScoreFromPercentiles(stationRows, percentiles) : priceScore(best),
     transparency: transparencyScore(stationRows),
     traceability: traceabilityScore(stationRows, lastmod),
     coverage: coverageScore(stationRows, modelById),

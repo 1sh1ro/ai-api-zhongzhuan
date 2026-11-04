@@ -11,7 +11,7 @@ import {
   formatDiscount,
   FAMILY_LABELS,
 } from "../assets/pricing.js";
-import { scoreStation } from "../assets/scoring.js";
+import { scoreStation, buildModelPercentiles } from "../assets/scoring.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readJSON = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
@@ -38,9 +38,26 @@ const siteById = new Map(sites.map((site) => [site.id, site]));
 const modelById = new Map(models.map((model) => [model.id, model]));
 const stationBestRow = stationBest(rows);
 const modelBestRow = modelBest(rows.filter((row) => row.modelBasis === "stated"));
+const percentiles = buildModelPercentiles(rows);
 const stationScores = new Map(
-  sites.map((site) => [site.id, scoreStation(site, rows.filter((row) => row.stationId === site.id), modelById, LASTMOD)]),
+  sites.map((site) => [site.id, scoreStation(site, rows.filter((row) => row.stationId === site.id), modelById, LASTMOD, percentiles)]),
 );
+
+function bestStationRowsForModel(modelId) {
+  const byStation = new Map();
+  for (const row of rows) {
+    if (!row.comparable || row.modelId !== modelId) continue;
+    const current = byStation.get(row.stationId);
+    if (!current || row.effectiveBlended < current.effectiveBlended) byStation.set(row.stationId, row);
+  }
+  return [...byStation.values()].sort((a, b) => a.effectiveBlended - b.effectiveBlended);
+}
+
+function modelRankFor(stationId, modelId) {
+  const list = bestStationRowsForModel(modelId);
+  const index = list.findIndex((row) => row.stationId === stationId);
+  return { rank: index + 1, total: list.length, best: list[0] ? list[0].effectiveBlended : null };
+}
 
 const REFERRAL_PARAM_KEYS = ["aff", "ref", "invite", "code"];
 const GENERIC_REGISTER_PATH = /^\/(sign-?up|signup|register|login|dashboard)\/?$/i;
@@ -213,8 +230,12 @@ function offerTable(rowsForTable, { showStation = false, showModel = false }) {
 fs.mkdirSync(path.join(root, "stations"), { recursive: true });
 for (const site of sites) {
   const stationRows = rows.filter((row) => row.stationId === site.id);
-  const best = stationBestRow.get(site.id);
   const comparableCount = stationRows.filter((row) => row.comparable).length;
+  const comparableModels = [...new Set(stationRows.filter((row) => row.comparable).map((row) => row.modelId))];
+  const rankedModels = comparableModels
+    .map((modelId) => ({ modelId, info: modelRankFor(site.id, modelId) }))
+    .filter((item) => item.info.total >= 2)
+    .sort((a, b) => b.info.total - a.info.total);
   const statusLabel = {
     "registration-page-reachable": "注册页可达",
     "manual-verification-required": "需要人工核验",
@@ -223,9 +244,20 @@ for (const site of sites) {
   }[site.status] || site.status || "状态未知";
   const score = stationScores.get(site.id);
 
-  const summaryLine = best
-    ? `当前最低综合倍率 ${formatMultiplier(best.effectiveBlended)}（${esc(best.groupName)}）。`
+  const summaryLine = comparableModels.length
+    ? `覆盖 ${comparableModels.length} 个可比模型，其中 ${rankedModels.length} 个模型有多站可比。`
     : "暂无口径统一的可比报价。";
+
+  const modelRankTable = rankedModels.length
+    ? `<div class="table-wrap"><table class="rank-table"><thead><tr><th>模型</th><th class="col-num">本店倍率</th><th class="col-num">同模型排名</th><th class="col-num">可比站点</th></tr></thead><tbody>
+${rankedModels
+  .map(({ modelId, info }) => {
+    const row = stationRows.find((item) => item.modelId === modelId && item.comparable);
+    return `              <tr><td><a class="station-name" href="../models/${esc(modelSlug(modelId))}.html">${esc(modelById.get(modelId)?.displayName || modelId)}</a></td><td class="col-num">${row ? formatMultiplier(row.effectiveBlended) : "—"}</td><td class="col-num">${info.rank} / ${info.total}</td><td class="col-num">${info.total}</td></tr>`;
+  })
+  .join("\n")}
+            </tbody></table></div>`
+    : `<p class="table-note">该站暂没有与其他站点重叠的可比模型。</p>`;
 
   const body = `        <section class="hero">
           <p class="eyebrow">STATION · ${esc(site.id)}</p>
@@ -249,6 +281,11 @@ for (const site of sites) {
           </table></div>
         </section>
         <section class="panel">
+          <div class="panel-head"><div><p class="kicker">MODEL RANK</p><h2>同模型排名</h2></div>
+          <p class="panel-desc">只在同一个模型内和其他站点比较，不同模型的倍率不放在一起排名。</p></div>
+          ${modelRankTable}
+        </section>
+        <section class="panel">
           <div class="panel-head"><div><p class="kicker">OFFERS</p><h2>全部报价</h2></div>
           <p class="panel-desc">每条报价保留原始口径、来源与核验日期。口径未统一的只显示原值。</p></div>
           ${offerTable(stationRows, { showModel: true })}
@@ -267,7 +304,7 @@ for (const site of sites) {
     path.join(root, "stations", `${site.id}.html`),
     shell({
       title: `${site.name} API 报价与倍率 · AI API 比价雷达`,
-      description: `${site.name} 的中转 API 报价：${stationRows.length} 条记录，${comparableCount} 条口径统一可比。${best ? `最低综合倍率 ${formatMultiplier(best.effectiveBlended)}。` : "暂无可比报价。"}数据核验于 ${formatDate(site.verifiedAt)}。`,
+      description: `${site.name} 的中转 API 报价：${stationRows.length} 条记录，${comparableCount} 条口径统一可比。${comparableModels.length ? `覆盖 ${comparableModels.length} 个可比模型。` : "暂无可比报价。"}数据核验于 ${formatDate(site.verifiedAt)}。`,
       canonical: `${BASE}/stations/${site.id}.html`,
       body,
       jsonLd,
@@ -285,19 +322,19 @@ fs.writeFileSync(
     body: `        <section class="hero">
           <p class="eyebrow">STATIONS</p>
           <h1>全部中转站</h1>
-          <p class="lede">共 ${sites.length} 个站点，按综合评分从高到低排序。每页列出该站点的评分明细、全部报价与核验日期。</p>
+          <p class="lede">共 ${sites.length} 个站点，按综合评分从高到低排序。每页列出该站点的评分明细、同模型排名、全部报价与核验日期。</p>
         </section>
         <section class="panel">
           <div class="table-wrap"><table class="rank-table">
-            <thead><tr><th>站点</th><th class="col-num">评分</th><th>状态</th><th class="col-num">报价</th><th class="col-num">可比</th><th class="col-num">最低倍率</th><th>核验</th></tr></thead>
+            <thead><tr><th>站点</th><th class="col-num">评分</th><th>状态</th><th class="col-num">报价</th><th class="col-num">可比条目</th><th class="col-num">可比模型</th><th>核验</th></tr></thead>
             <tbody>
 ${[...sites]
   .sort((a, b) => (stationScores.get(b.id)?.total ?? 0) - (stationScores.get(a.id)?.total ?? 0))
   .map((site) => {
     const stationRows = rows.filter((row) => row.stationId === site.id);
-    const best = stationBestRow.get(site.id);
+    const modelCount = new Set(stationRows.filter((row) => row.comparable).map((row) => row.modelId)).size;
     const score = stationScores.get(site.id);
-    return `              <tr><td><a class="station-name" href="${esc(site.id)}.html">${esc(site.name)}</a></td><td class="col-num">${scoreBadge(score, site.name)}</td><td class="group-cell">${esc(STATUS_LABELS[site.status] || site.status)}</td><td class="col-num">${stationRows.length}</td><td class="col-num">${stationRows.filter((row) => row.comparable).length}</td><td class="col-num">${best ? formatMultiplier(best.effectiveBlended) : "—"}</td><td class="date-cell">${formatDate(site.verifiedAt)}</td></tr>`;
+    return `              <tr><td><a class="station-name" href="${esc(site.id)}.html">${esc(site.name)}</a></td><td class="col-num">${scoreBadge(score, site.name)}</td><td class="group-cell">${esc(STATUS_LABELS[site.status] || site.status)}</td><td class="col-num">${stationRows.length}</td><td class="col-num">${stationRows.filter((row) => row.comparable).length}</td><td class="col-num">${modelCount}</td><td class="date-cell">${formatDate(site.verifiedAt)}</td></tr>`;
   })
   .join("\n")}
             </tbody>
@@ -548,10 +585,14 @@ fs.writeFileSync(path.join(root, "robots.txt"), `User-agent: *\nAllow: /\n\nSite
 /* ---------- 首页静态快照 ---------- */
 const indexFile = path.join(root, "index.html");
 let indexHtml = fs.readFileSync(indexFile, "utf8");
-const ranked = [...comparable].sort((a, b) => a.effectiveBlended - b.effectiveBlended);
-const topStations = [...stationBestRow.entries()]
-  .sort((a, b) => a[1].effectiveBlended - b[1].effectiveBlended)
-  .slice(0, 10);
+const modelLeaders = models
+  .map((model) => {
+    const list = bestStationRowsForModel(model.id);
+    return list.length >= 2 ? { model, best: list[0], count: list.length } : null;
+  })
+  .filter(Boolean)
+  .sort((a, b) => b.count - a.count || a.model.displayName.localeCompare(b.model.displayName, "zh-CN"))
+  .slice(0, 12);
 
 const snapshot = `<!-- SNAPSHOT:START -->
         <section class="panel" id="snapshot">
@@ -562,15 +603,16 @@ const snapshot = `<!-- SNAPSHOT:START -->
             </div>
             <p class="panel-desc">这一块是构建时写入的静态内容，不依赖脚本，供搜索引擎与无 JS 环境读取。最后更新 ${esc(LASTMOD)}。</p>
           </div>
-          <p class="table-note">收录 ${sites.length} 个站点、${rows.length} 条报价，其中 ${comparable.length} 条口径统一可比。官方基准价覆盖 ${models.filter((model) => model.official).length} 个模型。</p>
+          <p class="table-note">收录 ${sites.length} 个站点、${rows.length} 条报价，其中 ${comparable.length} 条口径统一可比。下表每个模型单独比较，列出该模型当前最低价的站点。</p>
           <div class="table-wrap">
             <table class="rank-table">
-              <thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">评分</th><th>最低分组</th><th>代表模型</th><th class="col-num">综合倍率</th><th class="col-num">输入 ¥/M</th><th class="col-num">输出 ¥/M</th><th>核验</th></tr></thead>
+              <thead><tr><th>模型</th><th class="col-num">官方输入 ¥/M</th><th class="col-num">官方输出 ¥/M</th><th>最低站点</th><th class="col-num">本模型倍率</th><th class="col-num">可比站点</th></tr></thead>
               <tbody>
-${topStations
-  .map(
-    ([stationId, row], index) => `                <tr><td class="col-rank">${String(index + 1).padStart(2, "0")}</td><td><a class="station-name" href="stations/${esc(stationId)}.html">${esc(siteById.get(stationId)?.name || stationId)}</a></td><td class="col-num">${scoreBadge(stationScores.get(stationId), siteById.get(stationId)?.name || stationId)}</td><td class="group-cell">${esc(row.groupName)}</td><td>${esc(modelDisplay(row))}</td><td class="col-num"><strong class="ratio is-low">${formatMultiplier(row.effectiveBlended)}</strong></td><td class="col-num">${formatCny(row.inputCny)}</td><td class="col-num">${formatCny(row.outputCny)}</td><td class="date-cell">${formatDate(row.verifiedAt)}</td></tr>`,
-  )
+${modelLeaders
+  .map(({ model, best, count }) => {
+    const rate = model.official ? (model.official.currency === "CNY" ? 1 : config.fxCnyPerUsd) : 1;
+    return `                <tr><td><a class="station-name" href="models/${esc(modelSlug(model.id))}.html">${esc(model.displayName)}</a></td><td class="col-num">${model.official ? formatCny(model.official.inputPer1M * rate) : "—"}</td><td class="col-num">${model.official ? formatCny(model.official.outputPer1M * rate) : "—"}</td><td><a class="station-name" href="stations/${esc(best.stationId)}.html">${esc(siteById.get(best.stationId)?.name || best.stationId)}</a></td><td class="col-num"><strong class="ratio is-low">${formatMultiplier(best.effectiveBlended)}</strong></td><td class="col-num">${count}</td></tr>`;
+  })
   .join("\n")}
               </tbody>
             </table>

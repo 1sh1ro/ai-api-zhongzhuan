@@ -1,15 +1,14 @@
 import {
   buildRows,
   comparableRows,
-  stationBest,
   modelBest,
   formatCny,
   formatMultiplier,
   formatDiscount,
 } from './assets/pricing.js';
-import { scoreStation } from './assets/scoring.js';
+import { scoreStation, buildModelPercentiles } from './assets/scoring.js';
 
-const ASSET_VERSION = '2026-11-04d';
+const ASSET_VERSION = '2026-11-04e';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -65,6 +64,8 @@ const state = {
   config: { fxCnyPerUsd: 6.7 },
   rows: [],
   scores: new Map(),
+  percentiles: new Map(),
+  modelRank: '',
   family: 'all',
   tag: 'all',
   query: '',
@@ -81,6 +82,7 @@ const el = {
   heroNote: document.querySelector('#hero-note'),
   familyChips: document.querySelector('#family-chips'),
   tagChips: document.querySelector('#tag-chips'),
+  modelSelect: document.querySelector('#model-select'),
   search: document.querySelector('#search'),
   basis: document.querySelector('#basis-filter'),
   view: document.querySelector('#view-mode'),
@@ -241,13 +243,11 @@ const HEAD_STATION = `
     <th class="col-rank">#</th>
     <th>站点</th>
     <th class="col-num">评分</th>
-    <th>最低分组</th>
-    <th>代表模型</th>
-    <th class="col-num">综合倍率</th>
+    <th>分组</th>
+    <th class="col-num">本模型倍率</th>
     <th class="col-num">输入 ¥/M</th>
     <th class="col-num">输出 ¥/M</th>
     <th class="col-num">相对官方价</th>
-    <th class="col-num">报价</th>
     <th>核验</th>
   </tr>`;
 
@@ -300,60 +300,65 @@ function renderEmptyTable(cols) {
   el.body.innerHTML = `<tr><td class="empty-cell" colspan="${cols}">没有符合条件的报价，试试重置筛选。</td></tr>`;
 }
 
-function renderStationView() {
-  const best = stationBest(state.rows);
+function modelRankOptions() {
   const counts = new Map();
-  for (const row of comparableRows(state.rows)) counts.set(row.stationId, (counts.get(row.stationId) || 0) + 1);
+  for (const row of comparableRows(state.rows)) counts.set(row.modelId, (counts.get(row.modelId) || 0) + 1);
+  return state.models
+    .filter((model) => counts.get(model.id) >= 2)
+    .map((model) => ({ id: model.id, name: model.displayName, count: counts.get(model.id) }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'zh-CN'));
+}
 
-  // 每个站点在各口径下的最低报价，用于补齐只披露站内倍率的站点。
-  const rawBest = new Map();
-  for (const row of state.rows) {
-    if (row.comparable || row.declaredRatio == null) continue;
-    const current = rawBest.get(row.stationId);
-    if (!current || row.declaredRatio < current.declaredRatio) rawBest.set(row.stationId, row);
+function populateModelSelect(options, selected) {
+  el.modelSelect.innerHTML = options
+    .map((option) => `<option value="${escapeHTML(option.id)}"${option.id === selected ? ' selected' : ''}>${escapeHTML(option.name)}（${option.count} 站）</option>`)
+    .join('');
+}
+
+function renderStationView() {
+  const options = modelRankOptions();
+  if (options.length === 0) {
+    el.head.innerHTML = '';
+    renderEmptyTable(9);
+    el.note.textContent = '暂无可比模型。';
+    return;
   }
+  const selected = options.some((option) => option.id === state.modelRank) ? state.modelRank : options[0].id;
+  state.modelRank = selected;
+  populateModelSelect(options, selected);
 
-  const entries = [...best.entries()]
-    .map(([stationId, row]) => ({ stationId, row, ranked: true }))
-    .filter(({ row }) => matchesFamily(row) && matchesQuery(row))
-    .sort((a, b) => a.row.effectiveBlended - b.row.effectiveBlended);
+  const bestByStation = new Map();
+  for (const row of state.rows) {
+    if (row.modelId !== selected || !row.comparable || !matchesQuery(row)) continue;
+    const current = bestByStation.get(row.stationId);
+    if (!current || row.effectiveBlended < current.effectiveBlended) bestByStation.set(row.stationId, row);
+  }
+  const rows = [...bestByStation.values()].sort((a, b) => a.effectiveBlended - b.effectiveBlended);
 
-  const rawEntries = [...rawBest.entries()]
-    .map(([stationId, row]) => ({ stationId, row, ranked: false }))
-    .filter(({ row }) => matchesFamily(row) && matchesQuery(row))
-    .sort((a, b) => a.row.declaredRatio - b.row.declaredRatio);
-
-  const renderRow = ({ stationId, row }, index, ranked) => {
-    const site = siteById(stationId);
-    return `<tr class="${ranked ? '' : 'is-unranked'}">
-        <td class="col-rank">${ranked ? String(index + 1).padStart(2, '0') : '·'}</td>
+  el.head.innerHTML = HEAD_STATION;
+  el.body.innerHTML = rows
+    .map((row, index) => {
+      const site = siteById(row.stationId);
+      return `<tr>
+        <td class="col-rank">${String(index + 1).padStart(2, '0')}</td>
         <td>
-          <a class="station-name" href="${escapeHTML(siteLink(stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(siteName(stationId))}</a>
-          <a class="station-host" href="${escapeHTML(siteLink(stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(((site && site.homepage) || '').replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>
+          <a class="station-name" href="${escapeHTML(siteLink(row.stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(siteName(row.stationId))}</a>
+          <a class="station-host" href="${escapeHTML(siteLink(row.stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(((site && site.homepage) || '').replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>
         </td>
-        <td class="col-num">${scoreCell(stationId)}</td>
+        <td class="col-num">${scoreCell(row.stationId)}</td>
         <td class="group-cell">${escapeHTML(row.groupName)}</td>
-        <td>${modelCell(row)}</td>
         <td class="col-num">${ratioCell(row)}</td>
         <td class="col-num">${formatCny(row.inputCny)}</td>
         <td class="col-num">${formatCny(row.outputCny)}</td>
-        <td class="col-num"><span class="discount">${ranked ? formatDiscount(row.effectiveBlended) : '—'}</span></td>
-        <td class="col-num">${ranked ? counts.get(stationId) || 0 : '—'}</td>
+        <td class="col-num"><span class="discount">${formatDiscount(row.effectiveBlended)}</span></td>
         <td class="date-cell">${formatDate(row.verifiedAt)}</td>
       </tr>`;
-  };
+    })
+    .join('');
 
-  el.head.innerHTML = HEAD_STATION;
-  const rankedHTML = entries.map((entry, index) => renderRow(entry, index, true)).join('');
-  const rawHTML = rawEntries.map((entry, index) => renderRow(entry, index, false)).join('');
-  const separator = rawEntries.length
-    ? `<tr class="sep-row"><td colspan="11">以下 ${rawEntries.length} 个站点只披露站内分组倍率，充值口径未公开，折算后不参与名次</td></tr>`
-    : '';
-
-  el.body.innerHTML = rankedHTML + separator + rawHTML;
-
-  el.note.textContent = `口径统一可排名的 ${entries.length} 个站点，仅披露站内倍率的 ${rawEntries.length} 个。两段之间不直接比较，选中「报价明细 + 全部条目」可查看每条报价的原始口径。`;
-  if (!entries.length && !rawEntries.length) renderEmptyTable(11);
+  const model = state.models.find((item) => item.id === selected);
+  el.note.textContent = `${model ? model.displayName : selected} 有 ${rows.length} 个站点给出可换算的报价，按本模型倍率升序。换一个模型请用上方的模型选择，跨模型的倍率不做比较。`;
+  if (rows.length === 0) renderEmptyTable(9);
 }
 
 function renderOfferView() {
@@ -442,7 +447,6 @@ function renderTagChips() {
 function renderSites() {
   const offerCount = new Map();
   for (const row of state.rows) offerCount.set(row.stationId, (offerCount.get(row.stationId) || 0) + 1);
-  const best = stationBest(state.rows);
   const q = state.query.trim().toLowerCase();
 
   const sites = state.sites.filter((site) => {
@@ -456,9 +460,11 @@ function renderSites() {
     .map((site) => {
       const status = STATUS_META[site.status] || { label: site.status || '状态未知', className: 'is-blocked' };
       const count = offerCount.get(site.id) || 0;
-      const bestRow = best.get(site.id);
-      const priceLine = bestRow
-        ? `<span class="site-price">最低 ${formatMultiplier(bestRow.effectiveBlended)}</span>`
+      const modelCount = new Set(
+        state.rows.filter((row) => row.stationId === site.id && row.comparable).map((row) => row.modelId),
+      ).size;
+      const priceLine = modelCount
+        ? `<span class="site-price">${modelCount} 个模型可比</span>`
         : '<span class="site-price is-muted">暂无可用报价</span>';
       const tags = (site.tags || []).slice(0, 4).map((tag) => `<span class="tag">${escapeHTML(TAG_LABELS[tag] || tag)}</span>`).join('');
       const score = state.scores.get(site.id);
@@ -529,12 +535,19 @@ function bindEvents() {
     state.view = event.target.value;
     renderRanking();
   });
+  if (el.modelSelect) {
+    el.modelSelect.addEventListener('change', (event) => {
+      state.modelRank = event.target.value;
+      renderRanking();
+    });
+  }
   el.reset.addEventListener('click', () => {
     state.query = '';
     state.family = 'all';
     state.tag = 'all';
     state.basis = 'comparable';
     state.view = 'station';
+    state.modelRank = '';
     el.search.value = '';
     el.basis.value = 'comparable';
     el.view.value = 'station';
@@ -587,10 +600,11 @@ async function init() {
     state.config = configPayload;
     state.rows = buildRows(state.offers, state.models, state.config, new Set(scopePayload.statedOfferIds || []));
     const modelById = new Map(state.models.map((model) => [model.id, model]));
+    state.percentiles = buildModelPercentiles(state.rows);
     state.scores = new Map(
       state.sites.map((site) => [
         site.id,
-        scoreStation(site, state.rows.filter((row) => row.stationId === site.id), modelById, state.config.dataDate || '2026-11-04'),
+        scoreStation(site, state.rows.filter((row) => row.stationId === site.id), modelById, state.config.dataDate || '2026-11-04', state.percentiles),
       ]),
     );
     renderHero();
