@@ -8,7 +8,7 @@ import {
 } from './assets/pricing.js';
 import { scoreStation, buildModelPercentiles } from './assets/scoring.js';
 
-const ASSET_VERSION = '2026-11-04e';
+const ASSET_VERSION = '2026-11-04f';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -301,11 +301,15 @@ function renderEmptyTable(cols) {
 }
 
 function modelRankOptions() {
-  const counts = new Map();
-  for (const row of comparableRows(state.rows)) counts.set(row.modelId, (counts.get(row.modelId) || 0) + 1);
+  const stationsByModel = new Map();
+  for (const row of comparableRows(state.rows)) {
+    const set = stationsByModel.get(row.modelId) || new Set();
+    set.add(row.stationId);
+    stationsByModel.set(row.modelId, set);
+  }
   return state.models
-    .filter((model) => counts.get(model.id) >= 2)
-    .map((model) => ({ id: model.id, name: model.displayName, count: counts.get(model.id) }))
+    .filter((model) => (stationsByModel.get(model.id)?.size || 0) >= 2)
+    .map((model) => ({ id: model.id, name: model.displayName, count: stationsByModel.get(model.id).size }))
     .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'zh-CN'));
 }
 
