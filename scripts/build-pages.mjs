@@ -137,6 +137,7 @@ function shell({ title, description, canonical, body, jsonLd }) {
           <a href="../index.html#directory">站点目录</a>
           <a href="../index.html#ledger">核验明细</a>
           <a href="../guides/index.html">指南</a>
+          <a href="../method.html">方法</a>
         </nav>
       </header>
       <main>
@@ -300,7 +301,7 @@ for (const model of models) {
           <p class="eyebrow">MODEL · ${esc(slug)}</p>
           <h1>${esc(model.displayName)} 各中转站报价对比</h1>
           <p class="lede">${esc(officialLine)}当前 ${modelRows.length} 条报价，${modelRows.filter((row) => row.comparable).length} 条口径统一可比。${best ? `最低综合倍率 ${formatMultiplier(best.effectiveBlended)}。` : ""}</p>
-          <p class="hero-note">官方价来源：<a href="${esc(model.officialSourceUrl)}" rel="nofollow noopener" target="_blank">${esc(model.officialSourceUrl)}</a> · 最后更新 ${esc(LASTMOD)}</p>
+          <p class="hero-note">系列：<a href="../families/${esc(model.family)}.html">${esc(FAMILY_LABELS[model.family] || model.family)}</a> · 官方价来源：<a href="${esc(model.officialSourceUrl)}" rel="nofollow noopener" target="_blank">${esc(model.officialSourceUrl)}</a> · 最后更新 ${esc(LASTMOD)}</p>
         </section>
         <section class="panel">
           <div class="panel-head"><div><p class="kicker">QUOTES</p><h2>按综合倍率排序</h2></div>
@@ -402,6 +403,86 @@ ${guides
   }),
 );
 
+/* ---------- 系列页 ---------- */
+const FAMILY_ORDER = ["gpt", "claude", "grok", "gemini", "deepseek", "glm", "kimi", "doubao", "domestic", "image"];
+const familyPages = [];
+fs.mkdirSync(path.join(root, "families"), { recursive: true });
+for (const family of FAMILY_ORDER) {
+  const familyModels = models.filter((model) => model.family === family);
+  if (familyModels.length === 0) continue;
+  const familyRows = rows.filter((row) => modelById.get(row.modelId)?.family === family);
+  const label = FAMILY_LABELS[family] || family;
+  familyPages.push({ family, label, loc: `${BASE}/families/${family}.html` });
+
+  const stationAgg = new Map();
+  for (const row of familyRows) {
+    const current = stationAgg.get(row.stationId) || { count: 0, best: null, models: new Set() };
+    current.count += 1;
+    current.models.add(modelById.get(row.modelId)?.displayName || row.modelId);
+    if (row.comparable && (current.best == null || row.effectiveBlended < current.best)) current.best = row.effectiveBlended;
+    stationAgg.set(row.stationId, current);
+  }
+
+  const body = `        <section class="hero">
+          <p class="eyebrow">FAMILY · ${esc(family)}</p>
+          <h1>${esc(label)} 中转站与报价</h1>
+          <p class="lede">${esc(label)} 系列在收录站点里的报价情况，共 ${familyModels.length} 个模型、${familyRows.length} 条报价。综合倍率相对官方价计算，1.00x 等于官方价。</p>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><div><p class="kicker">MODELS</p><h2>${esc(label)} 模型</h2></div><p class="panel-desc">点进模型页看全部站点报价。</p></div>
+          <div class="table-wrap"><table class="rank-table">
+            <thead><tr><th>模型</th><th>厂商</th><th class="col-num">官方输入</th><th class="col-num">官方输出</th><th class="col-num">最低倍率</th></tr></thead>
+            <tbody>
+${familyModels
+  .map((model) => {
+    const best = modelBestRow.get(model.id);
+    const rate = model.official ? (model.official.currency === "CNY" ? 1 : config.fxCnyPerUsd) : 1;
+    return `              <tr><td><a class="station-name" href="../models/${esc(modelSlug(model.id))}.html">${esc(model.displayName)}</a></td><td class="group-cell">${esc(model.vendor)}</td><td class="col-num">${model.official ? formatCny(model.official.inputPer1M * rate) : "—"}</td><td class="col-num">${model.official ? formatCny(model.official.outputPer1M * rate) : "—"}</td><td class="col-num">${best ? formatMultiplier(best.effectiveBlended) : "—"}</td></tr>`;
+  })
+  .join("\n")}
+            </tbody>
+          </table></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><div><p class="kicker">STATIONS</p><h2>提供 ${esc(label)} 的站点</h2></div><p class="panel-desc">按该系列最低综合倍率排序。</p></div>
+${(() => {
+  const list = [...stationAgg.entries()]
+    .map(([stationId, agg]) => ({ stationId, agg }))
+    .sort((a, b) => (a.agg.best ?? 9) - (b.agg.best ?? 9));
+  if (list.length === 0) return `<p class="table-note">暂无报价。</p>`;
+  return `<div class="table-wrap"><table class="rank-table"><thead><tr><th>站点</th><th class="col-num">报价</th><th class="col-num">最低倍率</th><th>涉及模型</th></tr></thead><tbody>
+${list
+  .map(
+    ({ stationId, agg }) => `              <tr><td><a class="station-name" href="../stations/${esc(stationId)}.html">${esc(siteById.get(stationId)?.name || stationId)}</a></td><td class="col-num">${agg.count}</td><td class="col-num">${agg.best != null ? formatMultiplier(agg.best) : "—"}</td><td class="group-cell">${esc([...agg.models].slice(0, 4).join("、"))}</td></tr>`,
+  )
+  .join("\n")}
+            </tbody></table></div>`;
+})()}
+        </section>
+        <section class="panel">
+          <p class="table-note">其他系列：${FAMILY_ORDER.filter((item) => item !== family)
+            .map((item) => `<a href="${item}.html">${esc(FAMILY_LABELS[item] || item)}</a>`)
+            .join(" · ")} · <a href="../index.html">返回价格榜</a></p>
+        </section>`;
+
+  fs.writeFileSync(
+    path.join(root, "families", `${family}.html`),
+    shell({
+      title: `${label} 中转站与报价对比 · AI API 比价雷达`,
+      description: `${label} 系列在 ${stationAgg.size} 个中转站的报价对比，共 ${familyModels.length} 个模型、${familyRows.length} 条记录，含官方价与综合倍率。`,
+      canonical: `${BASE}/families/${family}.html`,
+      body,
+      jsonLd: {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: `${label} 中转站与报价`,
+        url: `${BASE}/families/${family}.html`,
+        dateModified: LASTMOD,
+      },
+    }),
+  );
+}
+
 /* ---------- sitemap / robots ---------- */
 const urls = [
   { loc: `${BASE}/`, priority: "1.0", freq: "hourly" },
@@ -409,6 +490,10 @@ const urls = [
   { loc: `${BASE}/models/index.html`, priority: "0.8", freq: "daily" },
   { loc: `${BASE}/guides/index.html`, priority: "0.8", freq: "weekly" },
   ...guides.map((guide) => ({ loc: `${BASE}/guides/${guide.slug}.html`, priority: "0.75", freq: "monthly" })),
+  ...familyPages.map((page) => ({ loc: page.loc, priority: "0.7", freq: "daily" })),
+  { loc: `${BASE}/method.html`, priority: "0.5", freq: "monthly" },
+  { loc: `${BASE}/faq.html`, priority: "0.6", freq: "monthly" },
+  { loc: `${BASE}/changelog.html`, priority: "0.4", freq: "weekly" },
   ...sites.map((site) => ({ loc: `${BASE}/stations/${site.id}.html`, priority: "0.6", freq: "daily" })),
   ...models.map((model) => ({ loc: `${BASE}/models/${modelSlug(model.id)}.html`, priority: "0.7", freq: "daily" })),
 ];
@@ -461,6 +546,8 @@ ${topStations
             .join(" · ")}</p>
           <p class="table-note">指南：${guides.map((guide) => `<a href="guides/${esc(guide.slug)}.html">${esc(guide.title)}</a>`).join(" · ")}</p>
           <p class="table-note">站点索引：${sites.map((site) => `<a href="stations/${esc(site.id)}.html">${esc(site.name)}</a>`).join(" · ")}</p>
+          <p class="table-note">按系列：${familyPages.map((page) => `<a href="families/${esc(page.family)}.html">${esc(page.label)}</a>`).join(" · ")}</p>
+          <p class="table-note">说明：<a href="method.html">收录原则与核验方法</a> · <a href="faq.html">常见问题</a> · <a href="changelog.html">数据变更记录</a></p>
         </section>
         <!-- SNAPSHOT:END -->`;
 

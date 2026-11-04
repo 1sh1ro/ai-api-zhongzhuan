@@ -9,6 +9,19 @@
   <url><loc>https://ai.xulas.fun/guides/verify-relay-price.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://ai.xulas.fun/guides/free-relay-risks.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://ai.xulas.fun/guides/official-vs-relay.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://ai.xulas.fun/families/gpt.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai.xulas.fun/families/claude.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai.xulas.fun/families/grok.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai.xulas.fun/families/gemini.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai.xulas.fun/families/deepseek.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai.xulas.fun/families/glm.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai.xulas.fun/families/kimi.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai.xulas.fun/families/doubao.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai.xulas.fun/families/domestic.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai.xulas.fun/families/image.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai.xulas.fun/method.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai.xulas.fun/faq.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai.xulas.fun/changelog.html</loc><lastmod>2026-11-04</lastmod><changefreq>weekly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai.xulas.fun/stations/api-nebula.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.6</priority></url>
   <url><loc>https://ai.xulas.fun/stations/beeapi.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.6</priority></url>
   <url><loc>https://ai.xulas.fun/stations/modelrush.html</loc><lastmod>2026-11-04</lastmod><changefreq>daily</changefreq><priority>0.6</priority></url>

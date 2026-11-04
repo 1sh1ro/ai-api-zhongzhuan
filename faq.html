@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>常见问题：中转站 API 安全吗、倍率怎么比、数据从哪来 · AI API 比价雷达</title>
+    <meta name="description" content="关于 AI API 中转站的常见问题：是否安全、倍率怎么比较、数据来源、免费额度风险、如何判断模型真假。" />
+    <link rel="canonical" href="https://ai.xulas.fun/faq.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="常见问题" />
+    <meta property="og:url" content="https://ai.xulas.fun/faq.html" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AI API 中转站安全吗？","acceptedAnswer":{"@type":"Answer","text":"中转站能看到经过它转发的请求。不要提交密码、身份证件、私有代码或生产数据。正式业务优先使用厂商官方 API。"}},{"@type":"Question","name":"为什么有的站点倍率很低却不能直接比较？","acceptedAnswer":{"@type":"Answer","text":"不同站点给出的倍率口径不同。只有分组倍率、没有公开充值系数的，无法折算成相对官方价的倍率，本站只显示原值，不参与排名。"}},{"@type":"Question","name":"本站的价格数据从哪里来？","acceptedAnswer":{"@type":"Answer","text":"来自站点公开价格接口、官网价格页、用户提交与截图。每条报价都有来源链接和核验日期，用户截图类会标待核验。"}},{"@type":"Question","name":"综合倍率 1.00x 是什么意思？","acceptedAnswer":{"@type":"Answer","text":"1.00x 表示站点价格等于厂商官方价。0.10x 表示官方价的一折，数值越低越便宜。"}},{"@type":"Question","name":"免费中转站有什么风险？","acceptedAnswer":{"@type":"Answer","text":"免费额度可能来自号池或限速线路，存在数据可见、模型掺水、限流排队和随时关站的风险。不要用免费通道处理敏感数据。"}},{"@type":"Question","name":"怎么判断中转站宣称的模型是真的？","acceptedAnswer":{"@type":"Answer","text":"用小额请求多次测试，核对响应里的模型标识与用量字段，对比官方价和响应质量。本站目前记录价格与来源，不做 API 真实调用验证。"}},{"@type":"Question","name":"本站的排名可以付费提升吗？","acceptedAnswer":{"@type":"Answer","text":"不可以。排序只按口径统一的综合倍率，推广链接会标注，但不影响名次。"}},{"@type":"Question","name":"发现价格错误怎么办？","acceptedAnswer":{"@type":"Answer","text":"在 GitHub 仓库提交 Issue，附上来源链接和日期，核验后会更新对应报价。"}}]}</script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span></a>
+        <nav class="topnav"><a href="index.html">价格榜</a><a href="stations/index.html">站点</a><a href="models/index.html">模型</a><a href="guides/index.html">指南</a><a href="method.html">方法</a></nav>
+      </header>
+      <main>
+        <section class="hero">
+          <p class="eyebrow">FAQ</p>
+          <h1>常见问题</h1>
+          <p class="lede">关于数据来源、倍率口径、安全性和排名的常见疑问。</p>
+        </section>
+        <article class="panel guide">
+          <h2 id="q1">AI API 中转站安全吗？</h2>
+          <p>中转站能看到经过它转发的请求。不要提交密码、身份证件、私有代码或生产数据。正式业务优先使用厂商官方 API。</p>
+          <h2 id="q2">为什么有的站点倍率很低却不能直接比较？</h2>
+          <p>不同站点给出的倍率口径不同。只有分组倍率、没有公开充值系数的，无法折算成相对官方价的倍率，本站只显示原值，不参与排名。<a href="guides/multiplier-explained.html">看倍率计算方法</a>。</p>
+          <h2 id="q3">本站的价格数据从哪里来？</h2>
+          <p>来自站点公开价格接口、官网价格页、用户提交与截图。每条报价都有来源链接和核验日期，用户截图类会标待核验。详见 <a href="method.html">核验方法</a>。</p>
+          <h2 id="q4">综合倍率 1.00x 是什么意思？</h2>
+          <p>1.00x 表示站点价格等于厂商官方价。0.10x 表示官方价的一折，数值越低越便宜。</p>
+          <h2 id="q5">免费中转站有什么风险？</h2>
+          <p>免费额度可能来自号池或限速线路，存在数据可见、模型掺水、限流排队和随时关站的风险。不要用免费通道处理敏感数据。<a href="guides/free-relay-risks.html">看风险说明</a>。</p>
+          <h2 id="q6">怎么判断中转站宣称的模型是真的？</h2>
+          <p>用小额请求多次测试，核对响应里的模型标识与用量字段，对比官方价和响应质量。本站目前记录价格与来源，不做 API 真实调用验证。</p>
+          <h2 id="q7">本站的排名可以付费提升吗？</h2>
+          <p>不可以。排序只按口径统一的综合倍率，推广链接会标注，但不影响名次。</p>
+          <h2 id="q8">发现价格错误怎么办？</h2>
+          <p>在 GitHub 仓库提交 <a href="https://github.com/1sh1ro/ai-api-zhongzhuan/issues" rel="nofollow noopener" target="_blank">Issue</a>，附上来源链接和日期，核验后会更新对应报价。</p>
+        </article>
+      </main>
+      <footer class="footer"><span>AI API 比价雷达 · RELAY PRICE RADAR</span><span>最后更新 2026-11-04</span></footer>
+    </div>
+  </body>
+</html>

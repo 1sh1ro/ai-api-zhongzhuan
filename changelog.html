@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>数据变更记录 · AI API 比价雷达</title>
+    <meta name="description" content="站点收录、价格修正、口径调整和页面结构变更的公开记录。" />
+    <link rel="canonical" href="https://ai.xulas.fun/changelog.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="数据变更记录" />
+    <meta property="og:url" content="https://ai.xulas.fun/changelog.html" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span></a>
+        <nav class="topnav"><a href="index.html">价格榜</a><a href="stations/index.html">站点</a><a href="models/index.html">模型</a><a href="guides/index.html">指南</a><a href="method.html">方法</a></nav>
+      </header>
+      <main>
+        <section class="hero">
+          <p class="eyebrow">CHANGELOG</p>
+          <h1>数据变更记录</h1>
+          <p class="lede">只记录会影响价格、排序或站点收录的改动。</p>
+        </section>
+        <article class="panel guide">
+          <h2>2026-11-04</h2>
+          <ul>
+            <li>新增 87 个静态页面：站点页、模型页、指南页、方法页、常见问题与变更记录。</li>
+            <li>生成 sitemap.xml 与 robots.txt，并通过 IndexNow 提交全部 URL。</li>
+            <li>首页加入构建时静态快照与全部内链。</li>
+          </ul>
+          <h2>2026-11-04</h2>
+          <ul>
+            <li>收录 13 个来自 Issue 的站点，入口统一使用官网首页，不带推广参数。</li>
+            <li>AgentRouter（#34）检测时不可达，未收录。</li>
+          </ul>
+          <h2>2026-11-03</h2>
+          <ul>
+            <li>逐条复核 135 条报价，修正豆包分组的模型归属、APIKEY.FUN 的折算系数、DayWay 的倍率冲突。</li>
+            <li>国模分组按实际使用确认归到 DeepSeek；无法确认的保持「国产模型」泛称。</li>
+            <li>移除 Codex 系列报价与对应模型条目。</li>
+            <li>分组只写到系列时不再挂具体型号，只保留倍率，不显示每百万 Token 单价。</li>
+          </ul>
+          <h2>2026-10-26</h2>
+          <ul>
+            <li>znbcode 更新分组命名与倍率，注册入口带推广参数并披露。</li>
+          </ul>
+        </article>
+      </main>
+      <footer class="footer"><span>AI API 比价雷达 · RELAY PRICE RADAR</span><span>最后更新 2026-11-04</span></footer>
+    </div>
+  </body>
+</html>

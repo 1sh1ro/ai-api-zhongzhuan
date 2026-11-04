@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>收录原则、核验方法与排序规则 · AI API 比价雷达</title>
+    <meta name="description" content="本站收录哪些站点、每条报价怎么核验、综合倍率怎么算、排名按什么规则、数据有哪些局限。" />
+    <link rel="canonical" href="https://ai.xulas.fun/method.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="收录原则、核验方法与排序规则" />
+    <meta property="og:url" content="https://ai.xulas.fun/method.html" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"收录原则、核验方法与排序规则","url":"https://ai.xulas.fun/method.html","dateModified":"2026-11-04","isPartOf":{"@type":"WebSite","name":"AI API 比价雷达","url":"https://ai.xulas.fun/"}}</script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span></a>
+        <nav class="topnav"><a href="index.html">价格榜</a><a href="stations/index.html">站点</a><a href="models/index.html">模型</a><a href="guides/index.html">指南</a><a href="faq.html">常见问题</a></nav>
+      </header>
+      <main>
+        <section class="hero">
+          <p class="eyebrow">METHODOLOGY</p>
+          <h1>收录原则、核验方法与排序规则</h1>
+          <p class="lede">这个页面说明每个数字是怎么来的，以及它不能说明什么。</p>
+        </section>
+        <article class="panel guide">
+          <h2>收录原则</h2>
+          <ul>
+            <li>只收录公开可访问的站点，至少能打开官网或注册页。</li>
+            <li>每条报价必须有来源链接和核验日期，没有来源的数字不录入。</li>
+            <li>不收录需要提供敏感凭据才能看到的页面，不在公开页面展示 API Key、Cookie、后台地址。</li>
+            <li>推广链接会明确标注，是否带推广参数不影响排序。</li>
+          </ul>
+
+          <h2>报价的六种口径</h2>
+          <table>
+            <thead><tr><th>口径</th><th>含义</th><th>是否参与排名</th></tr></thead>
+            <tbody>
+              <tr><td>绝对单价折算</td><td>站点公布每百万 Token 的人民币或美元单价，直接与官方价相除</td><td>参与</td></tr>
+              <tr><td>分组倍率折算</td><td>站内分组倍率乘以已披露的充值系数</td><td>参与</td></tr>
+              <tr><td>维护者折算</td><td>原始资料已经算好的有效倍率，原样记录</td><td>参与</td></tr>
+              <tr><td>站内分组倍率</td><td>只有分组倍率，充值系数未公开</td><td>不参与，只显示原值</td></tr>
+              <tr><td>按次计费</td><td>图片、视频、语音按张、按秒计价</td><td>不参与</td></tr>
+              <tr><td>免费额度</td><td>按次数或时间窗口发放的免费用量</td><td>不参与</td></tr>
+            </tbody>
+          </table>
+
+          <h2>综合倍率怎么算</h2>
+          <p>人民币口径下，综合倍率 = 站点单价 ÷（官方美元单价 × 汇率），按输入:输出 = 3:1 加权。汇率采用 6.70，并记录在 <code>data/pricing-config.json</code>。1.00x 等于官方价，0.10x 就是官方价的一折。</p>
+
+          <h2>核验等级</h2>
+          <ul>
+            <li><strong>站方价格接口</strong>：读取站点公开的 pricing JSON，可复算。</li>
+            <li><strong>官网价格页</strong>：页面公开标价，人工摘录。</li>
+            <li><strong>用户截图 / 用户提交</strong>：只能人工核对，会标「待核验」。</li>
+            <li><strong>未独立核验</strong>：只有运营方声明，不参与排名。</li>
+          </ul>
+
+          <h2>排序规则</h2>
+          <p>站点总榜只统计至少有一条「口径统一」报价的站点，按最低综合倍率升序。口径不统一的站点单独陈列，不进入名次。排序规则版本为 <code>comparable-effective-asc.v1</code>，规则变化时版本号会一起变。</p>
+
+          <h2>这份数据不能说明什么</h2>
+          <ul>
+            <li>首页能打开，不代表 API 可用，也不代表模型是宣称的那个。</li>
+            <li>价格低，不代表稳定；限流、排队、突然关站都可能发生。</li>
+            <li>官方基准价会变，促销价有到期时间，历史报价只代表记录当时的状态。</li>
+            <li>本站不运营、不担保任何第三方服务，不对交易结果负责。</li>
+          </ul>
+
+          <h2>更正与反馈</h2>
+          <p>发现价格错误、站点关停或模型归属不对，可以在 GitHub 仓库提交 <a href="https://github.com/1sh1ro/ai-api-zhongzhuan/issues" rel="nofollow noopener" target="_blank">Issue</a>。每条更正都会更新对应报价的核验日期。</p>
+        </article>
+      </main>
+      <footer class="footer"><span>AI API 比价雷达 · RELAY PRICE RADAR</span><span>最后更新 2026-11-04</span></footer>
+    </div>
+  </body>
+</html>
