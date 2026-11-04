@@ -601,7 +601,7 @@ const snapshot = `<!-- SNAPSHOT:START -->
               <p class="kicker">00 / DATA SNAPSHOT</p>
               <h2>数据快照</h2>
             </div>
-            <p class="panel-desc">这一块是构建时写入的静态内容，不依赖脚本，供搜索引擎与无 JS 环境读取。最后更新 ${esc(LASTMOD)}。</p>
+            <p class="panel-desc">按模型查看当前最低价站点，点站点名进入详情。数据核验截至 ${esc(LASTMOD)}。</p>
           </div>
           <p class="table-note">收录 ${sites.length} 个站点、${rows.length} 条报价，其中 ${comparable.length} 条口径统一可比。下表每个模型单独比较，列出该模型当前最低价的站点。</p>
           <div class="table-wrap">
