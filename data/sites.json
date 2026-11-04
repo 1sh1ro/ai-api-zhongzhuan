@@ -502,6 +502,195 @@
         {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/41"},
         {"type": "official-website", "url": "https://aitokey.top/"}
       ]
+    },
+    {
+      "id": "eirouter",
+      "name": "eirouter.ai",
+      "homepage": "https://eirouter.ai/",
+      "registrationUrl": "https://eirouter.ai/",
+      "tags": ["api-relay", "gpt", "claude", "low-multiplier"],
+      "summary": "第三方 AI API 中转，支持 Claude、GPT 全系；新用户赠 $3 测试额度、无需绑卡，Claude 与 GPT 约官方价 1–3 折，公开注册无需邀请码。运营方 2026-09-29 投稿信息，首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/15"},
+        {"type": "official-website", "url": "https://eirouter.ai/"}
+      ]
+    },
+    {
+      "id": "kuafushe",
+      "name": "夸父社 API",
+      "homepage": "https://kuafushe.cc/",
+      "registrationUrl": "https://kuafushe.cc/",
+      "tags": ["api-relay", "api-gateway", "gpt", "claude", "gemini", "deepseek", "glm", "kimi", "domestic-model"],
+      "summary": "OpenAI 与 Anthropic 双协议中转，覆盖 Claude、GPT、Gemini、DeepSeek、通义千问、智谱 GLM、Kimi、MiniMax；1:1 计费，国模 0.03x 起、GPT 福利组 0.2x、Claude Kiro 0.3x；注册送 $0.2 体验额度。首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/22"},
+        {"type": "official-website", "url": "https://kuafushe.cc/"},
+        {"type": "official-pricing", "url": "https://kuafushe.cc/pricing"}
+      ]
+    },
+    {
+      "id": "lanbuff",
+      "name": "蓝博API（Lanbuff）",
+      "homepage": "https://lanbuff.app/",
+      "registrationUrl": "https://lanbuff.app/",
+      "tags": ["api-relay", "api-gateway", "gpt", "claude", "gemini"],
+      "summary": "付费多模型 API 入口，OpenAI 兼容，公开价格目录含 GPT、Claude、Gemini 等模型；公开价格接口当前返回 334 个条目，数量是目录条目，不代表逐一调用成功（2026-10-16 核验）。首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/25"},
+        {"type": "official-website", "url": "https://lanbuff.app/"},
+        {"type": "public-pricing-api", "url": "https://lanbuff.app/api/pricing"}
+      ]
+    },
+    {
+      "id": "dabai-ai",
+      "name": "大白AI",
+      "homepage": "https://ai1.dbcc.cc.cd/",
+      "registrationUrl": "https://ai1.dbcc.cc.cd/",
+      "tags": ["api-relay", "new-api", "gpt", "claude", "gemini", "grok", "deepseek", "glm", "domestic-model"],
+      "summary": "New API 架构的低价中转，支持 Claude、GPT、Gemini、Grok、DeepSeek、GLM，同时兼容 OpenAI、Claude 原生与 Gemini 三种协议；汇率 0.2（1 元约 5 美元额度），支付宝付款。首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/26"},
+        {"type": "official-website", "url": "https://ai1.dbcc.cc.cd/"}
+      ]
+    },
+    {
+      "id": "twinkle-model",
+      "name": "Twinkle Model",
+      "homepage": "https://big-model.smart-agi.com/",
+      "registrationUrl": "https://big-model.smart-agi.com/",
+      "tags": ["api-relay", "gpt", "claude", "grok", "deepseek", "glm", "kimi", "domestic-model", "image-workbench"],
+      "summary": "基于 sub2api 的多模型中转，覆盖 GPT、Claude、Grok、GLM / DeepSeek / Kimi 以及图片视频模型；运营方自述分组倍率 GPT 0.1x–0.25x、Claude Kiro 0.15x、Grok 0.15x、GLM / DeepSeek / Kimi 0.1x 与 0.6x，生图 ¥0.1/次（2026-10-25）。首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/32"},
+        {"type": "official-website", "url": "https://big-model.smart-agi.com/"}
+      ]
+    },
+    {
+      "id": "l7shop",
+      "name": "l7shop",
+      "homepage": "https://l7shop.xyz/",
+      "registrationUrl": "https://l7shop.xyz/",
+      "tags": ["api-relay", "deepseek", "glm", "kimi", "low-multiplier"],
+      "summary": "API 中转，模型为 DeepSeek V4.1-Flash、GLM-5.3、Kimi K3；投稿称 0.1x，OpenAI 与 Anthropic 协议，支付宝与微信付款。首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/33"},
+        {"type": "official-website", "url": "https://l7shop.xyz/"}
+      ]
+    },
+    {
+      "id": "vsllm",
+      "name": "VS云（VSLLM）",
+      "homepage": "https://vsllm.cc/",
+      "registrationUrl": "https://vsllm.cc/",
+      "tags": ["api-relay", "new-api", "gpt", "claude", "gemini", "deepseek", "glm", "kimi", "domestic-model"],
+      "summary": "new-api 架构，支持 Claude、GPT、Gemini、DeepSeek、Qwen、GLM、Kimi，站点自带模型广场与倍率展示；支持 GitHub OAuth 注册、无需邮箱验证，每日签到领额度，额度按 quota_per_unit=500000（$1）计价。首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/35"},
+        {"type": "official-website", "url": "https://vsllm.cc/"},
+        {"type": "site-status", "url": "https://vsllm.cc/api/status"}
+      ]
+    },
+    {
+      "id": "teapot-router",
+      "name": "Teapot Router",
+      "homepage": "https://teapotrouter.com/",
+      "registrationUrl": "https://teapotrouter.com/",
+      "tags": ["api-gateway", "api-relay", "gpt", "claude"],
+      "summary": "按量付费双协议网关，一个 Key 同时支持 Claude Code 与 OpenAI SDK / Codex；价格公开，提供免登录 JSON 接口 /api/pricing，当前模型 gpt-6.1-sol、gpt-6-astra；域名 2026-10-17 注册的新站，接受待核验标注。首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/36"},
+        {"type": "public-pricing-api", "url": "https://teapotrouter.com/api/pricing"}
+      ]
+    },
+    {
+      "id": "xingqiao",
+      "name": "星桥 API",
+      "homepage": "https://newapi.xingqiaoapi.cn/",
+      "registrationUrl": "https://newapi.xingqiaoapi.cn/",
+      "tags": ["api-relay", "new-api", "gpt", "claude"],
+      "summary": "基于 New API 的第三方中转，价格页可见 gpt-6.1-sol、gpt-6-sol、gpt-6-astra 等模型 ID；文档说明 OpenAI Chat Completions、Responses、Anthropic Messages 与 Images 接口；公开注册页可访问（2026-10-30 运营方核验）。首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/38"},
+        {"type": "official-website", "url": "https://newapi.xingqiaoapi.cn/"},
+        {"type": "official-pricing", "url": "https://newapi.xingqiaoapi.cn/pricing"}
+      ]
+    },
+    {
+      "id": "api-foo",
+      "name": "api.foo",
+      "homepage": "https://api.foo/",
+      "registrationUrl": "https://api.foo/",
+      "tags": ["api-relay", "api-gateway", "gpt", "claude", "gemini", "grok", "deepseek", "glm", "kimi", "domestic-model"],
+      "summary": "多模型 API，支持 OpenAI / Anthropic / Gemini 三种协议，覆盖 Claude、GPT / Codex、Gemini、Grok、DeepSeek、GLM、Kimi、MiniMax 共 81 个模型；按量计费、人民币计价，价格公开在 /pricing，最低充值 ¥5。首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/39"},
+        {"type": "official-website", "url": "https://api.foo/"},
+        {"type": "official-pricing", "url": "https://api.foo/pricing"}
+      ]
+    },
+    {
+      "id": "boombit",
+      "name": "BoomBit",
+      "homepage": "https://boombit.online/",
+      "registrationUrl": "https://boombit.online/",
+      "tags": ["api-relay", "claude", "low-multiplier"],
+      "summary": "专注 Claude 系列的第三方中转，支持 Anthropic 原生协议与 OpenAI 兼容接口，可接入 Claude Code、Claude Desktop、OpenCode；投稿称 Claude Code 线路约 0.2x、外接约 0.22x，注册赠 $1 测试额度，最低充值 $5，无月费。首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/40"},
+        {"type": "official-website", "url": "https://boombit.online/"}
+      ]
+    },
+    {
+      "id": "beeaicloud",
+      "name": "蜂桥 AI（BeeBridge）",
+      "homepage": "https://beeaicloud.com/",
+      "registrationUrl": "https://beeaicloud.com/",
+      "tags": ["api-relay", "api-gateway", "gpt", "claude", "gemini", "domestic-model"],
+      "summary": "双协议中转，Anthropic Messages 与 OpenAI 兼容并存，覆盖 GPT 全系、Claude 全系、Gemini 及国产主流模型；新用户注册送 $2 体验额度，部分模型官方标价 2 折起，支持支付宝。首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/42"},
+        {"type": "official-website", "url": "https://beeaicloud.com/"},
+        {"type": "official-pricing", "url": "https://beeaicloud.com/pricing"}
+      ]
+    },
+    {
+      "id": "codebyai",
+      "name": "Code By AI",
+      "homepage": "https://www.codebyai.net/",
+      "registrationUrl": "https://www.codebyai.net/",
+      "tags": ["api-relay", "gpt", "claude", "gemini"],
+      "summary": "支持 OpenAI、Anthropic、Gemini 协议，官网列出 21 个模型（11 个 Claude、6 个 Codex/GPT、4 个 Gemini），按 token 计费、最低充值 US$3，较大额充值 3%–15% 折扣；官网标注约为官方价 1/6 起，模型来源自述为逆向渠道。首页可访问（2026-11-04）。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-04",
+      "sources": [
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/43"},
+        {"type": "official-website", "url": "https://www.codebyai.net/"},
+        {"type": "public-pricing-api", "url": "https://www.codebyai.net/api/model-prices"}
+      ]
     }
   ]
 }
