@@ -49,8 +49,15 @@ function esc(value) {
   return String(value ?? "").replace(/[&<>'"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[c]));
 }
 
-function formatDate(value) {
-  if (!value) return "—";
+function scoreBadge(score, name, suffix = "") {
+  if (!score) return '<span class="ratio-muted">—</span>';
+  const parts = [score.parts.price, score.parts.transparency, score.parts.traceability, score.parts.coverage, score.parts.completeness]
+    .map((value) => value.toFixed(1))
+    .join(",");
+  return `<span class="score-badge grade-${esc(score.grade)}" data-score="${score.total.toFixed(1)}" data-grade="${esc(score.grade)}" data-name="${esc(name || "")}" data-parts="${parts}" tabindex="0" title="悬停查看五维评分">${score.total.toFixed(1)}${suffix}</span>`;
+}
+
+function formatDate(value) {  if (!value) return "—";
   const parts = String(value).split("-");
   return parts.length === 3 ? `${parts[0]}.${parts[1]}.${parts[2]}` : value;
 }
@@ -158,6 +165,7 @@ ${body}
         <span>数据构建 ${esc(BUILD)} · 最后更新 ${esc(LASTMOD)}</span>
       </footer>
     </div>
+    <script src="../assets/score-tip.js?v=${esc(BUILD)}" defer></script>
   </body>
 </html>
 `;
@@ -289,7 +297,7 @@ ${[...sites]
     const stationRows = rows.filter((row) => row.stationId === site.id);
     const best = stationBestRow.get(site.id);
     const score = stationScores.get(site.id);
-    return `              <tr><td><a class="station-name" href="${esc(site.id)}.html">${esc(site.name)}</a></td><td class="col-num"><span class="score-badge grade-${esc(score.grade)}">${score.total.toFixed(1)}</span></td><td class="group-cell">${esc(STATUS_LABELS[site.status] || site.status)}</td><td class="col-num">${stationRows.length}</td><td class="col-num">${stationRows.filter((row) => row.comparable).length}</td><td class="col-num">${best ? formatMultiplier(best.effectiveBlended) : "—"}</td><td class="date-cell">${formatDate(site.verifiedAt)}</td></tr>`;
+    return `              <tr><td><a class="station-name" href="${esc(site.id)}.html">${esc(site.name)}</a></td><td class="col-num">${scoreBadge(score, site.name)}</td><td class="group-cell">${esc(STATUS_LABELS[site.status] || site.status)}</td><td class="col-num">${stationRows.length}</td><td class="col-num">${stationRows.filter((row) => row.comparable).length}</td><td class="col-num">${best ? formatMultiplier(best.effectiveBlended) : "—"}</td><td class="date-cell">${formatDate(site.verifiedAt)}</td></tr>`;
   })
   .join("\n")}
             </tbody>
@@ -561,7 +569,7 @@ const snapshot = `<!-- SNAPSHOT:START -->
               <tbody>
 ${topStations
   .map(
-    ([stationId, row], index) => `                <tr><td class="col-rank">${String(index + 1).padStart(2, "0")}</td><td><a class="station-name" href="stations/${esc(stationId)}.html">${esc(siteById.get(stationId)?.name || stationId)}</a></td><td class="col-num"><span class="score-badge grade-${esc(stationScores.get(stationId)?.grade || "D")}">${(stationScores.get(stationId)?.total ?? 0).toFixed(1)}</span></td><td class="group-cell">${esc(row.groupName)}</td><td>${esc(modelDisplay(row))}</td><td class="col-num"><strong class="ratio is-low">${formatMultiplier(row.effectiveBlended)}</strong></td><td class="col-num">${formatCny(row.inputCny)}</td><td class="col-num">${formatCny(row.outputCny)}</td><td class="date-cell">${formatDate(row.verifiedAt)}</td></tr>`,
+    ([stationId, row], index) => `                <tr><td class="col-rank">${String(index + 1).padStart(2, "0")}</td><td><a class="station-name" href="stations/${esc(stationId)}.html">${esc(siteById.get(stationId)?.name || stationId)}</a></td><td class="col-num">${scoreBadge(stationScores.get(stationId), siteById.get(stationId)?.name || stationId)}</td><td class="group-cell">${esc(row.groupName)}</td><td>${esc(modelDisplay(row))}</td><td class="col-num"><strong class="ratio is-low">${formatMultiplier(row.effectiveBlended)}</strong></td><td class="col-num">${formatCny(row.inputCny)}</td><td class="col-num">${formatCny(row.outputCny)}</td><td class="date-cell">${formatDate(row.verifiedAt)}</td></tr>`,
   )
   .join("\n")}
               </tbody>

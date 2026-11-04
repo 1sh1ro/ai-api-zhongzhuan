@@ -9,7 +9,7 @@ import {
 } from './assets/pricing.js';
 import { scoreStation } from './assets/scoring.js';
 
-const ASSET_VERSION = '2026-11-04c';
+const ASSET_VERSION = '2026-11-04d';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -271,10 +271,17 @@ function modelCell(row) {
   return `<span class="model-name">${escapeHTML(row.modelDisplay)}</span>${tag}`;
 }
 
+function scoreBadge(score, name, suffix = '') {
+  const parts = [score.parts.price, score.parts.transparency, score.parts.traceability, score.parts.coverage, score.parts.completeness]
+    .map((value) => value.toFixed(1))
+    .join(',');
+  return `<span class="score-badge grade-${score.grade}" data-score="${score.total.toFixed(1)}" data-grade="${score.grade}" data-name="${escapeHTML(name || '')}" data-parts="${parts}" tabindex="0" title="悬停查看五维评分">${score.total.toFixed(1)}${suffix}</span>`;
+}
+
 function scoreCell(stationId) {
   const score = state.scores.get(stationId);
   if (!score) return '<span class="ratio-muted">—</span>';
-  return `<span class="score-badge grade-${score.grade}" title="综合评分 ${score.total.toFixed(1)}，等级 ${score.grade}">${score.total.toFixed(1)}</span>`;
+  return scoreBadge(score, siteName(stationId));
 }
 
 function ratioCell(row) {  if (row.comparable) {
@@ -455,9 +462,7 @@ function renderSites() {
         : '<span class="site-price is-muted">暂无可用报价</span>';
       const tags = (site.tags || []).slice(0, 4).map((tag) => `<span class="tag">${escapeHTML(TAG_LABELS[tag] || tag)}</span>`).join('');
       const score = state.scores.get(site.id);
-      const scoreLine = score
-        ? `<span class="score-badge grade-${score.grade}" title="综合评分 ${score.total.toFixed(1)}">${score.total.toFixed(1)} 分 · ${score.grade}</span>`
-        : '';
+      const scoreLine = score ? scoreBadge(score, site.name, ` 分 · ${score.grade}`) : '';
       return `<article class="site-card">
         <div class="site-card-top">
           <h3>${escapeHTML(site.name)}</h3>
