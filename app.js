@@ -8,7 +8,7 @@ import {
   formatDiscount,
 } from './assets/pricing.js';
 
-const ASSET_VERSION = '2026-11-04a';
+const ASSET_VERSION = '2026-11-04b';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
