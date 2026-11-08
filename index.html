@@ -26,7 +26,7 @@
         "description": "以厂商官方价为基准的 AI API 中转站比价与核验记录。"
       }
     </script>
-    <link rel="stylesheet" href="styles.css?v=2026-11-04g" />
+    <link rel="stylesheet" href="styles.css?v=2026-11-04h" />
   </head>
   <body>
     <div class="page">
@@ -76,7 +76,7 @@
               <p class="kicker">00 / DATA SNAPSHOT</p>
               <h2>数据快照</h2>
             </div>
-            <p class="panel-desc">按模型查看当前最低价站点，点站点名进入详情。数据核验截至 2026-11-04。</p>
+            <p class="panel-desc">按模型查看当前最低价站点，点站点名进入详情。数据核验截至 2026-11-09。</p>
           </div>
           <p class="table-note">收录 46 个站点、135 条报价，其中 56 条口径统一可比。下表每个模型单独比较，列出该模型当前最低价的站点。</p>
           <div class="table-wrap">
@@ -151,6 +151,23 @@
             </table>
           </div>
           <p class="table-note" id="rank-note"></p>
+        </section>
+
+        <section class="panel" id="popularity">
+          <div class="panel-head">
+            <div>
+              <p class="kicker">POPULARITY</p>
+              <h2>本月人气榜</h2>
+            </div>
+            <p class="panel-desc">按本站出站点击统计，同一浏览器每天对同一站点只计一次。点击不等于注册，也不代表站点真实用户量。</p>
+          </div>
+          <div class="table-wrap">
+            <table class="rank-table">
+              <thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">本月点击</th><th class="col-num">评分</th></tr></thead>
+              <tbody id="popularity-body"><tr><td colspan="4" class="empty-cell">滚动到此处后加载。</td></tr></tbody>
+            </table>
+          </div>
+          <p class="table-note" id="popularity-note">数据来自站内出站点击，只反映本站读者的兴趣，不代表站点注册量。</p>
         </section>
 
         <section class="panel" id="models">
@@ -250,8 +267,8 @@
       </footer>
     </div>
 
-    <script src="assets/visitor.js?v=2026-11-04g" defer></script>
-    <script src="assets/score-tip.js?v=2026-11-04g" defer></script>
-    <script type="module" src="app.js?v=2026-11-04g"></script>
+    <script src="assets/visitor.js?v=2026-11-04h" defer></script>
+    <script src="assets/score-tip.js?v=2026-11-04h" defer></script>
+    <script type="module" src="app.js?v=2026-11-04h"></script>
   </body>
 </html>

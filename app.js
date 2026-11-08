@@ -7,8 +7,9 @@ import {
   formatDiscount,
 } from './assets/pricing.js';
 import { scoreStation, buildModelPercentiles } from './assets/scoring.js';
+import { getPopularity } from './assets/popularity.js';
 
-const ASSET_VERSION = '2026-11-04g';
+const ASSET_VERSION = '2026-11-04h';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -95,6 +96,7 @@ const el = {
   empty: document.querySelector('#empty-state'),
   ledgerBody: document.querySelector('#ledger-body'),
   ledgerNote: document.querySelector('#ledger-note'),
+  popularityBody: document.querySelector('#popularity-body'),
 };
 
 const SOURCE_LABELS = {
@@ -346,8 +348,8 @@ function renderStationView() {
       return `<tr>
         <td class="col-rank">${String(index + 1).padStart(2, '0')}</td>
         <td>
-          <a class="station-name" href="${escapeHTML(siteLink(row.stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(siteName(row.stationId))}</a>
-          <a class="station-host" href="${escapeHTML(siteLink(row.stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(((site && site.homepage) || '').replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>
+          <a class="station-name" href="${escapeHTML(siteLink(row.stationId))}" target="_blank" rel="noreferrer noopener" data-station-link="${escapeHTML(row.stationId)}">${escapeHTML(siteName(row.stationId))}</a>
+          <a class="station-host" href="${escapeHTML(siteLink(row.stationId))}" target="_blank" rel="noreferrer noopener" data-station-link="${escapeHTML(row.stationId)}">${escapeHTML(((site && site.homepage) || '').replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>
         </td>
         <td class="col-num">${scoreCell(row.stationId)}</td>
         <td class="group-cell">${escapeHTML(row.groupName)}</td>
@@ -382,7 +384,7 @@ function renderOfferView() {
       const rankCell = row.comparable ? String(++rank).padStart(2, '0') : '—';
       return `<tr class="${row.comparable ? '' : 'is-unranked'}">
         <td class="col-rank">${rankCell}</td>
-        <td><a class="station-name" href="${escapeHTML(siteLink(row.stationId))}" target="_blank" rel="noreferrer noopener">${escapeHTML(siteName(row.stationId))}</a></td>
+        <td><a class="station-name" href="${escapeHTML(siteLink(row.stationId))}" target="_blank" rel="noreferrer noopener" data-station-link="${escapeHTML(row.stationId)}">${escapeHTML(siteName(row.stationId))}</a></td>
         <td class="group-cell">${escapeHTML(row.groupName)}</td>
         <td>${modelCell(row)}</td>
         <td class="col-num">${ratioCell(row)}</td>
@@ -478,7 +480,7 @@ function renderSites() {
           <h3>${escapeHTML(site.name)}</h3>
           <span class="status ${status.className}">${escapeHTML(status.label)}</span>
         </div>
-        <a class="site-card-host" href="${escapeHTML(siteLink(site.id))}" target="_blank" rel="noreferrer noopener">${escapeHTML(site.homepage.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>
+        <a class="site-card-host" href="${escapeHTML(siteLink(site.id))}" target="_blank" rel="noreferrer noopener" data-station-link="${escapeHTML(site.id)}">${escapeHTML(site.homepage.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>
         <p class="site-card-summary">${escapeHTML(site.summary)}</p>
         <div class="site-card-tags">${tags}</div>
         <div class="site-card-foot">
@@ -499,6 +501,33 @@ function renderAll() {
   renderTagChips();
   renderSites();
   renderLedger();
+}
+
+async function renderPopularity() {
+  if (!el.popularityBody) return;
+  el.popularityBody.innerHTML = '<tr><td colspan="4" class="empty-cell">正在读取本月点击…</td></tr>';
+  const counts = await getPopularity(state.sites.map((site) => site.id));
+  const rows = state.sites
+    .map((site) => ({ site, count: counts.get(site.id) || 0 }))
+    .filter((row) => row.count > 0)
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 15);
+
+  if (rows.length === 0) {
+    el.popularityBody.innerHTML = '<tr><td colspan="4" class="empty-cell">本月还没有站内点击。</td></tr>';
+    return;
+  }
+
+  el.popularityBody.innerHTML = rows
+    .map(
+      (row, index) => `<tr>
+        <td class="col-rank">${String(index + 1).padStart(2, '0')}</td>
+        <td><a class="station-name" href="stations/${escapeHTML(row.site.id)}.html">${escapeHTML(row.site.name)}</a></td>
+        <td class="col-num">${row.count}</td>
+        <td class="col-num">${scoreCell(row.site.id)}</td>
+      </tr>`,
+    )
+    .join('');
 }
 
 function renderLedger() {
@@ -614,6 +643,11 @@ async function init() {
     renderHero();
     bindEvents();
     renderAll();
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      requestIdleCallback(() => renderPopularity(), { timeout: 4000 });
+    } else {
+      setTimeout(renderPopularity, 2500);
+    }
     loadBuild();
   } catch (error) {
     console.error('数据加载失败', error);

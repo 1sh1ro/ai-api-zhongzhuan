@@ -183,6 +183,7 @@ ${body}
       </footer>
     </div>
     <script src="../assets/score-tip.js?v=${esc(BUILD)}" defer></script>
+    <script type="module" src="../assets/popularity.js?v=${esc(BUILD)}"></script>
   </body>
 </html>
 `;
@@ -263,8 +264,8 @@ ${rankedModels
           <p class="eyebrow">STATION · ${esc(site.id)}</p>
           <h1>${esc(site.name)} 的 API 报价与核验记录</h1>
           <p class="lede">${esc(site.summary)}</p>
-          <p class="hero-note">状态 ${esc(statusLabel)} · 核验 ${esc(formatDate(site.verifiedAt))} · ${stationRows.length} 条报价，其中 ${comparableCount} 条口径统一可比。${summaryLine}综合评分 ${score.total.toFixed(1)}（${score.grade}）。</p>
-          <p><a class="button button-primary" href="${esc(siteLink(site))}" rel="nofollow noopener" target="_blank">打开站点 ↗</a></p>
+          <p class="hero-note">状态 ${esc(statusLabel)} · 核验 ${esc(formatDate(site.verifiedAt))} · ${stationRows.length} 条报价，其中 ${comparableCount} 条口径统一可比。${summaryLine}综合评分 ${score.total.toFixed(1)}（${score.grade}）。本月站内点击 <strong data-click-count="${esc(site.id)}">—</strong> 次。</p>
+          <p><a class="button button-primary" href="${esc(siteLink(site))}" rel="nofollow noopener" target="_blank" data-station-link="${esc(site.id)}">打开站点 ↗</a></p>
         </section>
         <section class="panel">
           <div class="panel-head"><div><p class="kicker">SCORE</p><h2>综合评分 ${score.total.toFixed(1)}</h2></div>
