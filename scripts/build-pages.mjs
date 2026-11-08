@@ -23,6 +23,7 @@ const config = readJSON("data/pricing-config.json");
 const scope = readJSON("data/model-scope.json");
 const version = readJSON("data/version.json");
 const guides = readJSON("data/guides.json").guides;
+const registrationsData = readJSON("data/registrations.json");
 
 const BASE = "https://ai.xulas.fun";
 const BUILD = version.build;
@@ -35,6 +36,9 @@ const statedIds = new Set(scope.statedOfferIds || []);
 const rows = buildRows(offers, models, config, statedIds);
 const comparable = comparableRows(rows);
 const siteById = new Map(sites.map((site) => [site.id, site]));
+const registrationsByStation = new Map(
+  (registrationsData.registrations || []).map((item) => [item.stationId, item]),
+);
 const modelById = new Map(models.map((model) => [model.id, model]));
 const stationBestRow = stationBest(rows);
 const modelBestRow = modelBest(rows.filter((row) => row.modelBasis === "stated"));
@@ -244,6 +248,10 @@ for (const site of sites) {
     "automated-access-blocked": "自动访问受阻",
   }[site.status] || site.status || "状态未知";
   const score = stationScores.get(site.id);
+  const registration = registrationsByStation.get(site.id);
+  const registrationLine = registration
+    ? `通过本站链接注册 ${registration.count} 人（${esc(registration.period)}）。`
+    : "";
 
   const summaryLine = comparableModels.length
     ? `覆盖 ${comparableModels.length} 个可比模型，其中 ${rankedModels.length} 个模型有多站可比。`
@@ -264,7 +272,7 @@ ${rankedModels
           <p class="eyebrow">STATION · ${esc(site.id)}</p>
           <h1>${esc(site.name)} 的 API 报价与核验记录</h1>
           <p class="lede">${esc(site.summary)}</p>
-          <p class="hero-note">状态 ${esc(statusLabel)} · 核验 ${esc(formatDate(site.verifiedAt))} · ${stationRows.length} 条报价，其中 ${comparableCount} 条口径统一可比。${summaryLine}综合评分 ${score.total.toFixed(1)}（${score.grade}）。本月站内点击 <strong data-click-count="${esc(site.id)}">—</strong> 次。</p>
+          <p class="hero-note">状态 ${esc(statusLabel)} · 核验 ${esc(formatDate(site.verifiedAt))} · ${stationRows.length} 条报价，其中 ${comparableCount} 条口径统一可比。${summaryLine}综合评分 ${score.total.toFixed(1)}（${score.grade}）。本月站内点击 <strong data-click-count="${esc(site.id)}">—</strong> 次。${registrationLine}</p>
           <p><a class="button button-primary" href="${esc(siteLink(site))}" rel="nofollow noopener" target="_blank" data-station-link="${esc(site.id)}">打开站点 ↗</a></p>
         </section>
         <section class="panel">
@@ -627,6 +635,41 @@ ${modelLeaders
           <p class="table-note">说明：<a href="method.html">收录原则与核验方法</a> · <a href="faq.html">常见问题</a> · <a href="changelog.html">数据变更记录</a></p>
         </section>
         <!-- SNAPSHOT:END -->`;
+
+const registrationEntries = [...registrationsByStation.values()]
+  .filter((item) => siteById.has(item.stationId))
+  .sort((a, b) => b.count - a.count || a.stationId.localeCompare(b.stationId));
+const registrationsHtml = registrationEntries.length
+  ? `
+        <section class="panel" id="registrations">
+          <div class="panel-head">
+            <div>
+              <p class="kicker">REGISTRATIONS</p>
+              <h2>通过本站链接注册</h2>
+            </div>
+            <p class="panel-desc">由维护者从各站点推广后台手工抄录，按统计周期记录。注册量只有站点自己知道，这里只统计能确认的推广数据。</p>
+          </div>
+          <div class="table-wrap">
+            <table class="rank-table">
+              <thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">注册人数</th><th>统计周期</th><th>更新时间</th><th>来源</th></tr></thead>
+              <tbody>
+${registrationEntries
+  .map(
+    (item, index) => `                <tr><td class="col-rank">${String(index + 1).padStart(2, "0")}</td><td><a class="station-name" href="stations/${esc(item.stationId)}.html">${esc(siteById.get(item.stationId)?.name || item.stationId)}</a></td><td class="col-num"><strong class="ratio is-low">${item.count}</strong></td><td>${esc(item.period)}</td><td class="date-cell">${esc(item.updatedAt)}</td><td class="group-cell">${esc(item.source || "")}</td></tr>`,
+  )
+  .join("\n")}
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">更新方式见 docs/registrations.md。该榜单不参与价格排名和评分。</p>
+        </section>`
+  : "";
+const registrationBlock = `<!-- REGISTRATIONS:START -->${registrationsHtml}<!-- REGISTRATIONS:END -->`;
+if (indexHtml.includes("<!-- REGISTRATIONS:START -->") && indexHtml.includes("<!-- REGISTRATIONS:END -->")) {
+  indexHtml = indexHtml.replace(/<!-- REGISTRATIONS:START -->[\s\S]*?<!-- REGISTRATIONS:END -->/, registrationBlock);
+} else {
+  indexHtml = indexHtml.replace(/(<section class="panel" id="models">)/, `${registrationBlock}\n\n        $1`);
+}
 
 if (indexHtml.includes("<!-- SNAPSHOT:START -->") && indexHtml.includes("<!-- SNAPSHOT:END -->")) {
   indexHtml = indexHtml.replace(/<!-- SNAPSHOT:START -->[\s\S]*?<!-- SNAPSHOT:END -->/, snapshot);
