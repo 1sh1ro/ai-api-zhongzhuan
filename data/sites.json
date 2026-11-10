@@ -462,9 +462,9 @@
       "homepage": "https://znbcode.com/",
       "registrationUrl": "https://znbcode.com/register?aff=NAV-1SH1RO",
       "tags": ["gpt", "codex", "claude", "gemini", "grok", "deepseek", "kimi", "domestic-model", "low-multiplier", "api-relay"],
-      "summary": "运营方提交；按量计费，充值 ¥1 = $1 额度，支持支付宝、微信、USDT。站内分组倍率（2026-11-03 公开价格接口）：GPT 0.09x / 0.2x / 0.3x / 0.5x，Claude 0.4x / 1.3x / 1.8x，Grok 0.2x，Gemini 3.8 0.4x；GPT、Claude、Gemini、Grok 的参考价是厂商美元官方价，按汇率 6.70 折算约为官方价的 0.013x–0.27x（gpt-5.6-luna 参考价标人民币，不折算）。DeepSeek、GLM、Kimi 0.3x，参考价是人民币官方价，不再折算。生图按张计费：gpt-image-1K特惠 分组只出 1K、¥0.06，gpt-image-原生 分组支持更高分辨率、¥0.12，nano-banana-2.1 ¥0.08。支持 Anthropic /v1/messages、OpenAI /v1/chat/completions 与 /v1/responses、Gemini /v1beta；注册页、公开价格接口和接入文档均可访问（2026-11-03）。",
+      "summary": "运营方提交；按量计费，充值 ¥1 = $1 额度，支持支付宝、微信、USDT。站内分组倍率（2026-11-10 公开价格接口）：GPT 0.08x / 0.2x / 0.3x / 0.5x，Claude 0.15x / 0.4x / 1.3x / 1.8x，Grok 0.2x，Gemini 3.8 0.35x；GPT、Claude、Gemini、Grok 的参考价是厂商美元官方价，按汇率 6.70 折算约为官方价的 0.012x–0.27x（gpt-5.6-luna 参考价标人民币，不折算）。DeepSeek V4.1 Flash 实付每百万输入 ¥0.3、输出 ¥1.2；GLM、Kimi 0.3x，参考价是人民币官方价，不再折算。生图按张计费：gpt-image-1K特惠 分组只出 1K、¥0.06，gpt-image-原生 分组支持更高分辨率、¥0.12，nano-banana-2.1 ¥0.08。支持 Anthropic /v1/messages、OpenAI /v1/chat/completions 与 /v1/responses、Gemini /v1beta；注册页、公开价格接口和接入文档均可访问（2026-11-10）。",
       "status": "registration-page-reachable",
-      "verifiedAt": "2026-11-03",
+      "verifiedAt": "2026-11-10",
       "sources": [
         {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/24"},
         {"type": "official-website", "url": "https://znbcode.com/"},
