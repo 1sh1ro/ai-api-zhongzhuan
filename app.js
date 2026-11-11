@@ -8,7 +8,7 @@ import {
 } from './assets/pricing.js';
 import { scoreStation, buildModelPercentiles } from './assets/scoring.js';
 
-const ASSET_VERSION = '2026-11-11d';
+const ASSET_VERSION = '2026-11-11e';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',

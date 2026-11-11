@@ -96,8 +96,10 @@ assert(recommendHtml.includes("TeamoRouter"), "置顶推荐应包含 TeamoRouter
 assert(recommendHtml.includes("https://teamorouter.com/?i=5ffc6af2c3"), "置顶推荐应使用 TeamoRouter 注册链接");
 assert(recommendHtml.includes("前往 TeamoRouter →"), "置顶推荐按钮应为前往 TeamoRouter");
 assert(!recommendHtml.includes("推广入口"), "TeamoRouter 置顶推荐不应再标推广入口");
-assert(recommendHtml.includes("官网限时补贴中，最低官方价 1 折"), "置顶推荐应展示当前折扣说明");
-assert(recommendHtml.includes("GPT-6 Astra 78% off（$2.17 / $10.85）"), "置顶推荐应使用官网 GPT-6 Astra 价格");
+assert(recommendHtml.includes("官网限时补贴，低至官方价 1 折"), "置顶推荐应展示简短折扣说明");
+assert(recommendHtml.includes("Claude 全系约 3 折、GPT-6 Astra 约 2 折"), "置顶推荐应包含 Claude 与 GPT 折扣");
+assert(!recommendHtml.includes("建议小额试用"), "置顶推荐不应再显示试用 caution");
+assert(!recommendHtml.includes("recommend-caution"), "置顶推荐不应再渲染 caution 段");
 assert(!recommendHtml.includes("API Nebula"), "API Nebula 不应再出现在置顶推荐");
 assert((recommendHtml.match(/recommend-card/g) || []).length === 1, "置顶推荐当前应只有 TeamoRouter");
 const modelHandler = node("#model-select").listeners.change?.[0];

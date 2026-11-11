@@ -698,7 +698,7 @@
       "registrationUrl": "https://teamorouter.com/?i=5ffc6af2c3",
       "pinned": true,
       "tags": ["gpt", "codex", "claude", "gemini", "deepseek", "domestic-model", "api-relay"],
-      "summary": "官网限时补贴中，最低官方价 1 折：GLM-5.3-Flash-Free、DeepSeek V4.1 Flash Free 99.9% off（输入 $0.0001 / 输出 $0.0004–0.0006，近乎免费）；Grok 4.6 1 折（$0.2 / $0.6）；GPT-6 Astra 78% off（$2.17 / $10.85）；Claude 全系约 71% off：Fable 5.2 $2.384 / $11.92、Opus 5.5 $1.148 / $5.74、Sonnet 5.5 $0.574 / $2.87；Gemini 4 Carbon 71% off（$0.58 / $2.9）；GLM-5.3、Kimi K3.1 Pro、Qwen3.8 Max 5 折。一个 Key 接 Codex / Claude Code（Anthropic 原生 https://api.teamorouter.com，OpenAI 兼容 /v1）；按量计费，额度不过期，$5 起充，支持支付宝/USDT。价格每小时随上游浮动，以官网实时价为准；2026-05 注册的新站，建议小额试用。",
+      "summary": "官网限时补贴，低至官方价 1 折；GLM-5.3-Flash / DeepSeek V4.1 Flash 免费版近乎 0 元；Claude 全系约 3 折、GPT-6 Astra 约 2 折；一个 Key 直接接 Codex / Claude Code；额度不过期，$5 起充，支持支付宝。",
       "status": "registration-page-reachable",
       "verifiedAt": "2026-11-11",
       "sources": [
