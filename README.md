@@ -1,5 +1,7 @@
 # AI API 公益站与 Token 中转站导航
 
+AI API 公益站与 Token 中转站导航 / 比价雷达，整理免费 API、低价中转与按官方价折算的倍率：[ai.xulas.fun](https://ai.xulas.fun/)
+
 <p align="center"><strong>按模型生态与能力关键词整理，快速找到适合自己的 API 中转入口</strong></p>
 
 <p align="center">
@@ -16,7 +18,7 @@
 > [**前往 TeamoRouter →**](https://teamorouter.com/?i=5ffc6af2c3) · 官网价格页核验 2026-11-11。未实测调用。
 
 > [!TIP]
-> **💱 FREE TOEKN**
+> **💱 FREE TOKEN**
 >
 > 点击领glm-5.3-flash无限token
 >
