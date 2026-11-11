@@ -1,14 +1,50 @@
-# AI API 比价雷达与中转站导航
+# AI API 比价雷达
 
-Chinese price radar and directory for AI API relay services, with multipliers normalized against official vendor pricing.
+> 中文开源目录：以厂商官方价为分母，把各中转站的充值系数、分组倍率与绝对单价折算成综合倍率。最后更新 2026-11-11（构建 2026-11-11a）。
 
-Keywords: AI API 比价, 中转站价格榜, API 中转站, 综合倍率, 充值系数, 分组倍率, 官方 API 价格, 免费 API, 低价 API, OpenAI API, GPT API, Claude API, Codex API, Grok API, Gemini API, DeepSeek API, GLM API, Kimi API, New API, One API, CC Switch.
+- 网站：https://ai.xulas.fun/
+- 站点索引：https://ai.xulas.fun/stations/index.html
+- 模型索引：https://ai.xulas.fun/models/index.html
+- 使用指南：https://ai.xulas.fun/guides/index.html
+- 核验方法：https://ai.xulas.fun/method.html
+- 常见问题：https://ai.xulas.fun/faq.html
+- 完整机器可读摘要：https://ai.xulas.fun/llms-full.txt
+- 原始数据：https://ai.xulas.fun/data/sites.json 、 https://ai.xulas.fun/data/offers.json 、 https://ai.xulas.fun/data/models.json
+- 源代码：https://github.com/1sh1ro/ai-api-zhongzhuan
 
-Human-readable site: index.html
-Official baseline prices: data/models.json
-Station price quotes: data/offers.json
-Normalization settings: data/pricing-config.json
-Site directory data: data/sites.json
-Contribution and verification policy: CONTRIBUTING.md
+## 当前规模
 
-Multipliers are normalized as station price divided by the official vendor price, both in CNY per million tokens. Quotes whose top-up basis is not disclosed are shown with their raw station ratio and are excluded from the ranked list. Status and price notes are time-sensitive. A reachable registration page does not guarantee successful registration, current model availability, free quota, price, reliability, or data security. Never publish API keys, cookies, account credentials, session tokens, or private URLs in this repository.
+收录 46 个站点、135 条报价，其中 56 条口径统一可比；官方基准模型 26 个；折算汇率 1 USD = 6.7 CNY。
+
+口径没有公开充值系数的报价只展示原值，不进入排名。低倍率不等于可用、稳定或模型真实。中转站能看到经它转发的请求，不要提交密钥、证件或私有代码。部分注册链接带推广参数，已在站点页标明，不影响排序。本站不运营任何中转服务。
+
+## 各模型当前最低可比价
+
+- GPT-6 Astra：最低 0.050x（RelayCore，2 站可比） · https://ai.xulas.fun/models/gpt-6-astra.html
+- GPT-6.1 Sol：最低 0.027x（LinkAGI，4 站可比） · https://ai.xulas.fun/models/gpt-6-1-sol.html
+- GPT-6.1 Terra：最低 0.050x（RelayCore，1 站可比） · https://ai.xulas.fun/models/gpt-6-1-terra.html
+- GPT-6 Sol：最低 0.013x（znbcode，5 站可比） · https://ai.xulas.fun/models/gpt-6-sol.html
+- GPT-5.6 Sol：最低 0.045x（DayWay，3 站可比） · https://ai.xulas.fun/models/gpt-5-6-sol.html
+- GPT-5.6 Terra：最低 0.050x（RelayCore，2 站可比） · https://ai.xulas.fun/models/gpt-5-6-terra.html
+- GPT-5.5：最低 0.074x（Zerouter，1 站可比） · https://ai.xulas.fun/models/gpt-5-5.html
+- Claude Fable 5：最低 0.254x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-fable-5.html
+- Claude Fable 5.1：最低 0.254x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-fable-5-1.html
+- Claude Opus 5.5：最低 0.075x（API Nebula，2 站可比） · https://ai.xulas.fun/models/claude-opus-5-5.html
+- Claude Opus 5：最低 0.075x（API Nebula，4 站可比） · https://ai.xulas.fun/models/claude-opus-5.html
+- Claude Opus 4.8：最低 0.075x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-opus-4-8.html
+- Claude Sonnet 5.5：最低 0.060x（znbcode，5 站可比） · https://ai.xulas.fun/models/claude-sonnet-5-5.html
+- Claude Sonnet 5：最低 0.075x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-sonnet-5.html
+- Claude Sonnet 4.6：最低 0.075x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-sonnet-4-6.html
+- Gemini 4 Argon：最低 0.119x（API Nebula，1 站可比） · https://ai.xulas.fun/models/gemini-4-argon.html
+- Gemini 3.8 Flash：最低 0.060x（znbcode，3 站可比） · https://ai.xulas.fun/models/gemini-3-8-flash.html
+- Gemini 3.1 Pro Preview：最低 0.119x（API Nebula，1 站可比） · https://ai.xulas.fun/models/gemini-3-1-pro-preview.html
+- Grok 4.7：最低 0.075x（API Nebula，1 站可比） · https://ai.xulas.fun/models/grok-4-7.html
+- Grok 4.6：最低 0.030x（znbcode，4 站可比） · https://ai.xulas.fun/models/grok-4-6.html
+- DeepSeek V4.1 Flash：最低 0.0002x（Horizon API，3 站可比） · https://ai.xulas.fun/models/deepseek-v4-1-flash.html
+- GLM-5.3：最低 0.300x（znbcode，1 站可比） · https://ai.xulas.fun/models/glm-5-3.html
+
+## 关键术语
+
+- 综合倍率：站点单价 ÷ 官方单价（均为人民币 / 百万 tokens）。1.00x 等于官方价，0.10x 约为官方价的一折。
+- 充值系数：充 1 元人民币能换多少站内额度。
+- 分组倍率：同一模型不同线路的站内乘数，需结合充值系数才能和官方价比较。

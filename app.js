@@ -9,7 +9,7 @@ import {
 import { scoreStation, buildModelPercentiles } from './assets/scoring.js';
 import { getPopularity } from './assets/popularity.js';
 
-const ASSET_VERSION = '2026-11-04h';
+const ASSET_VERSION = '2026-11-11a';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -555,11 +555,28 @@ function renderLedger() {
 }
 
 function bindEvents() {
-  el.search.addEventListener('input', (event) => {
-    state.query = event.target.value;
+  const heroSearch = document.querySelector('#hero-search');
+  const heroForm = document.querySelector('#hero-search-form');
+  const syncQuery = (value) => {
+    state.query = value;
+    if (el.search && el.search.value !== value) el.search.value = value;
+    if (heroSearch && heroSearch.value !== value) heroSearch.value = value;
     renderRanking();
     renderSites();
+  };
+  el.search.addEventListener('input', (event) => {
+    syncQuery(event.target.value);
   });
+  if (heroSearch) {
+    heroSearch.addEventListener('input', (event) => syncQuery(event.target.value));
+  }
+  if (heroForm) {
+    heroForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      syncQuery(heroSearch ? heroSearch.value : el.search.value);
+      document.querySelector('#ranking')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
   el.basis.addEventListener('change', (event) => {
     state.basis = event.target.value;
     renderRanking();
@@ -582,6 +599,8 @@ function bindEvents() {
     state.view = 'station';
     state.modelRank = '';
     el.search.value = '';
+    const heroSearchInput = document.querySelector('#hero-search');
+    if (heroSearchInput) heroSearchInput.value = '';
     el.basis.value = 'comparable';
     el.view.value = 'station';
     renderAll();

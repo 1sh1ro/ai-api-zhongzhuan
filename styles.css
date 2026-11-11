@@ -457,10 +457,148 @@ th.col-num { text-align: right; }
 .footer a:hover { color: var(--brand-dark); }
 
 /* ---------- responsive ---------- */
+/* ---------- a11y / chrome ---------- */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  z-index: 40;
+  padding: 8px 14px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 8px;
+}
+.skip-link:focus { top: 12px; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
+.nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
+.nav-toggle-label {
+  display: none;
+  width: 40px; height: 40px;
+  align-items: center; justify-content: center;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  cursor: pointer;
+}
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  width: 18px; height: 2px;
+  background: var(--ink);
+  position: relative;
+  border-radius: 1px;
+}
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.nav-toggle-label span::before { top: -6px; }
+.nav-toggle-label span::after { top: 6px; }
+
+/* ---------- hero extras ---------- */
+.hero-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0 16px;
+  max-width: 640px;
+}
+.hero-search .search-box { flex: 1; min-width: 220px; max-width: none; }
+.hero-search .ghost-button { padding: 10px 16px; }
+
+.trust-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0 0 22px;
+  padding: 14px 16px;
+  background: var(--amber-soft);
+  border: 1px solid #efe0b8;
+  border-radius: 12px;
+  color: #5c4a12;
+  font-size: 13.5px;
+}
+.trust-bar p { margin: 0; max-width: 80ch; }
+.trust-bar a { color: var(--brand-dark); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---------- collapsible blocks ---------- */
+.index-fold, .fold {
+  margin-top: 10px;
+  border-top: 1px dashed var(--line);
+  padding-top: 8px;
+}
+.index-fold > summary, .fold > summary {
+  cursor: pointer;
+  list-style: none;
+  color: var(--muted);
+  font-size: 13.5px;
+  padding: 6px 0;
+}
+.index-fold > summary::-webkit-details-marker,
+.fold > summary::-webkit-details-marker { display: none; }
+.index-fold > summary::before,
+.fold > summary::before {
+  content: "▸ ";
+  color: var(--dim);
+  font-family: var(--mono);
+}
+.index-fold[open] > summary::before,
+.fold[open] > summary::before { content: "▾ "; }
+.index-fold .table-note { margin: 4px 0; }
+.panel-head .panel-extra {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+.panel-head .panel-extra a { color: var(--brand-dark); text-decoration: underline; text-underline-offset: 2px; }
+
+.disclosure {
+  margin: 0;
+  max-width: 80ch;
+  line-height: 1.55;
+}
+.footer { align-items: flex-start; }
+.footer-meta { display: flex; flex-direction: column; gap: 8px; }
+
 @media (max-width: 860px) {
   .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hero { padding: 36px 0 26px; }
+  .hero-stats .stat:last-child { grid-column: 1 / -1; }
+  .hero { padding: 28px 0 20px; }
+  .hero h1 { font-size: clamp(26px, 8vw, 36px); }
   .panel { padding: 18px 16px; }
-  .topnav { display: none; }
+  .kicker { display: none; }
+  .nav-toggle-label { display: inline-flex; }
+  .topnav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 20px 16px;
+    background: #f7f8f5;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    z-index: 30;
+  }
+  .topbar { position: sticky; }
+  .topbar:has(.nav-toggle:checked) .topnav { display: flex; }
+  .topnav a { padding: 10px 12px; border-radius: 8px; }
   .search-box { max-width: none; }
+  .trust-bar { font-size: 13px; }
 }

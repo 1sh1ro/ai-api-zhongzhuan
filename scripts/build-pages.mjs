@@ -143,7 +143,48 @@ function sourceCell(row) {
   return `<a href="${esc(row.sourceUrl)}" rel="nofollow noopener" target="_blank">${esc(label)} ↗</a>`;
 }
 
-function shell({ title, description, canonical, body, jsonLd }) {
+function socialTags({ title, description, canonical, type = "article", prefix = "../" }) {
+  return `    <link rel="canonical" href="${esc(canonical)}" />
+    <link rel="icon" href="${prefix}assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="${prefix}assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="${prefix}assets/apple-touch-icon.png" />
+    <link rel="alternate" type="text/plain" href="${BASE}/llms.txt" title="LLM digest" />
+    <meta property="og:type" content="${esc(type)}" />
+    <meta property="og:site_name" content="AI API 比价雷达" />
+    <meta property="og:title" content="${esc(title)}" />
+    <meta property="og:description" content="${esc(description)}" />
+    <meta property="og:url" content="${esc(canonical)}" />
+    <meta property="og:image" content="${BASE}/assets/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${esc(title)}" />
+    <meta name="twitter:description" content="${esc(description)}" />
+    <meta name="twitter:image" content="${BASE}/assets/og-cover.png" />`;
+}
+
+function navBar(prefix) {
+  return `      <header class="topbar">
+        <a class="brand" href="${prefix}index.html" aria-label="AI API 比价雷达首页">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span>
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="打开菜单"><span></span></label>
+        <nav class="topnav" aria-label="主导航">
+          <a href="${prefix}index.html">价格榜</a>
+          <a href="${prefix}stations/index.html">站点</a>
+          <a href="${prefix}models/index.html">模型</a>
+          <a href="${prefix}guides/index.html">指南</a>
+          <a href="${prefix}method.html">方法</a>
+          <a href="${prefix}faq.html">常见问题</a>
+          <a href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">GitHub ↗</a>
+        </nav>
+      </header>`;
+}
+
+function shell({ title, description, canonical, body, jsonLd, prefix = "../" }) {
   return `<!doctype html>
 <html lang="zh-CN">
   <head>
@@ -152,42 +193,27 @@ function shell({ title, description, canonical, body, jsonLd }) {
     <meta name="theme-color" content="#f6f7f5" />
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}" />
-    <link rel="canonical" href="${esc(canonical)}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="AI API 比价雷达" />
-    <meta property="og:title" content="${esc(title)}" />
-    <meta property="og:description" content="${esc(description)}" />
-    <meta property="og:url" content="${esc(canonical)}" />
-    <meta name="twitter:card" content="summary" />
-    <link rel="stylesheet" href="../styles.css?v=${esc(BUILD)}" />
+${socialTags({ title, description, canonical, prefix })}
+    <link rel="stylesheet" href="${prefix}styles.css?v=${esc(BUILD)}" />
     <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
   </head>
   <body>
+    <a class="skip-link" href="#main">跳到正文</a>
     <div class="page">
-      <header class="topbar">
-        <a class="brand" href="../index.html" aria-label="AI API 比价雷达首页">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span>
-        </a>
-        <nav class="topnav" aria-label="主导航">
-          <a href="../index.html">中转价格榜</a>
-          <a href="../index.html#models">模型对照</a>
-          <a href="../index.html#directory">站点目录</a>
-          <a href="../index.html#ledger">核验明细</a>
-          <a href="../guides/index.html">指南</a>
-          <a href="../method.html">方法</a>
-        </nav>
-      </header>
-      <main>
+${navBar(prefix)}
+      <main id="main">
 ${body}
       </main>
       <footer class="footer">
-        <span>AI API 比价雷达 · RELAY PRICE RADAR</span>
-        <span>数据构建 ${esc(BUILD)} · 最后更新 ${esc(LASTMOD)}</span>
+        <div class="footer-meta">
+          <span>AI API 比价雷达 · RELAY PRICE RADAR</span>
+          <p class="disclosure">部分注册链接带有推广参数，已在对应站点页标明。排序与综合评分不按推广收益计算。本站只整理公开信息，不运营、不担保任何第三方中转服务。</p>
+        </div>
+        <span>数据构建 ${esc(BUILD)} · 最后更新 ${esc(LASTMOD)} · <a href="${prefix}llms.txt">llms.txt</a></span>
       </footer>
     </div>
-    <script src="../assets/score-tip.js?v=${esc(BUILD)}" defer></script>
-    <script type="module" src="../assets/popularity.js?v=${esc(BUILD)}"></script>
+    <script src="${prefix}assets/score-tip.js?v=${esc(BUILD)}" defer></script>
+    <script type="module" src="${prefix}assets/popularity.js?v=${esc(BUILD)}"></script>
   </body>
 </html>
 `;
@@ -563,9 +589,78 @@ ${list
   );
 }
 
+function writeLlmsFiles() {
+  const leaderLines = models
+    .map((model) => {
+      const list = bestStationRowsForModel(model.id);
+      if (!list.length) return null;
+      const best = list[0];
+      const station = siteById.get(best.stationId)?.name || best.stationId;
+      return `- ${model.displayName}：最低 ${formatMultiplier(best.effectiveBlended)}（${station}，${list.length} 站可比） · ${BASE}/models/${modelSlug(model.id)}.html`;
+    })
+    .filter(Boolean);
+
+  const digest = `# AI API 比价雷达
+
+> 中文开源目录：以厂商官方价为分母，把各中转站的充值系数、分组倍率与绝对单价折算成综合倍率。最后更新 ${LASTMOD}（构建 ${BUILD}）。
+
+- 网站：${BASE}/
+- 站点索引：${BASE}/stations/index.html
+- 模型索引：${BASE}/models/index.html
+- 使用指南：${BASE}/guides/index.html
+- 核验方法：${BASE}/method.html
+- 常见问题：${BASE}/faq.html
+- 完整机器可读摘要：${BASE}/llms-full.txt
+- 原始数据：${BASE}/data/sites.json 、 ${BASE}/data/offers.json 、 ${BASE}/data/models.json
+- 源代码：https://github.com/1sh1ro/ai-api-zhongzhuan
+
+## 当前规模
+
+收录 ${sites.length} 个站点、${rows.length} 条报价，其中 ${comparable.length} 条口径统一可比；官方基准模型 ${models.filter((model) => model.official).length} 个；折算汇率 1 USD = ${config.fxCnyPerUsd} CNY。
+
+口径没有公开充值系数的报价只展示原值，不进入排名。低倍率不等于可用、稳定或模型真实。中转站能看到经它转发的请求，不要提交密钥、证件或私有代码。部分注册链接带推广参数，已在站点页标明，不影响排序。本站不运营任何中转服务。
+
+## 各模型当前最低可比价
+
+${leaderLines.join("\n")}
+
+## 关键术语
+
+- 综合倍率：站点单价 ÷ 官方单价（均为人民币 / 百万 tokens）。1.00x 等于官方价，0.10x 约为官方价的一折。
+- 充值系数：充 1 元人民币能换多少站内额度。
+- 分组倍率：同一模型不同线路的站内乘数，需结合充值系数才能和官方价比较。
+`;
+
+  const stationLines = sites
+    .map((site) => {
+      const score = stationScores.get(site.id);
+      const stationRows = rows.filter((row) => row.stationId === site.id);
+      const comparableCount = stationRows.filter((row) => row.comparable).length;
+      const best = stationBestRow.get(site.id);
+      const status = STATUS_LABELS[site.status] || site.status || "状态未知";
+      const bestText = best ? `最低综合倍率 ${formatMultiplier(best.effectiveBlended)}` : "暂无可比报价";
+      return `- ${site.name}（${status}，评分 ${score ? score.total.toFixed(1) : "—"}，${stationRows.length} 条报价 / ${comparableCount} 条可比，${bestText}）：${BASE}/stations/${site.id}.html`;
+    })
+    .join("\n");
+
+  const full = `${digest}
+
+## 全部站点
+
+${stationLines}
+
+## 引用与局限
+
+价格来自站点公开价格页或接口、用户提交与截图，每条记录保留来源链接和核验日期。本站不做真实 API 调用验真，数字会过期。完整方法见 ${BASE}/method.html 。
+`;
+
+  fs.writeFileSync(path.join(root, "llms.txt"), digest);
+  fs.writeFileSync(path.join(root, "llms-full.txt"), full);
+}
+
 /* ---------- sitemap / robots ---------- */
 const urls = [
-  { loc: `${BASE}/`, priority: "1.0", freq: "hourly" },
+  { loc: `${BASE}/`, priority: "1.0", freq: "daily" },
   { loc: `${BASE}/stations/index.html`, priority: "0.8", freq: "daily" },
   { loc: `${BASE}/models/index.html`, priority: "0.8", freq: "daily" },
   { loc: `${BASE}/guides/index.html`, priority: "0.8", freq: "weekly" },
@@ -589,7 +684,10 @@ ${urls
 </urlset>
 `,
 );
-fs.writeFileSync(path.join(root, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`);
+fs.writeFileSync(
+  path.join(root, "robots.txt"),
+  `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n\n# Machine-readable summary for AI assistants:\n# ${BASE}/llms.txt\n# ${BASE}/llms-full.txt\n`,
+);
 
 /* ---------- 首页静态快照 ---------- */
 const indexFile = path.join(root, "index.html");
@@ -626,13 +724,16 @@ ${modelLeaders
               </tbody>
             </table>
           </div>
-          <p class="table-note">模型索引：${models
+          <details class="index-fold">
+            <summary>展开模型、站点与指南索引（供检索与引用）</summary>
+            <p class="table-note">模型索引：${models
             .map((model) => `<a href="models/${modelSlug(model.id)}.html">${esc(model.displayName)}</a>`)
             .join(" · ")}</p>
-          <p class="table-note">指南：${guides.map((guide) => `<a href="guides/${esc(guide.slug)}.html">${esc(guide.title)}</a>`).join(" · ")}</p>
-          <p class="table-note">站点索引：${sites.map((site) => `<a href="stations/${esc(site.id)}.html">${esc(site.name)}</a>`).join(" · ")}</p>
-          <p class="table-note">按系列：${familyPages.map((page) => `<a href="families/${esc(page.family)}.html">${esc(page.label)}</a>`).join(" · ")}</p>
-          <p class="table-note">说明：<a href="method.html">收录原则与核验方法</a> · <a href="faq.html">常见问题</a> · <a href="changelog.html">数据变更记录</a></p>
+            <p class="table-note">指南：${guides.map((guide) => `<a href="guides/${esc(guide.slug)}.html">${esc(guide.title)}</a>`).join(" · ")}</p>
+            <p class="table-note">站点索引：${sites.map((site) => `<a href="stations/${esc(site.id)}.html">${esc(site.name)}</a>`).join(" · ")}</p>
+            <p class="table-note">按系列：${familyPages.map((page) => `<a href="families/${esc(page.family)}.html">${esc(page.label)}</a>`).join(" · ")}</p>
+            <p class="table-note">说明：<a href="method.html">收录原则与核验方法</a> · <a href="faq.html">常见问题</a> · <a href="changelog.html">数据变更记录</a></p>
+          </details>
         </section>
         <!-- SNAPSHOT:END -->`;
 
@@ -676,6 +777,64 @@ if (indexHtml.includes("<!-- SNAPSHOT:START -->") && indexHtml.includes("<!-- SN
 } else {
   indexHtml = indexHtml.replace(/(<section class="panel" id="ranking">)/, `${snapshot}\n\n        $1`);
 }
+
+const officialModels = models.filter((model) => model.official);
+const stationsWithOffer = new Set(rows.map((row) => row.stationId)).size;
+const latestVerified = rows.map((row) => row.verifiedAt).filter(Boolean).sort().at(-1);
+const heroStats = `<!-- HERO-STATS:START -->
+          <div class="hero-stats" id="hero-stats">
+            <div class="stat"><span>收录站点</span><strong id="stat-stations">${sites.length}</strong></div>
+            <div class="stat"><span>报价条目</span><strong id="stat-offers">${rows.length}</strong></div>
+            <div class="stat"><span>可比条目</span><strong id="stat-comparable">${comparable.length}</strong></div>
+            <div class="stat"><span>官方基准</span><strong id="stat-models">${officialModels.length}</strong></div>
+            <div class="stat"><span>折算汇率</span><strong id="stat-fx">1:${esc(config.fxCnyPerUsd)}</strong></div>
+          </div>
+          <p class="hero-note" id="hero-note">最近一次报价核验 ${formatDate(latestVerified)} · 其中 ${sites.length - stationsWithOffer} 个站点暂无可用报价（见站点目录）</p>
+          <!-- HERO-STATS:END -->`;
+if (indexHtml.includes("<!-- HERO-STATS:START -->") && indexHtml.includes("<!-- HERO-STATS:END -->")) {
+  indexHtml = indexHtml.replace(/<!-- HERO-STATS:START -->[\s\S]*?<!-- HERO-STATS:END -->/, heroStats);
+}
+
+const defaultModel = modelLeaders[0];
+if (defaultModel && indexHtml.includes("<!-- RANK-PRERENDER:START -->")) {
+  const defaultRows = bestStationRowsForModel(defaultModel.model.id);
+  const rankHead = `              <thead id="rank-head"><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">评分</th><th>分组</th><th class="col-num">本模型倍率</th><th class="col-num">输入 ¥/M</th><th class="col-num">输出 ¥/M</th><th class="col-num">相对官方价</th><th>核验</th></tr></thead>`;
+  const rankBody = `              <tbody id="rank-body">
+${defaultRows
+  .map((row, index) => {
+    const score = stationScores.get(row.stationId);
+    const discount = row.effectiveBlended != null ? formatDiscount(row.effectiveBlended) : "—";
+    return `                <tr><td class="col-rank">${String(index + 1).padStart(2, "0")}</td><td><a class="station-name" href="stations/${esc(row.stationId)}.html">${esc(siteById.get(row.stationId)?.name || row.stationId)}</a></td><td class="col-num">${score ? score.total.toFixed(1) : "—"}</td><td class="group-cell">${esc(row.groupName)}</td><td class="col-num"><strong class="ratio ${row.effectiveBlended < 1 ? "is-low" : ""}">${formatMultiplier(row.effectiveBlended)}</strong></td><td class="col-num">${formatCny(row.inputCny)}</td><td class="col-num">${formatCny(row.outputCny)}</td><td class="col-num">${esc(discount)}</td><td class="date-cell">${formatDate(row.verifiedAt)}</td></tr>`;
+  })
+  .join("\n")}
+              </tbody>`;
+  const prerender = `<!-- RANK-PRERENDER:START -->\n${rankHead}\n${rankBody}\n              <!-- RANK-PRERENDER:END -->`;
+  indexHtml = indexHtml.replace(/<!-- RANK-PRERENDER:START -->[\s\S]*?<!-- RANK-PRERENDER:END -->/, prerender);
+}
+
+const itemList = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "各模型当前最低价中转站",
+  url: `${BASE}/`,
+  numberOfItems: modelLeaders.length,
+  itemListElement: modelLeaders.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: `${item.model.displayName} · ${siteById.get(item.best.stationId)?.name || item.best.stationId} ${formatMultiplier(item.best.effectiveBlended)}`,
+    url: `${BASE}/models/${modelSlug(item.model.id)}.html`,
+  })),
+};
+const itemListBlock = `    <!-- ITEM-LIST-JSONLD:START -->
+    <script type="application/ld+json">${JSON.stringify(itemList)}</script>
+    <!-- ITEM-LIST-JSONLD:END -->`;
+if (indexHtml.includes("<!-- ITEM-LIST-JSONLD:START -->")) {
+  indexHtml = indexHtml.replace(/<!-- ITEM-LIST-JSONLD:START -->[\s\S]*?<!-- ITEM-LIST-JSONLD:END -->/, itemListBlock);
+} else {
+  indexHtml = indexHtml.replace("</head>", `${itemListBlock}\n  </head>`);
+}
+
 fs.writeFileSync(indexFile, indexHtml);
+writeLlmsFiles();
 
 console.log(`generated ${sites.length} station pages, ${models.filter((model) => model.official).length} model pages, sitemap with ${urls.length} urls`);

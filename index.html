@@ -11,24 +11,54 @@
     />
     <title>AI API 比价雷达 · 中转站价格榜</title>
     <link rel="canonical" href="https://ai.xulas.fun/" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="alternate" type="text/plain" href="https://ai.xulas.fun/llms.txt" title="LLM digest" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="AI API 比价雷达" />
     <meta property="og:title" content="AI API 比价雷达 · 中转站价格榜" />
     <meta property="og:description" content="以厂商官方价为分母，对比各中转站的充值系数、分组倍率与综合倍率，每条报价标注来源与核验日期。" />
     <meta property="og:url" content="https://ai.xulas.fun/" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://ai.xulas.fun/assets/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI API 比价雷达 · 中转站价格榜" />
+    <meta name="twitter:description" content="以厂商官方价为分母，对比各中转站的充值系数、分组倍率与综合倍率，每条报价标注来源与核验日期。" />
+    <meta name="twitter:image" content="https://ai.xulas.fun/assets/og-cover.png" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "AI API 比价雷达",
-        "url": "https://ai.xulas.fun/",
-        "description": "以厂商官方价为基准的 AI API 中转站比价与核验记录。"
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://ai.xulas.fun/#org",
+            "name": "AI API 比价雷达",
+            "url": "https://ai.xulas.fun/",
+            "logo": "https://ai.xulas.fun/assets/apple-touch-icon.png",
+            "sameAs": ["https://github.com/1sh1ro/ai-api-zhongzhuan"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://ai.xulas.fun/#website",
+            "name": "AI API 比价雷达",
+            "url": "https://ai.xulas.fun/",
+            "description": "以厂商官方价为基准的 AI API 中转站比价与核验记录。",
+            "inLanguage": "zh-CN",
+            "publisher": { "@id": "https://ai.xulas.fun/#org" }
+          }
+        ]
       }
     </script>
-    <link rel="stylesheet" href="styles.css?v=2026-11-04h" />
+    <link rel="stylesheet" href="styles.css?v=2026-11-11a" />
+      <!-- ITEM-LIST-JSONLD:START -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"各模型当前最低价中转站","url":"https://ai.xulas.fun/","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"Claude Sonnet 5.5 · znbcode 0.060x","url":"https://ai.xulas.fun/models/claude-sonnet-5-5.html"},{"@type":"ListItem","position":2,"name":"GPT-6 Sol · znbcode 0.013x","url":"https://ai.xulas.fun/models/gpt-6-sol.html"},{"@type":"ListItem","position":3,"name":"Claude Opus 5 · API Nebula 0.075x","url":"https://ai.xulas.fun/models/claude-opus-5.html"},{"@type":"ListItem","position":4,"name":"GPT-6.1 Sol · LinkAGI 0.027x","url":"https://ai.xulas.fun/models/gpt-6-1-sol.html"},{"@type":"ListItem","position":5,"name":"Grok 4.6 · znbcode 0.030x","url":"https://ai.xulas.fun/models/grok-4-6.html"},{"@type":"ListItem","position":6,"name":"DeepSeek V4.1 Flash · Horizon API 0.0002x","url":"https://ai.xulas.fun/models/deepseek-v4-1-flash.html"},{"@type":"ListItem","position":7,"name":"Gemini 3.8 Flash · znbcode 0.060x","url":"https://ai.xulas.fun/models/gemini-3-8-flash.html"},{"@type":"ListItem","position":8,"name":"GPT-5.6 Sol · DayWay 0.045x","url":"https://ai.xulas.fun/models/gpt-5-6-sol.html"},{"@type":"ListItem","position":9,"name":"Claude Opus 5.5 · API Nebula 0.075x","url":"https://ai.xulas.fun/models/claude-opus-5-5.html"},{"@type":"ListItem","position":10,"name":"GPT-5.6 Terra · RelayCore 0.050x","url":"https://ai.xulas.fun/models/gpt-5-6-terra.html"},{"@type":"ListItem","position":11,"name":"GPT-6 Astra · RelayCore 0.050x","url":"https://ai.xulas.fun/models/gpt-6-astra.html"}]}</script>
+    <!-- ITEM-LIST-JSONLD:END -->
   </head>
   <body>
+    <a class="skip-link" href="#main">跳到正文</a>
     <div class="page">
       <header class="topbar">
         <a class="brand" href="./" aria-label="AI API 比价雷达首页">
@@ -38,20 +68,20 @@
             <small>RELAY PRICE RADAR</small>
           </span>
         </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="打开菜单"><span></span></label>
         <nav class="topnav" aria-label="主导航">
-          <a href="#ranking">中转价格榜</a>
-          <a href="#models">模型对照</a>
-          <a href="#directory">站点目录</a>
-          <a href="#ledger">核验明细</a>
+          <a href="#ranking">价格榜</a>
+          <a href="stations/index.html">站点</a>
+          <a href="models/index.html">模型</a>
           <a href="guides/index.html">指南</a>
           <a href="method.html">方法</a>
           <a href="faq.html">常见问题</a>
-          <a href="#notes">说明</a>
           <a href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">GitHub ↗</a>
         </nav>
       </header>
 
-      <main>
+      <main id="main">
         <section class="hero">
           <p class="eyebrow"><span class="dot" aria-hidden="true"></span>OPEN PRICE RADAR · 2026</p>
           <h1>把每个 AI API 中转站的<em>真实倍率</em>，排成一张能比价的表。</h1>
@@ -59,15 +89,30 @@
             以厂商官方价为分母，把充值系数、分组倍率、绝对单价统一折算成「相对官方价」的综合倍率。
             口径没有统一的条目单独陈列，不参与名次。所有数字都标注来源与核验日期。
           </p>
+          <form class="hero-search" id="hero-search-form" action="#ranking" role="search">
+            <label class="search-box">
+              <span class="visually-hidden">搜索站点、分组或模型</span>
+              <span aria-hidden="true">⌕</span>
+              <input id="hero-search" type="search" placeholder="搜索站点、分组、模型…" autocomplete="off" />
+            </label>
+            <button class="ghost-button" type="submit">去比价</button>
+          </form>
+          <!-- HERO-STATS:START -->
           <div class="hero-stats" id="hero-stats">
-            <div class="stat"><span>收录站点</span><strong id="stat-stations">—</strong></div>
-            <div class="stat"><span>报价条目</span><strong id="stat-offers">—</strong></div>
-            <div class="stat"><span>可比条目</span><strong id="stat-comparable">—</strong></div>
-            <div class="stat"><span>官方基准</span><strong id="stat-models">—</strong></div>
-            <div class="stat"><span>折算汇率</span><strong id="stat-fx">—</strong></div>
+            <div class="stat"><span>收录站点</span><strong id="stat-stations">46</strong></div>
+            <div class="stat"><span>报价条目</span><strong id="stat-offers">135</strong></div>
+            <div class="stat"><span>可比条目</span><strong id="stat-comparable">56</strong></div>
+            <div class="stat"><span>官方基准</span><strong id="stat-models">26</strong></div>
+            <div class="stat"><span>折算汇率</span><strong id="stat-fx">1:6.7</strong></div>
           </div>
-          <p class="hero-note" id="hero-note">正在读取数据…</p>
+          <p class="hero-note" id="hero-note">最近一次报价核验 2026.11.04 · 其中 23 个站点暂无可用报价（见站点目录）</p>
+          <!-- HERO-STATS:END -->
         </section>
+
+        <aside class="trust-bar" aria-label="使用前须知">
+          <p><strong>使用前须知：</strong>中转站能看到经它转发的请求，不要提交密钥、证件或私有代码。低倍率不等于可用或模型真实。部分注册链接带推广参数，已在站点页标明，不影响排序。</p>
+          <p><a href="method.html">核验方法</a> · <a href="faq.html">常见问题</a> · <a href="guides/free-relay-risks.html">风险说明</a></p>
+        </aside>
 
         <!-- SNAPSHOT:START -->
         <section class="panel" id="snapshot">
@@ -76,7 +121,7 @@
               <p class="kicker">00 / DATA SNAPSHOT</p>
               <h2>数据快照</h2>
             </div>
-            <p class="panel-desc">按模型查看当前最低价站点，点站点名进入详情。数据核验截至 2026-11-09。</p>
+            <p class="panel-desc">按模型查看当前最低价站点，点站点名进入详情。数据核验截至 2026-11-11。</p>
           </div>
           <p class="table-note">收录 46 个站点、135 条报价，其中 56 条口径统一可比。下表每个模型单独比较，列出该模型当前最低价的站点。</p>
           <div class="table-wrap">
@@ -97,11 +142,14 @@
               </tbody>
             </table>
           </div>
-          <p class="table-note">模型索引：<a href="models/gpt-6-astra.html">GPT-6 Astra</a> · <a href="models/gpt-6-1-sol.html">GPT-6.1 Sol</a> · <a href="models/gpt-6-1-terra.html">GPT-6.1 Terra</a> · <a href="models/gpt-6-luna.html">GPT-6 Luna</a> · <a href="models/gpt-6-sol.html">GPT-6 Sol</a> · <a href="models/gpt-5-6-sol.html">GPT-5.6 Sol</a> · <a href="models/gpt-5-6-terra.html">GPT-5.6 Terra</a> · <a href="models/gpt-5-6-luna.html">GPT-5.6 Luna</a> · <a href="models/gpt-5-5.html">GPT-5.5</a> · <a href="models/gpt-image-2.html">GPT Image 2</a> · <a href="models/claude-fable-5.html">Claude Fable 5</a> · <a href="models/claude-fable-5-1.html">Claude Fable 5.1</a> · <a href="models/claude-opus-5-5.html">Claude Opus 5.5</a> · <a href="models/claude-opus-5.html">Claude Opus 5</a> · <a href="models/claude-opus-4-8.html">Claude Opus 4.8</a> · <a href="models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> · <a href="models/claude-sonnet-5.html">Claude Sonnet 5</a> · <a href="models/claude-sonnet-4-6.html">Claude Sonnet 4.6</a> · <a href="models/gemini-4-argon.html">Gemini 4 Argon</a> · <a href="models/gemini-4-barium.html">Gemini 4 Barium</a> · <a href="models/gemini-3-8-flash.html">Gemini 3.8 Flash</a> · <a href="models/gemini-3-1-pro-preview.html">Gemini 3.1 Pro Preview</a> · <a href="models/grok-4-7.html">Grok 4.7</a> · <a href="models/grok-4-6.html">Grok 4.6</a> · <a href="models/grok-4-5.html">Grok 4.5</a> · <a href="models/deepseek-v4-1-flash.html">DeepSeek V4.1 Flash</a> · <a href="models/glm-5-3.html">GLM-5.3</a> · <a href="models/glm-5-3-flash.html">GLM-5.3-Flash</a> · <a href="models/doubao-pro.html">豆包 Pro</a> · <a href="models/domestic-model.html">国产模型（未指定）</a> · <a href="models/kimi-k3.html">Kimi K3</a> · <a href="models/kimi-k3-1-pro.html">Kimi K3.1 Pro</a></p>
-          <p class="table-note">指南：<a href="guides/what-is-api-relay.html">中转站 API 是什么？和官方 API 有什么区别</a> · <a href="guides/multiplier-explained.html">中转站倍率怎么算：充值系数、分组倍率与综合倍率</a> · <a href="guides/verify-relay-price.html">怎么验证一个中转站的真实价格</a> · <a href="guides/free-relay-risks.html">免费和公益中转站有什么风险</a> · <a href="guides/official-vs-relay.html">官方 API 和中转站怎么选</a></p>
-          <p class="table-note">站点索引：<a href="stations/api-nebula.html">API Nebula</a> · <a href="stations/beeapi.html">BeeAPI</a> · <a href="stations/modelrush.html">ModelRush</a> · <a href="stations/tokenworks.html">TokenWorks</a> · <a href="stations/kaigpt.html">KaiGPT</a> · <a href="stations/yonshoreapi.html">YonshoreAPI</a> · <a href="stations/otter-link.html">otter Link</a> · <a href="stations/helpcoder.html">helpcoder（帮帮）</a> · <a href="stations/linkagi.html">LinkAGI</a> · <a href="stations/hezu-bus.html">合租巴士</a> · <a href="stations/aike-api.html">艾可 API</a> · <a href="stations/4router.html">4Router</a> · <a href="stations/aizzz.html">AIZZZ</a> · <a href="stations/onomeo.html">onomeo</a> · <a href="stations/krill-ai.html">Krill AI</a> · <a href="stations/fastai-token.html">FastAI 模型</a> · <a href="stations/horizon-api.html">Horizon API</a> · <a href="stations/tokens-kingdom.html">Tokens Kingdom</a> · <a href="stations/aijws.html">AIJWS</a> · <a href="stations/muyuan.html">君の公益</a> · <a href="stations/ikuncode.html">IKunCode</a> · <a href="stations/anticode.html">AntiCode</a> · <a href="stations/huainova.html">Huainova 公益站</a> · <a href="stations/black-white.html">黑与白公益站</a> · <a href="stations/molifang.html">MoLiFang</a> · <a href="stations/yangwang.html">杨的中转小站</a> · <a href="stations/token-x.html">Token-X</a> · <a href="stations/apikey-fun.html">APIKEY.FUN</a> · <a href="stations/dayway.html">DayWay</a> · <a href="stations/zerouter.html">Zerouter</a> · <a href="stations/znbcode.html">znbcode</a> · <a href="stations/relaycore.html">RelayCore</a> · <a href="stations/keyzhi.html">Key智API</a> · <a href="stations/eirouter.html">eirouter.ai</a> · <a href="stations/kuafushe.html">夸父社 API</a> · <a href="stations/lanbuff.html">蓝博API（Lanbuff）</a> · <a href="stations/dabai-ai.html">大白AI</a> · <a href="stations/twinkle-model.html">Twinkle Model</a> · <a href="stations/l7shop.html">l7shop</a> · <a href="stations/vsllm.html">VS云（VSLLM）</a> · <a href="stations/teapot-router.html">Teapot Router</a> · <a href="stations/xingqiao.html">星桥 API</a> · <a href="stations/api-foo.html">api.foo</a> · <a href="stations/boombit.html">BoomBit</a> · <a href="stations/beeaicloud.html">蜂桥 AI（BeeBridge）</a> · <a href="stations/codebyai.html">Code By AI</a></p>
-          <p class="table-note">按系列：<a href="families/gpt.html">GPT</a> · <a href="families/claude.html">Claude</a> · <a href="families/grok.html">Grok</a> · <a href="families/gemini.html">Gemini</a> · <a href="families/deepseek.html">DeepSeek</a> · <a href="families/glm.html">GLM</a> · <a href="families/kimi.html">Kimi</a> · <a href="families/doubao.html">豆包</a> · <a href="families/domestic.html">国产模型</a> · <a href="families/image.html">生图</a></p>
-          <p class="table-note">说明：<a href="method.html">收录原则与核验方法</a> · <a href="faq.html">常见问题</a> · <a href="changelog.html">数据变更记录</a></p>
+          <details class="index-fold">
+            <summary>展开模型、站点与指南索引（供检索与引用）</summary>
+            <p class="table-note">模型索引：<a href="models/gpt-6-astra.html">GPT-6 Astra</a> · <a href="models/gpt-6-1-sol.html">GPT-6.1 Sol</a> · <a href="models/gpt-6-1-terra.html">GPT-6.1 Terra</a> · <a href="models/gpt-6-luna.html">GPT-6 Luna</a> · <a href="models/gpt-6-sol.html">GPT-6 Sol</a> · <a href="models/gpt-5-6-sol.html">GPT-5.6 Sol</a> · <a href="models/gpt-5-6-terra.html">GPT-5.6 Terra</a> · <a href="models/gpt-5-6-luna.html">GPT-5.6 Luna</a> · <a href="models/gpt-5-5.html">GPT-5.5</a> · <a href="models/gpt-image-2.html">GPT Image 2</a> · <a href="models/claude-fable-5.html">Claude Fable 5</a> · <a href="models/claude-fable-5-1.html">Claude Fable 5.1</a> · <a href="models/claude-opus-5-5.html">Claude Opus 5.5</a> · <a href="models/claude-opus-5.html">Claude Opus 5</a> · <a href="models/claude-opus-4-8.html">Claude Opus 4.8</a> · <a href="models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> · <a href="models/claude-sonnet-5.html">Claude Sonnet 5</a> · <a href="models/claude-sonnet-4-6.html">Claude Sonnet 4.6</a> · <a href="models/gemini-4-argon.html">Gemini 4 Argon</a> · <a href="models/gemini-4-barium.html">Gemini 4 Barium</a> · <a href="models/gemini-3-8-flash.html">Gemini 3.8 Flash</a> · <a href="models/gemini-3-1-pro-preview.html">Gemini 3.1 Pro Preview</a> · <a href="models/grok-4-7.html">Grok 4.7</a> · <a href="models/grok-4-6.html">Grok 4.6</a> · <a href="models/grok-4-5.html">Grok 4.5</a> · <a href="models/deepseek-v4-1-flash.html">DeepSeek V4.1 Flash</a> · <a href="models/glm-5-3.html">GLM-5.3</a> · <a href="models/glm-5-3-flash.html">GLM-5.3-Flash</a> · <a href="models/doubao-pro.html">豆包 Pro</a> · <a href="models/domestic-model.html">国产模型（未指定）</a> · <a href="models/kimi-k3.html">Kimi K3</a> · <a href="models/kimi-k3-1-pro.html">Kimi K3.1 Pro</a></p>
+            <p class="table-note">指南：<a href="guides/what-is-api-relay.html">中转站 API 是什么？和官方 API 有什么区别</a> · <a href="guides/multiplier-explained.html">中转站倍率怎么算：充值系数、分组倍率与综合倍率</a> · <a href="guides/verify-relay-price.html">怎么验证一个中转站的真实价格</a> · <a href="guides/free-relay-risks.html">免费和公益中转站有什么风险</a> · <a href="guides/official-vs-relay.html">官方 API 和中转站怎么选</a></p>
+            <p class="table-note">站点索引：<a href="stations/api-nebula.html">API Nebula</a> · <a href="stations/beeapi.html">BeeAPI</a> · <a href="stations/modelrush.html">ModelRush</a> · <a href="stations/tokenworks.html">TokenWorks</a> · <a href="stations/kaigpt.html">KaiGPT</a> · <a href="stations/yonshoreapi.html">YonshoreAPI</a> · <a href="stations/otter-link.html">otter Link</a> · <a href="stations/helpcoder.html">helpcoder（帮帮）</a> · <a href="stations/linkagi.html">LinkAGI</a> · <a href="stations/hezu-bus.html">合租巴士</a> · <a href="stations/aike-api.html">艾可 API</a> · <a href="stations/4router.html">4Router</a> · <a href="stations/aizzz.html">AIZZZ</a> · <a href="stations/onomeo.html">onomeo</a> · <a href="stations/krill-ai.html">Krill AI</a> · <a href="stations/fastai-token.html">FastAI 模型</a> · <a href="stations/horizon-api.html">Horizon API</a> · <a href="stations/tokens-kingdom.html">Tokens Kingdom</a> · <a href="stations/aijws.html">AIJWS</a> · <a href="stations/muyuan.html">君の公益</a> · <a href="stations/ikuncode.html">IKunCode</a> · <a href="stations/anticode.html">AntiCode</a> · <a href="stations/huainova.html">Huainova 公益站</a> · <a href="stations/black-white.html">黑与白公益站</a> · <a href="stations/molifang.html">MoLiFang</a> · <a href="stations/yangwang.html">杨的中转小站</a> · <a href="stations/token-x.html">Token-X</a> · <a href="stations/apikey-fun.html">APIKEY.FUN</a> · <a href="stations/dayway.html">DayWay</a> · <a href="stations/zerouter.html">Zerouter</a> · <a href="stations/znbcode.html">znbcode</a> · <a href="stations/relaycore.html">RelayCore</a> · <a href="stations/keyzhi.html">Key智API</a> · <a href="stations/eirouter.html">eirouter.ai</a> · <a href="stations/kuafushe.html">夸父社 API</a> · <a href="stations/lanbuff.html">蓝博API（Lanbuff）</a> · <a href="stations/dabai-ai.html">大白AI</a> · <a href="stations/twinkle-model.html">Twinkle Model</a> · <a href="stations/l7shop.html">l7shop</a> · <a href="stations/vsllm.html">VS云（VSLLM）</a> · <a href="stations/teapot-router.html">Teapot Router</a> · <a href="stations/xingqiao.html">星桥 API</a> · <a href="stations/api-foo.html">api.foo</a> · <a href="stations/boombit.html">BoomBit</a> · <a href="stations/beeaicloud.html">蜂桥 AI（BeeBridge）</a> · <a href="stations/codebyai.html">Code By AI</a></p>
+            <p class="table-note">按系列：<a href="families/gpt.html">GPT</a> · <a href="families/claude.html">Claude</a> · <a href="families/grok.html">Grok</a> · <a href="families/gemini.html">Gemini</a> · <a href="families/deepseek.html">DeepSeek</a> · <a href="families/glm.html">GLM</a> · <a href="families/kimi.html">Kimi</a> · <a href="families/doubao.html">豆包</a> · <a href="families/domestic.html">国产模型</a> · <a href="families/image.html">生图</a></p>
+            <p class="table-note">说明：<a href="method.html">收录原则与核验方法</a> · <a href="faq.html">常见问题</a> · <a href="changelog.html">数据变更记录</a></p>
+          </details>
         </section>
         <!-- SNAPSHOT:END -->
 
@@ -146,8 +194,16 @@
 
           <div class="table-wrap">
             <table class="rank-table">
-              <thead id="rank-head"></thead>
-              <tbody id="rank-body"></tbody>
+              <!-- RANK-PRERENDER:START -->
+              <thead id="rank-head"><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">评分</th><th>分组</th><th class="col-num">本模型倍率</th><th class="col-num">输入 ¥/M</th><th class="col-num">输出 ¥/M</th><th class="col-num">相对官方价</th><th>核验</th></tr></thead>
+              <tbody id="rank-body">
+                <tr><td class="col-rank">01</td><td><a class="station-name" href="stations/znbcode.html">znbcode</a></td><td class="col-num">77.4</td><td class="group-cell">znb-cc-kiro</td><td class="col-num"><strong class="ratio is-low">0.060x</strong></td><td class="col-num">—</td><td class="col-num">—</td><td class="col-num">省 94%</td><td class="date-cell">2026.11.03</td></tr>
+                <tr><td class="col-rank">02</td><td><a class="station-name" href="stations/api-nebula.html">API Nebula</a></td><td class="col-num">77.3</td><td class="group-cell">站内单价</td><td class="col-num"><strong class="ratio is-low">0.075x</strong></td><td class="col-num">¥1.00</td><td class="col-num">¥5.00</td><td class="col-num">省 93%</td><td class="date-cell">2026.10.17</td></tr>
+                <tr><td class="col-rank">03</td><td><a class="station-name" href="stations/kaigpt.html">KaiGPT</a></td><td class="col-num">54.1</td><td class="group-cell">Claude 主流模型</td><td class="col-num"><strong class="ratio is-low">0.100x</strong></td><td class="col-num">—</td><td class="col-num">—</td><td class="col-num">省 90%</td><td class="date-cell">2026.09.26</td></tr>
+                <tr><td class="col-rank">04</td><td><a class="station-name" href="stations/apikey-fun.html">APIKEY.FUN</a></td><td class="col-num">44.7</td><td class="group-cell">Claude Plus（精品）</td><td class="col-num"><strong class="ratio is-low">0.114x</strong></td><td class="col-num">—</td><td class="col-num">—</td><td class="col-num">省 89%</td><td class="date-cell">2026.09.03</td></tr>
+                <tr><td class="col-rank">05</td><td><a class="station-name" href="stations/zerouter.html">Zerouter</a></td><td class="col-num">58.1</td><td class="group-cell">按量计费</td><td class="col-num"><strong class="ratio is-low">0.230x</strong></td><td class="col-num">¥3.08</td><td class="col-num">¥15.41</td><td class="col-num">省 77%</td><td class="date-cell">2026.10.18</td></tr>
+              </tbody>
+              <!-- RANK-PRERENDER:END -->
             </table>
           </div>
           <p class="table-note" id="rank-note"></p>
@@ -180,9 +236,12 @@
               <p class="kicker">02 / MODEL LENS</p>
               <h2>模型对照</h2>
             </div>
-            <p class="panel-desc">每个标准模型当前的最低价站点，以及官方基准价。</p>
+            <p class="panel-desc">每个标准模型当前的最低价站点，以及官方基准价。完整表格见 <a href="models/index.html">模型索引</a>。</p>
           </div>
-          <div class="model-grid" id="model-grid"></div>
+          <details class="fold">
+            <summary>展开全部模型卡片</summary>
+            <div class="model-grid" id="model-grid"></div>
+          </details>
         </section>
 
         <section class="panel" id="directory">
@@ -191,14 +250,17 @@
               <p class="kicker">03 / STATION DIRECTORY</p>
               <h2>站点目录</h2>
             </div>
-            <p class="panel-desc">按类型与状态浏览全部收录站点。没有可用报价的站点单独标出。</p>
+            <p class="panel-desc">按类型与状态浏览全部收录站点。没有可用报价的站点单独标出。静态完整列表见 <a href="stations/index.html">站点索引</a>。</p>
           </div>
-          <div class="chips" id="tag-chips" role="group" aria-label="按标签筛选"></div>
-          <div class="site-grid" id="site-grid"></div>
-          <div class="empty-state" id="empty-state" hidden>
-            <strong>没有匹配的站点</strong>
-            <p>换个关键词，或者重置筛选再试一次。</p>
-          </div>
+          <details class="fold" id="directory-fold">
+            <summary>展开可筛选的站点卡片（完整静态列表见站点索引）</summary>
+            <div class="chips" id="tag-chips" role="group" aria-label="按标签筛选"></div>
+            <div class="site-grid" id="site-grid"></div>
+            <div class="empty-state" id="empty-state" hidden>
+              <strong>没有匹配的站点</strong>
+              <p>换个关键词，或者重置筛选再试一次。</p>
+            </div>
+          </details>
         </section>
 
         <section class="panel" id="ledger">
@@ -207,26 +269,29 @@
               <p class="kicker">04 / VERIFICATION LEDGER</p>
               <h2>核验明细</h2>
             </div>
-            <p class="panel-desc">每一条报价逐条回查 README 对应行，列出原始口径、换算结果、来源链接与核验日期。来源可点开。</p>
+            <p class="panel-desc">每一条报价逐条回查来源链接、原始口径、换算结果与核验日期。默认折叠，避免把首页拉得过长。</p>
           </div>
-          <div class="table-wrap">
-            <table class="rank-table">
-              <thead>
-                <tr>
-                  <th>站点</th>
-                  <th>分组</th>
-                  <th>模型</th>
-                  <th>口径</th>
-                  <th>原始值</th>
-                  <th class="col-num">综合倍率</th>
-                  <th>来源</th>
-                  <th>核验</th>
-                </tr>
-              </thead>
-              <tbody id="ledger-body"></tbody>
-            </table>
-          </div>
-          <p class="table-note" id="ledger-note"></p>
+          <details class="fold" id="ledger-fold">
+            <summary>展开全部核验明细</summary>
+            <div class="table-wrap">
+              <table class="rank-table">
+                <thead>
+                  <tr>
+                    <th>站点</th>
+                    <th>分组</th>
+                    <th>模型</th>
+                    <th>口径</th>
+                    <th>原始值</th>
+                    <th class="col-num">综合倍率</th>
+                    <th>来源</th>
+                    <th>核验</th>
+                  </tr>
+                </thead>
+                <tbody id="ledger-body"></tbody>
+              </table>
+            </div>
+            <p class="table-note" id="ledger-note"></p>
+          </details>
         </section>
 
         <section class="panel notes" id="notes">
@@ -265,14 +330,17 @@
       </main>
 
       <footer class="footer">
-        <span>AI API 比价雷达 · RELAY PRICE RADAR</span>
+        <div class="footer-meta">
+          <span>AI API 比价雷达 · RELAY PRICE RADAR</span>
+          <p class="disclosure">部分注册链接带有推广参数，已在对应站点页标明。排序与综合评分不按推广收益计算。本站只整理公开信息，不运营、不担保任何第三方中转服务。</p>
+        </div>
         <span class="visitor-stat" id="visitor-stat" hidden>今日访问 <strong id="visitor-count">—</strong> 人 <em>按浏览器去重</em></span>
-        <span><span id="build-stamp">数据构建 —</span> · 由 <a href="https://github.com/1sh1ro" target="_blank" rel="noreferrer noopener">1sh1ro</a> 维护 · <a href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">源代码公开</a></span>
+        <span><span id="build-stamp">数据构建 —</span> · 由 <a href="https://github.com/1sh1ro" target="_blank" rel="noreferrer noopener">1sh1ro</a> 维护 · <a href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">源代码公开</a> · <a href="llms.txt">llms.txt</a></span>
       </footer>
     </div>
 
-    <script src="assets/visitor.js?v=2026-11-04h" defer></script>
-    <script src="assets/score-tip.js?v=2026-11-04h" defer></script>
-    <script type="module" src="app.js?v=2026-11-04h"></script>
+    <script src="assets/visitor.js?v=2026-11-11a" defer></script>
+    <script src="assets/score-tip.js?v=2026-11-11a" defer></script>
+    <script type="module" src="app.js?v=2026-11-11a"></script>
   </body>
 </html>

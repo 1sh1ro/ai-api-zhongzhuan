@@ -1,0 +1,104 @@
+# AI API 比价雷达
+
+> 中文开源目录：以厂商官方价为分母，把各中转站的充值系数、分组倍率与绝对单价折算成综合倍率。最后更新 2026-11-11（构建 2026-11-11a）。
+
+- 网站：https://ai.xulas.fun/
+- 站点索引：https://ai.xulas.fun/stations/index.html
+- 模型索引：https://ai.xulas.fun/models/index.html
+- 使用指南：https://ai.xulas.fun/guides/index.html
+- 核验方法：https://ai.xulas.fun/method.html
+- 常见问题：https://ai.xulas.fun/faq.html
+- 完整机器可读摘要：https://ai.xulas.fun/llms-full.txt
+- 原始数据：https://ai.xulas.fun/data/sites.json 、 https://ai.xulas.fun/data/offers.json 、 https://ai.xulas.fun/data/models.json
+- 源代码：https://github.com/1sh1ro/ai-api-zhongzhuan
+
+## 当前规模
+
+收录 46 个站点、135 条报价，其中 56 条口径统一可比；官方基准模型 26 个；折算汇率 1 USD = 6.7 CNY。
+
+口径没有公开充值系数的报价只展示原值，不进入排名。低倍率不等于可用、稳定或模型真实。中转站能看到经它转发的请求，不要提交密钥、证件或私有代码。部分注册链接带推广参数，已在站点页标明，不影响排序。本站不运营任何中转服务。
+
+## 各模型当前最低可比价
+
+- GPT-6 Astra：最低 0.050x（RelayCore，2 站可比） · https://ai.xulas.fun/models/gpt-6-astra.html
+- GPT-6.1 Sol：最低 0.027x（LinkAGI，4 站可比） · https://ai.xulas.fun/models/gpt-6-1-sol.html
+- GPT-6.1 Terra：最低 0.050x（RelayCore，1 站可比） · https://ai.xulas.fun/models/gpt-6-1-terra.html
+- GPT-6 Sol：最低 0.013x（znbcode，5 站可比） · https://ai.xulas.fun/models/gpt-6-sol.html
+- GPT-5.6 Sol：最低 0.045x（DayWay，3 站可比） · https://ai.xulas.fun/models/gpt-5-6-sol.html
+- GPT-5.6 Terra：最低 0.050x（RelayCore，2 站可比） · https://ai.xulas.fun/models/gpt-5-6-terra.html
+- GPT-5.5：最低 0.074x（Zerouter，1 站可比） · https://ai.xulas.fun/models/gpt-5-5.html
+- Claude Fable 5：最低 0.254x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-fable-5.html
+- Claude Fable 5.1：最低 0.254x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-fable-5-1.html
+- Claude Opus 5.5：最低 0.075x（API Nebula，2 站可比） · https://ai.xulas.fun/models/claude-opus-5-5.html
+- Claude Opus 5：最低 0.075x（API Nebula，4 站可比） · https://ai.xulas.fun/models/claude-opus-5.html
+- Claude Opus 4.8：最低 0.075x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-opus-4-8.html
+- Claude Sonnet 5.5：最低 0.060x（znbcode，5 站可比） · https://ai.xulas.fun/models/claude-sonnet-5-5.html
+- Claude Sonnet 5：最低 0.075x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-sonnet-5.html
+- Claude Sonnet 4.6：最低 0.075x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-sonnet-4-6.html
+- Gemini 4 Argon：最低 0.119x（API Nebula，1 站可比） · https://ai.xulas.fun/models/gemini-4-argon.html
+- Gemini 3.8 Flash：最低 0.060x（znbcode，3 站可比） · https://ai.xulas.fun/models/gemini-3-8-flash.html
+- Gemini 3.1 Pro Preview：最低 0.119x（API Nebula，1 站可比） · https://ai.xulas.fun/models/gemini-3-1-pro-preview.html
+- Grok 4.7：最低 0.075x（API Nebula，1 站可比） · https://ai.xulas.fun/models/grok-4-7.html
+- Grok 4.6：最低 0.030x（znbcode，4 站可比） · https://ai.xulas.fun/models/grok-4-6.html
+- DeepSeek V4.1 Flash：最低 0.0002x（Horizon API，3 站可比） · https://ai.xulas.fun/models/deepseek-v4-1-flash.html
+- GLM-5.3：最低 0.300x（znbcode，1 站可比） · https://ai.xulas.fun/models/glm-5-3.html
+
+## 关键术语
+
+- 综合倍率：站点单价 ÷ 官方单价（均为人民币 / 百万 tokens）。1.00x 等于官方价，0.10x 约为官方价的一折。
+- 充值系数：充 1 元人民币能换多少站内额度。
+- 分组倍率：同一模型不同线路的站内乘数，需结合充值系数才能和官方价比较。
+
+
+## 全部站点
+
+- API Nebula（自动访问受阻，评分 77.3，28 条报价 / 17 条可比，最低综合倍率 0.058x）：https://ai.xulas.fun/stations/api-nebula.html
+- BeeAPI（需要人工核验，评分 18.5，1 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/beeapi.html
+- ModelRush（注册页可达，评分 36.0，2 条报价 / 1 条可比，最低综合倍率 1.10x）：https://ai.xulas.fun/stations/modelrush.html
+- TokenWorks（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/tokenworks.html
+- KaiGPT（注册页可达，评分 54.1，2 条报价 / 2 条可比，最低综合倍率 0.100x）：https://ai.xulas.fun/stations/kaigpt.html
+- YonshoreAPI（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/yonshoreapi.html
+- otter Link（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/otter-link.html
+- helpcoder（帮帮）（注册页可达，评分 9.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/helpcoder.html
+- LinkAGI（注册页可达，评分 48.5，3 条报价 / 1 条可比，最低综合倍率 0.027x）：https://ai.xulas.fun/stations/linkagi.html
+- 合租巴士（需要人工核验，评分 22.0，7 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/hezu-bus.html
+- 艾可 API（注册页可达，评分 18.0，1 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/aike-api.html
+- 4Router（注册页可达，评分 21.5，5 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/4router.html
+- AIZZZ（需要人工核验，评分 26.5，16 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/aizzz.html
+- onomeo（注册页可达，评分 23.0，1 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/onomeo.html
+- Krill AI（服务降级，评分 20.0，2 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/krill-ai.html
+- FastAI 模型（注册页可达，评分 23.0，6 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/fastai-token.html
+- Horizon API（需要人工核验，评分 47.0，4 条报价 / 4 条可比，最低综合倍率 0.0002x）：https://ai.xulas.fun/stations/horizon-api.html
+- Tokens Kingdom（自动访问受阻，评分 5.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/tokens-kingdom.html
+- AIJWS（注册页可达，评分 21.5，2 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/aijws.html
+- 君の公益（自动访问受阻，评分 6.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/muyuan.html
+- IKunCode（需要人工核验，评分 3.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/ikuncode.html
+- AntiCode（注册页可达，评分 23.0，5 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/anticode.html
+- Huainova 公益站（服务降级，评分 6.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/huainova.html
+- 黑与白公益站（需要人工核验，评分 6.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/black-white.html
+- MoLiFang（注册页可达，评分 17.0，2 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/molifang.html
+- 杨的中转小站（需要人工核验，评分 21.0，5 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/yangwang.html
+- Token-X（需要人工核验，评分 6.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/token-x.html
+- APIKEY.FUN（注册页可达，评分 44.7，8 条报价 / 5 条可比，最低综合倍率 0.114x）：https://ai.xulas.fun/stations/apikey-fun.html
+- DayWay（需要人工核验，评分 50.8，1 条报价 / 1 条可比，最低综合倍率 0.045x）：https://ai.xulas.fun/stations/dayway.html
+- Zerouter（注册页可达，评分 58.1，9 条报价 / 8 条可比，最低综合倍率 0.074x）：https://ai.xulas.fun/stations/zerouter.html
+- znbcode（注册页可达，评分 77.4，13 条报价 / 11 条可比，最低综合倍率 0.013x）：https://ai.xulas.fun/stations/znbcode.html
+- RelayCore（注册页可达，评分 81.2，6 条报价 / 6 条可比，最低综合倍率 0.050x）：https://ai.xulas.fun/stations/relaycore.html
+- Key智API（注册页可达，评分 25.0，6 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/keyzhi.html
+- eirouter.ai（注册页可达，评分 9.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/eirouter.html
+- 夸父社 API（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/kuafushe.html
+- 蓝博API（Lanbuff）（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/lanbuff.html
+- 大白AI（注册页可达，评分 9.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/dabai-ai.html
+- Twinkle Model（注册页可达，评分 9.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/twinkle-model.html
+- l7shop（注册页可达，评分 9.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/l7shop.html
+- VS云（VSLLM）（注册页可达，评分 9.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/vsllm.html
+- Teapot Router（注册页可达，评分 9.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/teapot-router.html
+- 星桥 API（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/xingqiao.html
+- api.foo（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/api-foo.html
+- BoomBit（注册页可达，评分 9.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/boombit.html
+- 蜂桥 AI（BeeBridge）（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/beeaicloud.html
+- Code By AI（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/codebyai.html
+
+## 引用与局限
+
+价格来自站点公开价格页或接口、用户提交与截图，每条记录保留来源链接和核验日期。本站不做真实 API 调用验真，数字会过期。完整方法见 https://ai.xulas.fun/method.html 。
