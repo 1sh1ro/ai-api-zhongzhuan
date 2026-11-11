@@ -1,5 +1,5 @@
 // 站内人气统计：统计从本站跳转到站点的点击次数，同一浏览器每天对同一站点只计一次。
-// 计数存在第三方 Abacus，按自然月分开，不写 Cookie，不发送页面路径。
+// 计数存在第三方 Abacus，按自然月和自然日分开，不写 Cookie，不发送页面路径。
 const BASE = "https://abacus.jasoncameron.dev";
 const NAMESPACE = "ai-xulas-fun";
 
@@ -11,13 +11,17 @@ function month() {
   return today().slice(0, 7);
 }
 
-function counterKey(stationId) {
+function monthCounterKey(stationId) {
   return `click-${stationId}-${month()}`;
 }
 
-async function readCounter(stationId) {
+function dayCounterKey(stationId) {
+  return `click-${stationId}-${today()}`;
+}
+
+async function readCounter(key) {
   try {
-    const response = await fetch(`${BASE}/get/${NAMESPACE}/${counterKey(stationId)}`, {
+    const response = await fetch(`${BASE}/get/${NAMESPACE}/${key}`, {
       referrerPolicy: "no-referrer",
     });
     if (!response.ok) return 0;
@@ -34,7 +38,7 @@ export async function getPopularity(stationIds) {
   const workers = Array.from({ length: 6 }, async () => {
     while (queue.length) {
       const id = queue.shift();
-      result.set(id, await readCounter(id));
+      result.set(id, await readCounter(monthCounterKey(id)));
     }
   });
   await Promise.all(workers);
@@ -50,10 +54,9 @@ export function trackStationClick(stationId) {
   } catch {
     return;
   }
-  fetch(`${BASE}/hit/${NAMESPACE}/${counterKey(stationId)}`, {
-    keepalive: true,
-    referrerPolicy: "no-referrer",
-  }).catch(() => {});
+  const opts = { keepalive: true, referrerPolicy: "no-referrer" };
+  fetch(`${BASE}/hit/${NAMESPACE}/${monthCounterKey(stationId)}`, opts).catch(() => {});
+  fetch(`${BASE}/hit/${NAMESPACE}/${dayCounterKey(stationId)}`, opts).catch(() => {});
 }
 
 export function initPopularity() {

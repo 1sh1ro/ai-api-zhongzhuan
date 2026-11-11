@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f7f5" />
+    <title>AI API 中转站人气榜：本月去重点击与口径说明</title>
+    <meta name="description" content="按本站出站点击（同一浏览器每天对同一站点只计一次）排列中转站人气。排名不可付费提升；点击不等于注册量或服务稳定性。" />
+    <link rel="canonical" href="https://ai.xulas.fun/popular/" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+    <link rel="alternate" type="text/plain" href="https://ai.xulas.fun/llms.txt" title="LLM digest" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="AI API 比价雷达" />
+    <meta property="og:title" content="AI API 中转站人气榜：本月去重点击与口径说明" />
+    <meta property="og:description" content="按本站出站点击（同一浏览器每天对同一站点只计一次）排列中转站人气。排名不可付费提升；点击不等于注册量或服务稳定性。" />
+    <meta property="og:url" content="https://ai.xulas.fun/popular/" />
+    <meta property="og:image" content="https://ai.xulas.fun/assets/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI API 中转站人气榜：本月去重点击与口径说明" />
+    <meta name="twitter:description" content="按本站出站点击（同一浏览器每天对同一站点只计一次）排列中转站人气。排名不可付费提升；点击不等于注册量或服务稳定性。" />
+    <meta name="twitter:image" content="https://ai.xulas.fun/assets/og-cover.png" />
+    <link rel="stylesheet" href="../styles.css?v=2026-11-11b" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"AI API 中转站人气榜","url":"https://ai.xulas.fun/popular/","dateModified":"2026-11-11","description":"按本站出站点击去重统计的中转站人气榜，排名不可付费提升。","isPartOf":{"@type":"WebSite","name":"AI API 比价雷达","url":"https://ai.xulas.fun/"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"人气榜怎么算？","acceptedAnswer":{"@type":"Answer","text":"统计读者从本站点击前往某个中转站的次数。同一浏览器每天对同一站点只计一次，按上海时区的自然月汇总。当月至少 3 次才进入正式排名。"}},{"@type":"Question","name":"人气榜可以付费提升吗？","acceptedAnswer":{"@type":"Answer","text":"不可以。带推广参数的链接会标明「推广」，但不加分、不减分。点击不等于注册量或真实用户量。"}},{"@type":"Question","name":"为什么现在没有站点名次？","acceptedAnswer":{"@type":"Answer","text":"公开计数器里还没有达到当月 3 次去重点击门槛的站点。在收集到足够样本之前，本页只展示方法和本站访问量，不会编造点击数。"}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://ai.xulas.fun/"},{"@type":"ListItem","position":2,"name":"人气榜","item":"https://ai.xulas.fun/popular/"}]}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="../index.html" aria-label="AI API 比价雷达首页">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span>
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="打开菜单"><span></span></label>
+        <nav class="topnav" aria-label="主导航">
+          <a href="../index.html">价格榜</a>
+          <a href="../popular/index.html">人气榜</a>
+          <a href="../stations/index.html">站点</a>
+          <a href="../models/index.html">模型</a>
+          <a href="../guides/index.html">指南</a>
+          <a href="../method.html">方法</a>
+          <a href="../faq.html">常见问题</a>
+          <a href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">GitHub ↗</a>
+        </nav>
+      </header>
+      <main id="main">
+        <nav class="crumbs" aria-label="面包屑"><a href="../index.html">首页</a><span aria-hidden="true">/</span><span aria-current="page">人气榜</span></nav>
+        <section class="hero">
+          <p class="eyebrow">POPULARITY</p>
+          <h1>AI API 中转站人气榜</h1>
+          <p class="lede">按读者从本站点出去的次数排序，同一浏览器每天对同一站点只计一次。这不是各站自己的注册量，也不代表模型真实或服务稳定。排名不可以付费提升。</p>
+          <p class="hero-note">快照拉取于 2026-11-11T17:52+08:00，时区 Asia/Shanghai。当月门槛 3 次去重点击。完整口径见 <a href="../docs/popularity.md">人气榜说明</a> 与 <a href="../method.html">核验方法</a>。</p>
+        </section>
+        <section class="panel" id="month-rank">
+          <div class="panel-head"><div><p class="kicker">THIS MONTH</p><h2>2026-11 去重点击榜</h2></div>
+          <p class="panel-desc">数据来自公开计数器，构建时预渲染，打开页面后会再读一次当月数字。</p></div>
+          <p class="table-note">截至 2026-11-11T17:52+08:00，公开计数器里还没有达到门槛（当月 3 次去重点击）的站点。构建时查询了 46 个站点的当月键，命中 8 个已有计数键。页面不会用估计值填榜。</p>
+          
+        </section>
+        <section class="panel" id="week-rank">
+          <div class="panel-head"><div><p class="kicker">LAST 7 DAYS</p><h2>近 7 日去重点击</h2></div>
+          <p class="panel-desc">只有按日计数键存在时才公布。不会用月度总数除以天数来估计。</p></div>
+          <p class="table-note">近 7 日榜需要按日计数键（click-站点-日期）。在 2026-11-11 拉取时，这些键还不存在或全为 0，因此不展示 7 日名次，也不会用月度总数去推算。</p>
+        </section>
+        <section class="panel" id="site-visits">
+          <div class="panel-head"><div><p class="kicker">SITE VISITS</p><h2>本站访问量（不是站点人气）</h2></div>
+          <p class="panel-desc">同一浏览器当天只计一次。这只能说明有人打开了比价页，不能用来给中转站排序。</p></div>
+          <div class="visit-bars" aria-label="本站每日去重访问">
+        <div class="visit-bar"><strong>23</strong><span class="bar" style="height:96px"></span><em>11-04</em></div>
+        <div class="visit-bar"><strong>11</strong><span class="bar" style="height:46px"></span><em>11-05</em></div>
+        <div class="visit-bar"><strong>23</strong><span class="bar" style="height:96px"></span><em>11-06</em></div>
+        <div class="visit-bar"><strong>9</strong><span class="bar" style="height:38px"></span><em>11-07</em></div>
+        <div class="visit-bar"><strong>6</strong><span class="bar" style="height:25px"></span><em>11-08</em></div>
+        <div class="visit-bar"><strong>9</strong><span class="bar" style="height:38px"></span><em>11-09</em></div>
+        <div class="visit-bar"><strong>4</strong><span class="bar" style="height:17px"></span><em>11-10</em></div>
+        <div class="visit-bar"><strong>9</strong><span class="bar" style="height:38px"></span><em>11-11</em></div>
+      </div>
+      <p class="table-note">以上是打开本站的去重浏览器数（上海时区按日），合计 94 次，不能拆到各个中转站，因此不参与人气排名。</p>
+        </section>
+        <section class="panel notes">
+          <div class="panel-head"><div><p class="kicker">METHOD</p><h2>读榜前先看这几条</h2></div></div>
+          <div class="notes-grid">
+            <div class="note-card"><h3>点击 ≠ 注册</h3><p>这里只统计从本站点出去的次数。通过本站推广链接完成的注册，要等维护者写入 registrations.json 才会另列；目前这份数据是空的。</p></div>
+            <div class="note-card"><h3>去重挡不掉全部刷量</h3><p>同一浏览器每天只计一次，但清掉本地存储或换设备仍可再计。样本很少时名次会很不稳定。</p></div>
+            <div class="note-card"><h3>推广链接不加分</h3><p>带 aff、ref、invite 等参数的入口会标「推广」，不进人气加分，也不影响价格排名。</p></div>
+            <div class="note-card"><h3>人气高也不等于能用</h3><p>比价请看各模型的综合倍率和核验日期。低价、号池或逆向分组的风险说明见 <a href="../guides/free-relay-risks.html">风险指南</a>。</p></div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer-meta">
+          <span>AI API 比价雷达 · RELAY PRICE RADAR</span>
+          <p class="disclosure">部分注册链接带有推广参数，已在对应站点页标明。排序与综合评分不按推广收益计算。本站只整理公开信息，不运营、不担保任何第三方中转服务。</p>
+        </div>
+        <span>数据构建 2026-11-11b · 最后更新 2026-11-11 · <a href="../llms.txt">llms.txt</a></span>
+      </footer>
+    </div>
+    <script src="../assets/score-tip.js?v=2026-11-11b" defer></script>
+    <script type="module" src="../assets/popularity.js?v=2026-11-11b"></script>
+  </body>
+</html>

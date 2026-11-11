@@ -23,7 +23,7 @@
     <meta property="og:locale" content="zh_CN" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://ai.xulas.fun/assets/og-cover.png" />
-    <link rel="stylesheet" href="styles.css?v=2026-11-11a" />
+    <link rel="stylesheet" href="styles.css?v=2026-11-11b" />
   </head>
   <body>
     <a class="skip-link" href="#main">跳到正文</a>
@@ -34,6 +34,7 @@
         <label for="nav-toggle" class="nav-toggle-label" aria-label="打开菜单"><span></span></label>
         <nav class="topnav" aria-label="主导航">
           <a href="index.html">价格榜</a>
+          <a href="popular/index.html">人气榜</a>
           <a href="stations/index.html">站点</a>
           <a href="models/index.html">模型</a>
           <a href="guides/index.html">指南</a>
@@ -50,6 +51,13 @@
           <p class="lede">只记录会影响价格、排序或站点收录的改动。</p>
         </section>
         <article class="panel guide">
+          <h2>2026-11-11</h2>
+          <ul>
+            <li>新增 <a href="popular/index.html">人气榜</a> 专页：按本站出站点击去重，当月 3 次门槛，预渲染公开计数器快照；没有足够样本时留空，不编造数字。</li>
+            <li>新增专题页：Claude API 中转、便宜 Claude API、DeepSeek / Gemini 免费额度、GPT API 中转、公益站名单。</li>
+            <li>按官方定价页补充 Claude Fable 5.2 基准价（$8 / $40，缓存读取 $0.20 / MTok，核验 2026-11-11）。目录里尚无该型号的中转报价。</li>
+            <li>对分组名含 Kiro、逆向、号池或 CC Max 的条目加上风险标注，并说明这不是调用验真。</li>
+          </ul>
           <h2>2026-11-04</h2>
           <ul>
             <li>排名改为模型内比较：模型报价榜先选模型再排序，站点页新增同模型排名；综合评分的价格维度改为同模型相对位置的平均值，规则版本 model-scoped-asc.v2。</li>

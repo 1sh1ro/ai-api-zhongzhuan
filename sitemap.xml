@@ -4,6 +4,14 @@
   <url><loc>https://ai.xulas.fun/stations/index.html</loc><lastmod>2026-11-11</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai.xulas.fun/models/index.html</loc><lastmod>2026-11-11</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai.xulas.fun/guides/index.html</loc><lastmod>2026-11-11</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai.xulas.fun/popular/</loc><lastmod>2026-11-11</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai.xulas.fun/topics/</loc><lastmod>2026-11-11</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://ai.xulas.fun/topics/claude-api-zhongzhuan.html</loc><lastmod>2026-11-11</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://ai.xulas.fun/topics/pianyi-claude-api.html</loc><lastmod>2026-11-11</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://ai.xulas.fun/topics/deepseek-api-mianfei.html</loc><lastmod>2026-11-11</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://ai.xulas.fun/topics/gpt-api-zhongzhuan.html</loc><lastmod>2026-11-11</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://ai.xulas.fun/topics/gemini-api-mianfei.html</loc><lastmod>2026-11-11</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://ai.xulas.fun/topics/gongyi-zhan.html</loc><lastmod>2026-11-11</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
   <url><loc>https://ai.xulas.fun/guides/what-is-api-relay.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://ai.xulas.fun/guides/multiplier-explained.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://ai.xulas.fun/guides/verify-relay-price.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
@@ -80,6 +88,7 @@
   <url><loc>https://ai.xulas.fun/models/gpt-image-2.html</loc><lastmod>2026-11-11</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai.xulas.fun/models/claude-fable-5.html</loc><lastmod>2026-11-11</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai.xulas.fun/models/claude-fable-5-1.html</loc><lastmod>2026-11-11</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai.xulas.fun/models/claude-fable-5-2.html</loc><lastmod>2026-11-11</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai.xulas.fun/models/claude-opus-5-5.html</loc><lastmod>2026-11-11</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai.xulas.fun/models/claude-opus-5.html</loc><lastmod>2026-11-11</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai.xulas.fun/models/claude-opus-4-8.html</loc><lastmod>2026-11-11</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>

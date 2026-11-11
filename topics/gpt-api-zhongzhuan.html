@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f7f5" />
+    <title>GPT API 中转站对比：官方价、综合倍率与核验记录 · AI API 比价雷达</title>
+    <meta name="description" content="以 OpenAI 官方价为基准，对比各中转站 GPT 系列的综合倍率、来源和核验日期，并提示号池类分组风险。" />
+    <link rel="canonical" href="https://ai.xulas.fun/topics/gpt-api-zhongzhuan.html" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+    <link rel="alternate" type="text/plain" href="https://ai.xulas.fun/llms.txt" title="LLM digest" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="AI API 比价雷达" />
+    <meta property="og:title" content="GPT API 中转站对比：官方价、综合倍率与核验记录 · AI API 比价雷达" />
+    <meta property="og:description" content="以 OpenAI 官方价为基准，对比各中转站 GPT 系列的综合倍率、来源和核验日期，并提示号池类分组风险。" />
+    <meta property="og:url" content="https://ai.xulas.fun/topics/gpt-api-zhongzhuan.html" />
+    <meta property="og:image" content="https://ai.xulas.fun/assets/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GPT API 中转站对比：官方价、综合倍率与核验记录 · AI API 比价雷达" />
+    <meta name="twitter:description" content="以 OpenAI 官方价为基准，对比各中转站 GPT 系列的综合倍率、来源和核验日期，并提示号池类分组风险。" />
+    <meta name="twitter:image" content="https://ai.xulas.fun/assets/og-cover.png" />
+    <link rel="stylesheet" href="../styles.css?v=2026-11-11b" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GPT API 中转怎么比价","description":"以 OpenAI 官方价为基准，对比各中转站 GPT 系列的综合倍率、来源和核验日期，并提示号池类分组风险。","dateModified":"2026-11-11","datePublished":"2026-11-11","author":{"@type":"Organization","name":"AI API 比价雷达"},"mainEntityOfPage":"https://ai.xulas.fun/topics/gpt-api-zhongzhuan.html"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"GPT API 中转能替代官方 API 吗？","acceptedAnswer":{"@type":"Answer","text":"开发测试和批处理可以明显降低成本。生产环境、用户数据或需要发票时，仍建议官方 API，或至少保留可切换的官方通道。"}},{"@type":"Question","name":"为什么同一站点会有好几档 GPT 价格？","acceptedAnswer":{"@type":"Answer","text":"不同分组对应不同线路或上游，便宜的分组往往限制更多。请看分组名、来源和核验日期，不要只记一个最低数字。"}},{"@type":"Question","name":"怎么确认中转出来的真是该型号？","acceptedAnswer":{"@type":"Answer","text":"本站目前只记录公开价格和来源，不做真实调用验真。需要自己用小额请求核对模型标识、用量字段和输出质量。"}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://ai.xulas.fun/"},{"@type":"ListItem","position":2,"name":"专题","item":"https://ai.xulas.fun/topics/"},{"@type":"ListItem","position":3,"name":"GPT API 中转","item":"https://ai.xulas.fun/topics/gpt-api-zhongzhuan.html"}]}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="../index.html" aria-label="AI API 比价雷达首页">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span>
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="打开菜单"><span></span></label>
+        <nav class="topnav" aria-label="主导航">
+          <a href="../index.html">价格榜</a>
+          <a href="../popular/index.html">人气榜</a>
+          <a href="../stations/index.html">站点</a>
+          <a href="../models/index.html">模型</a>
+          <a href="../guides/index.html">指南</a>
+          <a href="../method.html">方法</a>
+          <a href="../faq.html">常见问题</a>
+          <a href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">GitHub ↗</a>
+        </nav>
+      </header>
+      <main id="main">
+        <nav class="crumbs" aria-label="面包屑"><a href="../index.html">首页</a><span aria-hidden="true">/</span><a href="./index.html">专题</a><span aria-hidden="true">/</span><span aria-current="page">GPT API 中转</span></nav>
+        <section class="hero">
+          <p class="eyebrow">TOPIC · GPT API 中转</p>
+          <h1>GPT API 中转怎么比价</h1>
+          <p class="lede">以 OpenAI 官方价为基准，对比各中转站 GPT 系列的综合倍率、来源和核验日期，并提示号池类分组风险。</p>
+          <p class="hero-note">数据构建于 2026-11-11。价格会过期，请以各条核验日期为准。</p>
+        </section>
+        <article class="panel guide">
+          <p>GPT API 中转同样是用第三方 Key 和余额去调 OpenAI 模型。比价时不要只看站内写的「几折」，要把充值系数算进去，再和官方标准价比较。</p>
+<p>本页汇总目录中的 GPT 系列报价。名次只在同一个具体型号内比较，例如 GPT-6 Sol 和 GPT-5.6 Sol 的官方价不同，倍率不能直接横比。</p>
+          <h2>GPT 各型号当前最低可比价</h2>
+        <div class="table-wrap"><table class="rank-table"><thead><tr><th>模型</th><th class="col-num">官方输入 ¥/M</th><th class="col-num">官方输出 ¥/M</th><th>最低站点</th><th class="col-num">综合倍率</th><th class="col-num">可比站点</th></tr></thead><tbody>
+<tr><td><a class="station-name" href="../models/gpt-6-astra.html">GPT-6 Astra</a></td><td class="col-num">¥67.00</td><td class="col-num">¥335.0</td><td><a class="station-name" href="../stations/relaycore.html">RelayCore</a></td><td class="col-num">0.050x</td><td class="col-num">2</td></tr>
+<tr><td><a class="station-name" href="../models/gpt-6-1-sol.html">GPT-6.1 Sol</a></td><td class="col-num">¥13.40</td><td class="col-num">¥67.00</td><td><a class="station-name" href="../stations/linkagi.html">LinkAGI</a></td><td class="col-num">0.027x</td><td class="col-num">4</td></tr>
+<tr><td><a class="station-name" href="../models/gpt-6-1-terra.html">GPT-6.1 Terra</a></td><td class="col-num">¥6.70</td><td class="col-num">¥33.50</td><td><a class="station-name" href="../stations/relaycore.html">RelayCore</a></td><td class="col-num">0.050x</td><td class="col-num">1</td></tr>
+<tr><td><a class="station-name" href="../models/gpt-6-luna.html">GPT-6 Luna</a></td><td class="col-num">¥0.670</td><td class="col-num">¥3.35</td><td>—</td><td class="col-num">—</td><td class="col-num">—</td></tr>
+<tr><td><a class="station-name" href="../models/gpt-6-sol.html">GPT-6 Sol</a></td><td class="col-num">¥13.40</td><td class="col-num">¥67.00</td><td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td><td class="col-num">0.013x</td><td class="col-num">5</td></tr>
+<tr><td><a class="station-name" href="../models/gpt-5-6-sol.html">GPT-5.6 Sol</a></td><td class="col-num">¥26.80</td><td class="col-num">¥134.0</td><td><a class="station-name" href="../stations/dayway.html">DayWay</a></td><td class="col-num">0.045x</td><td class="col-num">3</td></tr>
+<tr><td><a class="station-name" href="../models/gpt-5-6-terra.html">GPT-5.6 Terra</a></td><td class="col-num">¥13.40</td><td class="col-num">¥80.40</td><td><a class="station-name" href="../stations/relaycore.html">RelayCore</a></td><td class="col-num">0.050x</td><td class="col-num">2</td></tr>
+<tr><td><a class="station-name" href="../models/gpt-5-6-luna.html">GPT-5.6 Luna</a></td><td class="col-num">¥1.34</td><td class="col-num">¥8.04</td><td>—</td><td class="col-num">—</td><td class="col-num">—</td></tr>
+<tr><td><a class="station-name" href="../models/gpt-5-5.html">GPT-5.5</a></td><td class="col-num">¥33.50</td><td class="col-num">¥201.0</td><td><a class="station-name" href="../stations/zerouter.html">Zerouter</a></td><td class="col-num">0.074x</td><td class="col-num">1</td></tr>
+        </tbody></table></div><h2>可比较的报价明细</h2><div class="table-wrap"><table class="rank-table"><thead>
+        <tr>
+          <th>站点</th>
+          <th>分组</th>
+          <th>模型</th>
+          <th>口径</th>
+          <th>原始值</th>
+          <th class="col-num">综合倍率</th>
+          <th class="col-num">输入 ¥/M</th>
+          <th class="col-num">输出 ¥/M</th>
+          <th>来源</th>
+          <th>核验</th>
+        </tr></thead><tbody>
+        <tr>
+          <td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td>
+          <td class="group-cell">znb-gpt-特惠</td>
+          <td>GPT系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">0.090x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.013x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://znbcode.com/api/v1/model-plaza" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/linkagi.html">LinkAGI</a></td>
+          <td class="group-cell">Plus 标准短上下文（≤272K）</td>
+          <td>GPT-6.1 Sol</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥0.360 / ¥1.80 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.027x</strong></td>
+          <td class="col-num">¥0.360</td>
+          <td class="col-num">¥1.80</td>
+          <td><a href="https://api.linktoagi.com/api/pricing" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td>
+          <td class="group-cell">znb-gpt-plus-不降智</td>
+          <td>GPT系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">0.200x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.030x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://znbcode.com/api/v1/model-plaza" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td>
+          <td class="group-cell">znb-gpt-pro-不降智</td>
+          <td>GPT系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">0.300x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.045x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://znbcode.com/api/v1/model-plaza" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/dayway.html">DayWay</a></td>
+          <td class="group-cell">代表模型</td>
+          <td>GPT-5.6 Sol</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥1.15 / ¥6.90 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.045x</strong></td>
+          <td class="col-num">¥1.15</td>
+          <td class="col-num">¥6.90</td>
+          <td><a href="https://dayway.site/pricing" rel="nofollow noopener" target="_blank">用户提交 ↗</a></td>
+          <td class="date-cell">2026.08.23</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/relaycore.html">RelayCore</a></td>
+          <td class="group-cell">GPT | 福利</td>
+          <td>GPT-6 Sol</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥0.670 / ¥3.35 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.050x</strong></td>
+          <td class="col-num">¥0.670</td>
+          <td class="col-num">¥3.35</td>
+          <td><a href="https://relaycore.cn/model-market" rel="nofollow noopener" target="_blank">模型广场 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/relaycore.html">RelayCore</a></td>
+          <td class="group-cell">GPT | 福利</td>
+          <td>GPT-6.1 Sol</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥0.670 / ¥3.35 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.050x</strong></td>
+          <td class="col-num">¥0.670</td>
+          <td class="col-num">¥3.35</td>
+          <td><a href="https://relaycore.cn/model-market" rel="nofollow noopener" target="_blank">模型广场 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/relaycore.html">RelayCore</a></td>
+          <td class="group-cell">GPT | 福利</td>
+          <td>GPT-6 Astra</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥3.35 / ¥16.75 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.050x</strong></td>
+          <td class="col-num">¥3.35</td>
+          <td class="col-num">¥16.75</td>
+          <td><a href="https://relaycore.cn/model-market" rel="nofollow noopener" target="_blank">模型广场 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/relaycore.html">RelayCore</a></td>
+          <td class="group-cell">GPT | 福利</td>
+          <td>GPT-5.6 Terra</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥0.670 / ¥4.02 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.050x</strong></td>
+          <td class="col-num">¥0.670</td>
+          <td class="col-num">¥4.02</td>
+          <td><a href="https://relaycore.cn/model-market" rel="nofollow noopener" target="_blank">模型广场 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/relaycore.html">RelayCore</a></td>
+          <td class="group-cell">GPT | 福利</td>
+          <td>GPT-6.1 Terra</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥0.335 / ¥1.68 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.050x</strong></td>
+          <td class="col-num">¥0.335</td>
+          <td class="col-num">¥1.68</td>
+          <td><a href="https://relaycore.cn/model-market" rel="nofollow noopener" target="_blank">模型广场 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td>
+          <td class="group-cell">站内单价</td>
+          <td>GPT-6 Sol</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥0.780 / ¥3.90 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.058x</strong></td>
+          <td class="col-num">¥0.780</td>
+          <td class="col-num">¥3.90</td>
+          <td><a href="https://apinebula.ai/A89Bk1" rel="nofollow noopener" target="_blank">用户价格快照 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td>
+          <td class="group-cell">站内单价</td>
+          <td>GPT-6.1 Sol</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥0.780 / ¥3.90 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.058x</strong></td>
+          <td class="col-num">¥0.780</td>
+          <td class="col-num">¥3.90</td>
+          <td><a href="https://apinebula.ai/A89Bk1" rel="nofollow noopener" target="_blank">用户价格快照 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td>
+          <td class="group-cell">站内单价</td>
+          <td>GPT-6 Astra</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥3.90 / ¥19.50 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.058x</strong></td>
+          <td class="col-num">¥3.90</td>
+          <td class="col-num">¥19.50</td>
+          <td><a href="https://apinebula.ai/A89Bk1" rel="nofollow noopener" target="_blank">用户价格快照 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/relaycore.html">RelayCore</a></td>
+          <td class="group-cell">GPT | 福利</td>
+          <td>GPT-5.6 Sol</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥1.68 / ¥10.05 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.066x</strong></td>
+          <td class="col-num">¥1.68</td>
+          <td class="col-num">¥10.05</td>
+          <td><a href="https://relaycore.cn/model-market" rel="nofollow noopener" target="_blank">模型广场 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/zerouter.html">Zerouter</a></td>
+          <td class="group-cell">按量计费</td>
+          <td>GPT-5.5</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥2.48 / ¥15.01 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.074x</strong></td>
+          <td class="col-num">¥2.48</td>
+          <td class="col-num">¥15.01</td>
+          <td><a href="https://www.zerouter.ai/pricing" rel="nofollow noopener" target="_blank">官网 ↗</a></td>
+          <td class="date-cell">2026.10.18</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td>
+          <td class="group-cell">znb-gpt-满血官key</td>
+          <td>GPT系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">0.500x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.075x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://znbcode.com/api/v1/model-plaza" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/zerouter.html">Zerouter</a></td>
+          <td class="group-cell">按量计费</td>
+          <td>GPT-5.6 Terra</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.075x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.075x</strong></td>
+          <td class="col-num">¥1.00</td>
+          <td class="col-num">¥6.03</td>
+          <td><a href="https://www.zerouter.ai/pricing" rel="nofollow noopener" target="_blank">官网 ↗</a></td>
+          <td class="date-cell">2026.10.18</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td>
+          <td class="group-cell">站内单价</td>
+          <td>GPT-5.6 Sol</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥1.95 / ¥11.70 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.076x</strong></td>
+          <td class="col-num">¥1.95</td>
+          <td class="col-num">¥11.70</td>
+          <td><a href="https://apinebula.ai/A89Bk1" rel="nofollow noopener" target="_blank">用户价格快照 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/horizon-api.html">Horizon API</a></td>
+          <td class="group-cell">GPT 特价</td>
+          <td>GPT系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">0.400x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.080x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://api.honglin.asia/profile" rel="nofollow noopener" target="_blank">用户截图 ↗</a></td>
+          <td class="date-cell">2026.08.29</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/kaigpt.html">KaiGPT</a></td>
+          <td class="group-cell">OpenAI 主流模型</td>
+          <td>GPT系列</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.100x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.100x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://gptzzz.ai/model-plaza" rel="nofollow noopener" target="_blank">官网 ↗</a></td>
+          <td class="date-cell">2026.09.26</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/horizon-api.html">Horizon API</a></td>
+          <td class="group-cell">GPT 稳定</td>
+          <td>GPT系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">0.850x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.170x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://api.honglin.asia/profile" rel="nofollow noopener" target="_blank">用户截图 ↗</a></td>
+          <td class="date-cell">2026.08.29</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/zerouter.html">Zerouter</a></td>
+          <td class="group-cell">按量计费</td>
+          <td>GPT-6.1 Sol</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.190x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.190x</strong></td>
+          <td class="col-num">¥2.55</td>
+          <td class="col-num">¥12.73</td>
+          <td><a href="https://www.zerouter.ai/pricing" rel="nofollow noopener" target="_blank">官网 ↗</a></td>
+          <td class="date-cell">2026.10.18</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/horizon-api.html">Horizon API</a></td>
+          <td class="group-cell">GPT Pro</td>
+          <td>GPT系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">1.00x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.200x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://api.honglin.asia/profile" rel="nofollow noopener" target="_blank">用户截图 ↗</a></td>
+          <td class="date-cell">2026.08.29</td>
+        </tr></tbody></table></div><p class="table-note">完整系列表见 <a href="../families/gpt.html">gpt 系列页</a>。</p>
+          <h2>常见问题</h2>
+        <div class="topic-faq">
+          <h2 id="q1">GPT API 中转能替代官方 API 吗？</h2>
+          <p>开发测试和批处理可以明显降低成本。生产环境、用户数据或需要发票时，仍建议官方 API，或至少保留可切换的官方通道。</p>
+        </div>
+        <div class="topic-faq">
+          <h2 id="q2">为什么同一站点会有好几档 GPT 价格？</h2>
+          <p>不同分组对应不同线路或上游，便宜的分组往往限制更多。请看分组名、来源和核验日期，不要只记一个最低数字。</p>
+        </div>
+        <div class="topic-faq">
+          <h2 id="q3">怎么确认中转出来的真是该型号？</h2>
+          <p>本站目前只记录公开价格和来源，不做真实调用验真。需要自己用小额请求核对模型标识、用量字段和输出质量。</p>
+        </div>
+          <p class="table-note"><a href="../guides/what-is-api-relay.html">中转站是什么</a> · <a href="../guides/verify-relay-price.html">怎么核验价格</a> · <a href="../guides/free-relay-risks.html">免费和公益站风险</a> · <a href="../method.html">收录与排序方法</a> · <a href="./index.html">全部专题</a></p>
+        </article>
+      </main>
+      <footer class="footer">
+        <div class="footer-meta">
+          <span>AI API 比价雷达 · RELAY PRICE RADAR</span>
+          <p class="disclosure">部分注册链接带有推广参数，已在对应站点页标明。排序与综合评分不按推广收益计算。本站只整理公开信息，不运营、不担保任何第三方中转服务。</p>
+        </div>
+        <span>数据构建 2026-11-11b · 最后更新 2026-11-11 · <a href="../llms.txt">llms.txt</a></span>
+      </footer>
+    </div>
+    <script src="../assets/score-tip.js?v=2026-11-11b" defer></script>
+    <script type="module" src="../assets/popularity.js?v=2026-11-11b"></script>
+  </body>
+</html>

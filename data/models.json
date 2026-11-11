@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-11",
   "note": "官方基准价，单位美元/百万 Token（智谱按人民币/百万 Token）。价格为厂商公开定价页的标准（短上下文）档，不含 Batch、区域端点、加急等溢价。",
   "models": [
     {
@@ -8,7 +8,12 @@
       "vendor": "OpenAI",
       "family": "gpt",
       "displayName": "GPT-6 Astra",
-      "official": { "currency": "USD", "inputPer1M": 10, "outputPer1M": 50, "cacheReadPer1M": 1 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 10,
+        "outputPer1M": 50,
+        "cacheReadPer1M": 1
+      },
       "officialSourceUrl": "https://developers.openai.com/api/docs/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -17,7 +22,12 @@
       "vendor": "OpenAI",
       "family": "gpt",
       "displayName": "GPT-6.1 Sol",
-      "official": { "currency": "USD", "inputPer1M": 2, "outputPer1M": 10, "cacheReadPer1M": 0.1 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 2,
+        "outputPer1M": 10,
+        "cacheReadPer1M": 0.1
+      },
       "officialSourceUrl": "https://developers.openai.com/api/docs/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -26,7 +36,12 @@
       "vendor": "OpenAI",
       "family": "gpt",
       "displayName": "GPT-6.1 Terra",
-      "official": { "currency": "USD", "inputPer1M": 1, "outputPer1M": 5, "cacheReadPer1M": 0.05 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 1,
+        "outputPer1M": 5,
+        "cacheReadPer1M": 0.05
+      },
       "officialSourceUrl": "https://developers.openai.com/api/docs/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -35,7 +50,12 @@
       "vendor": "OpenAI",
       "family": "gpt",
       "displayName": "GPT-6 Luna",
-      "official": { "currency": "USD", "inputPer1M": 0.1, "outputPer1M": 0.5, "cacheReadPer1M": 0.01 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 0.1,
+        "outputPer1M": 0.5,
+        "cacheReadPer1M": 0.01
+      },
       "officialSourceUrl": "https://developers.openai.com/api/docs/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -44,7 +64,12 @@
       "vendor": "OpenAI",
       "family": "gpt",
       "displayName": "GPT-6 Sol",
-      "official": { "currency": "USD", "inputPer1M": 2, "outputPer1M": 10, "cacheReadPer1M": 0.2 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 2,
+        "outputPer1M": 10,
+        "cacheReadPer1M": 0.2
+      },
       "officialSourceUrl": "https://developers.openai.com/api/docs/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -53,7 +78,12 @@
       "vendor": "OpenAI",
       "family": "gpt",
       "displayName": "GPT-5.6 Sol",
-      "official": { "currency": "USD", "inputPer1M": 4, "outputPer1M": 20, "cacheReadPer1M": 0.4 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 4,
+        "outputPer1M": 20,
+        "cacheReadPer1M": 0.4
+      },
       "officialSourceUrl": "https://developers.openai.com/api/docs/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -62,7 +92,12 @@
       "vendor": "OpenAI",
       "family": "gpt",
       "displayName": "GPT-5.6 Terra",
-      "official": { "currency": "USD", "inputPer1M": 2, "outputPer1M": 12, "cacheReadPer1M": 0.2 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 2,
+        "outputPer1M": 12,
+        "cacheReadPer1M": 0.2
+      },
       "officialSourceUrl": "https://developers.openai.com/api/docs/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -71,7 +106,12 @@
       "vendor": "OpenAI",
       "family": "gpt",
       "displayName": "GPT-5.6 Luna",
-      "official": { "currency": "USD", "inputPer1M": 0.2, "outputPer1M": 1.2, "cacheReadPer1M": 0.02 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 0.2,
+        "outputPer1M": 1.2,
+        "cacheReadPer1M": 0.02
+      },
       "officialSourceUrl": "https://developers.openai.com/api/docs/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -80,7 +120,12 @@
       "vendor": "OpenAI",
       "family": "gpt",
       "displayName": "GPT-5.5",
-      "official": { "currency": "USD", "inputPer1M": 5, "outputPer1M": 30, "cacheReadPer1M": 0.5 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 5,
+        "outputPer1M": 30,
+        "cacheReadPer1M": 0.5
+      },
       "officialSourceUrl": "https://developers.openai.com/api/docs/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -99,7 +144,12 @@
       "vendor": "Anthropic",
       "family": "claude",
       "displayName": "Claude Fable 5",
-      "official": { "currency": "USD", "inputPer1M": 10, "outputPer1M": 50, "cacheReadPer1M": 1 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 10,
+        "outputPer1M": 50,
+        "cacheReadPer1M": 1
+      },
       "officialSourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -108,16 +158,40 @@
       "vendor": "Anthropic",
       "family": "claude",
       "displayName": "Claude Fable 5.1",
-      "official": { "currency": "USD", "inputPer1M": 10, "outputPer1M": 50, "cacheReadPer1M": 0.25 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 10,
+        "outputPer1M": 50,
+        "cacheReadPer1M": 0.25
+      },
       "officialSourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
       "officialCheckedAt": "2026-11-03"
+    },
+    {
+      "id": "claude-fable-5-2",
+      "vendor": "Anthropic",
+      "family": "claude",
+      "displayName": "Claude Fable 5.2",
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 8,
+        "outputPer1M": 40,
+        "cacheReadPer1M": 0.2
+      },
+      "officialSourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "officialCheckedAt": "2026-11-11"
     },
     {
       "id": "claude-opus-5-5",
       "vendor": "Anthropic",
       "family": "claude",
       "displayName": "Claude Opus 5.5",
-      "official": { "currency": "USD", "inputPer1M": 4, "outputPer1M": 20, "cacheReadPer1M": 0.2 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 4,
+        "outputPer1M": 20,
+        "cacheReadPer1M": 0.2
+      },
       "officialSourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -126,7 +200,12 @@
       "vendor": "Anthropic",
       "family": "claude",
       "displayName": "Claude Opus 5",
-      "official": { "currency": "USD", "inputPer1M": 5, "outputPer1M": 25, "cacheReadPer1M": 0.5 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 5,
+        "outputPer1M": 25,
+        "cacheReadPer1M": 0.5
+      },
       "officialSourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -135,7 +214,12 @@
       "vendor": "Anthropic",
       "family": "claude",
       "displayName": "Claude Opus 4.8",
-      "official": { "currency": "USD", "inputPer1M": 5, "outputPer1M": 25, "cacheReadPer1M": 0.5 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 5,
+        "outputPer1M": 25,
+        "cacheReadPer1M": 0.5
+      },
       "officialSourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -144,7 +228,12 @@
       "vendor": "Anthropic",
       "family": "claude",
       "displayName": "Claude Sonnet 5.5",
-      "official": { "currency": "USD", "inputPer1M": 2, "outputPer1M": 10, "cacheReadPer1M": 0.1 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 2,
+        "outputPer1M": 10,
+        "cacheReadPer1M": 0.1
+      },
       "officialSourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -153,7 +242,12 @@
       "vendor": "Anthropic",
       "family": "claude",
       "displayName": "Claude Sonnet 5",
-      "official": { "currency": "USD", "inputPer1M": 2, "outputPer1M": 10, "cacheReadPer1M": 0.2 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 2,
+        "outputPer1M": 10,
+        "cacheReadPer1M": 0.2
+      },
       "officialSourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -162,7 +256,12 @@
       "vendor": "Anthropic",
       "family": "claude",
       "displayName": "Claude Sonnet 4.6",
-      "official": { "currency": "USD", "inputPer1M": 3, "outputPer1M": 15, "cacheReadPer1M": 0.3 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 3,
+        "outputPer1M": 15,
+        "cacheReadPer1M": 0.3
+      },
       "officialSourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -171,7 +270,12 @@
       "vendor": "Google",
       "family": "gemini",
       "displayName": "Gemini 4 Argon",
-      "official": { "currency": "USD", "inputPer1M": 2, "outputPer1M": 10, "cacheReadPer1M": 0.1 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 2,
+        "outputPer1M": 10,
+        "cacheReadPer1M": 0.1
+      },
       "officialSourceUrl": "https://aistudio.google.com/docs/pricing",
       "officialCheckedAt": "2026-11-03",
       "officialNote": "促销价，2026-12-01 起变为 $4 / $20"
@@ -191,7 +295,12 @@
       "vendor": "Google",
       "family": "gemini",
       "displayName": "Gemini 3.8 Flash",
-      "official": { "currency": "USD", "inputPer1M": 0.75, "outputPer1M": 3.75, "cacheReadPer1M": 0.075 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 0.75,
+        "outputPer1M": 3.75,
+        "cacheReadPer1M": 0.075
+      },
       "officialSourceUrl": "https://aistudio.google.com/docs/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -200,7 +309,12 @@
       "vendor": "Google",
       "family": "gemini",
       "displayName": "Gemini 3.1 Pro Preview",
-      "official": { "currency": "USD", "inputPer1M": 2, "outputPer1M": 12, "cacheReadPer1M": 0.2 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 2,
+        "outputPer1M": 12,
+        "cacheReadPer1M": 0.2
+      },
       "officialSourceUrl": "https://aistudio.google.com/docs/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -209,7 +323,12 @@
       "vendor": "xAI",
       "family": "grok",
       "displayName": "Grok 4.7",
-      "official": { "currency": "USD", "inputPer1M": 2, "outputPer1M": 6, "cacheReadPer1M": 0.5 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 2,
+        "outputPer1M": 6,
+        "cacheReadPer1M": 0.5
+      },
       "officialSourceUrl": "https://docs.x.ai/developers/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -218,7 +337,12 @@
       "vendor": "xAI",
       "family": "grok",
       "displayName": "Grok 4.6",
-      "official": { "currency": "USD", "inputPer1M": 2, "outputPer1M": 6, "cacheReadPer1M": 0.5 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 2,
+        "outputPer1M": 6,
+        "cacheReadPer1M": 0.5
+      },
       "officialSourceUrl": "https://docs.x.ai/developers/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -227,7 +351,12 @@
       "vendor": "xAI",
       "family": "grok",
       "displayName": "Grok 4.5",
-      "official": { "currency": "USD", "inputPer1M": 2, "outputPer1M": 6, "cacheReadPer1M": 0.3 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 2,
+        "outputPer1M": 6,
+        "cacheReadPer1M": 0.3
+      },
       "officialSourceUrl": "https://docs.x.ai/developers/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -236,7 +365,12 @@
       "vendor": "DeepSeek",
       "family": "deepseek",
       "displayName": "DeepSeek V4.1 Flash",
-      "official": { "currency": "USD", "inputPer1M": 0.3, "outputPer1M": 1.2, "cacheReadPer1M": 0.006 },
+      "official": {
+        "currency": "USD",
+        "inputPer1M": 0.3,
+        "outputPer1M": 1.2,
+        "cacheReadPer1M": 0.006
+      },
       "officialSourceUrl": "https://api-docs.deepseek.com/quick_start/pricing",
       "officialCheckedAt": "2026-11-03",
       "officialNote": "取高峰时段价格，低谷为半价"
@@ -246,7 +380,12 @@
       "vendor": "智谱",
       "family": "glm",
       "displayName": "GLM-5.3",
-      "official": { "currency": "CNY", "inputPer1M": 8, "outputPer1M": 28, "cacheReadPer1M": 2 },
+      "official": {
+        "currency": "CNY",
+        "inputPer1M": 8,
+        "outputPer1M": 28,
+        "cacheReadPer1M": 2
+      },
       "officialSourceUrl": "https://docs.bigmodel.cn/cn/guide/start/pricing",
       "officialCheckedAt": "2026-11-03"
     },
@@ -255,7 +394,12 @@
       "vendor": "智谱",
       "family": "glm",
       "displayName": "GLM-5.3-Flash",
-      "official": { "currency": "CNY", "inputPer1M": 0.8, "outputPer1M": 2.8, "cacheReadPer1M": 0.23 },
+      "official": {
+        "currency": "CNY",
+        "inputPer1M": 0.8,
+        "outputPer1M": 2.8,
+        "cacheReadPer1M": 0.23
+      },
       "officialSourceUrl": "https://docs.bigmodel.cn/cn/guide/start/pricing",
       "officialCheckedAt": "2026-11-03"
     },

@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f7f5" />
+    <title>Claude API 中转站对比：官方价、综合倍率与风险 · AI API 比价雷达</title>
+    <meta name="description" content="用 Anthropic 官方价做分母，对比各中转站的 Claude 综合倍率，并标出分组名含 Kiro、逆向或号池的条目。数据核验日期写在每条报价上。" />
+    <link rel="canonical" href="https://ai.xulas.fun/topics/claude-api-zhongzhuan.html" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+    <link rel="alternate" type="text/plain" href="https://ai.xulas.fun/llms.txt" title="LLM digest" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="AI API 比价雷达" />
+    <meta property="og:title" content="Claude API 中转站对比：官方价、综合倍率与风险 · AI API 比价雷达" />
+    <meta property="og:description" content="用 Anthropic 官方价做分母，对比各中转站的 Claude 综合倍率，并标出分组名含 Kiro、逆向或号池的条目。数据核验日期写在每条报价上。" />
+    <meta property="og:url" content="https://ai.xulas.fun/topics/claude-api-zhongzhuan.html" />
+    <meta property="og:image" content="https://ai.xulas.fun/assets/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Claude API 中转站对比：官方价、综合倍率与风险 · AI API 比价雷达" />
+    <meta name="twitter:description" content="用 Anthropic 官方价做分母，对比各中转站的 Claude 综合倍率，并标出分组名含 Kiro、逆向或号池的条目。数据核验日期写在每条报价上。" />
+    <meta name="twitter:image" content="https://ai.xulas.fun/assets/og-cover.png" />
+    <link rel="stylesheet" href="../styles.css?v=2026-11-11b" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Claude API 中转怎么比价","description":"用 Anthropic 官方价做分母，对比各中转站的 Claude 综合倍率，并标出分组名含 Kiro、逆向或号池的条目。数据核验日期写在每条报价上。","dateModified":"2026-11-11","datePublished":"2026-11-11","author":{"@type":"Organization","name":"AI API 比价雷达"},"mainEntityOfPage":"https://ai.xulas.fun/topics/claude-api-zhongzhuan.html"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Claude API 中转和官方 API 有什么差别？","acceptedAnswer":{"@type":"Answer","text":"官方 API 由 Anthropic 直接计费和提供服务。中转站是中间商，用它自己的上游和余额，按它的倍率扣费。正式业务、涉及用户数据或需要发票时，优先用官方 API。"}},{"@type":"Question","name":"为什么有的 Claude 中转看起来特别便宜？","acceptedAnswer":{"@type":"Answer","text":"有的分组走号池、逆向或限速线路，标价可以远低于官方价。低倍率不等于模型真实或稳定。本页会把分组名中带 Kiro、逆向、号池或 CC Max 的条目标出来，并保留核验日期。"}},{"@type":"Question","name":"本页的数字会过期吗？","acceptedAnswer":{"@type":"Answer","text":"会。中转站价格、分组和上游经常变动。请以各条报价的核验日期为准，充值前到站点价格页复核，并先小额测试。"}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://ai.xulas.fun/"},{"@type":"ListItem","position":2,"name":"专题","item":"https://ai.xulas.fun/topics/"},{"@type":"ListItem","position":3,"name":"Claude API 中转","item":"https://ai.xulas.fun/topics/claude-api-zhongzhuan.html"}]}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="../index.html" aria-label="AI API 比价雷达首页">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span>
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="打开菜单"><span></span></label>
+        <nav class="topnav" aria-label="主导航">
+          <a href="../index.html">价格榜</a>
+          <a href="../popular/index.html">人气榜</a>
+          <a href="../stations/index.html">站点</a>
+          <a href="../models/index.html">模型</a>
+          <a href="../guides/index.html">指南</a>
+          <a href="../method.html">方法</a>
+          <a href="../faq.html">常见问题</a>
+          <a href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">GitHub ↗</a>
+        </nav>
+      </header>
+      <main id="main">
+        <nav class="crumbs" aria-label="面包屑"><a href="../index.html">首页</a><span aria-hidden="true">/</span><a href="./index.html">专题</a><span aria-hidden="true">/</span><span aria-current="page">Claude API 中转</span></nav>
+        <section class="hero">
+          <p class="eyebrow">TOPIC · Claude API 中转</p>
+          <h1>Claude API 中转怎么比价</h1>
+          <p class="lede">用 Anthropic 官方价做分母，对比各中转站的 Claude 综合倍率，并标出分组名含 Kiro、逆向或号池的条目。数据核验日期写在每条报价上。</p>
+          <p class="hero-note">数据构建于 2026-11-11。价格会过期，请以各条核验日期为准。</p>
+        </section>
+        <article class="panel guide">
+          <p>「Claude API 中转」指的是先向第三方站点充值，再用它的 Key 去调用 Anthropic 模型。价格通常低于官方按量价，但请求内容会经过中转站，模型是否为声称的官方线路也无法只靠报价表确认。</p>
+<p>本页只列出目录里已经核验过的 Claude 报价，倍率一律按官方标准价折算。分组名里带 Kiro、逆向、号池或 CC Max 的，会单独标注；这是根据名称做的风险提示，不是调用验真。</p>
+          <h2>Claude 各型号当前最低可比价</h2>
+        <div class="table-wrap"><table class="rank-table"><thead><tr><th>模型</th><th class="col-num">官方输入 ¥/M</th><th class="col-num">官方输出 ¥/M</th><th>最低站点</th><th class="col-num">综合倍率</th><th class="col-num">可比站点</th></tr></thead><tbody>
+<tr><td><a class="station-name" href="../models/claude-fable-5.html">Claude Fable 5</a></td><td class="col-num">¥67.00</td><td class="col-num">¥335.0</td><td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td><td class="col-num">0.254x</td><td class="col-num">1</td></tr>
+<tr><td><a class="station-name" href="../models/claude-fable-5-1.html">Claude Fable 5.1</a></td><td class="col-num">¥67.00</td><td class="col-num">¥335.0</td><td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td><td class="col-num">0.254x</td><td class="col-num">1</td></tr>
+<tr><td><a class="station-name" href="../models/claude-fable-5-2.html">Claude Fable 5.2</a></td><td class="col-num">¥53.60</td><td class="col-num">¥268.0</td><td>—</td><td class="col-num">—</td><td class="col-num">—</td></tr>
+<tr><td><a class="station-name" href="../models/claude-opus-5-5.html">Claude Opus 5.5</a></td><td class="col-num">¥26.80</td><td class="col-num">¥134.0</td><td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td><td class="col-num">0.075x</td><td class="col-num">2</td></tr>
+<tr><td><a class="station-name" href="../models/claude-opus-5.html">Claude Opus 5</a></td><td class="col-num">¥33.50</td><td class="col-num">¥167.5</td><td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td><td class="col-num">0.075x</td><td class="col-num">4</td></tr>
+<tr><td><a class="station-name" href="../models/claude-opus-4-8.html">Claude Opus 4.8</a></td><td class="col-num">¥33.50</td><td class="col-num">¥167.5</td><td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td><td class="col-num">0.075x</td><td class="col-num">1</td></tr>
+<tr><td><a class="station-name" href="../models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a></td><td class="col-num">¥13.40</td><td class="col-num">¥67.00</td><td><a class="station-name" href="../stations/znbcode.html">znbcode</a><span class="risk-badge risk-kiro">疑似 Kiro/逆向</span></td><td class="col-num">0.060x</td><td class="col-num">5</td></tr>
+<tr><td><a class="station-name" href="../models/claude-sonnet-5.html">Claude Sonnet 5</a></td><td class="col-num">¥13.40</td><td class="col-num">¥67.00</td><td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td><td class="col-num">0.075x</td><td class="col-num">1</td></tr>
+<tr><td><a class="station-name" href="../models/claude-sonnet-4-6.html">Claude Sonnet 4.6</a></td><td class="col-num">¥20.10</td><td class="col-num">¥100.5</td><td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td><td class="col-num">0.075x</td><td class="col-num">1</td></tr>
+        </tbody></table></div><h2>可比较的报价明细</h2><div class="table-wrap"><table class="rank-table"><thead>
+        <tr>
+          <th>站点</th>
+          <th>分组</th>
+          <th>模型</th>
+          <th>口径</th>
+          <th>原始值</th>
+          <th class="col-num">综合倍率</th>
+          <th class="col-num">输入 ¥/M</th>
+          <th class="col-num">输出 ¥/M</th>
+          <th>来源</th>
+          <th>核验</th>
+        </tr></thead><tbody>
+        <tr>
+          <td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td>
+          <td class="group-cell">znb-cc-kiro<span class="risk-badge risk-kiro" title="根据分组名称标注，未做实际调用验真">疑似 Kiro/逆向</span></td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">0.400x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.060x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://znbcode.com/api/v1/model-plaza" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td>
+          <td class="group-cell">站内单价</td>
+          <td>Claude Opus 4.8</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.075x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.075x</strong></td>
+          <td class="col-num">¥2.50</td>
+          <td class="col-num">¥12.51</td>
+          <td><a href="https://apinebula.ai/A89Bk1" rel="nofollow noopener" target="_blank">用户价格快照 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td>
+          <td class="group-cell">站内单价</td>
+          <td>Claude Opus 5</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.075x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.075x</strong></td>
+          <td class="col-num">¥2.50</td>
+          <td class="col-num">¥12.51</td>
+          <td><a href="https://apinebula.ai/A89Bk1" rel="nofollow noopener" target="_blank">用户价格快照 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td>
+          <td class="group-cell">站内单价</td>
+          <td>Claude Opus 5.5</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.075x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.075x</strong></td>
+          <td class="col-num">¥2.00</td>
+          <td class="col-num">¥10.01</td>
+          <td><a href="https://apinebula.ai/A89Bk1" rel="nofollow noopener" target="_blank">用户价格快照 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td>
+          <td class="group-cell">站内单价</td>
+          <td>Claude Sonnet 5</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.075x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.075x</strong></td>
+          <td class="col-num">¥1.00</td>
+          <td class="col-num">¥5.00</td>
+          <td><a href="https://apinebula.ai/A89Bk1" rel="nofollow noopener" target="_blank">用户价格快照 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td>
+          <td class="group-cell">站内单价</td>
+          <td>Claude Sonnet 5.5</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.075x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.075x</strong></td>
+          <td class="col-num">¥1.00</td>
+          <td class="col-num">¥5.00</td>
+          <td><a href="https://apinebula.ai/A89Bk1" rel="nofollow noopener" target="_blank">用户价格快照 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td>
+          <td class="group-cell">站内单价</td>
+          <td>Claude Sonnet 4.6</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.075x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.075x</strong></td>
+          <td class="col-num">¥1.50</td>
+          <td class="col-num">¥7.51</td>
+          <td><a href="https://apinebula.ai/A89Bk1" rel="nofollow noopener" target="_blank">用户价格快照 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/kaigpt.html">KaiGPT</a></td>
+          <td class="group-cell">Claude 主流模型</td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.100x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.100x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://gptzzz.ai/model-plaza" rel="nofollow noopener" target="_blank">官网 ↗</a></td>
+          <td class="date-cell">2026.09.26</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/apikey-fun.html">APIKEY.FUN</a></td>
+          <td class="group-cell">Claude Plus（精品）</td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">0.800x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.114x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://apikey.fun/api/v1/pricing/groups" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.09.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td>
+          <td class="group-cell">znb-cc-max-满血<span class="risk-badge risk-ccmax" title="根据分组名称标注，未做实际调用验真">疑似 Max 号池</span></td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">1.30x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.194x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://znbcode.com/api/v1/model-plaza" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/zerouter.html">Zerouter</a></td>
+          <td class="group-cell">按量计费</td>
+          <td>Claude Sonnet 5.5</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.230x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.230x</strong></td>
+          <td class="col-num">¥3.08</td>
+          <td class="col-num">¥15.41</td>
+          <td><a href="https://www.zerouter.ai/pricing" rel="nofollow noopener" target="_blank">官网 ↗</a></td>
+          <td class="date-cell">2026.10.18</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/zerouter.html">Zerouter</a></td>
+          <td class="group-cell">按量计费</td>
+          <td>Claude Opus 5</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.230x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.230x</strong></td>
+          <td class="col-num">¥7.71</td>
+          <td class="col-num">¥38.52</td>
+          <td><a href="https://www.zerouter.ai/pricing" rel="nofollow noopener" target="_blank">官网 ↗</a></td>
+          <td class="date-cell">2026.10.18</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td>
+          <td class="group-cell">站内单价</td>
+          <td>Claude Fable 5</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.254x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.254x</strong></td>
+          <td class="col-num">¥17.02</td>
+          <td class="col-num">¥85.12</td>
+          <td><a href="https://apinebula.ai/A89Bk1" rel="nofollow noopener" target="_blank">用户价格快照 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/api-nebula.html">API Nebula</a></td>
+          <td class="group-cell">站内单价</td>
+          <td>Claude Fable 5.1</td>
+          <td><span class="basis basis-declared">维护者折算</span></td>
+          <td class="raw-cell">0.254x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.254x</strong></td>
+          <td class="col-num">¥17.02</td>
+          <td class="col-num">¥85.12</td>
+          <td><a href="https://apinebula.ai/A89Bk1" rel="nofollow noopener" target="_blank">用户价格快照 ↗</a></td>
+          <td class="date-cell">2026.10.17</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td>
+          <td class="group-cell">znb-cc-max-正价20<span class="risk-badge risk-ccmax" title="根据分组名称标注，未做实际调用验真">疑似 Max 号池</span></td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">1.80x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.269x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://znbcode.com/api/v1/model-plaza" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/apikey-fun.html">APIKEY.FUN</a></td>
+          <td class="group-cell">Claude Max（仅限CC）</td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">2.00x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.284x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://apikey.fun/api/v1/pricing/groups" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.09.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/zerouter.html">Zerouter</a></td>
+          <td class="group-cell">按量计费</td>
+          <td>Claude Opus 5.5</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥7.77 / ¥38.93 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.290x</strong></td>
+          <td class="col-num">¥7.77</td>
+          <td class="col-num">¥38.93</td>
+          <td><a href="https://www.zerouter.ai/pricing" rel="nofollow noopener" target="_blank">官网 ↗</a></td>
+          <td class="date-cell">2026.10.18</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/apikey-fun.html">APIKEY.FUN</a></td>
+          <td class="group-cell">Claude Max（外接版）</td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">2.20x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.312x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://apikey.fun/api/v1/pricing/groups" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.09.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/apikey-fun.html">APIKEY.FUN</a></td>
+          <td class="group-cell">Claude 官渠</td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">5.00x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.710x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://apikey.fun/api/v1/pricing/groups" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.09.03</td>
+        </tr></tbody></table></div><p class="table-note">完整系列表见 <a href="../families/claude.html">claude 系列页</a>。</p><h2>分组名含 Kiro、逆向、号池或 CC Max 的条目</h2><div class="table-wrap"><table class="rank-table"><thead>
+        <tr>
+          <th>站点</th>
+          <th>分组</th>
+          <th>模型</th>
+          <th>口径</th>
+          <th>原始值</th>
+          <th class="col-num">综合倍率</th>
+          <th class="col-num">输入 ¥/M</th>
+          <th class="col-num">输出 ¥/M</th>
+          <th>来源</th>
+          <th>核验</th>
+        </tr></thead><tbody>
+        <tr>
+          <td><a class="station-name" href="../stations/aizzz.html">AIZZZ</a></td>
+          <td class="group-cell">CCMAX 特价<span class="risk-badge risk-ccmax" title="根据分组名称标注，未做实际调用验真">疑似 Max 号池</span></td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-raw_ratio">站内分组倍率</span></td>
+          <td class="raw-cell">0.800x 站内倍率</td>
+          <td class="col-num"><span class="ratio-muted">—</span></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://api.aizzz.xyz/pricing" rel="nofollow noopener" target="_blank">本地访问核验 ↗</a></td>
+          <td class="date-cell">2026.08.29</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td>
+          <td class="group-cell">znb-cc-kiro<span class="risk-badge risk-kiro" title="根据分组名称标注，未做实际调用验真">疑似 Kiro/逆向</span></td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">0.400x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.060x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://znbcode.com/api/v1/model-plaza" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td>
+          <td class="group-cell">znb-cc-max-满血<span class="risk-badge risk-ccmax" title="根据分组名称标注，未做实际调用验真">疑似 Max 号池</span></td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">1.30x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.194x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://znbcode.com/api/v1/model-plaza" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/hezu-bus.html">合租巴士</a></td>
+          <td class="group-cell">claudecode-krio逆向<span class="risk-badge risk-kiro" title="根据分组名称标注，未做实际调用验真">疑似 Kiro/逆向</span></td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-raw_ratio">站内分组倍率</span></td>
+          <td class="raw-cell">0.350x 站内倍率</td>
+          <td class="col-num"><span class="ratio-muted">—</span></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://hezu.ink/register" rel="nofollow noopener" target="_blank">用户提交 ↗</a></td>
+          <td class="date-cell">2026.08.29</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/hezu-bus.html">合租巴士</a></td>
+          <td class="group-cell">ccmax<span class="risk-badge risk-ccmax" title="根据分组名称标注，未做实际调用验真">疑似 Max 号池</span></td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-raw_ratio">站内分组倍率</span></td>
+          <td class="raw-cell">1.40x 站内倍率</td>
+          <td class="col-num"><span class="ratio-muted">—</span></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://hezu.ink/register" rel="nofollow noopener" target="_blank">用户提交 ↗</a></td>
+          <td class="date-cell">2026.08.29</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/4router.html">4Router</a></td>
+          <td class="group-cell">ccMax-sale<span class="risk-badge risk-ccmax" title="根据分组名称标注，未做实际调用验真">疑似 Max 号池</span></td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-raw_ratio">站内分组倍率</span></td>
+          <td class="raw-cell">0.800x 站内倍率</td>
+          <td class="col-num"><span class="ratio-muted">—</span></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://4router.net/pricing" rel="nofollow noopener" target="_blank">本地访问核验 ↗</a></td>
+          <td class="date-cell">2026.08.27</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td>
+          <td class="group-cell">znb-cc-max-正价20<span class="risk-badge risk-ccmax" title="根据分组名称标注，未做实际调用验真">疑似 Max 号池</span></td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-converted_ratio">分组倍率折算</span></td>
+          <td class="raw-cell">1.80x 站内倍率</td>
+          <td class="col-num"><strong class="ratio is-low">0.269x</strong></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://znbcode.com/api/v1/model-plaza" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.11.03</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/aizzz.html">AIZZZ</a></td>
+          <td class="group-cell">CCMAX 官转<span class="risk-badge risk-ccmax" title="根据分组名称标注，未做实际调用验真">疑似 Max 号池</span></td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-raw_ratio">站内分组倍率</span></td>
+          <td class="raw-cell">1.30x 站内倍率</td>
+          <td class="col-num"><span class="ratio-muted">—</span></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://api.aizzz.xyz/pricing" rel="nofollow noopener" target="_blank">本地访问核验 ↗</a></td>
+          <td class="date-cell">2026.08.29</td>
+        </tr>
+        <tr>
+          <td><a class="station-name" href="../stations/hezu-bus.html">合租巴士</a></td>
+          <td class="group-cell">ccmax-外接<span class="risk-badge risk-ccmax" title="根据分组名称标注，未做实际调用验真">疑似 Max 号池</span></td>
+          <td>Claude系列</td>
+          <td><span class="basis basis-raw_ratio">站内分组倍率</span></td>
+          <td class="raw-cell">1.60x 站内倍率</td>
+          <td class="col-num"><span class="ratio-muted">—</span></td>
+          <td class="col-num">—</td>
+          <td class="col-num">—</td>
+          <td><a href="https://hezu.ink/register" rel="nofollow noopener" target="_blank">用户提交 ↗</a></td>
+          <td class="date-cell">2026.08.29</td>
+        </tr></tbody></table></div><p class="table-note">这些标注只根据分组名称，未做实际调用验真。</p>
+          <h2>常见问题</h2>
+        <div class="topic-faq">
+          <h2 id="q1">Claude API 中转和官方 API 有什么差别？</h2>
+          <p>官方 API 由 Anthropic 直接计费和提供服务。中转站是中间商，用它自己的上游和余额，按它的倍率扣费。正式业务、涉及用户数据或需要发票时，优先用官方 API。</p>
+        </div>
+        <div class="topic-faq">
+          <h2 id="q2">为什么有的 Claude 中转看起来特别便宜？</h2>
+          <p>有的分组走号池、逆向或限速线路，标价可以远低于官方价。低倍率不等于模型真实或稳定。本页会把分组名中带 Kiro、逆向、号池或 CC Max 的条目标出来，并保留核验日期。</p>
+        </div>
+        <div class="topic-faq">
+          <h2 id="q3">本页的数字会过期吗？</h2>
+          <p>会。中转站价格、分组和上游经常变动。请以各条报价的核验日期为准，充值前到站点价格页复核，并先小额测试。</p>
+        </div>
+          <p class="table-note"><a href="../guides/what-is-api-relay.html">中转站是什么</a> · <a href="../guides/verify-relay-price.html">怎么核验价格</a> · <a href="../guides/free-relay-risks.html">免费和公益站风险</a> · <a href="../method.html">收录与排序方法</a> · <a href="./index.html">全部专题</a></p>
+        </article>
+      </main>
+      <footer class="footer">
+        <div class="footer-meta">
+          <span>AI API 比价雷达 · RELAY PRICE RADAR</span>
+          <p class="disclosure">部分注册链接带有推广参数，已在对应站点页标明。排序与综合评分不按推广收益计算。本站只整理公开信息，不运营、不担保任何第三方中转服务。</p>
+        </div>
+        <span>数据构建 2026-11-11b · 最后更新 2026-11-11 · <a href="../llms.txt">llms.txt</a></span>
+      </footer>
+    </div>
+    <script src="../assets/score-tip.js?v=2026-11-11b" defer></script>
+    <script type="module" src="../assets/popularity.js?v=2026-11-11b"></script>
+  </body>
+</html>

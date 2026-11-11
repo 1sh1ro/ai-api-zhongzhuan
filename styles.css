@@ -602,3 +602,62 @@ th.col-num { text-align: right; }
   .search-box { max-width: none; }
   .trust-bar { font-size: 13px; }
 }
+
+/* ---------- breadcrumbs / risk / topics / popular ---------- */
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 18px 0 0;
+  font-size: 13px;
+  color: var(--dim);
+}
+.crumbs a { color: var(--muted); }
+.crumbs a:hover { color: var(--brand-dark); }
+.crumbs [aria-current="page"] { color: var(--ink); }
+
+.risk-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-family: var(--sans);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.risk-kiro, .risk-reverse { background: var(--red-soft); color: var(--red); }
+.risk-pool, .risk-ccmax { background: var(--amber-soft); color: var(--amber); }
+.aff-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.visit-bars { display: flex; align-items: flex-end; gap: 8px; height: 120px; margin: 8px 0 16px; }
+.visit-bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 0;
+  height: 100%;
+}
+.visit-bar span.bar {
+  width: 100%;
+  max-width: 36px;
+  background: var(--brand-soft);
+  border-radius: 6px 6px 2px 2px;
+  border: 1px solid #cde8d6;
+}
+.visit-bar em { font-style: normal; font-size: 11px; color: var(--dim); font-family: var(--mono); margin-top: 6px; }
+.visit-bar strong { font-size: 11px; font-family: var(--mono); color: var(--ink); }
+
+.topic-faq + .topic-faq { margin-top: 18px; }
+.guide h2 { font-size: 18px; }

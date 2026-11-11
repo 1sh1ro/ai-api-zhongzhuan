@@ -12,6 +12,8 @@ import {
   FAMILY_LABELS,
 } from "../assets/pricing.js";
 import { scoreStation, buildModelPercentiles } from "../assets/scoring.js";
+import { fetchPopularitySnapshot, writePopularitySnapshot, MIN_SAMPLE } from "./fetch-popularity.mjs";
+import { buildPopularPage, buildTopicPages } from "./seo-builders.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readJSON = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
@@ -174,6 +176,7 @@ function navBar(prefix) {
         <label for="nav-toggle" class="nav-toggle-label" aria-label="打开菜单"><span></span></label>
         <nav class="topnav" aria-label="主导航">
           <a href="${prefix}index.html">价格榜</a>
+          <a href="${prefix}popular/index.html">人气榜</a>
           <a href="${prefix}stations/index.html">站点</a>
           <a href="${prefix}models/index.html">模型</a>
           <a href="${prefix}guides/index.html">指南</a>
@@ -184,7 +187,63 @@ function navBar(prefix) {
       </header>`;
 }
 
-function shell({ title, description, canonical, body, jsonLd, prefix = "../" }) {
+function crumbsHtml(items) {
+  if (!items?.length) return "";
+  return `        <nav class="crumbs" aria-label="面包屑">${items
+    .map((item, index) => (index === items.length - 1
+      ? `<span aria-current="page">${esc(item.name)}</span>`
+      : `<a href="${esc(item.href)}">${esc(item.name)}</a><span aria-hidden="true">/</span>`))
+    .join("")}</nav>`;
+}
+
+function crumbsJsonLd(items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+function renderJsonLd(jsonLd) {
+  const list = (Array.isArray(jsonLd) ? jsonLd : [jsonLd]).filter(Boolean);
+  return list.map((item) => `    <script type="application/ld+json">${JSON.stringify(item)}</script>`).join("\n");
+}
+
+function groupRisk(groupName = "", note = "") {
+  const text = `${groupName} ${note}`;
+  if (/kiro|krio|逆向/i.test(text)) return { level: "kiro", label: "疑似 Kiro/逆向" };
+  if (/号池/.test(text)) return { level: "pool", label: "号池" };
+  if (/cc\s*-?max|ccmax/i.test(text)) return { level: "ccmax", label: "疑似 Max 号池" };
+  return null;
+}
+
+function riskBadge(groupName, note) {
+  const risk = groupRisk(groupName, note);
+  if (!risk) return "";
+  return `<span class="risk-badge risk-${esc(risk.level)}" title="根据分组名称标注，未做实际调用验真">${esc(risk.label)}</span>`;
+}
+
+function hasAffLink(site) {
+  if (!site) return false;
+  for (const value of [site.homepage, site.registrationUrl]) {
+    if (!value) continue;
+    try {
+      const url = new URL(value);
+      if ([...url.searchParams.keys()].some((key) => REFERRAL_PARAM_KEYS.includes(key.toLowerCase()))) return true;
+    } catch {
+      /* ignore invalid */
+    }
+  }
+  return false;
+}
+
+function shell({ title, description, canonical, body, jsonLd, prefix = "../", breadcrumbs = [] }) {
+  const allLd = [...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : []), breadcrumbs.length ? crumbsJsonLd(breadcrumbs) : null];
   return `<!doctype html>
 <html lang="zh-CN">
   <head>
@@ -195,13 +254,14 @@ function shell({ title, description, canonical, body, jsonLd, prefix = "../" }) 
     <meta name="description" content="${esc(description)}" />
 ${socialTags({ title, description, canonical, prefix })}
     <link rel="stylesheet" href="${prefix}styles.css?v=${esc(BUILD)}" />
-    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+${renderJsonLd(allLd)}
   </head>
   <body>
     <a class="skip-link" href="#main">跳到正文</a>
     <div class="page">
 ${navBar(prefix)}
       <main id="main">
+${crumbsHtml(breadcrumbs)}
 ${body}
       </main>
       <footer class="footer">
@@ -242,7 +302,7 @@ function offerTable(rowsForTable, { showStation = false, showModel = false }) {
       return `
         <tr>
           ${showStation ? `<td><a class="station-name" href="../stations/${esc(row.stationId)}.html">${esc(station ? station.name : row.stationId)}</a></td>` : ""}
-          <td class="group-cell">${esc(row.groupName)}</td>
+          <td class="group-cell">${esc(row.groupName)}${riskBadge(row.groupName, row.note)}</td>
           ${showModel ? `<td>${esc(modelDisplay(row))}</td>` : ""}
           <td><span class="basis basis-${esc(row.basis)}">${esc(row.basisLabel)}</span></td>
           <td class="raw-cell">${esc(rawValue(row))}</td>
@@ -298,8 +358,9 @@ ${rankedModels
           <p class="eyebrow">STATION · ${esc(site.id)}</p>
           <h1>${esc(site.name)} 的 API 报价与核验记录</h1>
           <p class="lede">${esc(site.summary)}</p>
-          <p class="hero-note">状态 ${esc(statusLabel)} · 核验 ${esc(formatDate(site.verifiedAt))} · ${stationRows.length} 条报价，其中 ${comparableCount} 条口径统一可比。${summaryLine}综合评分 ${score.total.toFixed(1)}（${score.grade}）。本月站内点击 <strong data-click-count="${esc(site.id)}">—</strong> 次。${registrationLine}</p>
-          <p><a class="button button-primary" href="${esc(siteLink(site))}" rel="nofollow noopener" target="_blank" data-station-link="${esc(site.id)}">打开站点 ↗</a></p>
+          <p class="hero-note">状态 ${esc(statusLabel)} · 核验 ${esc(formatDate(site.verifiedAt))} · ${stationRows.length} 条报价，其中 ${comparableCount} 条口径统一可比。${summaryLine}综合评分 ${score.total.toFixed(1)}（${score.grade}）。本月站内点击 <strong data-click-count="${esc(site.id)}">—</strong> 次。${registrationLine}${hasAffLink(site) ? "该页「打开站点」带推广参数。" : ""}</p>
+          ${stationRows.some((row) => groupRisk(row.groupName, row.note)) ? '<p class="hero-note">该站部分分组名称含 Kiro、逆向、号池或 CC Max，已在报价表中标注；这是根据名称做的风险提示，未做实际调用验真。</p>' : ""}
+          <p><a class="button button-primary" href="${esc(siteLink(site))}" rel="nofollow noopener" target="_blank" data-station-link="${esc(site.id)}">打开站点 ↗</a>${hasAffLink(site) ? '<span class="aff-badge">推广</span>' : ""}</p>
         </section>
         <section class="panel">
           <div class="panel-head"><div><p class="kicker">SCORE</p><h2>综合评分 ${score.total.toFixed(1)}</h2></div>
@@ -338,11 +399,16 @@ ${rankedModels
   fs.writeFileSync(
     path.join(root, "stations", `${site.id}.html`),
     shell({
-      title: `${site.name} API 报价与倍率 · AI API 比价雷达`,
-      description: `${site.name} 的中转 API 报价：${stationRows.length} 条记录，${comparableCount} 条口径统一可比。${comparableModels.length ? `覆盖 ${comparableModels.length} 个可比模型。` : "暂无可比报价。"}数据核验于 ${formatDate(site.verifiedAt)}。`,
+      title: `${site.name} API 中转报价与综合倍率 · AI API 比价雷达`,
+      description: `${site.name} 的 API 中转报价：${stationRows.length} 条记录，${comparableCount} 条口径统一可比。${stationBestRow.get(site.id) ? `当前最低综合倍率 ${formatMultiplier(stationBestRow.get(site.id).effectiveBlended)}。` : "暂无可比综合倍率。"}${comparableModels.length ? `覆盖 ${comparableModels.length} 个可比模型。` : ""}核验于 ${formatDate(site.verifiedAt)}。`,
       canonical: `${BASE}/stations/${site.id}.html`,
       body,
       jsonLd,
+      breadcrumbs: [
+        { name: "首页", href: "../index.html", url: `${BASE}/` },
+        { name: "站点", href: "./index.html", url: `${BASE}/stations/` },
+        { name: site.name, href: `./${site.id}.html`, url: `${BASE}/stations/${site.id}.html` },
+      ],
     }),
   );
 }
@@ -442,6 +508,10 @@ fs.writeFileSync(
   shell({
     title: "全部模型与官方价 · AI API 比价雷达",
     description: `共 ${models.filter((model) => model.official).length} 个模型的官方基准价，以及每个模型当前报价最低的中转站。`,
+    breadcrumbs: [
+      { name: "首页", href: "../index.html", url: `${BASE}/` },
+      { name: "模型", href: "./index.html", url: `${BASE}/models/` },
+    ],
     canonical: `${BASE}/models/index.html`,
     body: `        <section class="hero">
           <p class="eyebrow">MODELS</p>
@@ -481,6 +551,10 @@ fs.writeFileSync(
   shell({
     title: "使用指南 · AI API 比价雷达",
     description: "中转站 API 的基础概念、倍率计算方法、价格核验步骤与风险提示。",
+    breadcrumbs: [
+      { name: "首页", href: "../index.html", url: `${BASE}/` },
+      { name: "指南", href: "./index.html", url: `${BASE}/guides/` },
+    ],
     canonical: `${BASE}/guides/index.html`,
     body: `        <section class="hero">
           <p class="eyebrow">GUIDES</p>
@@ -576,6 +650,10 @@ ${list
     shell({
       title: `${label} 中转站与报价对比 · AI API 比价雷达`,
       description: `${label} 系列在 ${stationAgg.size} 个中转站的报价对比，共 ${familyModels.length} 个模型、${familyRows.length} 条记录，含官方价与综合倍率。`,
+      breadcrumbs: [
+        { name: "首页", href: "../index.html", url: `${BASE}/` },
+        { name: `${label} 系列`, href: `./${family}.html`, url: `${BASE}/families/${family}.html` },
+      ],
       canonical: `${BASE}/families/${family}.html`,
       body,
       jsonLd: {
@@ -608,6 +686,8 @@ function writeLlmsFiles() {
 - 站点索引：${BASE}/stations/index.html
 - 模型索引：${BASE}/models/index.html
 - 使用指南：${BASE}/guides/index.html
+- 人气榜：${BASE}/popular/
+- 专题：${BASE}/topics/
 - 核验方法：${BASE}/method.html
 - 常见问题：${BASE}/faq.html
 - 完整机器可读摘要：${BASE}/llms-full.txt
@@ -651,7 +731,19 @@ ${stationLines}
 
 ## 引用与局限
 
-价格来自站点公开价格页或接口、用户提交与截图，每条记录保留来源链接和核验日期。本站不做真实 API 调用验真，数字会过期。完整方法见 ${BASE}/method.html 。
+## 专题与人气
+
+- ${BASE}/topics/claude-api-zhongzhuan.html
+- ${BASE}/topics/pianyi-claude-api.html
+- ${BASE}/topics/deepseek-api-mianfei.html
+- ${BASE}/topics/gpt-api-zhongzhuan.html
+- ${BASE}/topics/gemini-api-mianfei.html
+- ${BASE}/topics/gongyi-zhan.html
+- 人气榜 ${BASE}/popular/ ：按本站出站点击去重，当月至少 3 次才进入正式排名；点击不等于注册量。构建时若计数器尚无足够样本，页面会如实留空，不编造数字。
+
+## 引用与局限
+
+价格来自站点公开价格页或接口、用户提交与截图，每条记录保留来源链接和核验日期。本站不做真实 API 调用验真，数字会过期。完整方法见 ${BASE}/method.html 。人气口径见 ${BASE}/docs/popularity.md 。
 `;
 
   fs.writeFileSync(path.join(root, "llms.txt"), digest);
@@ -664,6 +756,9 @@ const urls = [
   { loc: `${BASE}/stations/index.html`, priority: "0.8", freq: "daily" },
   { loc: `${BASE}/models/index.html`, priority: "0.8", freq: "daily" },
   { loc: `${BASE}/guides/index.html`, priority: "0.8", freq: "weekly" },
+  { loc: `${BASE}/popular/`, priority: "0.7", freq: "daily" },
+  { loc: `${BASE}/topics/`, priority: "0.75", freq: "weekly" },
+  ...((JSON.parse(fs.readFileSync(path.join(root, "data/topics.json"), "utf8")).topics) || []).map((topic) => ({ loc: `${BASE}/topics/${topic.slug}.html`, priority: "0.75", freq: "weekly" })),
   ...guides.map((guide) => ({ loc: `${BASE}/guides/${guide.slug}.html`, priority: "0.75", freq: "monthly" })),
   ...familyPages.map((page) => ({ loc: page.loc, priority: "0.7", freq: "daily" })),
   { loc: `${BASE}/method.html`, priority: "0.5", freq: "monthly" },
@@ -732,7 +827,7 @@ ${modelLeaders
             <p class="table-note">指南：${guides.map((guide) => `<a href="guides/${esc(guide.slug)}.html">${esc(guide.title)}</a>`).join(" · ")}</p>
             <p class="table-note">站点索引：${sites.map((site) => `<a href="stations/${esc(site.id)}.html">${esc(site.name)}</a>`).join(" · ")}</p>
             <p class="table-note">按系列：${familyPages.map((page) => `<a href="families/${esc(page.family)}.html">${esc(page.label)}</a>`).join(" · ")}</p>
-            <p class="table-note">说明：<a href="method.html">收录原则与核验方法</a> · <a href="faq.html">常见问题</a> · <a href="changelog.html">数据变更记录</a></p>
+            <p class="table-note">说明：<a href="method.html">收录原则与核验方法</a> · <a href="faq.html">常见问题</a> · <a href="changelog.html">数据变更记录</a> · <a href="popular/index.html">人气榜</a> · <a href="topics/index.html">专题</a></p>
           </details>
         </section>
         <!-- SNAPSHOT:END -->`;
@@ -834,7 +929,57 @@ if (indexHtml.includes("<!-- ITEM-LIST-JSONLD:START -->")) {
   indexHtml = indexHtml.replace("</head>", `${itemListBlock}\n  </head>`);
 }
 
+/* ---------- 人气快照与专题页 ---------- */
+const popularitySnapshot = await fetchPopularitySnapshot(sites.map((site) => site.id));
+writePopularitySnapshot(root, popularitySnapshot);
+
+const monthEntries = Object.entries(popularitySnapshot.monthClicks || {}).sort((a, b) => b[1] - a[1]);
+const popularPreview = monthEntries
+  .filter(([, count]) => count >= (popularitySnapshot.minSample || MIN_SAMPLE))
+  .slice(0, 10);
+const popularBlock = popularPreview.length
+  ? popularPreview
+      .map(([stationId, count], index) => {
+        const score = stationScores.get(stationId);
+        return `                <tr><td class="col-rank">${String(index + 1).padStart(2, "0")}</td><td><a class="station-name" href="stations/${esc(stationId)}.html">${esc(siteById.get(stationId)?.name || stationId)}</a></td><td class="col-num">${count}</td><td class="col-num">${score ? score.total.toFixed(1) : "—"}</td></tr>`;
+      })
+      .join("\n")
+  : `                <tr><td class="empty-cell" colspan="4">本月公开计数器里还没有达到 ${popularitySnapshot.minSample || MIN_SAMPLE} 次去重点击门槛的站点。完整口径见 <a href="popular/index.html">人气榜</a>。</td></tr>`;
+if (indexHtml.includes("<!-- POPULARITY-PRERENDER:START -->")) {
+  indexHtml = indexHtml.replace(
+    /<!-- POPULARITY-PRERENDER:START -->[\s\S]*?<!-- POPULARITY-PRERENDER:END -->/,
+    `<!-- POPULARITY-PRERENDER:START -->\n              <tbody id="popularity-body">\n${popularBlock}\n              </tbody>\n              <!-- POPULARITY-PRERENDER:END -->`,
+  );
+}
+
 fs.writeFileSync(indexFile, indexHtml);
+
+const seoCtx = {
+  root,
+  BASE,
+  LASTMOD,
+  sites,
+  siteById,
+  stationScores,
+  siteLink,
+  hasAffLink,
+  shell,
+  esc,
+  formatDate,
+  formatMultiplier,
+  formatCny,
+  modelSlug,
+  models,
+  modelById,
+  rows,
+  comparableRows,
+  offerTable,
+  groupRisk,
+  config,
+  snapshot: popularitySnapshot,
+};
+buildPopularPage(seoCtx);
+buildTopicPages(seoCtx);
 writeLlmsFiles();
 
-console.log(`generated ${sites.length} station pages, ${models.filter((model) => model.official).length} model pages, sitemap with ${urls.length} urls`);
+console.log(`generated ${sites.length} station pages, ${models.filter((model) => model.official).length} model pages, sitemap with ${urls.length} urls, popularity keys found ${popularitySnapshot.keysFound}`);

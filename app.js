@@ -9,7 +9,7 @@ import {
 import { scoreStation, buildModelPercentiles } from './assets/scoring.js';
 import { getPopularity } from './assets/popularity.js';
 
-const ASSET_VERSION = '2026-11-11a';
+const ASSET_VERSION = '2026-11-11b';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -509,12 +509,12 @@ async function renderPopularity() {
   const counts = await getPopularity(state.sites.map((site) => site.id));
   const rows = state.sites
     .map((site) => ({ site, count: counts.get(site.id) || 0 }))
-    .filter((row) => row.count > 0)
+    .filter((row) => row.count >= 3)
     .sort((a, b) => b.count - a.count)
     .slice(0, 15);
 
   if (rows.length === 0) {
-    el.popularityBody.innerHTML = '<tr><td colspan="4" class="empty-cell">本月还没有站内点击。</td></tr>';
+    el.popularityBody.innerHTML = '<tr><td class="empty-cell" colspan="4">本月公开计数器里还没有达到 3 次去重点击门槛的站点。完整口径见 <a href="popular/index.html">人气榜</a>。</td></tr>';
     return;
   }
 

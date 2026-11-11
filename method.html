@@ -23,8 +23,8 @@
     <meta property="og:locale" content="zh_CN" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://ai.xulas.fun/assets/og-cover.png" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"收录原则、核验方法与排序规则","url":"https://ai.xulas.fun/method.html","dateModified":"2026-11-04","isPartOf":{"@type":"WebSite","name":"AI API 比价雷达","url":"https://ai.xulas.fun/"}}</script>
-    <link rel="stylesheet" href="styles.css?v=2026-11-11a" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"收录原则、核验方法与排序规则","url":"https://ai.xulas.fun/method.html","dateModified":"2026-11-11","isPartOf":{"@type":"WebSite","name":"AI API 比价雷达","url":"https://ai.xulas.fun/"}}</script>
+    <link rel="stylesheet" href="styles.css?v=2026-11-11b" />
   </head>
   <body>
     <a class="skip-link" href="#main">跳到正文</a>
@@ -35,6 +35,7 @@
         <label for="nav-toggle" class="nav-toggle-label" aria-label="打开菜单"><span></span></label>
         <nav class="topnav" aria-label="主导航">
           <a href="index.html">价格榜</a>
+          <a href="popular/index.html">人气榜</a>
           <a href="stations/index.html">站点</a>
           <a href="models/index.html">模型</a>
           <a href="guides/index.html">指南</a>
@@ -118,12 +119,14 @@
           <h2>访问统计</h2>
           <p>首页底部显示当天的访问人数。计数按浏览器本地存储去重，同一浏览器当天只计一次，按上海时区分日，不写 Cookie，不记录 IP、页面路径或个人信息。计数由第三方 Abacus 计数器提供，只用于了解站点大致访问量。</p>
 
-          <h2>人气榜</h2>
-          <p>人气榜统计从本站跳转到各中转站的出站点击，按自然月累计，同一浏览器每天对同一站点只计一次。它反映本站读者的兴趣，不代表站点的注册量、活跃用户或成交。注册人数只有站点自己知道，本站无法检测；如果站点愿意提供转化数据，可以单独标注来源。</p>
-          <p>点击计数由第三方 Abacus 提供，只记录站点编号和月份，不记录点击者身份。人气榜不参与自然排名，也不影响站点评分。</p>
-        </article>
+          <h2 id="popularity-method">人气榜</h2>
+          <p>人气榜只统计读者从本站点击前往某个中转站的次数，数据存在公开的第三方计数器。同一浏览器每天对同一站点只计一次，按上海时区的自然月汇总。当月至少 3 次去重点击才进入正式排名；低于门槛的站点会单独标「样本不足」。7 日榜依赖按日计数键，在这些键还没有数据时，页面会留空，不会用月度总数去估计。</p>
+          <p>它反映本站读者的兴趣，不代表站点的注册量或成交，也不参与价格排名和综合评分。全站访问量不能拆到各个中转站，因此不参与人气排名。通过本站推广链接产生的注册人数需维护者写入 <code>registrations.json</code>，目前这份数据为空，榜单不会编造注册数。GitHub Issue 的表情也不计入人气。排名不可以付费提升。完整说明见 <a href="docs/popularity.md">人气榜口径</a> 与 <a href="popular/index.html">人气榜页面</a>。</p>
+        <h2 id="risk-labels">Kiro、逆向和号池标注</h2>
+        <p>如果分组名称或备注里出现 Kiro、逆向、号池或 CC Max 等字样，报价表会加上风险标签。这只是根据名称做的提示，不是实际调用验真，也不自动改变价格排序。</p>
+</article>
       </main>
-      <footer class="footer"><span>AI API 比价雷达 · RELAY PRICE RADAR</span><span>最后更新 2026-11-04</span></footer>
+      <footer class="footer"><span>AI API 比价雷达 · RELAY PRICE RADAR</span><span>最后更新 2026-11-11</span></footer>
     </div>
   </body>
 </html>
