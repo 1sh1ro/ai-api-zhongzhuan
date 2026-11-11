@@ -1,32 +1,28 @@
 import fs from "node:fs";
 import path from "node:path";
-import { rankCounts, MIN_SAMPLE } from "./fetch-popularity.mjs";
-
 function readJSON(root, relative) {
   return JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
 }
 
 export function buildPopularPage(ctx) {
-  const { root, BASE, LASTMOD, sites, siteById, stationScores, siteLink, hasAffLink, shell, esc, formatDate, snapshot } = ctx;
-  const monthClicks = snapshot.monthClicks || {};
-  const minSample = snapshot.minSample || MIN_SAMPLE;
-  const monthMap = new Map(Object.entries(monthClicks));
-  const { ranked, underSample } = rankCounts(monthMap, minSample);
+  const { root, BASE, LASTMOD, sites, siteById, stationScores, siteLink, hasAffLink, shell, esc, formatDate, registrationMonth, registrationsByMonth } = ctx;
+  const month = registrationMonth;
+  const monthMap = registrationsByMonth || new Map();
 
   const rows = sites.map((site) => {
-    const hasCount = Object.prototype.hasOwnProperty.call(monthClicks, site.id);
-    const count = hasCount ? Number(monthClicks[site.id]) || 0 : 0;
+    const item = monthMap.get(site.id);
+    const hasCount = Boolean(item) && Number.isFinite(item.registrations);
     return {
       stationId: site.id,
       name: site.name || site.id,
       hasCount,
-      count,
-      qualified: hasCount && count >= minSample,
+      count: hasCount ? item.registrations : null,
+      updated: hasCount ? item.updated || "" : "",
+      qualified: hasCount,
     };
   });
   rows.sort((a, b) => {
     if (a.qualified !== b.qualified) return a.qualified ? -1 : 1;
-    if (a.hasCount !== b.hasCount) return a.hasCount ? -1 : 1;
     if (a.count !== b.count) return b.count - a.count;
     return a.name.localeCompare(b.name, "zh");
   });
@@ -37,18 +33,19 @@ export function buildPopularPage(ctx) {
       row.rank = rank;
     }
   }
+  const ranked = rows.filter((row) => row.qualified);
 
-  const table = `<div class="table-wrap"><table class="rank-table is-simple"><thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">本月去重点击</th></tr></thead><tbody>
+  const table = `<div class="table-wrap"><table class="rank-table is-simple"><thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">本月注册量</th></tr></thead><tbody>
 ${rows
   .map((row) => {
     const site = siteById.get(row.stationId);
     const aff = hasAffLink(site) ? '<span class="aff-badge">推广</span>' : "";
-    const clicks = row.hasCount ? String(row.count) : "积累中";
+    const value = row.hasCount ? String(row.count) : "待更新";
     const rankCell = row.qualified ? String(row.rank).padStart(2, "0") : "—";
     return `<tr>
       <td class="col-rank">${rankCell}</td>
       <td><a class="station-name" href="../stations/${esc(row.stationId)}.html">${esc(row.name)}</a>${aff}</td>
-      <td class="col-num">${clicks}</td>
+      <td class="col-num">${value}</td>
     </tr>`;
   })
   .join("\n")}
@@ -56,7 +53,7 @@ ${rows
 
   const emptyNote = ranked.length
     ? ""
-    : `<p class="table-note">本月数据积累中，满 3 次去重点击的站点会自动上榜。</p>`;
+    : `<p class="table-note">本月还没有登记注册量，有数据后会自动上榜。</p>`;
 
   const jsonLd = [
     {
@@ -65,7 +62,7 @@ ${rows
       name: "AI API 中转站人气榜",
       url: `${BASE}/popular/`,
       dateModified: LASTMOD,
-      description: "按本站出站点击去重统计的中转站人气榜，排名不可付费提升。",
+      description: "按通过本站注册的人数排序的中转站人气榜，排名不可付费提升。",
       isPartOf: { "@type": "WebSite", name: "AI API 比价雷达", url: `${BASE}/` },
     },
     {
@@ -75,17 +72,17 @@ ${rows
         {
           "@type": "Question",
           name: "人气榜怎么算？",
-          acceptedAnswer: { "@type": "Answer", text: "按读者从本站点出去的次数排序，同一浏览器每天只计一次；满 3 次会上榜。排名不可以付费提升。" },
+          acceptedAnswer: { "@type": "Answer", text: "按通过本站注册的人数排序；排名不可以付费提升。" },
         },
         {
           "@type": "Question",
           name: "人气榜可以付费提升吗？",
-          acceptedAnswer: { "@type": "Answer", text: "不可以。带推广参数的链接会标明「推广」，但不加分、不减分。点击不等于注册量或真实用户量。" },
+          acceptedAnswer: { "@type": "Answer", text: "不可以。带推广参数的链接会标明「推广」，但不加分、不减分。" },
         },
         {
           "@type": "Question",
           name: "为什么现在没有站点名次？",
-          acceptedAnswer: { "@type": "Answer", text: "本月数据还在积累，满 3 次去重点击的站点会自动上榜。排名不可以付费提升。" },
+          acceptedAnswer: { "@type": "Answer", text: "本月还没有登记注册量，有数据后会自动上榜。排名不可以付费提升。" },
         },
       ],
     },
@@ -94,13 +91,13 @@ ${rows
     jsonLd.push({
       "@context": "https://schema.org",
       "@type": "ItemList",
-      name: `${snapshot.currentMonth} 中转站人气榜`,
+      name: `${month} 中转站人气榜`,
       url: `${BASE}/popular/`,
       numberOfItems: ranked.length,
       itemListElement: ranked.map((row, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        name: siteById.get(row.stationId)?.name || row.stationId,
+        name: row.name,
         url: `${BASE}/stations/${row.stationId}.html`,
       })),
     });
@@ -109,7 +106,7 @@ ${rows
   const body = `        <section class="hero">
           <p class="eyebrow">POPULARITY</p>
           <h1>AI API 中转站人气榜</h1>
-          <p class="lede">按读者从本站点出去的次数排序，同一浏览器每天只计一次；排名不可付费提升。<a href="../docs/popularity.md">人气榜说明</a></p>
+          <p class="lede">按通过本站注册的人数排序；排名不可付费提升。<a href="../docs/popularity.md">人气榜说明</a></p>
         </section>
         <section class="panel" id="month-rank">
           <div class="panel-head"><div><p class="kicker">THIS MONTH</p><h2>本月人气</h2></div></div>
@@ -122,7 +119,7 @@ ${rows
     path.join(root, "popular/index.html"),
     shell({
       title: "AI API 中转站人气榜",
-      description: "按本站出站点击（同一浏览器每天对同一站点只计一次）排列中转站人气。排名不可付费提升；点击不等于注册量或服务稳定性。",
+      description: "按通过本站注册的人数排列中转站人气。排名不可付费提升；注册量不等于服务稳定性。",
       canonical: `${BASE}/popular/`,
       body,
       jsonLd,
@@ -134,7 +131,7 @@ ${rows
     }),
   );
 
-  return { ranked, underSample };
+  return { ranked };
 }
 
 export function buildTopicPages(ctx) {

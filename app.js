@@ -7,7 +7,6 @@ import {
   formatDiscount,
 } from './assets/pricing.js';
 import { scoreStation, buildModelPercentiles } from './assets/scoring.js';
-import { getPopularity } from './assets/popularity.js';
 
 const ASSET_VERSION = '2026-11-11b';
 
@@ -504,30 +503,7 @@ function renderAll() {
 }
 
 async function renderPopularity() {
-  if (!el.popularityBody) return;
-  el.popularityBody.innerHTML = '<tr><td colspan="4" class="empty-cell">正在读取本月点击…</td></tr>';
-  const counts = await getPopularity(state.sites.map((site) => site.id));
-  const rows = state.sites
-    .map((site) => ({ site, count: counts.get(site.id) || 0 }))
-    .filter((row) => row.count >= 3)
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 15);
-
-  if (rows.length === 0) {
-    el.popularityBody.innerHTML = '<tr><td class="empty-cell" colspan="4">本月数据积累中，满 3 次去重点击的站点会自动上榜。</td></tr>';
-    return;
-  }
-
-  el.popularityBody.innerHTML = rows
-    .map(
-      (row, index) => `<tr>
-        <td class="col-rank">${String(index + 1).padStart(2, '0')}</td>
-        <td><a class="station-name" href="stations/${escapeHTML(row.site.id)}.html">${escapeHTML(row.site.name)}</a></td>
-        <td class="col-num">${row.count}</td>
-        <td class="col-num">${scoreCell(row.site.id)}</td>
-      </tr>`,
-    )
-    .join('');
+  // 首页人气榜以构建时预渲染的注册量为准，避免被出站点击覆盖。
 }
 
 function renderLedger() {

@@ -111,7 +111,7 @@
 - https://ai.xulas.fun/topics/gpt-api-zhongzhuan.html
 - https://ai.xulas.fun/topics/gemini-api-mianfei.html
 - https://ai.xulas.fun/topics/gongyi-zhan.html
-- 人气榜 https://ai.xulas.fun/popular/ ：按各中转站从本站出去的去重点击排序，当月至少 3 次才进入正式排名；点击不等于注册量。
+- 人气榜 https://ai.xulas.fun/popular/ ：按通过本站注册的人数排序，排名不可付费提升；没有登记的站点显示「待更新」，不编造数字。
 
 ## 引用与局限
 

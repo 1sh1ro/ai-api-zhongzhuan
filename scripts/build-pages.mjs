@@ -12,7 +12,8 @@ import {
   FAMILY_LABELS,
 } from "../assets/pricing.js";
 import { scoreStation, buildModelPercentiles } from "../assets/scoring.js";
-import { fetchPopularitySnapshot, writePopularitySnapshot, MIN_SAMPLE } from "./fetch-popularity.mjs";
+import { shanghaiDate } from "./fetch-popularity.mjs";
+import { loadRegistrationRecords, registrationsForMonth, latestRegistrationBySite } from "./registrations.mjs";
 import { buildPopularPage, buildTopicPages } from "./seo-builders.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -25,7 +26,6 @@ const config = readJSON("data/pricing-config.json");
 const scope = readJSON("data/model-scope.json");
 const version = readJSON("data/version.json");
 const guides = readJSON("data/guides.json").guides;
-const registrationsData = readJSON("data/registrations.json");
 
 const BASE = "https://ai.xulas.fun";
 const BUILD = version.build;
@@ -38,9 +38,10 @@ const statedIds = new Set(scope.statedOfferIds || []);
 const rows = buildRows(offers, models, config, statedIds);
 const comparable = comparableRows(rows);
 const siteById = new Map(sites.map((site) => [site.id, site]));
-const registrationsByStation = new Map(
-  (registrationsData.registrations || []).map((item) => [item.stationId, item]),
-);
+const registrationRecords = loadRegistrationRecords(root, new Set(sitesData.sites.map((site) => site.id)));
+const registrationMonth = shanghaiDate().slice(0, 7);
+const registrationsByMonth = registrationsForMonth(registrationRecords, registrationMonth);
+const registrationsByStation = latestRegistrationBySite(registrationRecords);
 const modelById = new Map(models.map((model) => [model.id, model]));
 const stationBestRow = stationBest(rows);
 const modelBestRow = modelBest(rows.filter((row) => row.modelBasis === "stated"));
@@ -336,7 +337,7 @@ for (const site of sites) {
   const score = stationScores.get(site.id);
   const registration = registrationsByStation.get(site.id);
   const registrationLine = registration
-    ? `通过本站链接注册 ${registration.count} 人（${esc(registration.period)}）。`
+    ? `通过本站链接注册 ${registration.registrations} 人（${esc(registration.month)}）。`
     : "";
 
   const summaryLine = comparableModels.length
@@ -739,7 +740,7 @@ ${stationLines}
 - ${BASE}/topics/gpt-api-zhongzhuan.html
 - ${BASE}/topics/gemini-api-mianfei.html
 - ${BASE}/topics/gongyi-zhan.html
-- 人气榜 ${BASE}/popular/ ：按各中转站从本站出去的去重点击排序，当月至少 3 次才进入正式排名；点击不等于注册量。
+- 人气榜 ${BASE}/popular/ ：按通过本站注册的人数排序，排名不可付费提升；没有登记的站点显示「待更新」，不编造数字。
 
 ## 引用与局限
 
@@ -832,35 +833,8 @@ ${modelLeaders
         </section>
         <!-- SNAPSHOT:END -->`;
 
-const registrationEntries = [...registrationsByStation.values()]
-  .filter((item) => siteById.has(item.stationId))
-  .sort((a, b) => b.count - a.count || a.stationId.localeCompare(b.stationId));
-const registrationsHtml = registrationEntries.length
-  ? `
-        <section class="panel" id="registrations">
-          <div class="panel-head">
-            <div>
-              <p class="kicker">REGISTRATIONS</p>
-              <h2>通过本站链接注册</h2>
-            </div>
-            <p class="panel-desc">由维护者从各站点推广后台手工抄录，按统计周期记录。注册量只有站点自己知道，这里只统计能确认的推广数据。</p>
-          </div>
-          <div class="table-wrap">
-            <table class="rank-table">
-              <thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">注册人数</th><th>统计周期</th><th>更新时间</th><th>来源</th></tr></thead>
-              <tbody>
-${registrationEntries
-  .map(
-    (item, index) => `                <tr><td class="col-rank">${String(index + 1).padStart(2, "0")}</td><td><a class="station-name" href="stations/${esc(item.stationId)}.html">${esc(siteById.get(item.stationId)?.name || item.stationId)}</a></td><td class="col-num"><strong class="ratio is-low">${item.count}</strong></td><td>${esc(item.period)}</td><td class="date-cell">${esc(item.updatedAt)}</td><td class="group-cell">${esc(item.source || "")}</td></tr>`,
-  )
-  .join("\n")}
-              </tbody>
-            </table>
-          </div>
-          <p class="table-note">更新方式见 docs/registrations.md。该榜单不参与价格排名和评分。</p>
-        </section>`
-  : "";
-const registrationBlock = `<!-- REGISTRATIONS:START -->${registrationsHtml}<!-- REGISTRATIONS:END -->`;
+const registrationBlock = `<!-- REGISTRATIONS:START --><!-- REGISTRATIONS:END -->`;
+
 if (indexHtml.includes("<!-- REGISTRATIONS:START -->") && indexHtml.includes("<!-- REGISTRATIONS:END -->")) {
   indexHtml = indexHtml.replace(/<!-- REGISTRATIONS:START -->[\s\S]*?<!-- REGISTRATIONS:END -->/, registrationBlock);
 } else {
@@ -929,22 +903,15 @@ if (indexHtml.includes("<!-- ITEM-LIST-JSONLD:START -->")) {
   indexHtml = indexHtml.replace("</head>", `${itemListBlock}\n  </head>`);
 }
 
-/* ---------- 人气快照与专题页 ---------- */
-const popularitySnapshot = await fetchPopularitySnapshot(sites.map((site) => site.id));
-writePopularitySnapshot(root, popularitySnapshot);
-
-const monthEntries = Object.entries(popularitySnapshot.monthClicks || {}).sort((a, b) => b[1] - a[1]);
-const popularPreview = monthEntries
-  .filter(([, count]) => count >= (popularitySnapshot.minSample || MIN_SAMPLE))
+/* ---------- 人气榜与专题页 ---------- */
+const popularPreview = [...registrationsByMonth.values()]
+  .sort((a, b) => b.registrations - a.registrations || a.site.localeCompare(b.site))
   .slice(0, 10);
 const popularBlock = popularPreview.length
   ? popularPreview
-      .map(([stationId, count], index) => {
-        const score = stationScores.get(stationId);
-        return `                <tr><td class="col-rank">${String(index + 1).padStart(2, "0")}</td><td><a class="station-name" href="stations/${esc(stationId)}.html">${esc(siteById.get(stationId)?.name || stationId)}</a></td><td class="col-num">${count}</td><td class="col-num">${score ? score.total.toFixed(1) : "—"}</td></tr>`;
-      })
+      .map((item, index) => `                <tr><td class="col-rank">${String(index + 1).padStart(2, "0")}</td><td><a class="station-name" href="stations/${esc(item.site)}.html">${esc(siteById.get(item.site)?.name || item.site)}</a></td><td class="col-num">${item.registrations}</td></tr>`)
       .join("\n")
-  : `                <tr><td class="empty-cell" colspan="4">本月数据积累中，满 3 次去重点击的站点会自动上榜。</td></tr>`;
+  : `                <tr><td class="empty-cell" colspan="3">本月还没有登记注册量，有数据后会自动上榜。</td></tr>`;
 if (indexHtml.includes("<!-- POPULARITY-PRERENDER:START -->")) {
   indexHtml = indexHtml.replace(
     /<!-- POPULARITY-PRERENDER:START -->[\s\S]*?<!-- POPULARITY-PRERENDER:END -->/,
@@ -976,10 +943,12 @@ const seoCtx = {
   offerTable,
   groupRisk,
   config,
-  snapshot: popularitySnapshot,
+  registrationMonth,
+  registrationsByMonth,
+  registrationRecords,
 };
 buildPopularPage(seoCtx);
 buildTopicPages(seoCtx);
 writeLlmsFiles();
 
-console.log(`generated ${sites.length} station pages, ${models.filter((model) => model.official).length} model pages, sitemap with ${urls.length} urls, popularity keys found ${popularitySnapshot.keysFound}`);
+console.log(`generated ${sites.length} station pages, ${models.filter((model) => model.official).length} model pages, sitemap with ${urls.length} urls, registration records ${registrationRecords.length} (${registrationMonth})`);

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildRows, comparableRows, formatMultiplier } from "../assets/pricing.js";
+import { loadRegistrationRecords } from "./registrations.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readJSON = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
@@ -12,7 +13,6 @@ const offersData = readJSON("data/offers.json");
 const configData = readJSON("data/pricing-config.json");
 const scopeData = readJSON("data/model-scope.json");
 const versionData = readJSON("data/version.json");
-const registrationsData = readJSON("data/registrations.json");
 
 const allowedStatuses = new Set([
   "registration-page-reachable",
@@ -222,18 +222,11 @@ for (const row of rows) {
 }
 
 /* ---------------- 注册转化数据 ---------------- */
-if (registrationsData.schemaVersion !== 1) errors.push("registrations.json: schemaVersion must be 1");
-if (!datePattern.test(registrationsData.updatedAt ?? "")) errors.push("registrations.json: updatedAt must use YYYY-MM-DD");
-const registrationKeys = new Set();
-for (const [index, item] of (registrationsData.registrations ?? []).entries()) {
-  const label = item.stationId || `registrations[${index}]`;
-  if (!siteIds.has(item.stationId)) errors.push(`${label}: unknown stationId`);
-  if (!Number.isInteger(item.count) || item.count < 0) errors.push(`${label}: count must be a non-negative integer`);
-  if (!/^\d{4}-\d{2}$/.test(item.period ?? "")) errors.push(`${label}: period must use YYYY-MM`);
-  if (!datePattern.test(item.updatedAt ?? "")) errors.push(`${label}: updatedAt must use YYYY-MM-DD`);
-  const key = `${item.stationId}|${item.period}`;
-  if (registrationKeys.has(key)) errors.push(`${label}: duplicate registration entry for ${key}`);
-  registrationKeys.add(key);
+try {
+  const registrationRecords = loadRegistrationRecords(root, siteIds);
+  console.log(`注册量记录 ${registrationRecords.length} 条`);
+} catch (error) {
+  for (const line of error.registrationErrors || [error.message]) errors.push(line);
 }
 
 if (errors.length) {
