@@ -20,7 +20,7 @@ const allowedStatuses = new Set([
   "manual-verification-required",
   "degraded",
 ]);
-const allowedInviteParams = new Set(["aff", "invite", "ref"]);
+const allowedInviteParams = new Set(["aff", "invite", "ref", "i"]);
 const safeRedirectPath = /^\/(?!\/)[A-Za-z0-9/_-]*$/;
 const forbiddenParams = /^(api_?key|access_?token|token|key|secret|session|code)$/i;
 const allowedPricingModes = new Set([

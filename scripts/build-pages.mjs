@@ -66,7 +66,7 @@ function modelRankFor(stationId, modelId) {
   return { rank: index + 1, total: list.length, best: list[0] ? list[0].effectiveBlended : null };
 }
 
-const REFERRAL_PARAM_KEYS = ["aff", "ref", "invite", "code"];
+const REFERRAL_PARAM_KEYS = ["aff", "ref", "invite", "code", "i"];
 const GENERIC_REGISTER_PATH = /^\/(sign-?up|signup|register|login|dashboard)\/?$/i;
 
 function esc(value) {
@@ -701,6 +701,13 @@ function writeLlmsFiles() {
 
 口径没有公开充值系数的报价只展示原值，不进入排名。低倍率不等于可用、稳定或模型真实。中转站能看到经它转发的请求，不要提交密钥、证件或私有代码。部分注册链接带推广参数，已在站点页标明，不影响排序。本站不运营任何中转服务。
 
+## 置顶推荐
+
+${sites
+  .filter((site) => site.pinned === true)
+  .map((site) => `- ${site.name}：${site.summary} 推广入口 ${siteLink(site)} · ${BASE}/stations/${site.id}.html`)
+  .join("\n") || "- 当前无置顶推荐"}
+
 ## 各模型当前最低可比价
 
 ${leaderLines.join("\n")}
@@ -864,6 +871,37 @@ if (indexHtml.includes("<!-- HERO-STATS:START -->") && indexHtml.includes("<!-- 
   indexHtml = indexHtml.replace(/<!-- HERO-STATS:START -->[\s\S]*?<!-- HERO-STATS:END -->/, heroStats);
 }
 
+const recommendCards = sites
+  .filter((site) => site.pinned === true)
+  .map((site) => {
+    const summary = String(site.summary || "");
+    const cautionAt = summary.indexOf("价格随上游浮动");
+    const body = cautionAt > 0 ? summary.slice(0, cautionAt).trim() : summary;
+    const caution = cautionAt > 0 ? summary.slice(cautionAt).trim() : "";
+    const href = siteLink(site);
+    const action = hasAffLink(site) ? "推广入口" : "打开站点";
+    return `            <article class="recommend-card">
+              <p class="eyebrow"><span class="dot" aria-hidden="true"></span>置顶推荐</p>
+              <h2>${esc(site.name)}</h2>
+              <p>${esc(body)}</p>
+              ${caution ? `<p class="recommend-caution">${esc(caution)}</p>` : ""}
+              <p class="recommend-actions"><a class="button button-primary" href="${esc(href)}" rel="nofollow noopener" target="_blank" data-station-link="${esc(site.id)}">${action}</a><a class="button" href="stations/${esc(site.id)}.html">站点详情</a></p>
+            </article>`;
+  })
+  .join("\n");
+const recommendBlock = `<!-- RECOMMEND:START -->
+        <section class="recommend" id="recommend" aria-label="置顶推荐"${recommendCards ? "" : " hidden"}>
+          <div class="recommend-grid" id="recommend-list">
+${recommendCards}
+          </div>
+        </section>
+        <!-- RECOMMEND:END -->`;
+if (indexHtml.includes("<!-- RECOMMEND:START -->") && indexHtml.includes("<!-- RECOMMEND:END -->")) {
+  indexHtml = indexHtml.replace(/<!-- RECOMMEND:START -->[\s\S]*?<!-- RECOMMEND:END -->/, recommendBlock);
+} else {
+  indexHtml = indexHtml.replace(/(<aside class="trust-bar")/, `${recommendBlock}\n\n        $1`);
+}
+
 const defaultModel = modelLeaders[0];
 if (defaultModel && indexHtml.includes("<!-- RANK-PRERENDER:START -->")) {
   const defaultRows = bestStationRowsForModel(defaultModel.model.id);
@@ -898,7 +936,7 @@ const itemListBlock = `    <!-- ITEM-LIST-JSONLD:START -->
     <script type="application/ld+json">${JSON.stringify(itemList)}</script>
     <!-- ITEM-LIST-JSONLD:END -->`;
 if (indexHtml.includes("<!-- ITEM-LIST-JSONLD:START -->")) {
-  indexHtml = indexHtml.replace(/<!-- ITEM-LIST-JSONLD:START -->[\s\S]*?<!-- ITEM-LIST-JSONLD:END -->/, itemListBlock);
+  indexHtml = indexHtml.replace(/[ \t]*<!-- ITEM-LIST-JSONLD:START -->[\s\S]*?<!-- ITEM-LIST-JSONLD:END -->/, itemListBlock);
 } else {
   indexHtml = indexHtml.replace("</head>", `${itemListBlock}\n  </head>`);
 }

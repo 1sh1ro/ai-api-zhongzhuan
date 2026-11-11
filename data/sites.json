@@ -1,15 +1,14 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-11-03",
+  "lastVerified": "2026-11-11",
   "sites": [
     {
       "id": "api-nebula",
       "name": "API Nebula",
       "homepage": "https://apinebula.ai/",
       "registrationUrl": "https://apinebula.ai/A89Bk1",
-      "pinned": true,
       "tags": ["gpt", "codex", "claude", "gemini", "grok", "kimi", "domestic-model", "image-workbench", "low-multiplier", "api-relay"],
-      "summary": "置顶推荐。按用户提供的 2026-10-17 展示单价 ÷ 同页标注官方价折算：GPT 约 0.0583x；Claude 与 Grok 最低约 0.0747x；Gemini 约 0.1196x；GPT Image 2/2.5 为 ¥0.05/次，约 0.1494x。该比值不再叠乘站内分组倍率；不同模型、缓存与分组价格有差异，完整明细见仓库价格快照。支持范围来自用户所贴模型页，未实测调用；当前自动访问返回 HTTP 403，页面标注官方价未独立核验。保留用户提供的推广入口 /A89Bk1。",
+      "summary": "按用户提供的 2026-10-17 展示单价 ÷ 同页标注官方价折算：GPT 约 0.0583x；Claude 与 Grok 最低约 0.0747x；Gemini 约 0.1196x；GPT Image 2/2.5 为 ¥0.05/次，约 0.1494x。该比值不再叠乘站内分组倍率；不同模型、缓存与分组价格有差异，完整明细见仓库价格快照。支持范围来自用户所贴模型页，未实测调用；当前自动访问返回 HTTP 403，页面标注官方价未独立核验。保留用户提供的推广入口 /A89Bk1。",
       "status": "automated-access-blocked",
       "verifiedAt": "2026-10-17",
       "sources": [
@@ -690,6 +689,22 @@
         {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/43"},
         {"type": "official-website", "url": "https://www.codebyai.net/"},
         {"type": "public-pricing-api", "url": "https://www.codebyai.net/api/model-prices"}
+      ]
+    },
+    {
+      "id": "teamorouter",
+      "name": "TeamoRouter",
+      "homepage": "https://teamorouter.com/",
+      "registrationUrl": "https://teamorouter.com/?i=5ffc6af2c3",
+      "pinned": true,
+      "tags": ["gpt", "codex", "claude", "gemini", "deepseek", "domestic-model", "api-relay"],
+      "summary": "GLM-5.3-Flash-Free、DeepSeek V4.1 Flash Free 近乎免费（每百万 Token 输入 $0.0001–0.0004）；一个 Key 接 Codex / Claude Code（Anthropic 原生 https://api.teamorouter.com，OpenAI 兼容 /v1）；Claude Fable 5.2 约官方 0.3x（$2.384 / $11.92）；按量计费，$5 起充，支持支付宝/USDT。价格随上游浮动；2026-05 注册的新站，建议小额试用。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-11",
+      "sources": [
+        {"type": "official-website", "url": "https://teamorouter.com/"},
+        {"type": "official-pricing", "url": "https://teamorouter.com/models"},
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48"}
       ]
     }
   ]
