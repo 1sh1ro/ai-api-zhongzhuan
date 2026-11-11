@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "fetchedAt": "2026-11-11T17:58+08:00",
+  "fetchedAt": "2026-11-11T18:07+08:00",
   "timezone": "Asia/Shanghai",
   "currentMonth": "2026-11",
   "previousMonth": "2026-10",
@@ -9,22 +9,11 @@
   "source": "https://abacus.jasoncameron.dev",
   "namespace": "ai-xulas-fun",
   "stationsQueried": 46,
-  "keysQueried": 425,
-  "keysFound": 8,
-  "keyErrors": 173,
-  "visits": {
-    "2026-11-11": 9,
-    "2026-11-10": 4,
-    "2026-11-09": 9,
-    "2026-11-08": 6,
-    "2026-11-07": 9,
-    "2026-11-06": 23,
-    "2026-11-05": 11,
-    "2026-11-04": 23
-  },
-  "visitsTotal": 94,
+  "keysQueried": 414,
+  "keysFound": 0,
+  "keyErrors": 233,
   "monthClicks": {},
   "previousClicks": {},
   "last7Clicks": {},
-  "note": "出站点击按上海时区自然月计数，同一浏览器每天对同一站点只计一次。7 日点击来自按日计数器；若按日键尚不存在，则 last7Clicks 为空。全站 visits 是本站去重访问量，不是各中转站人气。"
+  "note": "出站点击按上海时区自然月计数，同一浏览器每天对同一站点只计一次。monthClicks 只收录计数键真实存在的站点；没有键的站点在页面上显示「积累中」，不用估计值填榜。"
 }

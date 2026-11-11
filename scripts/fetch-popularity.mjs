@@ -79,29 +79,25 @@ export function rankCounts(countMap, minSample = MIN_SAMPLE) {
 export async function fetchPopularitySnapshot(stationIds, options = {}) {
   const today = options.today || shanghaiDate();
   const currentMonth = monthKey(today);
-  const days = recentDays(today, options.visitDays || 11);
+  const days = recentDays(today, 11);
   const last7 = days.slice(0, 7);
   const prevMonthDate = recentDays(today, 32).at(-1);
   const previousMonth = monthKey(prevMonthDate);
 
-  const keys = [
-    ...days.map((day) => visitDayKey(day)),
-    ...stationIds.flatMap((id) => [clickMonthKey(id, currentMonth), clickMonthKey(id, previousMonth), ...last7.map((day) => clickDayKey(id, day))]),
-  ];
+  const keys = stationIds.flatMap((id) => [
+    clickMonthKey(id, currentMonth),
+    clickMonthKey(id, previousMonth),
+    ...last7.map((day) => clickDayKey(id, day)),
+  ]);
 
   const raw = await readAll(keys);
-  const visits = {};
-  for (const day of days) {
-    const item = raw.get(visitDayKey(day));
-    if (item?.found && item.value > 0) visits[day] = item.value;
-  }
 
   const monthClicks = {};
   const previousClicks = {};
   const last7Clicks = {};
   for (const id of stationIds) {
     const monthItem = raw.get(clickMonthKey(id, currentMonth));
-    if (monthItem?.found && monthItem.value > 0) monthClicks[id] = monthItem.value;
+    if (monthItem?.found) monthClicks[id] = monthItem.value;
     const prevItem = raw.get(clickMonthKey(id, previousMonth));
     if (prevItem?.found && prevItem.value > 0) previousClicks[id] = prevItem.value;
     let week = 0;
@@ -133,12 +129,10 @@ export async function fetchPopularitySnapshot(stationIds, options = {}) {
     keysQueried: keys.length,
     keysFound: found,
     keyErrors: errors,
-    visits,
-    visitsTotal: Object.values(visits).reduce((sum, value) => sum + value, 0),
     monthClicks,
     previousClicks,
     last7Clicks,
-    note: "出站点击按上海时区自然月计数，同一浏览器每天对同一站点只计一次。7 日点击来自按日计数器；若按日键尚不存在，则 last7Clicks 为空。全站 visits 是本站去重访问量，不是各中转站人气。",
+    note: "出站点击按上海时区自然月计数，同一浏览器每天对同一站点只计一次。monthClicks 只收录计数键真实存在的站点；没有键的站点在页面上显示「积累中」，不用估计值填榜。",
   };
 }
 

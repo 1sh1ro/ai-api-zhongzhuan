@@ -739,7 +739,7 @@ ${stationLines}
 - ${BASE}/topics/gpt-api-zhongzhuan.html
 - ${BASE}/topics/gemini-api-mianfei.html
 - ${BASE}/topics/gongyi-zhan.html
-- 人气榜 ${BASE}/popular/ ：按本站出站点击去重，当月至少 3 次才进入正式排名；点击不等于注册量。构建时若计数器尚无足够样本，页面会如实留空，不编造数字。
+- 人气榜 ${BASE}/popular/ ：按各中转站从本站出去的去重点击排序，当月至少 3 次才进入正式排名；点击不等于注册量。
 
 ## 引用与局限
 

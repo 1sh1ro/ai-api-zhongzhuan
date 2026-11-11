@@ -8,60 +8,55 @@ function readJSON(root, relative) {
 
 export function buildPopularPage(ctx) {
   const { root, BASE, LASTMOD, sites, siteById, stationScores, siteLink, hasAffLink, shell, esc, formatDate, snapshot } = ctx;
-  const monthClicks = new Map(Object.entries(snapshot.monthClicks || {}));
-  const weekClicks = new Map(Object.entries(snapshot.last7Clicks || {}));
-  const { ranked, underSample } = rankCounts(monthClicks, snapshot.minSample || MIN_SAMPLE);
-  const weekRanked = rankCounts(weekClicks, snapshot.minSample || MIN_SAMPLE).ranked;
+  const monthClicks = snapshot.monthClicks || {};
+  const minSample = snapshot.minSample || MIN_SAMPLE;
+  const monthMap = new Map(Object.entries(monthClicks));
+  const { ranked, underSample } = rankCounts(monthMap, minSample);
 
-  const visitDays = Object.entries(snapshot.visits || {}).sort(([a], [b]) => a.localeCompare(b));
-  const maxVisit = Math.max(0, ...visitDays.map(([, value]) => value));
-
-  function stationRow(row, index) {
-    const site = siteById.get(row.stationId);
-    const score = stationScores.get(row.stationId);
-    const aff = hasAffLink(site) ? '<span class="aff-badge">推广</span>' : "";
-    return `<tr>
-      <td class="col-rank">${String(index + 1).padStart(2, "0")}</td>
-      <td><a class="station-name" href="../stations/${esc(row.stationId)}.html">${esc(site?.name || row.stationId)}</a>${aff}</td>
-      <td class="col-num">${row.count}</td>
-      <td class="col-num">${score ? score.total.toFixed(1) : "—"}</td>
-    </tr>`;
+  const rows = sites.map((site) => {
+    const hasCount = Object.prototype.hasOwnProperty.call(monthClicks, site.id);
+    const count = hasCount ? Number(monthClicks[site.id]) || 0 : 0;
+    return {
+      stationId: site.id,
+      name: site.name || site.id,
+      hasCount,
+      count,
+      qualified: hasCount && count >= minSample,
+    };
+  });
+  rows.sort((a, b) => {
+    if (a.qualified !== b.qualified) return a.qualified ? -1 : 1;
+    if (a.hasCount !== b.hasCount) return a.hasCount ? -1 : 1;
+    if (a.count !== b.count) return b.count - a.count;
+    return a.name.localeCompare(b.name, "zh");
+  });
+  let rank = 0;
+  for (const row of rows) {
+    if (row.qualified) {
+      rank += 1;
+      row.rank = rank;
+    }
   }
 
-  const monthTable = ranked.length
-    ? `<div class="table-wrap"><table class="rank-table"><thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">本月去重点击</th><th class="col-num">评分</th></tr></thead><tbody>
-${ranked.map(stationRow).join("\n")}
-      </tbody></table></div>`
-    : `<p class="table-note">本月数据积累中，满 3 次去重点击的站点会自动上榜。</p>`;
-
-  const underTable = underSample.length
-    ? `<div class="table-wrap"><table class="rank-table"><thead><tr><th>站点</th><th class="col-num">本月去重点击</th></tr></thead><tbody>
-${underSample
+  const table = `<div class="table-wrap"><table class="rank-table is-simple"><thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">本月去重点击</th></tr></thead><tbody>
+${rows
   .map((row) => {
     const site = siteById.get(row.stationId);
-    return `<tr><td><a class="station-name" href="../stations/${esc(row.stationId)}.html">${esc(site?.name || row.stationId)}</a></td><td class="col-num">${row.count}</td></tr>`;
+    const aff = hasAffLink(site) ? '<span class="aff-badge">推广</span>' : "";
+    const clicks = row.hasCount ? String(row.count) : "积累中";
+    const rankCell = row.qualified ? String(row.rank).padStart(2, "0") : "—";
+    return `<tr>
+      <td class="col-rank">${rankCell}</td>
+      <td><a class="station-name" href="../stations/${esc(row.stationId)}.html">${esc(row.name)}</a>${aff}</td>
+      <td class="col-num">${clicks}</td>
+    </tr>`;
   })
   .join("\n")}
-      </tbody></table></div><p class="table-note">这些站点还差一点，暂不进入正式排名。</p>`
-    : "";
+      </tbody></table></div>`;
 
-  const weekTable = weekRanked.length
-    ? `<div class="table-wrap"><table class="rank-table"><thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">近 7 日去重点击</th></tr></thead><tbody>
-${weekRanked.map((row, index) => stationRow(row, index)).join("\n")}
-      </tbody></table></div>`
-    : `<p class="table-note">近 7 日数据还在积累，有记录后会显示在这里。</p>`;
-
-  const visitChart = visitDays.length
-    ? `<div class="visit-bars" aria-label="本站每日去重访问">
-${visitDays
-  .map(([day, value]) => {
-    const height = maxVisit ? Math.max(8, Math.round((value / maxVisit) * 96)) : 8;
-    return `        <div class="visit-bar"><strong>${value}</strong><span class="bar" style="height:${height}px"></span><em>${esc(day.slice(5))}</em></div>`;
-  })
-  .join("\n")}
-      </div>
-      <p class="table-note">这是来看本站的人次，合计 ${snapshot.visitsTotal}，不能用来给中转站排序。</p>`
-    : "";
+  const emptyNote = ranked.length
+    ? ""
+    : `<p class="table-note">本月数据积累中，满 3 次去重点击的站点会自动上榜。</p>`;
 
   const jsonLd = [
     {
@@ -118,17 +113,8 @@ ${visitDays
         </section>
         <section class="panel" id="month-rank">
           <div class="panel-head"><div><p class="kicker">THIS MONTH</p><h2>本月人气</h2></div></div>
-          ${monthTable}
-          ${underTable}
-        </section>
-        <section class="panel" id="week-rank">
-          <div class="panel-head"><div><p class="kicker">LAST 7 DAYS</p><h2>近 7 日</h2></div></div>
-          ${weekTable}
-        </section>
-        <section class="panel" id="site-visits">
-          <div class="panel-head"><div><p class="kicker">SITE VISITS</p><h2>本站访问量</h2></div>
-          <p class="panel-desc">这是来看本站的人次，不是各中转站的人气。</p></div>
-          ${visitChart}
+          ${emptyNote}
+          ${table}
         </section>`;
 
   fs.mkdirSync(path.join(root, "popular"), { recursive: true });
@@ -148,7 +134,7 @@ ${visitDays
     }),
   );
 
-  return { ranked, underSample, weekRanked, visitDays };
+  return { ranked, underSample };
 }
 
 export function buildTopicPages(ctx) {
