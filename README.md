@@ -11,11 +11,11 @@
 > [!TIP]
 > **置顶推荐：TeamoRouter**
 >
-> GLM-5.3-Flash-Free、DeepSeek V4.1 Flash Free 近乎免费（每百万 Token 输入 $0.0001–0.0004）；一个 Key 接 Codex / Claude Code（Anthropic 原生 https://api.teamorouter.com，OpenAI 兼容 /v1）；Claude Fable 5.2 约官方 0.3x（$2.384 / $11.92）；按量计费，$5 起充，支持支付宝/USDT。
+> 官网限时补贴中，最低官方价 1 折：GLM-5.3-Flash-Free、DeepSeek V4.1 Flash Free 99.9% off（输入 $0.0001 / 输出 $0.0004–0.0006，近乎免费）；Grok 4.6 1 折（$0.2 / $0.6）；GPT-6 Astra 78% off（$2.17 / $10.85）；Claude 全系约 71% off：Fable 5.2 $2.384 / $11.92、Opus 5.5 $1.148 / $5.74、Sonnet 5.5 $0.574 / $2.87；Gemini 4 Carbon 71% off（$0.58 / $2.9）；GLM-5.3、Kimi K3.1 Pro、Qwen3.8 Max 5 折。一个 Key 接 Codex / Claude Code（Anthropic 原生 https://api.teamorouter.com，OpenAI 兼容 /v1）；按量计费，额度不过期，$5 起充，支持支付宝/USDT。
 >
-> 价格随上游浮动；2026-05 注册的新站，建议小额试用。
+> 价格每小时随上游浮动，以官网实时价为准；2026-05 注册的新站，建议小额试用。
 >
-> [**前往 TeamoRouter →**](https://teamorouter.com/?i=5ffc6af2c3) · 推广入口；官网价格页核验 2026-11-11。未实测调用。
+> [**前往 TeamoRouter →**](https://teamorouter.com/?i=5ffc6af2c3) · 官网价格页核验 2026-11-11。未实测调用。
 
 > [!TIP]
 > **💱 FREE TOEKN**
@@ -49,7 +49,7 @@ TeamoRouter 按维护者推荐置顶；其余条目优先展示免费、免费�
 
 | 站点 | URL | 特别优惠 | 页面状态 | 信息来源 |
 | --- | --- | --- | --- | --- |
-| TeamoRouter | [TeamoRouter](https://teamorouter.com/?i=5ffc6af2c3) | 置顶推荐。GLM-5.3-Flash-Free、DeepSeek V4.1 Flash Free 近乎免费（每百万 Token 输入 $0.0001–0.0004）；一个 Key 接 Codex / Claude Code；Claude Fable 5.2 约官方 0.3x（$2.384 / $11.92）；按量计费，$5 起充，支持支付宝/USDT。价格随上游浮动；2026-05 注册的新站，建议小额试用 | 首页与价格页可访问（2026-11-11）；未实测调用 | [推广入口](https://teamorouter.com/?i=5ffc6af2c3)；[价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
+| TeamoRouter | [前往 TeamoRouter →](https://teamorouter.com/?i=5ffc6af2c3) | 置顶推荐。官网限时补贴中，最低 1 折：GLM / DeepSeek Flash Free 99.9% off（输入 $0.0001 / 输出 $0.0004–0.0006）；Grok 4.6 1 折（$0.2 / $0.6）；GPT-6 Astra 78% off（$2.17 / $10.85）；Claude 全系约 71% off；Gemini 4 Carbon 71% off（$0.58 / $2.9）；GLM-5.3、Kimi K3.1 Pro、Qwen3.8 Max 5 折。额度不过期，$5 起充。价格每小时随上游浮动 | 首页与价格页可访问（2026-11-11）；未实测调用 | [价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | GPT 约 0.0583x；Claude/Grok 最低约 0.0747x；Gemini 约 0.1196x；GPT Image 2/2.5 ¥0.05/次 | 自动访问受阻（403）；未实测调用 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | 用户补充模型覆盖全面、线路相对稳定、Grok 价格友好；公开价格接口当前返回 13 个活跃分组，覆盖 OpenAI、Claude、Gemini、Grok、Kimi、DeepSeek、智谱等；Grok 企业版页面显示 1x，按官方价折算约 0.14x（1.4 折、节省 86%），支持 Grok 4.6/4.5、图片和视频 | 可访问（公开注册/价格页；2026-09-03） | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups)；本地访问核验 |
 | OrcaRouter | [OrcaRouter](https://www.orcarouter.ai/ref/ref_feec389da7083bc9a430) | 当前免费模型（5 个）：`deepseek/deepseek-v4-flash-free`、`fish-audio/s2.1-pro-free`、`qwen/qwen3.8-27b-free`、`s2.1-pro-free`、`tencent/hy3-free` | 可访问（2026-08-27） | [免费模型页](https://www.orcarouter.ai/zh-CN/offers)；[文档](https://docs.orcarouter.ai/)；本地访问核验 |
@@ -87,7 +87,7 @@ TeamoRouter 按维护者推荐置顶；其余条目优先展示免费、免费�
 | 4Router | [4Router](https://4router.net/register) | `GptPro` 0.45x；`GptPro-Fast` 0.8x；`gift` 0.01x 当前不可选 | [模型价格](https://4router.net/pricing) |
 | YonshoreAPI | [YonshoreAPI](https://api.yonshore.com/register) | 公开价格接口当前返回 12 个 GPT/Claude 模型 ID 和按模型、上下文计价公式；未将 tiered expression 折算成单一倍率 | [公开价格 JSON](https://api.yonshore.com/api/pricing)；[Issue #10](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/10) |
 | HelpCoder | [HelpCoder](https://helpcoder.cc/register) | 公开价格接口当前列出 14 个 GPT/Codex 模型；Issue #6 报告的注册额度为 2026-08-31 用户实测，本次未复验金额 | [公开价格 JSON](https://helpcoder.cc/api/pricing)；[站点状态](https://helpcoder.cc/api/status)；[Issue #6](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/6) |
-| TeamoRouter | [TeamoRouter](https://teamorouter.com/?i=5ffc6af2c3) | 一个 Key 可接 Codex（OpenAI 兼容 `https://api.teamorouter.com/v1`），按量计费。Codex 本身不免费；单价以官网价格页为准，并随上游浮动 | 首页与价格页可访问（2026-11-11）；[推广入口](https://teamorouter.com/?i=5ffc6af2c3)；[价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
+| TeamoRouter | [前往 TeamoRouter →](https://teamorouter.com/?i=5ffc6af2c3) | GPT-6 Astra 78% off（输入 $2.17、输出 $10.85 / 百万 Token，官网标价 $10 / $50）。Codex 走 OpenAI 兼容 `/v1`，按量计费，Codex 本身不免费 | 首页与价格页可访问（2026-11-11）；[价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
 
 ## Claude 倍率
 
@@ -101,7 +101,7 @@ TeamoRouter 按维护者推荐置顶；其余条目优先展示免费、免费�
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | `Claude Plus（精品）` 约 0.11x（页面 0.8x，约 1.1 折）；`Claude Max（仅限CC）` 约 0.29x（页面 2x，约 2.9 折）；`Claude Max（外接版）` 约 0.31x（页面 2.2x，约 3.1 折）；Claude 官渠约 0.71x（页面 5x，约 7.1 折） | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
 | Zerouter | [Zerouter](https://www.zerouter.ai/login?ref=Q32i5Dt7&redirect=/dashboard/caller) | `claude-sonnet-5-5` / `claude-opus-5` 约 0.23x；`claude-opus-5-5` 输入 $1.16、输出 $5.81 / 1M（官方 $4 / $20，约 0.29x）；Anthropic `/v1/messages`，可直接用于 Claude Code | 运营方自荐（2026-10-18）；[价格页](https://www.zerouter.ai/pricing) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | Claude 满缓存渠道 0.25x；CC 长期稳定 0.55x；日区 CC 0.75x；CCMAX 特价 0.8x；CCMAX 官转 1.3x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
-| TeamoRouter | [TeamoRouter](https://teamorouter.com/?i=5ffc6af2c3) | Claude Fable 5.2 约官方 0.3x（输入 $2.384、输出 $11.92 / 百万 Token，同页标价 $8 / $40）；Anthropic 原生 `https://api.teamorouter.com`，可接 Claude Code。价格随上游浮动 | 首页与价格页可访问（2026-11-11）；[推广入口](https://teamorouter.com/?i=5ffc6af2c3)；[价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
+| TeamoRouter | [前往 TeamoRouter →](https://teamorouter.com/?i=5ffc6af2c3) | Claude 全系约 71% off：Fable 5.2 $2.384 / $11.92、Opus 5.5 $1.148 / $5.74、Sonnet 5.5 $0.574 / $2.87。Anthropic 原生 `https://api.teamorouter.com`，可接 Claude Code。价格每小时随上游浮动 | 首页与价格页可访问（2026-11-11）；[价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `claudecode-krio逆向` 0.35x；`claude-russia` 1x；`ccmax` 1.4x；`ccmax-外接` 1.6x | 用户补充；[当前入口](https://hezubus.cc/p/) |
 | 4Router | [4Router](https://4router.net/register) | `cheapClaude` 0.45x；`ccMax-sale` 0.8x | [模型价格](https://4router.net/pricing) |
 | FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | Claude 0.7x | [可用渠道](https://www.fastaitoken.com/available-channels) |
@@ -117,6 +117,7 @@ TeamoRouter 按维护者推荐置顶；其余条目优先展示免费、免费�
 | BeeAPI | [BeeAPI](https://beeapi.ai/signup?aff=75OPR7DQRJCG) | Grok 0.014x（用户提供；官网公开页暂未列出 Grok 型号或该价格，待核验） | 用户提供（2026-09-26）；[官网](https://beeapi.ai/)；[注册链接](https://beeapi.ai/signup?aff=75OPR7DQRJCG) |
 | znbcode | [znbcode](https://znbcode.com/register?aff=NAV-1SH1RO) | `znb-grok-heavy`（grok-4.5 / 4.6 / 4.7）0.2x；参考价为美元官方价、充值 ¥1 = $1，按汇率 6.70 折算约 0.030x | 运营方提交（2026-11-03）；[公开分组价格 JSON](https://znbcode.com/api/v1/model-plaza)；[Issue #24](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/24) |
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | `grok-4.7` / `grok-4.6`：输入 ¥1、输出 ¥3、缓存读取 ¥0.25 / 1M；三项均约 0.0747x；站内 Grok 分组 0.5x 单独记录 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
+| TeamoRouter | [前往 TeamoRouter →](https://teamorouter.com/?i=5ffc6af2c3) | Grok 4.6 1 折：输入 $0.2、输出 $0.6 / 百万 Token（官网标价 $2 / $6，90% off） | 官网价格页（2026-11-11）；[价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
 | APIKEY.FUN | [APIKEY.FUN](https://apikey.fun/register?aff=GLVRZSHR5MKQ) | `Grok 企业版` 约 0.14x（页面 1x，约 1.4 折）；支持 Grok 4.6/4.5、图片和视频 | [价格页](https://apikey.fun/pricing)；[公开分组数据](https://apikey.fun/api/v1/pricing/groups) |
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | Grok 混池 0.15x | 登录后可见；[密钥分组选项](https://api.aijws.com/keys) |
 | Zerouter | [Zerouter](https://www.zerouter.ai/login?ref=Q32i5Dt7&redirect=/dashboard/caller) | `grok-4.6` / `grok-4.5` 输入 $0.30、输出 $0.90 / 1M（官方 $2 / $6，约 0.15x） | 运营方自荐（2026-10-18）；[价格页](https://www.zerouter.ai/pricing) |
@@ -133,7 +134,7 @@ TeamoRouter 按维护者推荐置顶；其余条目优先展示免费、免费�
 | --- | --- | --- | --- |
 | znbcode | [znbcode](https://znbcode.com/register?aff=NAV-1SH1RO) | `znb-gemini-3.8`（gemini-3.8-flash）0.4x；参考价为美元官方价、充值 ¥1 = $1，按汇率 6.70 折算约 0.060x | 运营方提交（2026-11-03）；[公开分组价格 JSON](https://znbcode.com/api/v1/model-plaza)；[Issue #24](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/24) |
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | `gemini-4-argon` / `gemini-4-barium`：输入 ¥1.60、输出 ¥8 / 1M；`gemini-3.1-pro-preview` ¥1.60 / ¥9.60；`gemini-3.8-flash` ¥0.60 / ¥3；输入/输出均约 0.1196x；站内分组 0.8x / 1.5x 单独记录 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
-| TeamoRouter | [TeamoRouter](https://teamorouter.com/?i=5ffc6af2c3) | 官网价格页含 Gemini；本条不单列倍率，以价格页为准 | 首页与价格页可访问（2026-11-11）；[推广入口](https://teamorouter.com/?i=5ffc6af2c3)；[价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
+| TeamoRouter | [前往 TeamoRouter →](https://teamorouter.com/?i=5ffc6af2c3) | Gemini 4 Carbon 71% off：输入 $0.58、输出 $2.9 / 百万 Token（官网标价 $2 / $10） | 官网价格页（2026-11-11）；[价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
 | Zerouter | [Zerouter](https://www.zerouter.ai/login?ref=Q32i5Dt7&redirect=/dashboard/caller) | `gemini-3.8-flash` / `gemini-3.7-flash` 输入 $0.11、输出 $0.56 / 1M（官方 $0.75 / $3.75，约 0.15x） | 运营方自荐（2026-10-18）；[价格页](https://www.zerouter.ai/pricing) |
 | AIZZZ | [AIZZZ](https://api.aizzz.xyz/sign-up?aff=zAnM) | Gemini 0.3x | 登录后可见；[模型广场](https://api.aizzz.xyz/pricing) |
 | 合租巴士 | [合租巴士](https://hezu.ink/register) | `gemini特惠` 0.3x | 用户补充；[当前入口](https://hezubus.cc/p/) |
@@ -171,7 +172,7 @@ TeamoRouter 按维护者推荐置顶；其余条目优先展示免费、免费�
 | 站点 | 入口 | 分组/倍率 | 支持模型或说明 | 状态与来源 |
 | --- | --- | --- | --- | --- |
 | OrcaRouter | [OrcaRouter](https://www.orcarouter.ai/ref/ref_feec389da7083bc9a430) | 免费 | DeepSeek、Qwen 等免费模型，完整模型 ID 见上方特别优惠 | [免费模型页](https://www.orcarouter.ai/zh-CN/offers) |
-| TeamoRouter | [TeamoRouter](https://teamorouter.com/?i=5ffc6af2c3) | 近乎免费 | GLM-5.3-Flash-Free、DeepSeek V4.1 Flash Free：每百万 Token 输入 $0.0001–0.0004。价格随上游浮动 | 首页与价格页可访问（2026-11-11）；[推广入口](https://teamorouter.com/?i=5ffc6af2c3)；[价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
+| TeamoRouter | [前往 TeamoRouter →](https://teamorouter.com/?i=5ffc6af2c3) | 99.9% off | GLM-5.3-Flash-Free、DeepSeek V4.1 Flash Free：输入 $0.0001 / 输出 $0.0004–0.0006。GLM-5.3、Kimi K3.1 Pro、Qwen3.8 Max 为 5 折。价格每小时随上游浮动 | 官网价格页（2026-11-11）；[价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
 | Horizon API | [Horizon API](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) | 国模羊毛 0.0002x（页面 0.001x，按 1:5 折算） | 截图标注限 GPT 订阅用户使用 | 用户提供截图；[注册页](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) |
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | `[限时]国模` 0.001x | 国产模型；部分分组受额度和稳定性影响 | [密钥分组选项](https://api.aijws.com/keys) |
 | 杨的中转小站 | [杨的中转小站](https://ai.yangwang.name/dashboard) | GLM-5.3/DeepSeek 低至 0.01x | 注册送余额；容量有限 | Issue 自述；[Issue #4](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/4) |
@@ -192,7 +193,7 @@ TeamoRouter 按维护者推荐置顶；其余条目优先展示免费、免费�
 | 站点 | 入口 | 当前可见信息 | 状态与来源 |
 | --- | --- | --- | --- |
 | API Nebula | [API Nebula](https://apinebula.ai/A89Bk1) | 用户所贴模型页覆盖 OpenAI、Anthropic、Google、xAI，并列有 Moonshot AI、智谱供应商；GPT/Claude/Grok/Gemini 和图片价格按模型分别折算，完整 20 个模型及 15 个分组见明细 | 用户提供价格快照（2026-10-17）；自动访问 403；[折算明细](docs/apinebula-pricing-2026-10-17.md) |
-| TeamoRouter | [TeamoRouter](https://teamorouter.com/?i=5ffc6af2c3) | 一个 Key 接 Codex / Claude Code（Anthropic 原生 `https://api.teamorouter.com`，OpenAI 兼容 `/v1`）；按量计费，$5 起充，支持支付宝/USDT。价格随上游浮动；2026-05 注册的新站，建议小额试用 | 首页与价格页可访问（2026-11-11）；[推广入口](https://teamorouter.com/?i=5ffc6af2c3)；[价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
+| TeamoRouter | [前往 TeamoRouter →](https://teamorouter.com/?i=5ffc6af2c3) | 一个 Key 接 Codex / Claude Code（Anthropic 原生 `https://api.teamorouter.com`，OpenAI 兼容 `/v1`）；按量计费，额度不过期，$5 起充，支持支付宝/USDT。价格每小时随上游浮动；2026-05 注册的新站，建议小额试用 | 官网价格页（2026-11-11）；[价格页](https://teamorouter.com/models)；[Issue #48](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48) |
 | BeeAPI | [中转站的中转站：BeeAPI](https://beeapi.ai/signup?aff=75OPR7DQRJCG) | 官网介绍聚合多家 AI API 商家，提供价格对比与渠道选择；覆盖 OpenAI、Anthropic、Gemini 等。注册、实际价格和调用能力尚未实际验证 | [官网](https://beeapi.ai/)；[注册链接](https://beeapi.ai/signup?aff=75OPR7DQRJCG) |
 | TokenWorks | [TokenWorks](https://api.token8341.com/sign-up) | 官方定价目录汇总 20 家模型厂商，展示官方价与本站按量价；包含文本、图片、视频、语音等模型 | [模型价格](https://www.token8341.com/zh/pricing)；[关于页面](https://www.token8341.com/zh/about)；[API 文档](https://www.token8341.com/zh/docs) |
 | KaiGPT | [KaiGPT](https://gptzzz.ai/register) | OpenAI 与 Claude 主流模型官网标注 0.1x；账户模型和具体价格需从模型广场核对 | [官网](https://gptzzz.ai/)；[模型广场](https://gptzzz.ai/model-plaza)；[文档](https://gptzzz.ai/docs/) |

@@ -93,9 +93,11 @@ assert(node("#site-grid").innerHTML.includes("AIZZZ"), "站点目录应包含 AI
 assert(node("#site-grid").innerHTML.includes("apikey.fun/register?aff="), "站点目录应保留推广链接");
 const recommendHtml = node("#recommend-list")?.innerHTML || "";
 assert(recommendHtml.includes("TeamoRouter"), "置顶推荐应包含 TeamoRouter");
-assert(recommendHtml.includes("https://teamorouter.com/?i=5ffc6af2c3"), "置顶推荐应使用 TeamoRouter 推广链接");
-assert(recommendHtml.includes("推广入口"), "置顶推荐链接应标为推广入口");
-assert(recommendHtml.includes("GLM-5.3-Flash-Free、DeepSeek V4.1 Flash Free 近乎免费"), "置顶推荐应展示 TeamoRouter 说明");
+assert(recommendHtml.includes("https://teamorouter.com/?i=5ffc6af2c3"), "置顶推荐应使用 TeamoRouter 注册链接");
+assert(recommendHtml.includes("前往 TeamoRouter →"), "置顶推荐按钮应为前往 TeamoRouter");
+assert(!recommendHtml.includes("推广入口"), "TeamoRouter 置顶推荐不应再标推广入口");
+assert(recommendHtml.includes("官网限时补贴中，最低官方价 1 折"), "置顶推荐应展示当前折扣说明");
+assert(recommendHtml.includes("GPT-6 Astra 78% off（$2.17 / $10.85）"), "置顶推荐应使用官网 GPT-6 Astra 价格");
 assert(!recommendHtml.includes("API Nebula"), "API Nebula 不应再出现在置顶推荐");
 assert((recommendHtml.match(/recommend-card/g) || []).length === 1, "置顶推荐当前应只有 TeamoRouter");
 const modelHandler = node("#model-select").listeners.change?.[0];

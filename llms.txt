@@ -1,6 +1,6 @@
 # AI API 比价雷达
 
-> 中文开源目录：以厂商官方价为分母，把各中转站的充值系数、分组倍率与绝对单价折算成综合倍率。最后更新 2026-11-11（构建 2026-11-11c）。
+> 中文开源目录：以厂商官方价为分母，把各中转站的充值系数、分组倍率与绝对单价折算成综合倍率。最后更新 2026-11-11（构建 2026-11-11d）。
 
 - 网站：https://ai.xulas.fun/
 - 站点索引：https://ai.xulas.fun/stations/index.html
@@ -22,7 +22,7 @@
 
 ## 置顶推荐
 
-- TeamoRouter：GLM-5.3-Flash-Free、DeepSeek V4.1 Flash Free 近乎免费（每百万 Token 输入 $0.0001–0.0004）；一个 Key 接 Codex / Claude Code（Anthropic 原生 https://api.teamorouter.com，OpenAI 兼容 /v1）；Claude Fable 5.2 约官方 0.3x（$2.384 / $11.92）；按量计费，$5 起充，支持支付宝/USDT。价格随上游浮动；2026-05 注册的新站，建议小额试用。 推广入口 https://teamorouter.com/?i=5ffc6af2c3 · https://ai.xulas.fun/stations/teamorouter.html
+- TeamoRouter：官网限时补贴中，最低官方价 1 折：GLM-5.3-Flash-Free、DeepSeek V4.1 Flash Free 99.9% off（输入 $0.0001 / 输出 $0.0004–0.0006，近乎免费）；Grok 4.6 1 折（$0.2 / $0.6）；GPT-6 Astra 78% off（$2.17 / $10.85）；Claude 全系约 71% off：Fable 5.2 $2.384 / $11.92、Opus 5.5 $1.148 / $5.74、Sonnet 5.5 $0.574 / $2.87；Gemini 4 Carbon 71% off（$0.58 / $2.9）；GLM-5.3、Kimi K3.1 Pro、Qwen3.8 Max 5 折。一个 Key 接 Codex / Claude Code（Anthropic 原生 https://api.teamorouter.com，OpenAI 兼容 /v1）；按量计费，额度不过期，$5 起充，支持支付宝/USDT。价格每小时随上游浮动，以官网实时价为准；2026-05 注册的新站，建议小额试用。 前往 TeamoRouter → https://teamorouter.com/?i=5ffc6af2c3 · https://ai.xulas.fun/stations/teamorouter.html
 
 ## 各模型当前最低可比价
 

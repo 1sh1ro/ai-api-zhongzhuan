@@ -8,7 +8,7 @@ import {
 } from './assets/pricing.js';
 import { scoreStation, buildModelPercentiles } from './assets/scoring.js';
 
-const ASSET_VERSION = '2026-11-11c';
+const ASSET_VERSION = '2026-11-11d';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -493,19 +493,6 @@ function renderSites() {
   el.empty.hidden = sites.length !== 0;
 }
 
-function hasReferralLink(site) {
-  for (const value of [site?.homepage, site?.registrationUrl]) {
-    if (!value) continue;
-    try {
-      const url = new URL(value);
-      if ([...url.searchParams.keys()].some((key) => REFERRAL_PARAM_KEYS.includes(key.toLowerCase()))) return true;
-    } catch {
-      /* ignore invalid */
-    }
-  }
-  return false;
-}
-
 function renderRecommend() {
   const section = document.querySelector('#recommend');
   const list = document.querySelector('#recommend-list');
@@ -515,11 +502,11 @@ function renderRecommend() {
   list.innerHTML = pinned
     .map((site) => {
       const summary = String(site.summary || '');
-      const cautionAt = summary.indexOf('价格随上游浮动');
+      const cautionAt = summary.indexOf('价格每小时随上游浮动');
       const body = cautionAt > 0 ? summary.slice(0, cautionAt).trim() : summary;
       const caution = cautionAt > 0 ? summary.slice(cautionAt).trim() : '';
       const href = siteLink(site.id);
-      const action = hasReferralLink(site) ? '推广入口' : '打开站点';
+      const action = site.id === 'teamorouter' ? '前往 TeamoRouter →' : '打开站点';
       return `<article class="recommend-card">
         <p class="eyebrow"><span class="dot" aria-hidden="true"></span>置顶推荐</p>
         <h2>${escapeHTML(site.name)}</h2>

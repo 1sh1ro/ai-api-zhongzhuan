@@ -39,7 +39,7 @@ export function buildPopularPage(ctx) {
 ${rows
   .map((row) => {
     const site = siteById.get(row.stationId);
-    const aff = hasAffLink(site) ? '<span class="aff-badge">推广</span>' : "";
+    const aff = hasAffLink(site) && site.id !== "teamorouter" ? '<span class="aff-badge">推广</span>' : "";
     const value = row.hasCount ? String(row.count) : "待更新";
     const rankCell = row.qualified ? String(row.rank).padStart(2, "0") : "—";
     return `<tr>

@@ -359,9 +359,9 @@ ${rankedModels
           <p class="eyebrow">STATION · ${esc(site.id)}</p>
           <h1>${esc(site.name)} 的 API 报价与核验记录</h1>
           <p class="lede">${esc(site.summary)}</p>
-          <p class="hero-note">状态 ${esc(statusLabel)} · 核验 ${esc(formatDate(site.verifiedAt))} · ${stationRows.length} 条报价，其中 ${comparableCount} 条口径统一可比。${summaryLine}综合评分 ${score.total.toFixed(1)}（${score.grade}）。本月站内点击 <strong data-click-count="${esc(site.id)}">—</strong> 次。${registrationLine}${hasAffLink(site) ? "该页「打开站点」带推广参数。" : ""}</p>
+          <p class="hero-note">状态 ${esc(statusLabel)} · 核验 ${esc(formatDate(site.verifiedAt))} · ${stationRows.length} 条报价，其中 ${comparableCount} 条口径统一可比。${summaryLine}综合评分 ${score.total.toFixed(1)}（${score.grade}）。本月站内点击 <strong data-click-count="${esc(site.id)}">—</strong> 次。${registrationLine}${hasAffLink(site) && site.id !== "teamorouter" ? "该页「打开站点」带推广参数。" : ""}</p>
           ${stationRows.some((row) => groupRisk(row.groupName, row.note)) ? '<p class="hero-note">该站部分分组名称含 Kiro、逆向、号池或 CC Max，已在报价表中标注；这是根据名称做的风险提示，未做实际调用验真。</p>' : ""}
-          <p><a class="button button-primary" href="${esc(siteLink(site))}" rel="nofollow noopener" target="_blank" data-station-link="${esc(site.id)}">打开站点 ↗</a>${hasAffLink(site) ? '<span class="aff-badge">推广</span>' : ""}</p>
+          <p><a class="button button-primary" href="${esc(siteLink(site))}" rel="nofollow noopener" target="_blank" data-station-link="${esc(site.id)}">${site.id === "teamorouter" ? "前往 TeamoRouter →" : "打开站点 ↗"}</a>${hasAffLink(site) && site.id !== "teamorouter" ? '<span class="aff-badge">推广</span>' : ""}</p>
         </section>
         <section class="panel">
           <div class="panel-head"><div><p class="kicker">SCORE</p><h2>综合评分 ${score.total.toFixed(1)}</h2></div>
@@ -705,7 +705,11 @@ function writeLlmsFiles() {
 
 ${sites
   .filter((site) => site.pinned === true)
-  .map((site) => `- ${site.name}：${site.summary} 推广入口 ${siteLink(site)} · ${BASE}/stations/${site.id}.html`)
+  .map((site) => {
+    const href = siteLink(site);
+    const lead = site.id === "teamorouter" ? `前往 ${site.name} → ${href}` : href;
+    return `- ${site.name}：${site.summary} ${lead} · ${BASE}/stations/${site.id}.html`;
+  })
   .join("\n") || "- 当前无置顶推荐"}
 
 ## 各模型当前最低可比价
@@ -875,11 +879,11 @@ const recommendCards = sites
   .filter((site) => site.pinned === true)
   .map((site) => {
     const summary = String(site.summary || "");
-    const cautionAt = summary.indexOf("价格随上游浮动");
+    const cautionAt = summary.indexOf("价格每小时随上游浮动");
     const body = cautionAt > 0 ? summary.slice(0, cautionAt).trim() : summary;
     const caution = cautionAt > 0 ? summary.slice(cautionAt).trim() : "";
     const href = siteLink(site);
-    const action = hasAffLink(site) ? "推广入口" : "打开站点";
+    const action = site.id === "teamorouter" ? "前往 TeamoRouter →" : "打开站点";
     return `            <article class="recommend-card">
               <p class="eyebrow"><span class="dot" aria-hidden="true"></span>置顶推荐</p>
               <h2>${esc(site.name)}</h2>
