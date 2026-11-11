@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "fetchedAt": "2026-11-11T17:52+08:00",
+  "fetchedAt": "2026-11-11T17:58+08:00",
   "timezone": "Asia/Shanghai",
   "currentMonth": "2026-11",
   "previousMonth": "2026-10",
@@ -11,7 +11,7 @@
   "stationsQueried": 46,
   "keysQueried": 425,
   "keysFound": 8,
-  "keyErrors": 210,
+  "keyErrors": 173,
   "visits": {
     "2026-11-11": 9,
     "2026-11-10": 4,

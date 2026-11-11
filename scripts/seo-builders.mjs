@@ -32,7 +32,7 @@ export function buildPopularPage(ctx) {
     ? `<div class="table-wrap"><table class="rank-table"><thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">本月去重点击</th><th class="col-num">评分</th></tr></thead><tbody>
 ${ranked.map(stationRow).join("\n")}
       </tbody></table></div>`
-    : `<p class="table-note">截至 ${esc(snapshot.fetchedAt || LASTMOD)}，公开计数器里还没有达到门槛（当月 ${snapshot.minSample || MIN_SAMPLE} 次去重点击）的站点。构建时查询了 ${snapshot.stationsQueried} 个站点的当月键，命中 ${snapshot.keysFound} 个已有计数键。页面不会用估计值填榜。</p>`;
+    : `<p class="table-note">本月数据积累中，满 3 次去重点击的站点会自动上榜。</p>`;
 
   const underTable = underSample.length
     ? `<div class="table-wrap"><table class="rank-table"><thead><tr><th>站点</th><th class="col-num">本月去重点击</th></tr></thead><tbody>
@@ -42,14 +42,14 @@ ${underSample
     return `<tr><td><a class="station-name" href="../stations/${esc(row.stationId)}.html">${esc(site?.name || row.stationId)}</a></td><td class="col-num">${row.count}</td></tr>`;
   })
   .join("\n")}
-      </tbody></table></div><p class="table-note">这些站点有点击，但还不到排名门槛，先不编名次。</p>`
+      </tbody></table></div><p class="table-note">这些站点还差一点，暂不进入正式排名。</p>`
     : "";
 
   const weekTable = weekRanked.length
     ? `<div class="table-wrap"><table class="rank-table"><thead><tr><th class="col-rank">#</th><th>站点</th><th class="col-num">近 7 日去重点击</th></tr></thead><tbody>
 ${weekRanked.map((row, index) => stationRow(row, index)).join("\n")}
       </tbody></table></div>`
-    : `<p class="table-note">近 7 日榜需要按日计数键（click-站点-日期）。在 ${esc(snapshot.today || LASTMOD)} 拉取时，这些键还不存在或全为 0，因此不展示 7 日名次，也不会用月度总数去推算。</p>`;
+    : `<p class="table-note">近 7 日数据还在积累，有记录后会显示在这里。</p>`;
 
   const visitChart = visitDays.length
     ? `<div class="visit-bars" aria-label="本站每日去重访问">
@@ -60,8 +60,8 @@ ${visitDays
   })
   .join("\n")}
       </div>
-      <p class="table-note">以上是打开本站的去重浏览器数（上海时区按日），合计 ${snapshot.visitsTotal} 次，不能拆到各个中转站，因此不参与人气排名。</p>`
-    : `<p class="table-note">构建时没有读到本站访问计数。</p>`;
+      <p class="table-note">这是来看本站的人次，合计 ${snapshot.visitsTotal}，不能用来给中转站排序。</p>`
+    : "";
 
   const jsonLd = [
     {
@@ -80,7 +80,7 @@ ${visitDays
         {
           "@type": "Question",
           name: "人气榜怎么算？",
-          acceptedAnswer: { "@type": "Answer", text: "统计读者从本站点击前往某个中转站的次数。同一浏览器每天对同一站点只计一次，按上海时区的自然月汇总。当月至少 3 次才进入正式排名。" },
+          acceptedAnswer: { "@type": "Answer", text: "按读者从本站点出去的次数排序，同一浏览器每天只计一次；满 3 次会上榜。排名不可以付费提升。" },
         },
         {
           "@type": "Question",
@@ -90,7 +90,7 @@ ${visitDays
         {
           "@type": "Question",
           name: "为什么现在没有站点名次？",
-          acceptedAnswer: { "@type": "Answer", text: "公开计数器里还没有达到当月 3 次去重点击门槛的站点。在收集到足够样本之前，本页只展示方法和本站访问量，不会编造点击数。" },
+          acceptedAnswer: { "@type": "Answer", text: "本月数据还在积累，满 3 次去重点击的站点会自动上榜。排名不可以付费提升。" },
         },
       ],
     },
@@ -114,40 +114,28 @@ ${visitDays
   const body = `        <section class="hero">
           <p class="eyebrow">POPULARITY</p>
           <h1>AI API 中转站人气榜</h1>
-          <p class="lede">按读者从本站点出去的次数排序，同一浏览器每天对同一站点只计一次。这不是各站自己的注册量，也不代表模型真实或服务稳定。排名不可以付费提升。</p>
-          <p class="hero-note">快照拉取于 ${esc(snapshot.fetchedAt || LASTMOD)}，时区 ${esc(snapshot.timezone || "Asia/Shanghai")}。当月门槛 ${snapshot.minSample || MIN_SAMPLE} 次去重点击。完整口径见 <a href="../docs/popularity.md">人气榜说明</a> 与 <a href="../method.html">核验方法</a>。</p>
+          <p class="lede">按读者从本站点出去的次数排序，同一浏览器每天只计一次；排名不可付费提升。<a href="../docs/popularity.md">人气榜说明</a></p>
         </section>
         <section class="panel" id="month-rank">
-          <div class="panel-head"><div><p class="kicker">THIS MONTH</p><h2>${esc(snapshot.currentMonth || "")} 去重点击榜</h2></div>
-          <p class="panel-desc">数据来自公开计数器，构建时预渲染，打开页面后会再读一次当月数字。</p></div>
+          <div class="panel-head"><div><p class="kicker">THIS MONTH</p><h2>本月人气</h2></div></div>
           ${monthTable}
           ${underTable}
         </section>
         <section class="panel" id="week-rank">
-          <div class="panel-head"><div><p class="kicker">LAST 7 DAYS</p><h2>近 7 日去重点击</h2></div>
-          <p class="panel-desc">只有按日计数键存在时才公布。不会用月度总数除以天数来估计。</p></div>
+          <div class="panel-head"><div><p class="kicker">LAST 7 DAYS</p><h2>近 7 日</h2></div></div>
           ${weekTable}
         </section>
         <section class="panel" id="site-visits">
-          <div class="panel-head"><div><p class="kicker">SITE VISITS</p><h2>本站访问量（不是站点人气）</h2></div>
-          <p class="panel-desc">同一浏览器当天只计一次。这只能说明有人打开了比价页，不能用来给中转站排序。</p></div>
+          <div class="panel-head"><div><p class="kicker">SITE VISITS</p><h2>本站访问量</h2></div>
+          <p class="panel-desc">这是来看本站的人次，不是各中转站的人气。</p></div>
           ${visitChart}
-        </section>
-        <section class="panel notes">
-          <div class="panel-head"><div><p class="kicker">METHOD</p><h2>读榜前先看这几条</h2></div></div>
-          <div class="notes-grid">
-            <div class="note-card"><h3>点击 ≠ 注册</h3><p>这里只统计从本站点出去的次数。通过本站推广链接完成的注册，要等维护者写入 registrations.json 才会另列；目前这份数据是空的。</p></div>
-            <div class="note-card"><h3>去重挡不掉全部刷量</h3><p>同一浏览器每天只计一次，但清掉本地存储或换设备仍可再计。样本很少时名次会很不稳定。</p></div>
-            <div class="note-card"><h3>推广链接不加分</h3><p>带 aff、ref、invite 等参数的入口会标「推广」，不进人气加分，也不影响价格排名。</p></div>
-            <div class="note-card"><h3>人气高也不等于能用</h3><p>比价请看各模型的综合倍率和核验日期。低价、号池或逆向分组的风险说明见 <a href="../guides/free-relay-risks.html">风险指南</a>。</p></div>
-          </div>
         </section>`;
 
   fs.mkdirSync(path.join(root, "popular"), { recursive: true });
   fs.writeFileSync(
     path.join(root, "popular/index.html"),
     shell({
-      title: "AI API 中转站人气榜：本月去重点击与口径说明",
+      title: "AI API 中转站人气榜",
       description: "按本站出站点击（同一浏览器每天对同一站点只计一次）排列中转站人气。排名不可付费提升；点击不等于注册量或服务稳定性。",
       canonical: `${BASE}/popular/`,
       body,
@@ -280,7 +268,7 @@ ${leaders
           <p class="eyebrow">TOPIC · ${esc(topic.query)}</p>
           <h1>${esc(topic.h1)}</h1>
           <p class="lede">${esc(topic.description)}</p>
-          <p class="hero-note">数据构建于 ${esc(LASTMOD)}。价格会过期，请以各条核验日期为准。</p>
+          <p class="hero-note">价格会变动，请看各条报价上的核验日期。</p>
         </section>
         <article class="panel guide">
           ${intro}
@@ -334,7 +322,7 @@ ${faqs}
   const indexBody = `        <section class="hero">
           <p class="eyebrow">TOPICS</p>
           <h1>按常见问题看中转站比价</h1>
-          <p class="lede">这些页面针对「Claude API 中转」「便宜 Claude API」「DeepSeek API 免费」等具体问题，用同一套核验过的报价表回答，不另造数字。</p>
+          <p class="lede">针对「Claude API 中转」「便宜 Claude API」「DeepSeek API 免费」等常见问题，用同一套已经核对过的报价来回答。</p>
         </section>
         <section class="panel">
           <div class="table-wrap"><table class="rank-table"><thead><tr><th>专题</th><th>对应问题</th><th>更新</th></tr></thead><tbody>

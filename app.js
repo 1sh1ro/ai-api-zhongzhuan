@@ -514,7 +514,7 @@ async function renderPopularity() {
     .slice(0, 15);
 
   if (rows.length === 0) {
-    el.popularityBody.innerHTML = '<tr><td class="empty-cell" colspan="4">本月公开计数器里还没有达到 3 次去重点击门槛的站点。完整口径见 <a href="popular/index.html">人气榜</a>。</td></tr>';
+    el.popularityBody.innerHTML = '<tr><td class="empty-cell" colspan="4">本月数据积累中，满 3 次去重点击的站点会自动上榜。</td></tr>';
     return;
   }
 

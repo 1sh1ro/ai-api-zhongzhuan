@@ -944,7 +944,7 @@ const popularBlock = popularPreview.length
         return `                <tr><td class="col-rank">${String(index + 1).padStart(2, "0")}</td><td><a class="station-name" href="stations/${esc(stationId)}.html">${esc(siteById.get(stationId)?.name || stationId)}</a></td><td class="col-num">${count}</td><td class="col-num">${score ? score.total.toFixed(1) : "—"}</td></tr>`;
       })
       .join("\n")
-  : `                <tr><td class="empty-cell" colspan="4">本月公开计数器里还没有达到 ${popularitySnapshot.minSample || MIN_SAMPLE} 次去重点击门槛的站点。完整口径见 <a href="popular/index.html">人气榜</a>。</td></tr>`;
+  : `                <tr><td class="empty-cell" colspan="4">本月数据积累中，满 3 次去重点击的站点会自动上榜。</td></tr>`;
 if (indexHtml.includes("<!-- POPULARITY-PRERENDER:START -->")) {
   indexHtml = indexHtml.replace(
     /<!-- POPULARITY-PRERENDER:START -->[\s\S]*?<!-- POPULARITY-PRERENDER:END -->/,
