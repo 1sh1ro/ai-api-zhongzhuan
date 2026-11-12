@@ -15,7 +15,7 @@ AI API 公益站与 Token 中转站导航 / 比价雷达，整理免费 API、�
 >
 > 官网限时补贴，低至官方价 1 折；GLM-5.3-Flash / DeepSeek V4.1 Flash 免费版近乎 0 元；Claude 全系约 3 折、GPT-6 Astra 约 2 折；一个 Key 直接接 Codex / Claude Code；额度不过期，$5 起充，支持支付宝。
 >
-> [**前往 TeamoRouter →**](https://teamorouter.com/?i=5ffc6af2c3) · 官网价格页核验 2026-11-11。未实测调用。
+> [**前往 TeamoRouter →**](https://teamorouter.com/?i=5ffc6af2c3) · 
 
 > [!TIP]
 > **💱 FREE TOKEN**
