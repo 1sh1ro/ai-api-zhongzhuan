@@ -17,13 +17,6 @@ AI API 公益站与 Token 中转站导航 / 比价雷达，整理免费 API、�
 >
 > [**前往 TeamoRouter →**](https://teamorouter.com/?i=5ffc6af2c3) · 
 
-> [!TIP]
-> **💱 FREE TOKEN**
->
-> 点击领glm-5.3-flash无限token
->
-> [**前往zcode注册 →**](https://zcode.z.ai/invite/S2XSF7WD) 
-
 
 
 > [!WARNING]
