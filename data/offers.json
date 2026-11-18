@@ -1061,12 +1061,12 @@
       "groupName": "Plus 标准短上下文（≤272K）",
       "modelId": "gpt-6.1-sol",
       "pricingMode": "absolute_cny",
-      "inputCnyPer1M": 0.36,
-      "outputCnyPer1M": 1.8,
-      "note": "gpt-6.1-sol / Plus 标准短上下文（≤272K）输入 ¥0.36、输出 ¥1.80 / 1M",
+      "inputCnyPer1M": 0.3,
+      "outputCnyPer1M": 1.5,
+      "note": "gpt-6.1-sol / Plus 标准短上下文（≤272K），公开表达式基础输入 2、输出 10 / 1M × 分组 0.15，得到输入 ¥0.30、输出 ¥1.50 / 1M。缓存、长上下文另计；此处为配置核验，未做付费调用测试。",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://api.linktoagi.com/api/pricing",
-      "verifiedAt": "2026-10-17"
+      "verifiedAt": "2026-11-18"
     },
     {
       "id": "linkagi::grok::grok-4.6",
@@ -1079,7 +1079,7 @@
       "note": "Grok 0.2x（站内分组倍率）",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://api.linktoagi.com/api/pricing",
-      "verifiedAt": "2026-10-17"
+      "verifiedAt": "2026-11-18"
     },
     {
       "id": "linkagi::deepseek::deepseek-v4.1-flash",
@@ -1092,7 +1092,7 @@
       "note": "DeepSeek 0.4x（站内分组倍率）",
       "sourceKind": "public-pricing-api",
       "sourceUrl": "https://api.linktoagi.com/api/pricing",
-      "verifiedAt": "2026-10-17"
+      "verifiedAt": "2026-11-18"
     },
 
     {
@@ -1839,6 +1839,20 @@
       "sourceKind": "github-issue",
       "sourceUrl": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/31",
       "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "linkagi::gpt-6.1-sol-sale::gpt-6.1-sol",
+      "stationId": "linkagi",
+      "groupKey": "Sale 标准短上下文",
+      "groupName": "Sale 标准短上下文（≤272K）",
+      "modelId": "gpt-6.1-sol",
+      "pricingMode": "absolute_cny",
+      "inputCnyPer1M": 0.16,
+      "outputCnyPer1M": 0.8,
+      "note": "gpt-6.1-sol / Sale 标准短上下文（≤272K），公开表达式基础输入 2、输出 10 / 1M × 分组 0.08，得到输入 ¥0.16、输出 ¥0.80 / 1M。缓存、长上下文另计；此处为配置核验，未做付费调用测试。",
+      "sourceKind": "public-pricing-api",
+      "sourceUrl": "https://api.linktoagi.com/api/pricing",
+      "verifiedAt": "2026-11-18"
     }
   ]
 }
