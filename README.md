@@ -47,7 +47,7 @@ AI API 公益站与 Token 中转站导航 / 比价雷达，整理免费 API、�
 | AIJWS | [AIJWS](https://api.aijws.com/register?aff=RMW5KZQC2PWJ) | `[限时]国模` 0.001x；图片 0.01x；Codex 福利 0.08x；Grok 混池 0.15x；部分分组标注不稳定或受额度影响 | 可访问（登录后；2026-08-27） | [密钥分组选项](https://api.aijws.com/keys)；本地访问核验 |
 | Horizon API | [Horizon API](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) | 站内充值比 1:5；按页面倍率折算：GPT 特价 0.08x（页面 0.4x）、GPT 稳定 0.17x（页面 0.85x）、GPT Pro 0.2x（页面 1x）、国模羊毛 0.0002x（页面 0.001x）、image 0.2x（页面 1x）；订阅区截图显示 6 种商品，价格 ¥5.6、¥28.1、¥31.5、¥62.5、¥157.5、¥350 | 用户提供截图（2026-08-29） | 用户提供截图；[注册页](https://api.honglin.asia/register?aff=FFEYRLUHUVMH) |
 | FastAI 模型 | [FastAI](https://www.fastaitoken.com/register?aff=AAYGR6B5HJA8) | OpenAI 福利 0.06x（限时）；普通 0.2x、备用 0.25x、Pro 0.3x（均限时）；Claude/国产 0.7x；视频 1x | 可访问（登录后；2026-08-27） | [可用渠道](https://www.fastaitoken.com/available-channels)；本地访问核验 |
-| Token-X | [Token-X](https://token-x.com/sign-up?aff=H4g2) | CodeX-Pro 订阅：Mini 周卡实付 ¥9.9、到账 ¥20（7 天，限购 1，用量参考约 1 亿 Token）；Lite 月卡实付 ¥30、到账 ¥45；Plus 月卡实付 ¥60、到账 ¥100；Pro 月卡实付 ¥169、到账 ¥300；MAX 月卡实付 ¥299、到账 ¥570；Ultra 月卡实付 ¥599、到账 ¥1,200（以上月卡均 30 天）；基础倍率 0.045x，月卡可叠加 5—6.6 折，最低倍率 0.0225x；第二轮抽奖抽 10 份 Plus 月卡，每份内含 ¥100 额度；试运营阶段主要提供 GPT 系列模型，上游统一使用自建 Pro 20× 号池，不混用 Free 或 Plus 账号资源；无生效订阅时自动使用钱包 | 用户提供套餐及活动信息（2026-08-31） | 用户提供；[Token-X](https://token-x.com/)；[注册页](https://token-x.com/sign-up?aff=H4g2) |
+
 
 ## OpenAI GPT Codex 倍率
 
