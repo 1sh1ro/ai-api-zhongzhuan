@@ -8,22 +8,59 @@
     <link rel="canonical" href="https://ai.xulas.fun/changelog.html" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="数据变更记录" />
+    <meta property="og:description" content="站点收录、价格修正、口径调整和页面结构变更的公开记录。" />
+    <meta name="twitter:title" content="数据变更记录" />
+    <meta name="twitter:description" content="站点收录、价格修正、口径调整和页面结构变更的公开记录。" />
     <meta property="og:url" content="https://ai.xulas.fun/changelog.html" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="alternate" type="text/plain" href="https://ai.xulas.fun/llms.txt" title="LLM digest" />
+    <meta property="og:site_name" content="AI API 比价雷达" />
+    <meta property="og:image" content="https://ai.xulas.fun/assets/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://ai.xulas.fun/assets/og-cover.png" />
+    <link rel="stylesheet" href="styles.css?v=2026-11-11e" />
   </head>
   <body>
+    <a class="skip-link" href="#main">跳到正文</a>
     <div class="page">
       <header class="topbar">
-        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span></a>
-        <nav class="topnav"><a href="index.html">价格榜</a><a href="stations/index.html">站点</a><a href="models/index.html">模型</a><a href="guides/index.html">指南</a><a href="method.html">方法</a></nav>
+        <a class="brand" href="index.html" aria-label="AI API 比价雷达首页"><span class="brand-mark" aria-hidden="true"></span><span class="brand-text"><strong>AI API 比价雷达</strong><small>RELAY PRICE RADAR</small></span></a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="打开菜单"><span></span></label>
+        <nav class="topnav" aria-label="主导航">
+          <a href="index.html">价格榜</a>
+          <a href="popular/index.html">人气榜</a>
+          <a href="stations/index.html">站点</a>
+          <a href="models/index.html">模型</a>
+          <a href="guides/index.html">指南</a>
+          <a href="method.html">方法</a>
+          <a href="faq.html">常见问题</a>
+          <a href="https://github.com/1sh1ro/ai-api-zhongzhuan" target="_blank" rel="noreferrer noopener">GitHub ↗</a>
+        </nav>
       </header>
-      <main>
+      <main id="main">
+
         <section class="hero">
           <p class="eyebrow">CHANGELOG</p>
           <h1>数据变更记录</h1>
           <p class="lede">只记录会影响价格、排序或站点收录的改动。</p>
         </section>
         <article class="panel guide">
+          <h2>2026-11-11</h2>
+          <ul>
+            <li>TeamoRouter 置顶文案收成一句折扣摘要，去掉价格浮动和新站试用提示。</li>
+            <li>TeamoRouter 置顶文案改为 2026-11-11 官网价格页折扣，按钮改为「前往 TeamoRouter →」，不再标注「推广入口」。</li>
+            <li>收录 TeamoRouter（<a href="https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48">Issue #48</a>），并改为首页唯一置顶推荐。API Nebula 取消置顶，目录与报价表保留。</li>
+            <li>新增 <a href="popular/index.html">人气榜</a> 专页：按通过本站注册的人数排序；注册量由维护者从各站推广后台填入，没有数据的站点显示「待更新」，不编造数字。排名不可付费提升。</li>
+            <li>新增专题页：Claude API 中转、便宜 Claude API、DeepSeek / Gemini 免费额度、GPT API 中转、公益站名单。</li>
+            <li>按官方定价页补充 Claude Fable 5.2 基准价（$8 / $40，缓存读取 $0.20 / MTok，核验 2026-11-11）。目录里尚无该型号的中转报价。</li>
+            <li>对分组名含 Kiro、逆向、号池或 CC Max 的条目加上风险标注，并说明这不是调用验真。</li>
+          </ul>
           <h2>2026-11-04</h2>
           <ul>
             <li>排名改为模型内比较：模型报价榜先选模型再排序，站点页新增同模型排名；综合评分的价格维度改为同模型相对位置的平均值，规则版本 model-scoped-asc.v2。</li>

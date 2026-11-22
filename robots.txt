@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://ai.xulas.fun/sitemap.xml
+
+# Machine-readable summary for AI assistants:
+# https://ai.xulas.fun/llms.txt
+# https://ai.xulas.fun/llms-full.txt

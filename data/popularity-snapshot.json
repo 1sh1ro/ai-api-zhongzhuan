@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-11-11T18:07+08:00",
+  "timezone": "Asia/Shanghai",
+  "currentMonth": "2026-11",
+  "previousMonth": "2026-10",
+  "today": "2026-11-11",
+  "minSample": 3,
+  "source": "https://abacus.jasoncameron.dev",
+  "namespace": "ai-xulas-fun",
+  "stationsQueried": 46,
+  "keysQueried": 414,
+  "keysFound": 0,
+  "keyErrors": 233,
+  "monthClicks": {},
+  "previousClicks": {},
+  "last7Clicks": {},
+  "note": "出站点击按上海时区自然月计数，同一浏览器每天对同一站点只计一次。monthClicks 只收录计数键真实存在的站点；没有键的站点在页面上显示「积累中」，不用估计值填榜。"
+}

@@ -7,9 +7,8 @@ import {
   formatDiscount,
 } from './assets/pricing.js';
 import { scoreStation, buildModelPercentiles } from './assets/scoring.js';
-import { getPopularity } from './assets/popularity.js';
 
-const ASSET_VERSION = '2026-11-04h';
+const ASSET_VERSION = '2026-11-11e';
 
 const FAMILY_LABELS = {
   gpt: 'GPT',
@@ -153,7 +152,7 @@ function siteName(id) {
   return site ? site.name : id;
 }
 
-const REFERRAL_PARAM_KEYS = ['aff', 'ref', 'invite', 'code'];
+const REFERRAL_PARAM_KEYS = ['aff', 'ref', 'invite', 'code', 'i'];
 const GENERIC_REGISTER_PATH = /^\/(sign-?up|signup|register|login|dashboard)\/?$/i;
 
 // 优先使用带推广参数的注册链接；没有推广参数时回到官网首页。
@@ -494,7 +493,33 @@ function renderSites() {
   el.empty.hidden = sites.length !== 0;
 }
 
+function renderRecommend() {
+  const section = document.querySelector('#recommend');
+  const list = document.querySelector('#recommend-list');
+  if (!list) return;
+  const pinned = state.sites.filter((site) => site.pinned === true);
+  if (section) section.hidden = pinned.length === 0;
+  list.innerHTML = pinned
+    .map((site) => {
+      const summary = String(site.summary || '');
+      const cautionAt = summary.indexOf('价格每小时随上游浮动');
+      const body = cautionAt > 0 ? summary.slice(0, cautionAt).trim() : summary;
+      const caution = cautionAt > 0 ? summary.slice(cautionAt).trim() : '';
+      const href = siteLink(site.id);
+      const action = site.id === 'teamorouter' ? '前往 TeamoRouter →' : '打开站点';
+      return `<article class="recommend-card">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>置顶推荐</p>
+        <h2>${escapeHTML(site.name)}</h2>
+        <p>${escapeHTML(body)}</p>
+        ${caution ? `<p class="recommend-caution">${escapeHTML(caution)}</p>` : ''}
+        <p class="recommend-actions"><a class="button button-primary" href="${escapeHTML(href)}" rel="nofollow noopener" target="_blank" data-station-link="${escapeHTML(site.id)}">${action}</a><a class="button" href="stations/${escapeHTML(site.id)}.html">站点详情</a></p>
+      </article>`;
+    })
+    .join('');
+}
+
 function renderAll() {
+  renderRecommend();
   renderFamilyChips();
   renderRanking();
   renderModels();
@@ -504,30 +529,7 @@ function renderAll() {
 }
 
 async function renderPopularity() {
-  if (!el.popularityBody) return;
-  el.popularityBody.innerHTML = '<tr><td colspan="4" class="empty-cell">正在读取本月点击…</td></tr>';
-  const counts = await getPopularity(state.sites.map((site) => site.id));
-  const rows = state.sites
-    .map((site) => ({ site, count: counts.get(site.id) || 0 }))
-    .filter((row) => row.count > 0)
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 15);
-
-  if (rows.length === 0) {
-    el.popularityBody.innerHTML = '<tr><td colspan="4" class="empty-cell">本月还没有站内点击。</td></tr>';
-    return;
-  }
-
-  el.popularityBody.innerHTML = rows
-    .map(
-      (row, index) => `<tr>
-        <td class="col-rank">${String(index + 1).padStart(2, '0')}</td>
-        <td><a class="station-name" href="stations/${escapeHTML(row.site.id)}.html">${escapeHTML(row.site.name)}</a></td>
-        <td class="col-num">${row.count}</td>
-        <td class="col-num">${scoreCell(row.site.id)}</td>
-      </tr>`,
-    )
-    .join('');
+  // 首页人气榜以构建时预渲染的注册量为准，避免被出站点击覆盖。
 }
 
 function renderLedger() {
@@ -555,11 +557,28 @@ function renderLedger() {
 }
 
 function bindEvents() {
-  el.search.addEventListener('input', (event) => {
-    state.query = event.target.value;
+  const heroSearch = document.querySelector('#hero-search');
+  const heroForm = document.querySelector('#hero-search-form');
+  const syncQuery = (value) => {
+    state.query = value;
+    if (el.search && el.search.value !== value) el.search.value = value;
+    if (heroSearch && heroSearch.value !== value) heroSearch.value = value;
     renderRanking();
     renderSites();
+  };
+  el.search.addEventListener('input', (event) => {
+    syncQuery(event.target.value);
   });
+  if (heroSearch) {
+    heroSearch.addEventListener('input', (event) => syncQuery(event.target.value));
+  }
+  if (heroForm) {
+    heroForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      syncQuery(heroSearch ? heroSearch.value : el.search.value);
+      document.querySelector('#ranking')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
   el.basis.addEventListener('change', (event) => {
     state.basis = event.target.value;
     renderRanking();
@@ -582,6 +601,8 @@ function bindEvents() {
     state.view = 'station';
     state.modelRank = '';
     el.search.value = '';
+    const heroSearchInput = document.querySelector('#hero-search');
+    if (heroSearchInput) heroSearchInput.value = '';
     el.basis.value = 'comparable';
     el.view.value = 'station';
     renderAll();

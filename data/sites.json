@@ -1,15 +1,14 @@
 {
   "schemaVersion": 1,
-  "lastVerified": "2026-11-03",
+  "lastVerified": "2026-11-11",
   "sites": [
     {
       "id": "api-nebula",
       "name": "API Nebula",
       "homepage": "https://apinebula.ai/",
       "registrationUrl": "https://apinebula.ai/A89Bk1",
-      "pinned": true,
       "tags": ["gpt", "codex", "claude", "gemini", "grok", "kimi", "domestic-model", "image-workbench", "low-multiplier", "api-relay"],
-      "summary": "置顶推荐。按用户提供的 2026-10-17 展示单价 ÷ 同页标注官方价折算：GPT 约 0.0583x；Claude 与 Grok 最低约 0.0747x；Gemini 约 0.1196x；GPT Image 2/2.5 为 ¥0.05/次，约 0.1494x。该比值不再叠乘站内分组倍率；不同模型、缓存与分组价格有差异，完整明细见仓库价格快照。支持范围来自用户所贴模型页，未实测调用；当前自动访问返回 HTTP 403，页面标注官方价未独立核验。保留用户提供的推广入口 /A89Bk1。",
+      "summary": "按用户提供的 2026-10-17 展示单价 ÷ 同页标注官方价折算：GPT 约 0.0583x；Claude 与 Grok 最低约 0.0747x；Gemini 约 0.1196x；GPT Image 2/2.5 为 ¥0.05/次，约 0.1494x。该比值不再叠乘站内分组倍率；不同模型、缓存与分组价格有差异，完整明细见仓库价格快照。支持范围来自用户所贴模型页，未实测调用；当前自动访问返回 HTTP 403，页面标注官方价未独立核验。保留用户提供的推广入口 /A89Bk1。",
       "status": "automated-access-blocked",
       "verifiedAt": "2026-10-17",
       "sources": [
@@ -462,9 +461,9 @@
       "homepage": "https://znbcode.com/",
       "registrationUrl": "https://znbcode.com/register?aff=NAV-1SH1RO",
       "tags": ["gpt", "codex", "claude", "gemini", "grok", "deepseek", "kimi", "domestic-model", "low-multiplier", "api-relay"],
-      "summary": "运营方提交；按量计费，充值 ¥1 = $1 额度，支持支付宝、微信、USDT。站内分组倍率（2026-11-10 公开价格接口）：GPT 0.08x / 0.2x / 0.3x / 0.5x，Claude 0.15x / 0.4x / 1.3x / 1.8x，Grok 0.2x，Gemini 3.8 0.35x；GPT、Claude、Gemini、Grok 的参考价是厂商美元官方价，按汇率 6.70 折算约为官方价的 0.012x–0.27x（gpt-5.6-luna 参考价标人民币，不折算）。DeepSeek V4.1 Flash 实付每百万输入 ¥0.3、输出 ¥1.2；GLM、Kimi 0.3x，参考价是人民币官方价，不再折算。生图按张计费：gpt-image-1K特惠 分组只出 1K、¥0.06，gpt-image-原生 分组支持更高分辨率、¥0.12，nano-banana-2.1 ¥0.08。支持 Anthropic /v1/messages、OpenAI /v1/chat/completions 与 /v1/responses、Gemini /v1beta；注册页、公开价格接口和接入文档均可访问（2026-11-10）。",
+      "summary": "运营方提交；按量计费，充值 ¥1 = $1 额度，支持支付宝、微信、USDT。站内分组倍率（2026-11-22 公开价格接口）：GPT 0.06x / 0.15x / 0.25x / 0.4x，Claude 0.15x / 0.4x / 0.7x / 1.5x / 1.8x，Grok 0.2x，Gemini 3.8 0.35x；GPT、Claude、Gemini、Grok 的参考价是厂商美元官方价，按汇率 6.70 折算约为官方价的 0.009x–0.27x。DeepSeek V4.1 Flash 实付每百万输入 ¥0.3、输出 ¥1.2；GLM、Kimi 0.3x，参考价是人民币官方价，不再折算。生图按张计费：gpt-image-1K特惠 分组只出 1K、¥0.06，gpt-image-原生 分组支持更高分辨率、¥0.12，nano-banana-2.1 ¥0.08。支持 Anthropic /v1/messages、OpenAI /v1/chat/completions 与 /v1/responses、Gemini /v1beta；注册页、公开价格接口和接入文档均可访问（2026-11-22）。",
       "status": "registration-page-reachable",
-      "verifiedAt": "2026-11-10",
+      "verifiedAt": "2026-11-22",
       "sources": [
         {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/24"},
         {"type": "official-website", "url": "https://znbcode.com/"},
@@ -690,6 +689,22 @@
         {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/43"},
         {"type": "official-website", "url": "https://www.codebyai.net/"},
         {"type": "public-pricing-api", "url": "https://www.codebyai.net/api/model-prices"}
+      ]
+    },
+    {
+      "id": "teamorouter",
+      "name": "TeamoRouter",
+      "homepage": "https://teamorouter.com/",
+      "registrationUrl": "https://teamorouter.com/?i=5ffc6af2c3",
+      "pinned": true,
+      "tags": ["gpt", "codex", "claude", "gemini", "deepseek", "domestic-model", "api-relay"],
+      "summary": "官网限时补贴，低至官方价 1 折；GLM-5.3-Flash / DeepSeek V4.1 Flash 免费版近乎 0 元；Claude 全系约 3 折、GPT-6 Astra 约 2 折；一个 Key 直接接 Codex / Claude Code；额度不过期，$5 起充，支持支付宝。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-11",
+      "sources": [
+        {"type": "official-website", "url": "https://teamorouter.com/"},
+        {"type": "official-pricing", "url": "https://teamorouter.com/models"},
+        {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48"}
       ]
     }
   ]
