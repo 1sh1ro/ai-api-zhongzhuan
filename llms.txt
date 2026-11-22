@@ -16,7 +16,7 @@
 
 ## 当前规模
 
-收录 47 个站点、135 条报价，其中 56 条口径统一可比；官方基准模型 27 个；折算汇率 1 USD = 6.7 CNY。
+收录 47 个站点、137 条报价，其中 58 条口径统一可比；官方基准模型 27 个；折算汇率 1 USD = 6.7 CNY。
 
 口径没有公开充值系数的报价只展示原值，不进入排名。低倍率不等于可用、稳定或模型真实。中转站能看到经它转发的请求，不要提交密钥、证件或私有代码。部分注册链接带推广参数，已在站点页标明，不影响排序。本站不运营任何中转服务。
 
@@ -29,20 +29,20 @@
 - GPT-6 Astra：最低 0.050x（RelayCore，2 站可比） · https://ai.xulas.fun/models/gpt-6-astra.html
 - GPT-6.1 Sol：最低 0.027x（LinkAGI，4 站可比） · https://ai.xulas.fun/models/gpt-6-1-sol.html
 - GPT-6.1 Terra：最低 0.050x（RelayCore，1 站可比） · https://ai.xulas.fun/models/gpt-6-1-terra.html
-- GPT-6 Sol：最低 0.013x（znbcode，5 站可比） · https://ai.xulas.fun/models/gpt-6-sol.html
+- GPT-6 Sol：最低 0.0090x（znbcode，5 站可比） · https://ai.xulas.fun/models/gpt-6-sol.html
 - GPT-5.6 Sol：最低 0.045x（DayWay，3 站可比） · https://ai.xulas.fun/models/gpt-5-6-sol.html
 - GPT-5.6 Terra：最低 0.050x（RelayCore，2 站可比） · https://ai.xulas.fun/models/gpt-5-6-terra.html
 - GPT-5.5：最低 0.074x（Zerouter，1 站可比） · https://ai.xulas.fun/models/gpt-5-5.html
 - Claude Fable 5：最低 0.254x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-fable-5.html
 - Claude Fable 5.1：最低 0.254x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-fable-5-1.html
-- Claude Opus 5.5：最低 0.075x（API Nebula，2 站可比） · https://ai.xulas.fun/models/claude-opus-5-5.html
-- Claude Opus 5：最低 0.075x（API Nebula，4 站可比） · https://ai.xulas.fun/models/claude-opus-5.html
+- Claude Opus 5.5：最低 0.075x（API Nebula，3 站可比） · https://ai.xulas.fun/models/claude-opus-5-5.html
+- Claude Opus 5：最低 0.075x（API Nebula，3 站可比） · https://ai.xulas.fun/models/claude-opus-5.html
 - Claude Opus 4.8：最低 0.075x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-opus-4-8.html
-- Claude Sonnet 5.5：最低 0.060x（znbcode，5 站可比） · https://ai.xulas.fun/models/claude-sonnet-5-5.html
+- Claude Sonnet 5.5：最低 0.022x（znbcode，5 站可比） · https://ai.xulas.fun/models/claude-sonnet-5-5.html
 - Claude Sonnet 5：最低 0.075x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-sonnet-5.html
 - Claude Sonnet 4.6：最低 0.075x（API Nebula，1 站可比） · https://ai.xulas.fun/models/claude-sonnet-4-6.html
 - Gemini 4 Argon：最低 0.119x（API Nebula，1 站可比） · https://ai.xulas.fun/models/gemini-4-argon.html
-- Gemini 3.8 Flash：最低 0.060x（znbcode，3 站可比） · https://ai.xulas.fun/models/gemini-3-8-flash.html
+- Gemini 3.8 Flash：最低 0.052x（znbcode，3 站可比） · https://ai.xulas.fun/models/gemini-3-8-flash.html
 - Gemini 3.1 Pro Preview：最低 0.119x（API Nebula，1 站可比） · https://ai.xulas.fun/models/gemini-3-1-pro-preview.html
 - Grok 4.7：最低 0.075x（API Nebula，1 站可比） · https://ai.xulas.fun/models/grok-4-7.html
 - Grok 4.6：最低 0.030x（znbcode，4 站可比） · https://ai.xulas.fun/models/grok-4-6.html
