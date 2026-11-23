@@ -24,8 +24,8 @@
     <meta name="twitter:title" content="GPT API 中转站对比：官方价、综合倍率与核验记录 · AI API 比价雷达" />
     <meta name="twitter:description" content="以 OpenAI 官方价为基准，对比各中转站 GPT 系列的综合倍率、来源和核验日期，并提示号池类分组风险。" />
     <meta name="twitter:image" content="https://ai.xulas.fun/assets/og-cover.png" />
-    <link rel="stylesheet" href="../styles.css?v=2026-11-11e" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GPT API 中转怎么比价","description":"以 OpenAI 官方价为基准，对比各中转站 GPT 系列的综合倍率、来源和核验日期，并提示号池类分组风险。","dateModified":"2026-11-11","datePublished":"2026-11-11","author":{"@type":"Organization","name":"AI API 比价雷达"},"mainEntityOfPage":"https://ai.xulas.fun/topics/gpt-api-zhongzhuan.html"}</script>
+    <link rel="stylesheet" href="../styles.css?v=2026-11-18a" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GPT API 中转怎么比价","description":"以 OpenAI 官方价为基准，对比各中转站 GPT 系列的综合倍率、来源和核验日期，并提示号池类分组风险。","dateModified":"2026-11-18","datePublished":"2026-11-11","author":{"@type":"Organization","name":"AI API 比价雷达"},"mainEntityOfPage":"https://ai.xulas.fun/topics/gpt-api-zhongzhuan.html"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"GPT API 中转能替代官方 API 吗？","acceptedAnswer":{"@type":"Answer","text":"开发测试和批处理可以明显降低成本。生产环境、用户数据或需要发票时，仍建议官方 API，或至少保留可切换的官方通道。"}},{"@type":"Question","name":"为什么同一站点会有好几档 GPT 价格？","acceptedAnswer":{"@type":"Answer","text":"不同分组对应不同线路或上游，便宜的分组往往限制更多。请看分组名、来源和核验日期，不要只记一个最低数字。"}},{"@type":"Question","name":"怎么确认中转出来的真是该型号？","acceptedAnswer":{"@type":"Answer","text":"本站目前只记录公开价格和来源，不做真实调用验真。需要自己用小额请求核对模型标识、用量字段和输出质量。"}}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://ai.xulas.fun/"},{"@type":"ListItem","position":2,"name":"专题","item":"https://ai.xulas.fun/topics/"},{"@type":"ListItem","position":3,"name":"GPT API 中转","item":"https://ai.xulas.fun/topics/gpt-api-zhongzhuan.html"}]}</script>
   </head>
@@ -64,7 +64,7 @@
           <h2>GPT 各型号当前最低可比价</h2>
         <div class="table-wrap"><table class="rank-table"><thead><tr><th>模型</th><th class="col-num">官方输入 ¥/M</th><th class="col-num">官方输出 ¥/M</th><th>最低站点</th><th class="col-num">综合倍率</th><th class="col-num">可比站点</th></tr></thead><tbody>
 <tr><td><a class="station-name" href="../models/gpt-6-astra.html">GPT-6 Astra</a></td><td class="col-num">¥67.00</td><td class="col-num">¥335.0</td><td><a class="station-name" href="../stations/relaycore.html">RelayCore</a></td><td class="col-num">0.050x</td><td class="col-num">2</td></tr>
-<tr><td><a class="station-name" href="../models/gpt-6-1-sol.html">GPT-6.1 Sol</a></td><td class="col-num">¥13.40</td><td class="col-num">¥67.00</td><td><a class="station-name" href="../stations/linkagi.html">LinkAGI</a></td><td class="col-num">0.027x</td><td class="col-num">4</td></tr>
+<tr><td><a class="station-name" href="../models/gpt-6-1-sol.html">GPT-6.1 Sol</a></td><td class="col-num">¥13.40</td><td class="col-num">¥67.00</td><td><a class="station-name" href="../stations/linkagi.html">LinkAGI</a></td><td class="col-num">0.012x</td><td class="col-num">4</td></tr>
 <tr><td><a class="station-name" href="../models/gpt-6-1-terra.html">GPT-6.1 Terra</a></td><td class="col-num">¥6.70</td><td class="col-num">¥33.50</td><td><a class="station-name" href="../stations/relaycore.html">RelayCore</a></td><td class="col-num">0.050x</td><td class="col-num">1</td></tr>
 <tr><td><a class="station-name" href="../models/gpt-6-luna.html">GPT-6 Luna</a></td><td class="col-num">¥0.670</td><td class="col-num">¥3.35</td><td>—</td><td class="col-num">—</td><td class="col-num">—</td></tr>
 <tr><td><a class="station-name" href="../models/gpt-6-sol.html">GPT-6 Sol</a></td><td class="col-num">¥13.40</td><td class="col-num">¥67.00</td><td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td><td class="col-num">0.013x</td><td class="col-num">5</td></tr>
@@ -86,6 +86,18 @@
           <th>核验</th>
         </tr></thead><tbody>
         <tr>
+          <td><a class="station-name" href="../stations/linkagi.html">LinkAGI</a></td>
+          <td class="group-cell">Sale 标准短上下文（≤272K）</td>
+          <td>GPT-6.1 Sol</td>
+          <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
+          <td class="raw-cell">¥0.160 / ¥0.800 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.012x</strong></td>
+          <td class="col-num">¥0.160</td>
+          <td class="col-num">¥0.800</td>
+          <td><a href="https://api.linktoagi.com/api/pricing" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
+          <td class="date-cell">2026.11.18</td>
+        </tr>
+        <tr>
           <td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td>
           <td class="group-cell">znb-gpt-特惠</td>
           <td>GPT系列</td>
@@ -102,12 +114,12 @@
           <td class="group-cell">Plus 标准短上下文（≤272K）</td>
           <td>GPT-6.1 Sol</td>
           <td><span class="basis basis-computed_absolute">绝对单价折算</span></td>
-          <td class="raw-cell">¥0.360 / ¥1.80 元每百万</td>
-          <td class="col-num"><strong class="ratio is-low">0.027x</strong></td>
-          <td class="col-num">¥0.360</td>
-          <td class="col-num">¥1.80</td>
+          <td class="raw-cell">¥0.300 / ¥1.50 元每百万</td>
+          <td class="col-num"><strong class="ratio is-low">0.022x</strong></td>
+          <td class="col-num">¥0.300</td>
+          <td class="col-num">¥1.50</td>
           <td><a href="https://api.linktoagi.com/api/pricing" rel="nofollow noopener" target="_blank">站方价格接口 ↗</a></td>
-          <td class="date-cell">2026.10.17</td>
+          <td class="date-cell">2026.11.18</td>
         </tr>
         <tr>
           <td><a class="station-name" href="../stations/znbcode.html">znbcode</a></td>
@@ -382,10 +394,10 @@
           <span>AI API 比价雷达 · RELAY PRICE RADAR</span>
           <p class="disclosure">部分注册链接带有推广参数，已在对应站点页标明。排序与综合评分不按推广收益计算。本站只整理公开信息，不运营、不担保任何第三方中转服务。</p>
         </div>
-        <span>数据构建 2026-11-11e · 最后更新 2026-11-11 · <a href="../llms.txt">llms.txt</a></span>
+        <span>数据构建 2026-11-18a · 最后更新 2026-11-18 · <a href="../llms.txt">llms.txt</a></span>
       </footer>
     </div>
-    <script src="../assets/score-tip.js?v=2026-11-11e" defer></script>
-    <script type="module" src="../assets/popularity.js?v=2026-11-11e"></script>
+    <script src="../assets/score-tip.js?v=2026-11-18a" defer></script>
+    <script type="module" src="../assets/popularity.js?v=2026-11-18a"></script>
   </body>
 </html>
