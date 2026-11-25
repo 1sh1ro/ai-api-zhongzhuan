@@ -706,6 +706,22 @@
         {"type": "official-pricing", "url": "https://teamorouter.com/models"},
         {"type": "github-issue", "url": "https://github.com/1sh1ro/ai-api-zhongzhuan/issues/48"}
       ]
+    },
+    {
+      "id": "qcode",
+      "name": "QCode.cc",
+      "homepage": "https://qcode.cc/",
+      "registrationUrl": "https://qcode.cc/auth/sign-up",
+      "tags": ["claude", "gpt", "codex", "claude-code", "domestic-model", "api-relay"],
+      "summary": "运营方自荐：面向 Claude Code、Codex 等编程工具的多模型 API 平台，一个 cr_ Key 同时支持 Anthropic Messages 与 OpenAI（Chat Completions / Responses）协议，覆盖 Claude、GPT、GLM、Kimi、DeepSeek、Qwen。按官方价 ×1.0 计费；个人订阅按每日美元额度，体验版 ¥63 / 30 天（$5/天）起共 7 档，按量包 ¥26 起（$30 额度，7 天有效）；无 4 小时窗口，每 Key 并发 5（尊享版 10）。接入域名 api / asia / us.qcode.cc；支付宝、微信、Visa / Mastercard、Apple Pay、Google Pay、加密货币，可开票。无免费额度。数据截至 2026-11-25，以价格页为准。",
+      "status": "registration-page-reachable",
+      "verifiedAt": "2026-11-25",
+      "sources": [
+        {"type": "official-website", "url": "https://qcode.cc/"},
+        {"type": "official-pricing", "url": "https://qcode.cc/pricing"},
+        {"type": "official-website", "url": "https://docs.qcode.cc/"},
+        {"type": "official-pricing", "url": "https://qcode.cc/models"}
+      ]
     }
   ]
 }

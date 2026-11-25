@@ -208,6 +208,7 @@ AI API 公益站与 Token 中转站导航 / 比价雷达，整理免费 API、�
 | BoomBit | [BoomBit](https://boombit.online/) | 专注 Claude，Anthropic 原生与 OpenAI 兼容，可接 Claude Code / Desktop；投稿称约 0.2x / 0.22x，注册赠 $1 | 首页可访问（2026-11-04）；[Issue #40](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/40) |
 | 蜂桥 AI（BeeBridge） | [蜂桥 AI](https://beeaicloud.com/) | Anthropic 与 OpenAI 双协议，覆盖 GPT、Claude、Gemini 及国产主流；注册送 $2，部分模型 2 折起 | 首页可访问（2026-11-04）；[Issue #42](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/42) |
 | Code By AI | [Code By AI](https://www.codebyai.net/) | OpenAI / Anthropic / Gemini 协议，官网列出 21 个模型（11 Claude、6 Codex/GPT、4 Gemini），按 token 计费，最低充值 US$3；自述逆向渠道 | 首页可访问（2026-11-04）；[Issue #43](https://github.com/1sh1ro/ai-api-zhongzhuan/issues/43) |
+| QCode.cc | [QCode.cc](https://qcode.cc/auth/sign-up) | 一个 Key 同时走 Anthropic / OpenAI 协议，调 Claude、GPT、GLM、Kimi、DeepSeek、Qwen；按官方价 ×1.0 计费，每日额度订阅（体验版 ¥63/30 天，$5/天）或按量包（¥26 起，7 天）；无 4 小时窗口 | 运营方自荐（2026-11-25）；[价格页](https://qcode.cc/pricing)；[模型与价格](https://qcode.cc/models)；[接入文档](https://docs.qcode.cc/) |
 
 ## 倍率待补充
 
