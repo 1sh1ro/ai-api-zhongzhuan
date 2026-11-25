@@ -16,7 +16,7 @@
 
 ## 当前规模
 
-收录 47 个站点、135 条报价，其中 56 条口径统一可比；官方基准模型 27 个；折算汇率 1 USD = 6.7 CNY。
+收录 48 个站点、135 条报价，其中 56 条口径统一可比；官方基准模型 27 个；折算汇率 1 USD = 6.7 CNY。
 
 口径没有公开充值系数的报价只展示原值，不进入排名。低倍率不等于可用、稳定或模型真实。中转站能看到经它转发的请求，不要提交密钥、证件或私有代码。部分注册链接带推广参数，已在站点页标明，不影响排序。本站不运营任何中转服务。
 
@@ -105,6 +105,7 @@
 - 蜂桥 AI（BeeBridge）（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/beeaicloud.html
 - Code By AI（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/codebyai.html
 - TeamoRouter（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/teamorouter.html
+- QCode.cc（注册页可达，评分 10.0，0 条报价 / 0 条可比，暂无可比报价）：https://ai.xulas.fun/stations/qcode.html
 
 ## 引用与局限
 
